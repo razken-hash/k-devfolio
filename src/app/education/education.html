@@ -1,0 +1,80 @@
+<div class="min-h-screen bg-gradient-to-br from-emerald-900 via-teal-900 to-emerald-950 py-20 px-6">
+    <div class="max-w-5xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-16">
+            <p class="text-lime-400 font-semibold text-sm tracking-wider uppercase mt-12 mb-4">
+                FORMATION
+            </p>
+            <h1 class="text-5xl md:text-6xl font-bold text-white">
+                Mon Parcours Académique
+            </h1>
+        </div>
+
+        <!-- EDUCATION LIST -->
+        <div class="space-y-6">
+            <div *ngFor="let edu of educations; let index = index"
+                class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 group">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                    <!-- Left side with logo and content -->
+                    <div class="flex gap-6 items-start flex-1">
+                        <!-- School Logo -->
+                        <div class="flex-shrink-0">
+                            <div class="w-16 h-16 bg-white rounded-xl p-2 flex items-center justify-center">
+                                <img [src]="edu.logo" [alt]="edu.school + ' logo'"
+                                    class="w-full h-full object-contain" />
+                            </div>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="flex-1">
+                            <h3 class="text-2xl md:text-2xl font-bold text-white mb-2">
+                                {{ edu.title }}
+                            </h3>
+                            <div class="flex items-center gap-2">
+                                <p class="text-gray-300 text-lg">
+                                    {{ edu.school }}
+                                </p>
+                                <a [href]="edu.website" target="_blank" rel="noopener noreferrer"
+                                    class="text-lime-400 hover:text-lime-300 transition-colors"
+                                    [attr.aria-label]="'Visit ' + edu.school + ' website'">
+                                    <!-- External Link Icon (SVG) -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right side with dates -->
+                    <div class="flex flex-col md:items-end gap-2 md:ml-6">
+                        <p class="text-gray-400 text-base">
+                            {{ edu.date }}
+                        </p>
+                        <p class="text-gray-400 text-base">
+                            {{ edu.location }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- View More Button -->
+        <!-- <div class="flex justify-center mt-12">
+            <button
+                class="group bg-transparent border-2 border-lime-400 text-lime-400 px-8 py-4 rounded-full text-lg font-semibold hover:bg-lime-400 hover:text-emerald-950 transition-all duration-300 flex items-center gap-2">
+                Voir Plus de Détails
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="group-hover:translate-x-1 transition-transform">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </button>
+        </div> -->
+    </div>
+</div>
