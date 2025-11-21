@@ -97,12 +97,27 @@ export class Projects {
       liveUrl: 'https://example.com'
     },
     {
+      id: 3,
+      name: 'KDevfolio',
+      category: 'frontend',
+      shortDescription: 'Dashboard moderne avec graphiques interactifs',
+      longDescription: 'Interface utilisateur moderne et responsive pour tableau de bord d\'analyse. Graphiques interactifs, animations fluides et design épuré.',
+      images: ["assets/images/projects/kdevfolio/1.png", "assets/images/projects/kdevfolio/2.png", "assets/images/projects/kdevfolio/3.png"],
+      technologies: [
+        { name: 'Angular', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg' },
+        { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
+        { name: 'TailwindCSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' }
+      ],
+      liveUrl: 'https://k-devfolio-vercel.vercel.app/',
+      githubUrl: 'https://github.com/razken-hash/k-devfolio.git'
+    },
+    {
       id: 4,
       name: 'Fitness Tracker App',
       category: 'mobile',
       shortDescription: 'Application mobile pour suivi fitness et nutrition',
       longDescription: 'Application mobile cross-platform pour le suivi des activités physiques, nutrition et objectifs de santé. Synchronisation cloud et statistiques détaillées.',
-      images: ["assets/images/projects/project.png"],
+      images: ["assets/images/projects/project.png", "assets/images/projects/project.png"],
       technologies: [
         { name: 'Flutter', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg' },
         { name: 'Firebase', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg' },
