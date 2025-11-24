@@ -27,9 +27,9 @@
         </div>
 
         <!-- Projects Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="flex flex-wrap flex-1 md:flex-2 lg:flex-3 gap-6 justify-center">
             <div *ngFor="let project of filteredProjects" (click)="openProject(project)"
-                class="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden cursor-pointer hover:border-lime-400/50 transition-all duration-300 hover:scale-105">
+                class="lg:w-[calc((100%-48px)/3)] md:w-[calc((100%-24px)/2)] w-full group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden cursor-pointer hover:border-lime-400/50 transition-all duration-300 hover:scale-105">
 
                 <!-- Project Image -->
                 <div class="relative h-64 overflow-hidden">
@@ -97,11 +97,11 @@
 
                         <ng-container *ngIf="selectedProject.images.length > 1">
                             <button (click)="prevImage()"
-                                class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 flex items-center justify-center text-white transition-colors">
+                                class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/10 backdrop-blur-md hover:bg-black/20 flex items-center justify-center text-white transition-colors">
                                 <fa-icon [icon]="faChevronLeft" class="text-xl"></fa-icon>
                             </button>
                             <button (click)="nextImage()"
-                                class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 flex items-center justify-center text-white transition-colors">
+                                class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/10 backdrop-blur-md hover:bg-black/20 flex items-center justify-center text-white transition-colors">
                                 <fa-icon [icon]="faChevronRight" class="text-xl"></fa-icon>
                             </button>
 

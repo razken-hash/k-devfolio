@@ -60,7 +60,7 @@ export class Projects {
       longDescription: `Plateforme web développée avec Angular, Spring Boot et Python permettant l’entraînement et 
     l’intégration d’un modèle CodeBERT préentraîné. L’application analyse des projets Java complets, 
     détecte automatiquement les code smells et génère des rapports PDF détaillés via des endpoints REST.`,
-      images: ['assets/images/projects/project.png'],
+      images: ['assets/images/projects/smellbert/1.png', 'assets/images/projects/smellbert/2.png', 'assets/images/projects/smellbert/3.png'],
       technologies: [
         { name: 'Angular', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg' },
         { name: 'Spring Boot', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg' },
@@ -70,12 +70,12 @@ export class Projects {
 
     {
       id: 2,
-      name: 'Static & Dynamic Analyzer for Angular/React',
+      name: 'SoftScanner',
       category: 'fullstack',
       shortDescription: 'Analyseur statique et dynamique des projets Angular et React.',
       longDescription: `Application MEAN permettant l’analyse des projets Angular/React. Génération automatique 
     des graphes de navigation, extraction de la structure du projet, et scénarios de test avec Selenium et Puppeteer.`,
-      images: ['assets/images/projects/project.png'],
+      images: ['assets/images/projects/softscanner/3.png', 'assets/images/projects/softscanner/1.png', 'assets/images/projects/softscanner/2.png', 'assets/images/projects/softscanner/4.png'],
       technologies: [
         { name: 'Angular', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg' },
         { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
@@ -84,9 +84,21 @@ export class Projects {
         { name: 'Puppeteer', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/puppeteer/puppeteer-original.svg' }
       ]
     },
-
     {
       id: 3,
+      name: 'Pommy',
+      category: 'mobile',
+      shortDescription: 'Solution web et mobile pour la gestion centralisée des comptes bancaires.',
+      longDescription: `Solution sécurisée avec Spring Boot, Angular et Flutter pour la centralisation de comptes bancaires 
+    et la réalisation de transactions via l’API SATIM. Sécurité avancée : JWT, OTP, empreinte, chiffrement, rate limiting.`,
+      images: ['assets/images/projects/pommy/1.svg', 'assets/images/projects/pommy/2.svg', 'assets/images/projects/pommy/3.svg', 'assets/images/projects/pommy/4.svg', 'assets/images/projects/pommy/5.svg', 'assets/images/projects/pommy/6.svg', 'assets/images/projects/pommy/7.svg', 'assets/images/projects/pommy/8.svg', 'assets/images/projects/pommy/9.svg', 'assets/images/projects/pommy/10.svg', 'assets/images/projects/pommy/11.svg', 'assets/images/projects/pommy/12.svg', 'assets/images/projects/pommy/13.svg'],
+      technologies: [
+        { name: 'Flutter', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg' },
+        { name: 'Firebase', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-original.svg' },
+      ]
+    },
+    {
+      id: 4,
       name: 'MPay',
       category: 'fullstack',
       shortDescription: 'Solution web et mobile pour la gestion centralisée des comptes bancaires.',
@@ -101,7 +113,7 @@ export class Projects {
     },
 
     {
-      id: 4,
+      id: 5,
       name: 'Yalidine Queue',
       category: 'mobile',
       shortDescription: 'Application Flutter pour la gestion des files d’attente Yalidine.',
@@ -115,7 +127,7 @@ export class Projects {
     },
 
     {
-      id: 5,
+      id: 6,
       name: 'TeaBoy',
       category: 'mobile',
       shortDescription: 'Application Flutter de commande de thé/café en entreprise.',
@@ -130,13 +142,13 @@ export class Projects {
     },
 
     {
-      id: 6,
+      id: 7,
       name: 'Parkir',
       category: 'fullstack',
       shortDescription: 'App mobile Kotlin + backend Spring Boot pour réservation de parkings.',
       longDescription: `Application permettant la réservation de parkings, l’intégration Google Maps, paiement en ligne,
     notifications push et validation via QR Code hors ligne.`,
-      images: ['assets/images/projects/project.png'],
+      images: ['assets/images/projects/parkir/1.png', 'assets/images/projects/parkir/2.png', 'assets/images/projects/parkir/3.png', 'assets/images/projects/parkir/4.png', 'assets/images/projects/parkir/5.png', 'assets/images/projects/parkir/6.png', 'assets/images/projects/parkir/7.png'],
       technologies: [
         { name: 'Jetpack Compose', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jetpackcompose/jetpackcompose-original.svg' },
         { name: 'Spring Boot', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg' },
@@ -146,7 +158,7 @@ export class Projects {
     },
 
     {
-      id: 7,
+      id: 8,
       name: 'AutoSchool',
       category: 'frontend',
       shortDescription: 'Application Flutter Desktop pour la gestion des auto-écoles.',
@@ -160,13 +172,13 @@ export class Projects {
     },
 
     {
-      id: 8,
+      id: 9,
       name: 'Hotelency',
       category: 'backend',
       shortDescription: 'Projet microservices pour hôtels, agences et clients.',
       longDescription: `Projet académique en Spring Boot basé sur micro-services avec implémentations en RMI, SOAP, REST,
     gRPC et GraphQL. Gestion des données via Spring Data JPA.`,
-      images: ['assets/images/projects/project.png'],
+      images: ['assets/images/projects/hotelency/1.png'],
 
       technologies: [
         { name: 'Spring Boot', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg' },
@@ -177,7 +189,7 @@ export class Projects {
     },
 
     {
-      id: 9,
+      id: 10,
       name: 'TeraApp',
       category: 'fullstack',
       shortDescription: 'Clone Google Docs avec édition collaborative temps réel.',
@@ -192,7 +204,7 @@ export class Projects {
       ]
     },
     {
-      id: 10,
+      id: 11,
       name: 'KDevfolio',
       category: 'frontend',
       shortDescription: 'Dashboard moderne avec graphiques interactifs',

@@ -6,6 +6,8 @@
 
 * {
     font-family: 'Poppins', sans-serif;
+
+    /*! Disable image dragging */
     user-drag: none;
     -webkit-user-drag: none;
 }
