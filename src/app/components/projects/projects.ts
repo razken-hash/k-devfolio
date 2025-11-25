@@ -60,7 +60,7 @@ export class Projects {
       longDescription: `Plateforme web développée avec Angular, Spring Boot et Python permettant l’entraînement et 
     l’intégration d’un modèle CodeBERT préentraîné. L’application analyse des projets Java complets, 
     détecte automatiquement les code smells et génère des rapports PDF détaillés via des endpoints REST.`,
-      images: ['assets/images/projects/smellbert/1.png', 'assets/images/projects/smellbert/2.png', 'assets/images/projects/smellbert/3.png'],
+      images: ['assets/images/projects/smellbert/1.png', 'assets/images/projects/smellbert/2.png', 'assets/images/projects/smellbert/3.png', 'assets/images/projects/smellbert/4.png', 'assets/images/projects/smellbert/5.png', 'assets/images/projects/smellbert/6.png'],
       technologies: [
         { name: 'Angular', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg' },
         { name: 'Spring Boot', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg' },
@@ -119,7 +119,7 @@ export class Projects {
       shortDescription: 'Application Flutter pour la gestion des files d’attente Yalidine.',
       longDescription: `Développée en Flutter, l’application gère les files d’attente, s’intègre à une API REST et assure 
     l’impression sur imprimantes thermiques. Déployée sur tablettes Android et Android TV.`,
-      images: ['assets/images/projects/project.png'],
+      images: ['assets/images/projects/yalidinequeue/1.png', 'assets/images/projects/yalidinequeue/2.png', 'assets/images/projects/yalidinequeue/3.png', 'assets/images/projects/yalidinequeue/4.png', 'assets/images/projects/yalidinequeue/5.png'],
       technologies: [
         { name: 'Flutter', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg' },
         { name: 'RESTful API', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swagger/swagger-original.svg' },
@@ -128,12 +128,12 @@ export class Projects {
 
     {
       id: 6,
-      name: 'TeaBoy',
+      name: 'ClickOrder',
       category: 'mobile',
       shortDescription: 'Application Flutter de commande de thé/café en entreprise.',
       longDescription: `Développée en Flutter avec authentification, paiement en ligne, messagerie via WebSockets 
     et notifications push Firebase.`,
-      images: ['assets/images/projects/project.png'],
+      images: ['assets/images/projects/teaboy/1.png'],
       technologies: [
         { name: 'Flutter', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg' },
         { name: 'Firebase', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-original.svg' },
