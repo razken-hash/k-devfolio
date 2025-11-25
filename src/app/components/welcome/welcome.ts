@@ -22,7 +22,7 @@ import { CvPreview } from '../cv-preview/cv-preview';
       }
     }
 
-    .animate - float {
+    .animate-float {
         animation: float ease-in -out infinite;
     }
   `,
