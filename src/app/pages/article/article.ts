@@ -19,7 +19,6 @@ import { Meta, Title } from '@angular/platform-browser';
 import { Header } from '../../components/header/header';
 import { ArticlesService } from '../../services/articles-service';
 
-
 @Component({
   selector: 'app-article',
   imports: [CommonModule, RouterModule, FontAwesomeModule, Header],
@@ -52,7 +51,7 @@ export class ArticleComponent implements OnInit {
     console.log('ngOnInit called');
     this.route.params.subscribe(params => {
       const articleId = params['articleId'];
-      console.log(articleId);
+      // console.log(articleId);
       this.loadArticle(articleId);
     });
   }

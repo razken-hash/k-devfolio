@@ -17,7 +17,7 @@ export class ArticlesService {
       file: 'assets/articles/getting-started-angular/getting-started-angular.md',
       author: 'KENNICHE ABDERRAZAK',
       tags: ['Angular', 'TypeScript', 'Frontend'],
-      coverImage: 'assets/images/no_image_available.png',
+      coverImage: 'assets/articles/getting-started-angular/images/getting-started-angular.webp',
       readingTime: 8,
     },
     {
@@ -139,7 +139,7 @@ export class ArticlesService {
   }
 
   getArticleContent(filename: string): Observable<string> {
-    return this.http.get(`assets/articles/${filename}`, { responseType: 'text' })
+    return this.http.get(filename, { responseType: 'text' })
       .pipe(
         catchError(error => {
           console.error('Error loading article:', error);
