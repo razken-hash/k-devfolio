@@ -7,4 +7,5 @@ export interface Article {
     author?: string;
     tags?: string[];
     coverImage?: string;
+    readingTime?: number;
 }
