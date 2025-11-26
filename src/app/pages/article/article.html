@@ -1,0 +1,127 @@
+<div class="min-h-screen bg-white select-none">
+    <app-header></app-header>
+    <section
+        class="mt-10 bg-gradient-to-br from-emerald-900 via-teal-900 to-emerald-950 min-h-screen py-20 px-6 relative overflow-hidden">
+
+        <!-- Animated background -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-20 right-10 w-96 h-96 bg-lime-400/10 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-20 left-10 w-80 h-80 bg-emerald-400/10 rounded-full blur-3xl animate-pulse"
+                style="animation-delay: 1s;"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto relative z-10">
+
+            <!-- Loading State -->
+            <div *ngIf="loading" class="text-center py-20">
+                <div
+                    class="w-16 h-16 border-4 border-lime-400 border-t-transparent rounded-full animate-spin mx-auto mb-4">
+                </div>
+                <p class="text-gray-300">Chargement de l'article...</p>
+            </div>
+
+            <!-- Article Content -->
+            <article *ngIf="!loading && article" class="space-y-8">
+
+                <!-- Back Button -->
+                <a routerLink="/blog"
+                    class="inline-flex items-center gap-2 text-lime-400 hover:text-lime-300 transition-colors group">
+                    <fa-icon [icon]="faArrowLeft" class="group-hover:-translate-x-1 transition-transform"></fa-icon>
+                    <span>Retour aux articles</span>
+                </a>
+
+                <!-- Article Header -->
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 space-y-6">
+                    <!-- Tags -->
+                    <div class="flex flex-wrap gap-2">
+                        <span *ngFor="let tag of article.tags"
+                            class="text-xs px-3 py-1 rounded-full bg-lime-400/10 text-lime-400 border border-lime-400/30">
+                            {{ tag }}
+                        </span>
+                    </div>
+
+                    <!-- Title -->
+                    <h1 class="text-4xl md:text-5xl font-bold text-white leading-tight">
+                        {{ article.title }}
+                    </h1>
+
+                    <!-- Meta Info -->
+                    <div class="flex flex-wrap items-center gap-6 text-gray-300">
+                        <div class="flex items-center gap-2">
+                            <fa-icon [icon]="faCalendar"></fa-icon>
+                            <span>{{ formatDate(article.date) }}</span>
+                        </div>
+                        <div class="flex items-center gap-2" *ngIf="article.readingTime">
+                            <fa-icon [icon]="faClock"></fa-icon>
+                            <span>{{ article.readingTime }} min de lecture</span>
+                        </div>
+                        <div *ngIf="article.author" class="flex items-center gap-2">
+                            <span>Par</span>
+                            <span class="text-lime-400 font-semibold">{{ article.author }}</span>
+                        </div>
+                    </div>
+
+                    <!-- Share Buttons -->
+                    <div class="flex items-center gap-4 pt-4 border-t border-white/10">
+                        <span class="text-gray-400 text-sm">Partager:</span>
+                        <div class="flex gap-2">
+                            <button (click)="shareOn('twitter')"
+                                class="w-10 h-10 rounded-lg bg-white/5 hover:bg-lime-400 flex items-center justify-center text-gray-300 hover:text-emerald-950 transition-all"
+                                aria-label="Share on Twitter">
+                                <fa-icon [icon]="faTwitter"></fa-icon>
+                            </button>
+                            <button (click)="shareOn('linkedin')"
+                                class="w-10 h-10 rounded-lg bg-white/5 hover:bg-lime-400 flex items-center justify-center text-gray-300 hover:text-emerald-950 transition-all"
+                                aria-label="Share on LinkedIn">
+                                <fa-icon [icon]="faLinkedin"></fa-icon>
+                            </button>
+                            <button (click)="shareOn('facebook')"
+                                class="w-10 h-10 rounded-lg bg-white/5 hover:bg-lime-400 flex items-center justify-center text-gray-300 hover:text-emerald-950 transition-all"
+                                aria-label="Share on Facebook">
+                                <fa-icon [icon]="faFacebook"></fa-icon>
+                            </button>
+                            <button (click)="copyLink()"
+                                class="w-10 h-10 rounded-lg bg-white/5 hover:bg-lime-400 flex items-center justify-center text-gray-300 hover:text-emerald-950 transition-all"
+                                aria-label="Copy link">
+                                <fa-icon [icon]="faShareNodes"></fa-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cover Image -->
+                <div *ngIf="article.coverImage" class="rounded-2xl overflow-hidden border border-white/10">
+                    <img [src]="article.coverImage" [alt]="article.title" class="w-full h-auto" />
+                </div>
+
+                <!-- Markdown Content -->
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+                    <div class="prose prose-invert prose-lime max-w-none markdown-content">
+                        <!-- <markdown [data]="content"></markdown> -->
+                    </div>
+                </div>
+
+                <!-- Article Footer -->
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
+                    <p class="text-gray-300 mb-4">Vous avez aimé cet article ?</p>
+                    <a routerLink="/blog"
+                        class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-lime-400 to-emerald-400 rounded-xl text-emerald-950 font-bold hover:from-lime-500 hover:to-emerald-500 transition-all">
+                        Découvrir plus d'articles
+                    </a>
+                </div>
+            </article>
+
+            <!-- Article Not Found -->
+            <div *ngIf="!loading && !article" class="text-center py-20">
+                <div class="text-6xl mb-4">📄</div>
+                <h2 class="text-3xl font-bold text-white mb-2">Article introuvable</h2>
+                <p class="text-gray-400 mb-6">L'article que vous recherchez n'existe pas.</p>
+                <a routerLink="/blog"
+                    class="inline-flex items-center gap-2 px-6 py-3 bg-lime-400 text-emerald-950 rounded-xl font-bold hover:bg-lime-500 transition-all">
+                    <fa-icon [icon]="faArrowLeft"></fa-icon>
+                    Retour au blog
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
