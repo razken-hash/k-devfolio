@@ -5,13 +5,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 
 import { faEnvelope, faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { ContactForm } from '../../models/contact.model';
 
-interface FormData {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-}
 
 @Component({
   selector: 'app-contact',
@@ -24,16 +19,15 @@ export class Contact {
   faPhone = faPhone;
   faLocationDot = faLocationDot;
 
-  formData: FormData = {
+  formData: ContactForm = {
     name: '',
     email: '',
     subject: '',
-    message: ''
+    message: '',
+    sentAt: new Date(),
   };
 
   onSubmit(): void {
     console.log('Form submitted:', this.formData);
-    // Add your form submission logic here
-    // You can send this data to your backend API
   }
 }
