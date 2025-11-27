@@ -13,11 +13,11 @@
         <!-- Category Tabs -->
         <div class="mb-12">
             <div class="flex flex-wrap gap-4 justify-center">
-                <button *ngFor="let category of categories" (click)="setActiveCategory(category)" [class]="activeCategory === category 
+                <button *ngFor="let category of skillsCategories" (click)="setActiveCategory(category)" [class]="activeCategory.title === category.title
             ? 'bg-lime-400 text-emerald-950' 
             : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'"
                     class="px-6 py-3 rounded-full font-semibold transition-all duration-300">
-                    {{ skillsData[category].title }}
+                    {{ category.title }}
                 </button>
             </div>
         </div>
@@ -25,11 +25,11 @@
         <!-- Skills Display -->
         <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 md:p-12 min-h-[400px]">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 text-center">
-                {{ skillsData[activeCategory].title }}
+                {{ activeCategory.title }}
             </h2>
 
             <div class="flex flex-wrap gap-4 justify-center">
-                <div *ngFor="let skill of skillsData[activeCategory].skills"
+                <div *ngFor="let skill of activeCategory.skills"
                     class="bg-white/5 border border-white/10 rounded-xl px-5 py-3 hover:bg-white/10 hover:border-lime-400/50 transition-all duration-300 group flex items-center gap-3">
                     <div class="w-8 h-8 flex items-center justify-center flex-shrink-0">
                         <img [src]="skill.icon" [alt]="skill.name"
