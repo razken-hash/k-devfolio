@@ -1,7 +1,4 @@
 # Getting Started with Angular 18
-## File: assets/articles/getting-started-angular.md
-
-# Getting Started with Angular 18
 
 Angular 18 introduit de nombreuses améliorations et nouvelles fonctionnalités qui rendent le développement encore plus agréable. Dans cet article, nous allons explorer les principales nouveautés.
 

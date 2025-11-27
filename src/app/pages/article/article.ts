@@ -18,12 +18,13 @@ import { Article } from '../../models/article.model';
 import { Meta, Title } from '@angular/platform-browser';
 import { Header } from '../../components/header/header';
 import { ArticlesService } from '../../services/articles-service';
+import { MarkdownConverterService } from '../../services/markdown-converter-service';
+
 
 @Component({
   selector: 'app-article',
   imports: [CommonModule, RouterModule, FontAwesomeModule, Header],
   templateUrl: './article.html',
-  styles: ``,
 })
 export class ArticleComponent implements OnInit {
   faCalendar = faCalendar;
@@ -43,15 +44,14 @@ export class ArticleComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private articlesService: ArticlesService,
+    private markdownConverter: MarkdownConverterService,
     private meta: Meta,
     private title: Title
   ) { }
 
   ngOnInit(): void {
-    console.log('ngOnInit called');
     this.route.params.subscribe(params => {
       const articleId = params['articleId'];
-      // console.log(articleId);
       this.loadArticle(articleId);
     });
   }
@@ -71,10 +71,18 @@ export class ArticleComponent implements OnInit {
 
   loadContent(filename: string): void {
     this.articlesService.getArticleContent(filename).subscribe(content => {
-      this.content = content;
+      this.convertMarkdownToHtml(content);
       this.loading = false;
     });
   }
+
+  convertMarkdownToHtml(md: string): void {
+    this.markdownConverter.convertMarkdownToHtml(md).subscribe(content => {
+      this.content = content;
+      console.log(this.content);
+    });
+  }
+
 
   updateMetaTags(): void {
     if (this.article) {

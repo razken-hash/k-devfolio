@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { Article } from '../models/article.model';
+import { MarkdownConverterService } from './markdown-converter-service';
 
 @Injectable({
   providedIn: 'root'
