@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../environment/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,7 @@ export class MarkdownConverterService {
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
+      'Authorization': `Bearer ${environment.GITHUB_API_TOKEN}`
     });
 
     return this.http.post(this.apiUrl, body, {
