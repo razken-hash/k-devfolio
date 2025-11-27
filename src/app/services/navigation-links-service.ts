@@ -9,6 +9,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 export class NavigationLinksService {
   navigationLinks: NavigationLink[] = [
     { label: 'Accueil', icon: null, url: 'welcome' },
+    { label: 'Blog', icon: null, url: '/blog' },
     { label: 'Education', icon: null, url: 'education' },
     { label: 'Projets', icon: null, url: 'projects' },
     { label: 'Compétences', icon: null, url: 'skills' },

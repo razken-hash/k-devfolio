@@ -82,6 +82,14 @@ export class Header {
   }
 
   scrollTo(id: string) {
+    if (id.includes('/')) {
+      console.log('Navigating directly to', id);
+      this.router.navigate([id]).then(() => {
+        setTimeout(() => doScroll(), 150); // wait for DOM to render
+      });
+
+      return;
+    }
 
     const doScroll = () => {
       const el = document.getElementById(id);
