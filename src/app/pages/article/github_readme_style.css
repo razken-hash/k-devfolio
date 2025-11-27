@@ -1,0 +1,479 @@
+/* ============================================ */
+/* GitHub Markdown Styles for Portfolio Theme */
+/* ============================================ */
+
+/* Base styling for markdown content */
+.markdown-body,
+.markdown-content {
+    color: #d1d5db;
+    /* gray-300 */
+    font-size: 1rem;
+    line-height: 1.75;
+    word-wrap: break-word;
+}
+
+/* ============================================ */
+/* HEADINGS */
+/* ============================================ */
+
+.markdown-body .markdown-heading {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.markdown-body .heading-element {
+    color: #ffffff;
+    font-weight: 700;
+    line-height: 1.25;
+    position: relative;
+}
+
+.markdown-body .markdown-heading h1.heading-element {
+    font-size: 2.25rem;
+    border-bottom: 2px solid rgba(163, 230, 53, 0.3);
+    /* lime-400 */
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.markdown-body .markdown-heading h2.heading-element {
+    font-size: 1.875rem;
+    border-bottom: 1px solid rgba(163, 230, 53, 0.2);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.markdown-body .markdown-heading h3.heading-element {
+    font-size: 1.5rem;
+}
+
+.markdown-body .markdown-heading h4.heading-element {
+    font-size: 1.25rem;
+}
+
+.markdown-body .markdown-heading h5.heading-element {
+    font-size: 1.125rem;
+}
+
+.markdown-body .markdown-heading h6.heading-element {
+    font-size: 1rem;
+    color: #9ca3af;
+    /* gray-400 */
+}
+
+/* Anchor links in headings */
+.markdown-body .markdown-heading .anchor {
+    position: absolute;
+    left: -1.5rem;
+    top: 0;
+    opacity: 0;
+    transition: opacity 0.2s;
+    color: #a3e635;
+    /* lime-400 */
+    text-decoration: none;
+}
+
+.markdown-body .markdown-heading:hover .anchor {
+    opacity: 1;
+}
+
+.markdown-body .octicon {
+    display: inline-block;
+    vertical-align: text-bottom;
+    fill: currentColor;
+}
+
+.markdown-body .octicon-link {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* ============================================ */
+/* PARAGRAPHS */
+/* ============================================ */
+
+.markdown-body p {
+    margin-bottom: 1rem;
+    line-height: 1.75;
+}
+
+/* ============================================ */
+/* LINKS */
+/* ============================================ */
+
+.markdown-body a {
+    color: #a3e635;
+    /* lime-400 */
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.markdown-body a:hover {
+    color: #bef264;
+    /* lime-300 */
+    text-decoration: underline;
+}
+
+/* ============================================ */
+/* LISTS */
+/* ============================================ */
+
+.markdown-body ul {
+    margin: 1rem 0;
+    padding-left: 2rem;
+    list-style-type: disc;
+}
+
+.markdown-body ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+    list-style-type: decimal;
+}
+
+.markdown-body li {
+    margin-bottom: 0.5rem;
+    line-height: 1.75;
+}
+
+.markdown-body ul li {
+    list-style-type: disc;
+}
+
+.markdown-body ol li {
+    list-style-type: decimal;
+}
+
+.markdown-body li::marker {
+    color: #a3e635;
+    /* lime-400 */
+}
+
+/* Nested lists */
+.markdown-body ul ul,
+.markdown-body ol ul {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ============================================ */
+/* CODE BLOCKS */
+/* ============================================ */
+
+.markdown-body code {
+    background-color: rgba(163, 230, 53, 0.1);
+    /* lime-400 with opacity */
+    color: #a3e635;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.375rem;
+    font-size: 0.875em;
+    font-family: 'Courier New', Courier, Monaco, 'Andale Mono', monospace;
+    border: 1px solid rgba(163, 230, 53, 0.2);
+}
+
+/* Code blocks with syntax highlighting */
+.markdown-body .highlight,
+.markdown-body pre {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre code {
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    color: #d1d5db;
+    font-size: 0.875rem;
+    line-height: 1.7;
+}
+
+/* TypeScript/JavaScript syntax highlighting */
+.markdown-body .highlight-source-ts .pl-k,
+.markdown-body .highlight-source-js .pl-k {
+    color: #c084fc;
+    /* purple-400 - keywords */
+}
+
+.markdown-body .highlight-source-ts .pl-v,
+.markdown-body .highlight-source-js .pl-v {
+    color: #60a5fa;
+    /* blue-400 - variables/types */
+}
+
+.markdown-body .highlight-source-ts .pl-s,
+.markdown-body .highlight-source-js .pl-s {
+    color: #86efac;
+    /* green-300 - strings */
+}
+
+.markdown-body .highlight-source-ts .pl-c1,
+.markdown-body .highlight-source-js .pl-c1 {
+    color: #fbbf24;
+    /* amber-400 - constants */
+}
+
+.markdown-body .highlight-source-ts .pl-kos,
+.markdown-body .highlight-source-js .pl-kos {
+    color: #94a3b8;
+    /* slate-400 - punctuation */
+}
+
+.markdown-body .highlight-source-ts .pl-smi,
+.markdown-body .highlight-source-js .pl-smi {
+    color: #f472b6;
+    /* pink-400 - class names */
+}
+
+.markdown-body .highlight-source-ts .pl-en,
+.markdown-body .highlight-source-js .pl-en {
+    color: #34d399;
+    /* emerald-400 - functions */
+}
+
+.markdown-body .highlight-source-ts .pl-s1,
+.markdown-body .highlight-source-js .pl-s1 {
+    color: #e879f9;
+    /* fuchsia-400 - parameters */
+}
+
+.markdown-body .highlight-source-ts .pl-c,
+.markdown-body .highlight-source-js .pl-c {
+    color: #6b7280;
+    /* gray-500 - comments */
+    font-style: italic;
+}
+
+/* ============================================ */
+/* BLOCKQUOTES */
+/* ============================================ */
+
+.markdown-body blockquote {
+    border-left: 4px solid #a3e635;
+    /* lime-400 */
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: #9ca3af;
+    /* gray-400 */
+    background-color: rgba(163, 230, 53, 0.05);
+    padding: 1rem 1rem 1rem 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.markdown-body blockquote p {
+    margin-bottom: 0.5rem;
+}
+
+.markdown-body blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+.markdown-body blockquote strong {
+    color: #a3e635;
+}
+
+/* ============================================ */
+/* EMPHASIS & STRONG */
+/* ============================================ */
+
+.markdown-body strong {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.markdown-body em {
+    font-style: italic;
+    color: #e5e7eb;
+    /* gray-200 */
+}
+
+/* ============================================ */
+/* TABLES */
+/* ============================================ */
+
+.markdown-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.markdown-body thead {
+    background-color: rgba(163, 230, 53, 0.1);
+}
+
+.markdown-body th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #a3e635;
+    border-bottom: 2px solid rgba(163, 230, 53, 0.3);
+}
+
+.markdown-body td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.markdown-body tr:last-child td {
+    border-bottom: none;
+}
+
+.markdown-body tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ============================================ */
+/* HORIZONTAL RULE */
+/* ============================================ */
+
+.markdown-body hr {
+    border: none;
+    border-top: 2px solid rgba(163, 230, 53, 0.2);
+    margin: 2.5rem 0;
+}
+
+/* ============================================ */
+/* IMAGES */
+/* ============================================ */
+
+.markdown-body img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.75rem;
+    margin: 1.5rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================ */
+/* TASK LISTS */
+/* ============================================ */
+
+.markdown-body .task-list-item {
+    list-style-type: none;
+}
+
+.markdown-body .task-list-item input[type="checkbox"] {
+    margin-right: 0.5rem;
+    accent-color: #a3e635;
+}
+
+/* ============================================ */
+/* USER CONTENT ANCHORS */
+/* ============================================ */
+
+[id^="user-content-"] {
+    scroll-margin-top: 6rem;
+    /* Offset for fixed header */
+}
+
+/* ============================================ */
+/* RESPONSIVE ADJUSTMENTS */
+/* ============================================ */
+
+@media (max-width: 768px) {
+    .markdown-heading h1.heading-element {
+        font-size: 1.875rem;
+    }
+
+    .markdown-heading h2.heading-element {
+        font-size: 1.5rem;
+    }
+
+    .markdown-heading h3.heading-element {
+        font-size: 1.25rem;
+    }
+
+    .highlight,
+    pre {
+        padding: 1rem;
+        font-size: 0.8125rem;
+    }
+
+    .markdown-heading .anchor {
+        display: none;
+    }
+
+    table {
+        font-size: 0.875rem;
+    }
+
+    th,
+    td {
+        padding: 0.5rem;
+    }
+}
+
+/* ============================================ */
+/* SCROLLBAR STYLING */
+/* ============================================ */
+
+.highlight::-webkit-scrollbar,
+pre::-webkit-scrollbar {
+    height: 0.5rem;
+}
+
+.highlight::-webkit-scrollbar-track,
+pre::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 0.25rem;
+}
+
+.highlight::-webkit-scrollbar-thumb,
+pre::-webkit-scrollbar-thumb {
+    background-color: rgba(163, 230, 53, 0.3);
+    border-radius: 0.25rem;
+}
+
+.highlight::-webkit-scrollbar-thumb:hover,
+pre::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(163, 230, 53, 0.5);
+}
+
+/* ============================================ */
+/* ACCESSIBILITY */
+/* ============================================ */
+
+a:focus,
+button:focus {
+    outline: 2px solid #a3e635;
+    outline-offset: 2px;
+}
+
+/* ============================================ */
+/* PRINT STYLES */
+/* ============================================ */
+
+@media print {
+    .markdown-heading .anchor {
+        display: none;
+    }
+
+    .highlight,
+    pre {
+        page-break-inside: avoid;
+    }
+
+    img {
+        page-break-inside: avoid;
+    }
+
+    table {
+        page-break-inside: avoid;
+    }
+}
