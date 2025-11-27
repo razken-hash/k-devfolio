@@ -56,7 +56,7 @@
 
             <!-- Articles Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <article *ngFor="let article of filteredArticles" [routerLink]="['/pages', article.id]"
+                <article *ngFor="let article of filteredArticles" [routerLink]="['/blog', article.id]"
                     class="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-lime-400/50 transition-all duration-300 hover:scale-105 cursor-pointer">
                     <!-- Cover Image -->
                     <div class="relative h-48 overflow-hidden bg-gradient-to-br from-lime-400/20 to-emerald-400/20">
@@ -119,4 +119,5 @@
             </div>
         </div>
     </section>
+    <app-footer></app-footer>
 </div>

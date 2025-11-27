@@ -1,46 +1,33 @@
 import { Component, HostListener } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faMoon, faSun, faGlobe } from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { CommonModule } from '@angular/common';
-
-export interface NavLink {
-  name: string;
-  path: string;
-}
-
-interface SocialLink {
-  icon: any;
-  url: string;
-  label: string;
-}
-
-interface Language {
-  code: string;
-  name: string;
-  flag: string;
-}
+import { NavigationLink } from '../../models/navigation-link.model';
+import { Language } from '../../models/language.model';
+import { NavigationLinksService } from '../../services/navigation-links-service';
+import { LanguageService } from '../../services/language-service';
 
 @Component({
   selector: 'app-header',
   imports: [CommonModule, RouterModule, FontAwesomeModule],
   templateUrl: './header.html',
   styles: `
-  @keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-.animate-fade-in {
-  animation: fade-in 0.2s ease-out;
-}`,
+    .animate-fade-in {
+      animation: fade-in 0.2s ease-out;
+    }
+  `,
 })
 export class Header {
   isDarkMode = true;
@@ -51,31 +38,20 @@ export class Header {
   faMoon = faMoon;
   faSun = faSun;
   faGlobe = faGlobe;
-  faGithub = faGithub;
-  faLinkedin = faLinkedin;
 
-  navLinks: NavLink[] = [
-    { name: 'Accueil', path: 'welcome' },
-    { name: 'Education', path: 'education' },
-    { name: 'Projets', path: 'projects' },
-    { name: 'Compétences', path: 'skills' },
-    { name: 'Contact', path: 'contact' }
-  ];
+  constructor(private navigationLinksService: NavigationLinksService, private languageService: LanguageService, private router: Router) {
+    this.naivigationLinks = this.navigationLinksService.navigationLinks;
+    this.accountsLinks = this.navigationLinksService.accountsLinks;
+    this.availableLanguages = this.languageService.languages;
+  }
 
-  socialLinks: SocialLink[] = [
-    { icon: faGithub, url: 'https://github.com/razken-hash', label: 'GitHub' },
-    { icon: faLinkedin, url: 'https://www.linkedin.com/in/abderrazak-kenniche-a1a213227/', label: 'LinkedIn' }
-  ];
+  naivigationLinks: NavigationLink[];
+  accountsLinks: NavigationLink[];
 
-  languages: Language[] = [
-    { code: 'FR', name: 'Français', flag: '🇫🇷' },
-    { code: 'EN', name: 'English', flag: '🇬🇧' },
-    { code: 'ES', name: 'Español', flag: '🇪🇸' }
-  ];
+  availableLanguages: Language[];
 
   toggleTheme(): void {
     this.isDarkMode = !this.isDarkMode;
-    // Add your theme toggle logic here
   }
 
   toggleMobileMenu(): void {
@@ -89,7 +65,6 @@ export class Header {
   selectLanguage(code: string): void {
     this.currentLanguage = code;
     this.languageMenuOpen = false;
-    // Add your language change logic here
     console.log('Language changed to:', code);
   }
 
@@ -107,15 +82,31 @@ export class Header {
   }
 
   scrollTo(id: string) {
-    const el = document.getElementById(id);
-    if (!el) return;
 
-    const top = el.getBoundingClientRect().top + window.scrollY - 80;
+    const doScroll = () => {
+      const el = document.getElementById(id);
+      if (!el) return;
 
-    window.scrollTo({
-      top,
-      behavior: 'smooth'
-    });
+      const top = el.getBoundingClientRect().top + window.scrollY - 80;
+
+      window.scrollTo({
+        top,
+        behavior: 'smooth'
+      });
+    };
+
+    // If NOT on `/`, navigate first then scroll
+    console.log('Current URL:', this.router.url);
+    if (this.router.url !== '/') {
+      console.log('Navigating to / first');
+      this.router.navigate(['/']).then(() => {
+        setTimeout(() => doScroll(), 150); // wait for DOM to render
+      });
+      return;
+    }
+
+    // Already on `/`, just scroll
+    doScroll();
   }
 
 }

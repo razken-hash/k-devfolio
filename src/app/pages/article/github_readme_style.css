@@ -1,5 +1,6 @@
 /* ============================================ */
 /* GitHub Markdown Styles for Portfolio Theme */
+/* All Languages Support (TS/JS, Java, Dart, YAML, Dockerfile) */
 /* ============================================ */
 
 /* Base styling for markdown content */
@@ -198,7 +199,175 @@
     line-height: 1.7;
 }
 
-/* TypeScript/JavaScript syntax highlighting */
+/* ============================================ */
+/* SYNTAX HIGHLIGHTING - COMMON CLASSES */
+/* ============================================ */
+
+/* Keywords (import, export, class, public, etc.) */
+.markdown-body .pl-k {
+    color: #c084fc;
+    /* purple-400 */
+    font-weight: 600;
+}
+
+/* Variables, Types, Annotations */
+.markdown-body .pl-v {
+    color: #60a5fa;
+    /* blue-400 */
+}
+
+/* Strings */
+.markdown-body .pl-s,
+.markdown-body .pl-pds {
+    color: #86efac;
+    /* green-300 */
+}
+
+/* Constants, Numbers, Booleans */
+.markdown-body .pl-c1 {
+    color: #fbbf24;
+    /* amber-400 */
+}
+
+/* Punctuation, Operators */
+.markdown-body .pl-kos {
+    color: #94a3b8;
+    /* slate-400 */
+}
+
+/* Class Names, Types */
+.markdown-body .pl-smi {
+    color: #f472b6;
+    /* pink-400 */
+}
+
+/* Function Names, Methods */
+.markdown-body .pl-en {
+    color: #34d399;
+    /* emerald-400 */
+}
+
+/* Parameters, Variables */
+.markdown-body .pl-s1 {
+    color: #e879f9;
+    /* fuchsia-400 */
+}
+
+/* Comments */
+.markdown-body .pl-c {
+    color: #6b7280;
+    /* gray-500 */
+    font-style: italic;
+}
+
+/* Entities (HTML tags, etc.) */
+.markdown-body .pl-ent {
+    color: #fb923c;
+    /* orange-400 */
+}
+
+/* ============================================ */
+/* JAVA SPECIFIC SYNTAX */
+/* ============================================ */
+
+.markdown-body .highlight-source-java .pl-k {
+    color: #c084fc;
+    /* purple-400 - keywords like public, private, class */
+}
+
+.markdown-body .highlight-source-java .pl-smi {
+    color: #60a5fa;
+    /* blue-400 - class names like ResponseEntity, User */
+}
+
+.markdown-body .highlight-source-java .pl-en {
+    color: #34d399;
+    /* emerald-400 - method names */
+}
+
+.markdown-body .highlight-source-java .pl-s {
+    color: #86efac;
+    /* green-300 - strings */
+}
+
+.markdown-body .highlight-source-java .pl-c1 {
+    color: #fbbf24;
+    /* amber-400 - annotations like @RestController, constants */
+}
+
+.markdown-body .highlight-source-java .pl-s1 {
+    color: #e879f9;
+    /* fuchsia-400 - variables and parameters */
+}
+
+/* ============================================ */
+/* DART/FLUTTER SPECIFIC SYNTAX */
+/* ============================================ */
+
+.markdown-body .highlight-source-dart .pl-k {
+    color: #c084fc;
+    /* purple-400 - keywords like class, void, extends */
+}
+
+.markdown-body .highlight-source-dart .pl-c1 {
+    color: #60a5fa;
+    /* blue-400 - class names like CounterBloc, int */
+}
+
+.markdown-body .highlight-source-dart .pl-en {
+    color: #34d399;
+    /* emerald-400 - function/method names */
+}
+
+.markdown-body .highlight-source-dart .pl-s {
+    color: #86efac;
+    /* green-300 - strings */
+}
+
+.markdown-body .highlight-source-dart .pl-s1 {
+    color: #e879f9;
+    /* fuchsia-400 - variables */
+}
+
+/* ============================================ */
+/* YAML SPECIFIC SYNTAX */
+/* ============================================ */
+
+.markdown-body .highlight-source-yaml .pl-ent {
+    color: #60a5fa;
+    /* blue-400 - keys like version, services */
+}
+
+.markdown-body .highlight-source-yaml .pl-s {
+    color: #86efac;
+    /* green-300 - string values */
+}
+
+.markdown-body .highlight-source-yaml .pl-c1 {
+    color: #fbbf24;
+    /* amber-400 - numeric values and special values */
+}
+
+/* ============================================ */
+/* DOCKERFILE SPECIFIC SYNTAX */
+/* ============================================ */
+
+.markdown-body .highlight-source-dockerfile .pl-k {
+    color: #c084fc;
+    /* purple-400 - commands like FROM, COPY, ENTRYPOINT */
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.markdown-body .highlight-source-dockerfile .pl-s {
+    color: #86efac;
+    /* green-300 - strings and arguments */
+}
+
+/* ============================================ */
+/* TYPESCRIPT/JAVASCRIPT SPECIFIC */
+/* ============================================ */
+
 .markdown-body .highlight-source-ts .pl-k,
 .markdown-body .highlight-source-js .pl-k {
     color: #c084fc;
@@ -208,7 +377,7 @@
 .markdown-body .highlight-source-ts .pl-v,
 .markdown-body .highlight-source-js .pl-v {
     color: #60a5fa;
-    /* blue-400 - variables/types */
+    /* blue-400 - types/imports */
 }
 
 .markdown-body .highlight-source-ts .pl-s,
@@ -239,19 +408,6 @@
 .markdown-body .highlight-source-js .pl-en {
     color: #34d399;
     /* emerald-400 - functions */
-}
-
-.markdown-body .highlight-source-ts .pl-s1,
-.markdown-body .highlight-source-js .pl-s1 {
-    color: #e879f9;
-    /* fuchsia-400 - parameters */
-}
-
-.markdown-body .highlight-source-ts .pl-c,
-.markdown-body .highlight-source-js .pl-c {
-    color: #6b7280;
-    /* gray-500 - comments */
-    font-style: italic;
 }
 
 /* ============================================ */
@@ -387,34 +543,34 @@
 /* ============================================ */
 
 @media (max-width: 768px) {
-    .markdown-heading h1.heading-element {
+    .markdown-body .markdown-heading h1.heading-element {
         font-size: 1.875rem;
     }
 
-    .markdown-heading h2.heading-element {
+    .markdown-body .markdown-heading h2.heading-element {
         font-size: 1.5rem;
     }
 
-    .markdown-heading h3.heading-element {
+    .markdown-body .markdown-heading h3.heading-element {
         font-size: 1.25rem;
     }
 
-    .highlight,
-    pre {
+    .markdown-body .highlight,
+    .markdown-body pre {
         padding: 1rem;
         font-size: 0.8125rem;
     }
 
-    .markdown-heading .anchor {
+    .markdown-body .markdown-heading .anchor {
         display: none;
     }
 
-    table {
+    .markdown-body table {
         font-size: 0.875rem;
     }
 
-    th,
-    td {
+    .markdown-body th,
+    .markdown-body td {
         padding: 0.5rem;
     }
 }
@@ -423,25 +579,25 @@
 /* SCROLLBAR STYLING */
 /* ============================================ */
 
-.highlight::-webkit-scrollbar,
-pre::-webkit-scrollbar {
+.markdown-body .highlight::-webkit-scrollbar,
+.markdown-body pre::-webkit-scrollbar {
     height: 0.5rem;
 }
 
-.highlight::-webkit-scrollbar-track,
-pre::-webkit-scrollbar-track {
+.markdown-body .highlight::-webkit-scrollbar-track,
+.markdown-body pre::-webkit-scrollbar-track {
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 0.25rem;
 }
 
-.highlight::-webkit-scrollbar-thumb,
-pre::-webkit-scrollbar-thumb {
+.markdown-body .highlight::-webkit-scrollbar-thumb,
+.markdown-body pre::-webkit-scrollbar-thumb {
     background-color: rgba(163, 230, 53, 0.3);
     border-radius: 0.25rem;
 }
 
-.highlight::-webkit-scrollbar-thumb:hover,
-pre::-webkit-scrollbar-thumb:hover {
+.markdown-body .highlight::-webkit-scrollbar-thumb:hover,
+.markdown-body pre::-webkit-scrollbar-thumb:hover {
     background-color: rgba(163, 230, 53, 0.5);
 }
 
@@ -449,8 +605,8 @@ pre::-webkit-scrollbar-thumb:hover {
 /* ACCESSIBILITY */
 /* ============================================ */
 
-a:focus,
-button:focus {
+.markdown-body a:focus,
+.markdown-body button:focus {
     outline: 2px solid #a3e635;
     outline-offset: 2px;
 }
@@ -460,20 +616,20 @@ button:focus {
 /* ============================================ */
 
 @media print {
-    .markdown-heading .anchor {
+    .markdown-body .markdown-heading .anchor {
         display: none;
     }
 
-    .highlight,
-    pre {
+    .markdown-body .highlight,
+    .markdown-body pre {
         page-break-inside: avoid;
     }
 
-    img {
+    .markdown-body img {
         page-break-inside: avoid;
     }
 
-    table {
+    .markdown-body table {
         page-break-inside: avoid;
     }
 }

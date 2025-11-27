@@ -16,10 +16,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { Header } from '../../components/header/header';
 import { ArticlesService } from '../../services/articles-service';
+import { Footer } from '../../components/footer/footer';
 
 @Component({
   selector: 'app-blog',
-  imports: [CommonModule, RouterModule, FontAwesomeModule, Header],
+  imports: [CommonModule, RouterModule, FontAwesomeModule, Header, Footer],
   templateUrl: './blog.html',
   styles: ``,
 })
