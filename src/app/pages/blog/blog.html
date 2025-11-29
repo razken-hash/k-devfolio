@@ -6,8 +6,6 @@
     <section
         class="mt-20 bg-gradient-to-br from-emerald-900 via-teal-900 to-emerald-950 min-h-screen py-10 px-6 relative overflow-hidden">
 
-
-
         <!-- Animated background elements -->
         <div class="absolute inset-0 overflow-hidden pointer-events-none">
             <div class="absolute top-20 left-10 w-96 h-96 bg-lime-400/10 rounded-full blur-3xl animate-pulse"></div>
@@ -30,8 +28,44 @@
                 </p>
             </div>
 
-            <!-- Search & Filter Section -->
-            <div class="mb-12 space-y-6">
+            <!-- No Articles Published Yet -->
+            <div *ngIf="articles.length === 0" class="text-center py-20">
+                <div class="inline-block mb-8">
+                    <div class="relative">
+                        <!-- Glowing background -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-lime-400/30 to-emerald-400/30 blur-2xl rounded-full">
+                        </div>
+                        <!-- Icon -->
+                        <div class="relative text-8xl">✍️</div>
+                    </div>
+                </div>
+
+                <!-- Stunning Title -->
+                <div class="mb-8">
+                    <h2
+                        class="text-6xl md:text-5xl font-bold bg-gradient-to-r from-lime-400 via-emerald-400 to-lime-300 bg-clip-text text-transparent mb-4 leading-tight animate-pulse">
+                        Quelque chose de magique arrive !
+                    </h2>
+                    <div class="h-1 w-24 bg-gradient-to-r from-lime-400 to-emerald-400 mx-auto rounded-full"></div>
+                </div>
+
+                <!-- Subtitle -->
+                <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+                    Nous préparons un contenu exceptionnel à partager avec vous. Restez à l'écoute pour découvrir des
+                    insights sur le développement web, les applications mobiles et les technologies modernes.
+                </p>
+
+                <!-- Call to Action -->
+                <div
+                    class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-lime-400 to-emerald-400 text-emerald-950 rounded-xl font-semibold hover:shadow-lg hover:shadow-lime-400/50 transition-all cursor-pointer hover:scale-105">
+                    <fa-icon [icon]="faRefresh"></fa-icon>
+                    <span>Actualiser</span>
+                </div>
+            </div>
+
+            <!-- Search & Filter Section (Only show if articles exist) -->
+            <div *ngIf="articles.length > 0" class="mb-12 space-y-6">
                 <!-- Search Bar -->
                 <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 max-w-3xl mx-auto">
                     <div class="relative">
@@ -45,8 +79,8 @@
                 <!-- Tags Filter -->
                 <div class="flex flex-wrap gap-3 justify-center">
                     <button *ngFor="let tag of allTags" (click)="filterByTag(tag)" [class]="selectedTag === tag 
-            ? 'bg-lime-400 text-emerald-950' 
-            : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'"
+                ? 'bg-lime-400 text-emerald-950' 
+                : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'"
                         class="px-4 py-2 rounded-full font-medium transition-all duration-300 flex items-center gap-2">
                         <fa-icon [icon]="faTag" class="text-xs"></fa-icon>
                         {{ tag }}
@@ -55,7 +89,7 @@
             </div>
 
             <!-- Articles Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div *ngIf="articles.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <article *ngFor="let article of filteredArticles" [routerLink]="['/blog', article.id]"
                     class="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-lime-400/50 transition-all duration-300 hover:scale-105 cursor-pointer">
                     <!-- Cover Image -->
@@ -111,8 +145,8 @@
                 </article>
             </div>
 
-            <!-- No Results -->
-            <div *ngIf="filteredArticles.length === 0" class="text-center py-20">
+            <!-- No Results (Search returned nothing) -->
+            <div *ngIf="articles.length > 0 && filteredArticles.length === 0" class="text-center py-20">
                 <div class="text-6xl mb-4">📝</div>
                 <h3 class="text-2xl font-bold text-white mb-2">Aucun article trouvé</h3>
                 <p class="text-gray-400">Essayez d'autres mots-clés ou filtres</p>

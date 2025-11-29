@@ -12,7 +12,7 @@ import {
   faClock,
   faTag,
   faSearch,
-  faArrowRight
+  faArrowRight, faRefresh
 } from '@fortawesome/free-solid-svg-icons';
 import { Header } from '../../components/header/header';
 import { ArticlesService } from '../../services/articles-service';
@@ -35,6 +35,7 @@ export class Blog {
   faTag = faTag;
   faSearch = faSearch;
   faArrowRight = faArrowRight;
+  faRefresh = faRefresh;
 
   articles: Article[] = [];
   filteredArticles: Article[] = [];
@@ -49,8 +50,8 @@ export class Blog {
 
   loadArticles(): void {
     this.articlesService.getAllArticles().subscribe(articles => {
-      this.articles = articles;
-      this.filteredArticles = articles;
+      // this.articles = articles;
+      // this.filteredArticles = articles;
       this.extractTags();
     });
   }
