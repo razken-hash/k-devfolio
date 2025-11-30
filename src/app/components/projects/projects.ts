@@ -6,6 +6,7 @@ import { faExternalLink, faChevronLeft, faChevronRight, faXmark } from '@fortawe
 import { Project } from '../../models/project.model';
 import { Category } from '../../models/category.model';
 import { ProjectsService } from '../../services/projects-service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-projects',
@@ -26,11 +27,22 @@ export class Projects {
   categories: Category[] = [];
   projects: Project[] = [];
 
-  constructor(private projectsService: ProjectsService) { }
+  constructor(private projectsService: ProjectsService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.categories = this.projectsService.categories;
     this.projects = this.projectsService.projects;
+
+    // Listen to query parameters
+    this.activatedRoute.queryParams.subscribe(params => {
+      if (params['project']) {
+        const projectId = params['project'];
+        const project = this.filteredProjects.find(p => p.id === projectId);
+        if (project) {
+          this.openProject(project);
+        }
+      }
+    });
   }
 
   get filteredProjects(): Project[] {

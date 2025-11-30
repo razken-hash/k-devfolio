@@ -26,9 +26,7 @@ import { Footer } from '../../components/footer/footer';
 })
 export class Blog {
 
-
   constructor(private http: HttpClient, private articlesService: ArticlesService) { }
-
 
   faCalendar = faCalendar;
   faClock = faClock;
@@ -50,8 +48,8 @@ export class Blog {
 
   loadArticles(): void {
     this.articlesService.getAllArticles().subscribe(articles => {
-      // this.articles = articles;
-      // this.filteredArticles = articles;
+      this.articles = articles;
+      this.filteredArticles = articles;
       this.extractTags();
     });
   }

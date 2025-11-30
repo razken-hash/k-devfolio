@@ -17,7 +17,7 @@ export class ProjectsService {
 
   projects: Project[] = [
     {
-      id: 1,
+      id: "smell-bert",
       name: 'SmellBERT',
       category: 'fullstack',
       shortDescription: 'Plateforme web intégrant CodeBERT pour la détection automatique des code smells.',
@@ -33,7 +33,7 @@ export class ProjectsService {
     },
 
     {
-      id: 2,
+      id: "soft-scanner",
       name: 'SoftScanner',
       category: 'fullstack',
       shortDescription: 'Analyseur statique et dynamique des projets Angular et React.',
@@ -49,7 +49,7 @@ export class ProjectsService {
       ]
     },
     {
-      id: 3,
+      id: "pommy",
       name: 'Pommy',
       category: 'mobile',
       shortDescription: 'Solution web et mobile pour la gestion centralisée des comptes bancaires.',
@@ -62,7 +62,7 @@ export class ProjectsService {
       ]
     },
     {
-      id: 4,
+      id: "mpay",
       name: 'MPay',
       category: 'fullstack',
       shortDescription: 'Solution web et mobile pour la gestion centralisée des comptes bancaires.',
@@ -77,7 +77,7 @@ export class ProjectsService {
     },
 
     {
-      id: 5,
+      id: "yalidine-queue",
       name: 'Yalidine Queue',
       category: 'mobile',
       shortDescription: 'Application Flutter pour la gestion des files d’attente Yalidine.',
@@ -91,7 +91,7 @@ export class ProjectsService {
     },
 
     {
-      id: 6,
+      id: "click-order",
       name: 'ClickOrder',
       category: 'mobile',
       shortDescription: 'Application Flutter de commande de thé/café en entreprise.',
@@ -106,7 +106,7 @@ export class ProjectsService {
     },
 
     {
-      id: 7,
+      id: "parkir",
       name: 'Parkir',
       category: 'fullstack',
       shortDescription: 'App mobile Kotlin + backend Spring Boot pour réservation de parkings.',
@@ -122,7 +122,7 @@ export class ProjectsService {
     },
 
     {
-      id: 8,
+      id: "auto-school",
       name: 'AutoSchool',
       category: 'frontend',
       shortDescription: 'Application Flutter Desktop pour la gestion des auto-écoles.',
@@ -136,7 +136,7 @@ export class ProjectsService {
     },
 
     {
-      id: 9,
+      id: "hotelency",
       name: 'Hotelency',
       category: 'backend',
       shortDescription: 'Projet microservices pour hôtels, agences et clients.',
@@ -153,7 +153,7 @@ export class ProjectsService {
     },
 
     {
-      id: 10,
+      id: "tera-app",
       name: 'TeraApp',
       category: 'fullstack',
       shortDescription: 'Clone Google Docs avec édition collaborative temps réel.',
@@ -168,7 +168,7 @@ export class ProjectsService {
       ]
     },
     {
-      id: 11,
+      id: "kdevfolio",
       name: 'KDevfolio',
       category: 'frontend',
       shortDescription: 'Dashboard moderne avec graphiques interactifs',

@@ -1,7 +1,7 @@
 import { Technology } from "./technology.model";
 
 export interface Project {
-    id: number;
+    id: string;
     name: string;
     category: 'fullstack' | 'backend' | 'frontend' | 'mobile';
     shortDescription: string;

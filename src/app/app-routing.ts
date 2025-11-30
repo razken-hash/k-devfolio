@@ -8,6 +8,12 @@ export const routes: Routes = [
 
   { path: '', component: Home },  // root
 
+  {
+    path: '',
+    component: Home,
+    data: { openProject: null }
+  },
+
   { path: 'home', redirectTo: '', pathMatch: 'full' },
 
   { path: 'blog', component: Blog },
