@@ -5,6 +5,8 @@ import { provideZoneChangeDetection } from '@angular/core';
 
 import { App } from './app/app';
 import { routes } from './app/app-routing';
+import { provideTranslateService } from '@ngx-translate/core';
+import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 
 bootstrapApplication(App, {
   providers: [
@@ -16,5 +18,15 @@ bootstrapApplication(App, {
     ),
     provideHttpClient(),
     provideZoneChangeDetection({ eventCoalescing: true }),
+    provideTranslateService({
+      loader: provideTranslateHttpLoader({
+        prefix: '/assets/i18n/',
+        suffix: '.json'
+      }),
+      fallbackLang: 'fr',
+      lang: 'en'
+    })
   ],
 });
+
+

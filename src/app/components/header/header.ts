@@ -7,10 +7,11 @@ import { NavigationLink } from '../../models/navigation-link.model';
 import { Language } from '../../models/language.model';
 import { NavigationLinksService } from '../../services/navigation-links-service';
 import { LanguageService } from '../../services/language-service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule, RouterModule, FontAwesomeModule],
+  imports: [CommonModule, RouterModule, FontAwesomeModule, TranslateModule],
   templateUrl: './header.html',
   styles: `
     @keyframes fade-in {
