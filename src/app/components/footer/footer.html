@@ -44,7 +44,7 @@
                         class="text-gray-300 hover:text-lime-400 text-sm transition-all duration-300 flex items-center gap-2 group hover:translate-x-1">
                         <span
                             class="w-1.5 h-1.5 bg-lime-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                        {{ link.label }}
+                        {{ link.label | translate }}
                     </a>
                 </div>
             </div>
@@ -88,10 +88,10 @@
             <div class="flex items-center gap-6">
                 <a routerLink="/privacy" class="text-gray-300 hover:text-lime-400 transition-colors">{{
                     'FOOTER.PRIVACY_POLICY'
-                    | translate}}</a>
+                    | translate }}</a>
                 <a routerLink="/terms" class="text-gray-300 hover:text-lime-400 transition-colors">{{
                     'FOOTER.TERMS_OF_USE' |
-                    translate}}</a>
+                    translate }}</a>
                 <a routerLink="/sitemap" class="text-gray-300 hover:text-lime-400 transition-colors">{{
                     'FOOTER.SITE_MAP' |
                     translate }}</a>

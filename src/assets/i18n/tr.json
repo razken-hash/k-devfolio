@@ -35,11 +35,14 @@
         "SITE_MAP": "Site haritası",
         "TERMS_OF_USE": "Kullanım şartları"
     },
-    "HOME": {
+    "HERO": {
         "AVAILABLE_FOR_INTERNSHIP": "Staj için uygun",
         "DISCOVER_BLOG": "Blogu keşfet",
+        "EXCEPTIONAL_USER_EXPERIENCE": "Olağanüstü Kullanıcı Deneyimi",
         "FULL_STACK_DEVELOPER": "Full-stack geliştirici",
+        "HERO_TAG": "Tutkulu bir yazılım geliştiricisi olarak, {{ EXCEPTIONAL_USER_EXPERIENCE }} sunmak için modern, yüksek performanslı ve {{ MODERN_WEB_APPS }} tasarlıyorum",
         "HOME": "Ana sayfa",
+        "MODERN_WEB_APPS": "Zarif Web Uygulamaları",
         "SOFTWARE_ENGINEER": "Yazılım mühendisi",
         "VIEW_CV": "CV'yi görüntüle"
     },
@@ -52,11 +55,12 @@
         "MY_PROJECTS": "Projelerim",
         "PORTFOLIO": "Portföy",
         "PORTFOLIO_DESCRIPTION": "Son projelerimden bir seçkiyi keşfedin",
-        "PROJETS": "Projeler"
+        "PROJECTS": "Projeler"
     },
     "SKILLS": {
         "MY_TECHNICAL_SKILLS": "Teknik becerilerim",
         "SKILLS": "Beceriler",
         "TECHNICAL_SKILLS_MASTERED": "Uzman olunan teknik beceriler"
-    }
+    },
+    "GREETING": "Hello, {{name}}!"
 }

@@ -8,12 +8,12 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 })
 export class NavigationLinksService {
   navigationLinks: NavigationLink[] = [
-    { label: 'Accueil', icon: null, url: 'welcome' },
-    { label: 'Blog', icon: null, url: '/blog' },
-    { label: 'Education', icon: null, url: 'education' },
-    { label: 'Projets', icon: null, url: 'projects' },
-    { label: 'Compétences', icon: null, url: 'skills' },
-    { label: 'Contact', icon: null, url: 'contact' }
+    { label: 'HERO.HOME', icon: null, url: 'hero' },
+    { label: 'BLOG.BLOG', icon: null, url: '/blog' },
+    { label: 'EDUCATION.EDUCATION', icon: null, url: 'education' },
+    { label: 'PROJECTS.PROJECTS', icon: null, url: 'projects' },
+    { label: 'SKILLS.SKILLS', icon: null, url: 'skills' },
+    { label: 'CONTACT.CONTACT', icon: null, url: 'contact' }
   ];
 
   accountsLinks: NavigationLink[] = [

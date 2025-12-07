@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, LowerCasePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faArrowRight, faFile, faDownload } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedinIn, faMedium } from '@fortawesome/free-brands-svg-icons';
 import { CvPreview } from '../cv-preview/cv-preview';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-welcome',
+  selector: 'app-hero',
   imports: [CommonModule, RouterModule, FontAwesomeModule, CvPreview, TranslateModule],
-  templateUrl: './welcome.html',
+  providers: [LowerCasePipe],
+  templateUrl: './hero.html',
   styles: `
     @keyframes float {
       0%, 100% {
@@ -28,7 +30,7 @@ import { TranslateModule } from '@ngx-translate/core';
     }
   `,
 })
-export class Welcome {
+export class Hero {
   faArrowRight = faArrowRight;
   faFile = faFile;
   faGithub = faGithub;
@@ -43,4 +45,16 @@ export class Welcome {
     duration: 5 + Math.random() * 10,
     delay: Math.random() * 5
   }));
+
+  constructor(private translate: TranslateService, private sanitizer: DomSanitizer, private lowerCasePipe: LowerCasePipe) { }
+
+  get heroTagHtml() {
+    const modern = this.translate.instant('HERO.MODERN_WEB_APPS');
+    const exceptional = this.translate.instant('HERO.EXCEPTIONAL_USER_EXPERIENCE');
+
+    return this.translate.instant('HERO.HERO_TAG', {
+      MODERN_WEB_APPS: `<span class="text-lime-400 font-semibold">${this.lowerCasePipe.transform(modern)}</span>`,
+      EXCEPTIONAL_USER_EXPERIENCE: `<span class="text-lime-400 font-semibold">${this.lowerCasePipe.transform(exceptional)}</span>`
+    }) + ".";
+  }
 }

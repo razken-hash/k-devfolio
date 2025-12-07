@@ -1,62 +1,66 @@
 {
-  "BLOG": {
-    "BLOG": "Blog"
-  },
-  "CONTACT": {
-    "AVERAGE_RESPONSE_TIME": "Average response time",
-    "CONTACT": "Contact",
-    "CONTACT_ME": "Contact me",
-    "DISCUSSION_LONG": "Whether for a new project, a collaboration or simply to talk, feel free to contact me. I would be delighted to create something exceptional together.",
-    "HOURS": "Hours",
-    "LETS_DISCUSS_PROJECT": "Let's discuss your project",
-    "LOCATION": "Location",
-    "PHONE": "Phone",
-    "PROJECT_IDEA_PROMPT": "Do you have a project in mind? I'd love to discuss it with you.",
-    "READY_TO_COLLABORATE": "Ready to collaborate?",
-    "SEND_MESSAGE": "Send a message",
-    "SEND_THE_MESSAGE": "Send the message",
-    "STAY_IN_TOUCH": "Let's stay in touch",
-    "SUBJECT": "Subject",
-    "YOUR_EMAIL": "Your email",
-    "YOUR_MESSAGE": "Your message",
-    "YOUR_NAME": "Your name"
-  },
-  "EDUCATION": {
-    "ACADEMIC_PATH": "My academic journey",
-    "EDUCATION": "Education",
-    "FORMATION": "Education"
-  },
-  "FOOTER": {
-    "ALL_RIGHTS_RESERVED": "All rights reserved",
-    "BUILT_WITH": "Built with",
-    "FOOTER_TAGLINE": "Creating elegant solutions through code. Full-stack developer passionate about building innovative web and mobile applications.",
-    "MADE_WITH": "Made with",
-    "PRIVACY_POLICY": "Privacy policy",
-    "SITE_MAP": "Site map",
-    "TERMS_OF_USE": "Terms of use"
-  },
-  "HOME": {
-    "AVAILABLE_FOR_INTERNSHIP": "Available for an internship",
-    "DISCOVER_BLOG": "Discover blog",
-    "FULL_STACK_DEVELOPER": "Full-stack developer",
-    "HOME": "Home",
-    "SOFTWARE_ENGINEER": "Software engineer",
-    "VIEW_CV": "View CV"
-  },
-  "OTHERS": {
-    "BY": "By",
-    "NAVIGATION": "Navigation",
-    "PRESENT": "Present"
-  },
-  "PROJECTS": {
-    "MY_PROJECTS": "My projects",
-    "PORTFOLIO": "Portfolio",
-    "PORTFOLIO_DESCRIPTION": "Discover a selection of my recent work",
-    "PROJETS": "Projects"
-  },
-  "SKILLS": {
-    "MY_TECHNICAL_SKILLS": "My technical skills",
-    "SKILLS": "Skills",
-    "TECHNICAL_SKILLS_MASTERED": "Mastered technical skills"
-  }
+    "BLOG": {
+        "BLOG": "Blog"
+    },
+    "CONTACT": {
+        "AVERAGE_RESPONSE_TIME": "Average response time",
+        "CONTACT": "Contact",
+        "CONTACT_ME": "Contact me",
+        "DISCUSSION_LONG": "Whether for a new project, a collaboration or simply to talk, feel free to contact me. I would be delighted to create something exceptional together.",
+        "HOURS": "Hours",
+        "LETS_DISCUSS_PROJECT": "Let's discuss your project",
+        "LOCATION": "Location",
+        "PHONE": "Phone",
+        "PROJECT_IDEA_PROMPT": "Do you have a project in mind? I'd love to discuss it with you.",
+        "READY_TO_COLLABORATE": "Ready to collaborate?",
+        "SEND_MESSAGE": "Send a message",
+        "SEND_THE_MESSAGE": "Send the message",
+        "STAY_IN_TOUCH": "Let's stay in touch",
+        "SUBJECT": "Subject",
+        "YOUR_EMAIL": "Your email",
+        "YOUR_MESSAGE": "Your message",
+        "YOUR_NAME": "Your name"
+    },
+    "EDUCATION": {
+        "ACADEMIC_PATH": "My academic journey",
+        "EDUCATION": "Education",
+        "FORMATION": "Education"
+    },
+    "FOOTER": {
+        "ALL_RIGHTS_RESERVED": "All rights reserved",
+        "BUILT_WITH": "Built with",
+        "FOOTER_TAGLINE": "Creating elegant solutions through code. Full-stack developer passionate about building innovative web and mobile applications.",
+        "MADE_WITH": "Made with",
+        "PRIVACY_POLICY": "Privacy policy",
+        "SITE_MAP": "Site map",
+        "TERMS_OF_USE": "Terms of use"
+    },
+    "HERO": {
+        "AVAILABLE_FOR_INTERNSHIP": "Available for an internship",
+        "DISCOVER_BLOG": "Discover blog",
+        "EXCEPTIONAL_USER_EXPERIENCE": "Exceptional User Experience",
+        "FULL_STACK_DEVELOPER": "Full-stack developer",
+        "HERO_TAG": "Passionate software developer, I design modern, high-performance and {{ MODERN_WEB_APPS }}, crafted to deliver an {{ EXCEPTIONAL_USER_EXPERIENCE }}",
+        "HOME": "Home",
+        "MODERN_WEB_APPS": "Elegant Web Applications",
+        "SOFTWARE_ENGINEER": "Software engineer",
+        "VIEW_CV": "View CV"
+    },
+    "OTHERS": {
+        "BY": "By",
+        "NAVIGATION": "Navigation",
+        "PRESENT": "Present"
+    },
+    "PROJECTS": {
+        "MY_PROJECTS": "My projects",
+        "PORTFOLIO": "Portfolio",
+        "PORTFOLIO_DESCRIPTION": "Discover a selection of my recent work",
+        "PROJECTS": "Projects"
+    },
+    "SKILLS": {
+        "MY_TECHNICAL_SKILLS": "My technical skills",
+        "SKILLS": "Skills",
+        "TECHNICAL_SKILLS_MASTERED": "Mastered technical skills"
+    },
+    "GREETING": "Hello, {{name}}!"
 }

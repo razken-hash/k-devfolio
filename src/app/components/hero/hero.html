@@ -75,7 +75,7 @@
                         <path d="M3 5h4"></path>
                         <path d="M17 19h4"></path>
                     </svg>
-                    <span>{{ 'HOME.AVAILABLE_FOR_INTERNSHIP' | translate }}</span>
+                    <span>{{ 'HERO.AVAILABLE_FOR_INTERNSHIP' | translate }}</span>
                 </div>
             </div>
         </div>
@@ -87,7 +87,7 @@
             <div
                 class="inline-flex items-center space-x-2 px-4 py-2 text-xs font-semibold tracking-wider rounded-full bg-lime-400/10 border border-lime-400/30 text-lime-400 backdrop-blur-sm">
                 <span class="text-sm">⚡</span>
-                <span>{{ 'HOME.FULL_STACK_DEVELOPER' | translate }}</span>
+                <span>{{ 'HERO.FULL_STACK_DEVELOPER' | translate }}</span>
             </div>
 
             <!-- Main Heading with Animated Name -->
@@ -114,17 +114,15 @@
                 <div class="flex items-center justify-center lg:justify-start gap-3">
                     <div class="h-1 w-12 bg-gradient-to-r from-lime-400 to-emerald-400 rounded-full"></div>
                     <p class="text-xl lg:text-2xl text-gray-300 font-medium">
-                        {{ 'HOME.SOFTWARE_ENGINEER' | translate}}
+                        {{ 'HERO.SOFTWARE_ENGINEER' | translate }}
                     </p>
                     <div class="h-1 w-12 bg-gradient-to-r from-emerald-400 to-lime-400 rounded-full"></div>
                 </div>
             </div>
 
             <!-- Description -->
-            <p class="text-base lg:text-lg text-gray-300 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                Développeur logiciel passionné, je conçois des <span class="text-lime-400 font-semibold">applications
-                    web modernes</span>, performantes et élégantes, pensées pour offrir une <span
-                    class="text-lime-400 font-semibold">expérience utilisateur exceptionnelle</span>.
+            <p class="text-base lg:text-lg text-gray-300 leading-relaxed max-w-xl mx-auto lg:mx-0"
+                [innerHTML]="heroTagHtml">
             </p>
 
             <!-- Enhanced Social Links -->
@@ -177,7 +175,7 @@
             <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-2">
                 <a routerLink="/blog"
                     class="group inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-xl shadow-lg text-emerald-950 bg-gradient-to-r from-lime-400 to-emerald-400 hover:from-lime-500 hover:to-emerald-500 transition-all duration-300 hover:shadow-lime-400/50 hover:scale-105">
-                    {{ 'HOME.DISCOVER_BLOG' | translate}}
+                    {{ 'HERO.DISCOVER_BLOG' | translate }}
                     <fa-icon [icon]="faArrowRight"
                         class="ml-2 group-hover:translate-x-1 transition-transform"></fa-icon>
                 </a>
