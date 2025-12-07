@@ -1,0 +1,62 @@
+{
+    "BLOG": {
+        "BLOG": "Blog"
+    },
+    "CONTACT": {
+        "AVERAGE_RESPONSE_TIME": "Tiempo medio de respuesta",
+        "CONTACT": "Contacto",
+        "CONTACT_ME": "Contáctame",
+        "DISCUSSION_LONG": "Ya sea para un nuevo proyecto, una colaboración o simplemente para charlar, no dudes en contactarme. Estaré encantado de crear algo excepcional contigo.",
+        "HOURS": "Horas",
+        "LETS_DISCUSS_PROJECT": "Hablemos de tu proyecto",
+        "LOCATION": "Ubicación",
+        "PHONE": "Teléfono",
+        "PROJECT_IDEA_PROMPT": "¿Tienes un proyecto en mente? Me encantaría hablarlo contigo.",
+        "READY_TO_COLLABORATE": "¿Listo para colaborar?",
+        "SEND_MESSAGE": "Enviar un mensaje",
+        "SEND_THE_MESSAGE": "Enviar el mensaje",
+        "STAY_IN_TOUCH": "Mantengámonos en contacto",
+        "SUBJECT": "Asunto",
+        "YOUR_EMAIL": "Tu correo",
+        "YOUR_MESSAGE": "Tu mensaje",
+        "YOUR_NAME": "Tu nombre"
+    },
+    "EDUCATION": {
+        "ACADEMIC_PATH": "Mi trayectoria académica",
+        "EDUCATION": "Educación",
+        "FORMATION": "Formación"
+    },
+    "FOOTER": {
+        "ALL_RIGHTS_RESERVED": "Todos los derechos reservados",
+        "BUILT_WITH": "Construido con",
+        "FOOTER_TAGLINE": "Creando soluciones elegantes mediante código. Desarrollador full-stack apasionado por crear aplicaciones web y móviles innovadoras.",
+        "MADE_WITH": "Hecho con",
+        "PRIVACY_POLICY": "Política de privacidad",
+        "SITE_MAP": "Mapa del sitio",
+        "TERMS_OF_USE": "Términos de uso"
+    },
+    "HOME": {
+        "AVAILABLE_FOR_INTERNSHIP": "Disponible para prácticas",
+        "DISCOVER_BLOG": "Descubrir el blog",
+        "FULL_STACK_DEVELOPER": "Desarrollador full-stack",
+        "HOME": "Inicio",
+        "SOFTWARE_ENGINEER": "Ingeniero de software",
+        "VIEW_CV": "Ver CV"
+    },
+    "OTHERS": {
+        "BY": "Por",
+        "NAVIGATION": "Navegación",
+        "PRESENT": "Actual"
+    },
+    "PROJECTS": {
+        "MY_PROJECTS": "Mis proyectos",
+        "PORTFOLIO": "Portafolio",
+        "PORTFOLIO_DESCRIPTION": "Descubre una selección de mis trabajos recientes",
+        "PROJETS": "Proyectos"
+    },
+    "SKILLS": {
+        "MY_TECHNICAL_SKILLS": "Mis habilidades técnicas",
+        "SKILLS": "Habilidades",
+        "TECHNICAL_SKILLS_MASTERED": "Habilidades técnicas dominadas"
+    }
+}

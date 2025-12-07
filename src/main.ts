@@ -24,7 +24,7 @@ bootstrapApplication(App, {
         suffix: '.json'
       }),
       fallbackLang: 'fr',
-      lang: 'en'
+      lang: 'es'
     })
   ],
 });

@@ -22,8 +22,7 @@
                     <span class="text-white text-2xl font-bold">DevFolio</span>
                 </div>
                 <p class="text-gray-300 text-sm leading-relaxed">
-                    Créer des solutions élégantes à travers le code. Développeur full-stack passionné par la création
-                    d'applications web et mobiles innovantes.
+                    {{ 'FOOTER.FOOTER_TAGLINE' | translate }}
                 </p>
                 <div class="flex items-center space-x-3 pt-2">
                     <a *ngFor="let link of accountsLinks" [href]="link.url" target="_blank" rel="noopener noreferrer"
@@ -38,7 +37,7 @@
             <div class="space-y-4">
                 <h3 class="text-white font-bold text-lg mb-4 flex items-center gap-2">
                     <div class="h-1 w-8 bg-gradient-to-r from-lime-400 to-emerald-400 rounded-full"></div>
-                    Navigation
+                    {{ 'OTHERS.NAVIGATION' | translate }}
                 </h3>
                 <div class="grid grid-cols-2 gap-3">
                     <a *ngFor="let link of naivigationLinks" (click)="scrollTo(link.url)"
@@ -54,7 +53,7 @@
             <div class="space-y-4">
                 <h3 class="text-white font-bold text-lg mb-4 flex items-center gap-2">
                     <div class="h-1 w-8 bg-gradient-to-r from-lime-400 to-emerald-400 rounded-full"></div>
-                    Construit Avec
+                    {{ 'FOOTER.BUILT_WITH' | translate }}
                 </h3>
                 <div class="flex flex-wrap gap-3">
                     <div *ngFor="let tech of techStack"
@@ -68,7 +67,8 @@
                 <div
                     class="bg-gradient-to-r from-lime-400/10 to-emerald-400/10 border border-lime-400/20 rounded-xl p-4 mt-4">
                     <p class="text-gray-200 text-sm">
-                        Fait avec <span class="text-lime-400">♥</span> par
+                        {{ 'FOOTER.MADE_WITH' | translate }} <span class="text-lime-400">♥</span> {{ 'OTHERS.BY' |
+                        translate | lowercase}}
                         <span class="text-lime-400 font-bold">KENNICHE ABDERRAZAK</span>
                     </p>
                 </div>
@@ -81,14 +81,20 @@
         <!-- Bottom Bar -->
         <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
             <p class="text-gray-300">
-                &copy; 2025 <span class="font-bold text-white">kDevFolio</span>. Tous droits réservés.
+                &copy; 2025 <span class="font-bold text-white">kDevFolio</span>. {{ 'FOOTER.ALL_RIGHTS_RESERVED' |
+                translate
+                }}.
             </p>
             <div class="flex items-center gap-6">
-                <a routerLink="/privacy" class="text-gray-300 hover:text-lime-400 transition-colors">Politique de
-                    Confidentialité</a>
-                <a routerLink="/terms" class="text-gray-300 hover:text-lime-400 transition-colors">Conditions
-                    d'Utilisation</a>
-                <a routerLink="/sitemap" class="text-gray-300 hover:text-lime-400 transition-colors">Plan du Site</a>
+                <a routerLink="/privacy" class="text-gray-300 hover:text-lime-400 transition-colors">{{
+                    'FOOTER.PRIVACY_POLICY'
+                    | translate}}</a>
+                <a routerLink="/terms" class="text-gray-300 hover:text-lime-400 transition-colors">{{
+                    'FOOTER.TERMS_OF_USE' |
+                    translate}}</a>
+                <a routerLink="/sitemap" class="text-gray-300 hover:text-lime-400 transition-colors">{{
+                    'FOOTER.SITE_MAP' |
+                    translate }}</a>
             </div>
         </div>
     </div>

@@ -5,10 +5,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faArrowRight, faFile, faDownload } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedinIn, faMedium } from '@fortawesome/free-brands-svg-icons';
 import { CvPreview } from '../cv-preview/cv-preview';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-welcome',
-  imports: [CommonModule, RouterModule, FontAwesomeModule, CvPreview],
+  imports: [CommonModule, RouterModule, FontAwesomeModule, CvPreview, TranslateModule],
   templateUrl: './welcome.html',
   styles: `
     @keyframes float {

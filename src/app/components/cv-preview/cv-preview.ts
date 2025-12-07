@@ -12,10 +12,11 @@ import {
   faChevronRight
 } from '@fortawesome/free-solid-svg-icons';
 import { SafeUrlPipe } from './safe-url.pipe';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-cv-preview',
-  imports: [CommonModule, FontAwesomeModule],
+  imports: [CommonModule, FontAwesomeModule, TranslateModule],
   templateUrl: './cv-preview.html',
   styles: []
 })

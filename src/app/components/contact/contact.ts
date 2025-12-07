@@ -6,11 +6,12 @@ import { FormsModule } from '@angular/forms';
 
 import { faEnvelope, faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { ContactForm } from '../../models/contact.model';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @Component({
   selector: 'app-contact',
-  imports: [CommonModule, RouterModule, FontAwesomeModule, FormsModule],
+  imports: [CommonModule, RouterModule, FontAwesomeModule, FormsModule, TranslateModule],
   templateUrl: './contact.html',
   styles: ``,
 })

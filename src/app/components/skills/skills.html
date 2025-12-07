@@ -3,10 +3,10 @@
         <!-- Header -->
         <div class="text-center mb-16">
             <p class="text-lime-400 font-semibold text-sm tracking-wider uppercase mb-4">
-                COMPÉTENCES
+                {{ 'SKILLS.SKILLS' | translate }}
             </p>
             <h1 class="text-5xl md:text-6xl font-bold text-white mb-4">
-                Mes Compétences Techniques
+                {{ 'SKILLS.MY_TECHNICAL_SKILLS' | translate }}
             </h1>
         </div>
 
@@ -45,7 +45,7 @@
         <!-- Optional: Skills Summary -->
         <div class="mt-12 text-center">
             <p class="text-gray-400 text-lg">
-                {{ totalSkills }}+ compétences techniques maîtrisées
+                {{ totalSkills }}+ {{ 'SKILLS.TECHNICAL_SKILLS_MASTERED' | translate }}
             </p>
         </div>
     </div>

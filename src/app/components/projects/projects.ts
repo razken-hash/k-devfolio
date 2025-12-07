@@ -7,10 +7,11 @@ import { Project } from '../../models/project.model';
 import { Category } from '../../models/category.model';
 import { ProjectsService } from '../../services/projects-service';
 import { ActivatedRoute } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-projects',
-  imports: [CommonModule, FontAwesomeModule],
+  imports: [CommonModule, FontAwesomeModule, TranslateModule],
   templateUrl: './projects.html',
   styles: ``
 })

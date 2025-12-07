@@ -1,0 +1,62 @@
+{
+    "BLOG": {
+        "BLOG": "Blog"
+    },
+    "CONTACT": {
+        "AVERAGE_RESPONSE_TIME": "Ortalama yanıt süresi",
+        "CONTACT": "İletişim",
+        "CONTACT_ME": "Bana ulaşın",
+        "DISCUSSION_LONG": "Yeni bir proje, iş birliği ya da sadece sohbet için benimle iletişime geçmekten çekinmeyin. Birlikte harika bir şeyler yaratmaktan mutluluk duyarım.",
+        "HOURS": "Saat",
+        "LETS_DISCUSS_PROJECT": "Projenizi konuşalım",
+        "LOCATION": "Konum",
+        "PHONE": "Telefon",
+        "PROJECT_IDEA_PROMPT": "Aklınızda bir proje mi var? Sizinle konuşmaktan memnuniyet duyarım.",
+        "READY_TO_COLLABORATE": "İş birliğine hazır mısınız?",
+        "SEND_MESSAGE": "Mesaj gönder",
+        "SEND_THE_MESSAGE": "Mesajı gönder",
+        "STAY_IN_TOUCH": "İletişimde kalalım",
+        "SUBJECT": "Konu",
+        "YOUR_EMAIL": "E-posta adresiniz",
+        "YOUR_MESSAGE": "Mesajınız",
+        "YOUR_NAME": "Adınız"
+    },
+    "EDUCATION": {
+        "ACADEMIC_PATH": "Akademik yolculuğum",
+        "EDUCATION": "Eğitim",
+        "FORMATION": "Eğitim"
+    },
+    "FOOTER": {
+        "ALL_RIGHTS_RESERVED": "Tüm hakları saklıdır",
+        "BUILT_WITH": "Şununla oluşturuldu",
+        "FOOTER_TAGLINE": "Kod aracılığıyla zarif çözümler üretiyorum. Yenilikçi web ve mobil uygulamalar geliştirmeye tutkuyla bağlı full-stack geliştirici.",
+        "MADE_WITH": "İle yapıldı",
+        "PRIVACY_POLICY": "Gizlilik politikası",
+        "SITE_MAP": "Site haritası",
+        "TERMS_OF_USE": "Kullanım şartları"
+    },
+    "HOME": {
+        "AVAILABLE_FOR_INTERNSHIP": "Staj için uygun",
+        "DISCOVER_BLOG": "Blogu keşfet",
+        "FULL_STACK_DEVELOPER": "Full-stack geliştirici",
+        "HOME": "Ana sayfa",
+        "SOFTWARE_ENGINEER": "Yazılım mühendisi",
+        "VIEW_CV": "CV'yi görüntüle"
+    },
+    "OTHERS": {
+        "BY": "Tarafından",
+        "NAVIGATION": "Navigasyon",
+        "PRESENT": "Devam ediyor"
+    },
+    "PROJECTS": {
+        "MY_PROJECTS": "Projelerim",
+        "PORTFOLIO": "Portföy",
+        "PORTFOLIO_DESCRIPTION": "Son projelerimden bir seçkiyi keşfedin",
+        "PROJETS": "Projeler"
+    },
+    "SKILLS": {
+        "MY_TECHNICAL_SKILLS": "Teknik becerilerim",
+        "SKILLS": "Beceriler",
+        "TECHNICAL_SKILLS_MASTERED": "Uzman olunan teknik beceriler"
+    }
+}

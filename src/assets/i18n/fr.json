@@ -1,3 +1,62 @@
 {
-    "Software Engineer": "Ingénieur logiciel"
+    "BLOG": {
+        "BLOG": "Blog"
+    },
+    "CONTACT": {
+        "AVERAGE_RESPONSE_TIME": "Temps de réponse moyen",
+        "CONTACT": "Contact",
+        "CONTACT_ME": "Contactez-moi",
+        "DISCUSSION_LONG": "Que ce soit pour un nouveau projet, une collaboration ou simplement pour échanger, n'hésitez pas à me contacter. Je serais ravi de créer quelque chose d'exceptionnel ensemble.",
+        "HOURS": "Heures",
+        "LETS_DISCUSS_PROJECT": "Discutons de Votre Projet",
+        "LOCATION": "Localisation",
+        "PHONE": "Téléphone",
+        "PROJECT_IDEA_PROMPT": "Vous avez un projet en tête ? J'aimerais en discuter avec vous.",
+        "READY_TO_COLLABORATE": "Prêt à Collaborer ?",
+        "SEND_MESSAGE": "Envoyez un Message",
+        "SEND_THE_MESSAGE": "Envoyer le Message",
+        "STAY_IN_TOUCH": "RESTONS EN CONTACT",
+        "SUBJECT": "Sujet",
+        "YOUR_EMAIL": "Votre Email",
+        "YOUR_MESSAGE": "Votre Message",
+        "YOUR_NAME": "Votre Nom"
+    },
+    "EDUCATION": {
+        "ACADEMIC_PATH": "Mon Parcours Académique",
+        "EDUCATION": "Éducation",
+        "FORMATION": "Formation"
+    },
+    "FOOTER": {
+        "ALL_RIGHTS_RESERVED": "Tous droits réservés",
+        "BUILT_WITH": "Construit Avec",
+        "FOOTER_TAGLINE": "Créer des solutions élégantes à travers le code. Développeur full-stack passionné par la création d'applications web et mobiles innovantes.",
+        "MADE_WITH": "Fait avec",
+        "PRIVACY_POLICY": "Politique de Confidentialité",
+        "SITE_MAP": "Plan du Site",
+        "TERMS_OF_USE": "Conditions d'Utilisation"
+    },
+    "HOME": {
+        "AVAILABLE_FOR_INTERNSHIP": "Disponible pour un stage",
+        "DISCOVER_BLOG": "Discover Blog",
+        "FULL_STACK_DEVELOPER": "FULL-STACK DEVELOPER",
+        "HOME": "Accueil",
+        "SOFTWARE_ENGINEER": "Software Engineer",
+        "VIEW_CV": "Voir le CV"
+    },
+    "OTHERS": {
+        "BY": "Par",
+        "NAVIGATION": "Navigation",
+        "PRESENT": "En cours"
+    },
+    "PROJECTS": {
+        "MY_PROJECTS": "Mes Projets",
+        "PORTFOLIO": "Portfolio",
+        "PORTFOLIO_DESCRIPTION": "Découvrez une sélection de mes réalisations récentes",
+        "PROJETS": "Projets"
+    },
+    "SKILLS": {
+        "MY_TECHNICAL_SKILLS": "Mes Compétences Techniques",
+        "SKILLS": "Compétences",
+        "TECHNICAL_SKILLS_MASTERED": "Compétences techniques maîtrisées"
+    }
 }

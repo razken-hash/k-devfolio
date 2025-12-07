@@ -9,11 +9,12 @@ import { NavigationLinksService } from '../../services/navigation-links-service'
 import { LanguageService } from '../../services/language-service';
 import { Technology } from '../../models/technology.model';
 import { Router } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @Component({
   selector: 'app-footer',
-  imports: [CommonModule, FontAwesomeModule, RouterModule],
+  imports: [CommonModule, FontAwesomeModule, RouterModule, TranslateModule],
   templateUrl: './footer.html',
   styles: ``,
 })
