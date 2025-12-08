@@ -30,7 +30,7 @@
         "ALL_RIGHTS_RESERVED": "Tous droits réservés",
         "BUILT_WITH": "Construit Avec",
         "FOOTER_TAGLINE": "Créer des solutions élégantes à travers le code. Développeur full-stack passionné par la création d'applications web et mobiles innovantes.",
-        "MADE_WITH": "Fait avec",
+        "MADE_WITH_LOVE_BY": "Fait avec {{ LOVE }} par {{ NAME }}",
         "PRIVACY_POLICY": "Politique de Confidentialité",
         "SITE_MAP": "Plan du Site",
         "TERMS_OF_USE": "Conditions d'Utilisation"
@@ -61,6 +61,5 @@
         "MY_TECHNICAL_SKILLS": "Mes Compétences Techniques",
         "SKILLS": "Compétences",
         "TECHNICAL_SKILLS_MASTERED": "Compétences techniques maîtrisées"
-    },
-    "GREETING": "Hello, {{name}}!"
+    }
 }

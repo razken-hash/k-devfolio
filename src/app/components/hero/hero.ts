@@ -46,13 +46,13 @@ export class Hero {
     delay: Math.random() * 5
   }));
 
-  constructor(private translate: TranslateService, private sanitizer: DomSanitizer, private lowerCasePipe: LowerCasePipe) { }
+  constructor(private translateService: TranslateService, private sanitizer: DomSanitizer, private lowerCasePipe: LowerCasePipe) { }
 
   get heroTagHtml() {
-    const modern = this.translate.instant('HERO.MODERN_WEB_APPS');
-    const exceptional = this.translate.instant('HERO.EXCEPTIONAL_USER_EXPERIENCE');
+    const modern = this.translateService.instant('HERO.MODERN_WEB_APPS');
+    const exceptional = this.translateService.instant('HERO.EXCEPTIONAL_USER_EXPERIENCE');
 
-    return this.translate.instant('HERO.HERO_TAG', {
+    return this.translateService.instant('HERO.HERO_TAG', {
       MODERN_WEB_APPS: `<span class="text-lime-400 font-semibold">${this.lowerCasePipe.transform(modern)}</span>`,
       EXCEPTIONAL_USER_EXPERIENCE: `<span class="text-lime-400 font-semibold">${this.lowerCasePipe.transform(exceptional)}</span>`
     }) + ".";

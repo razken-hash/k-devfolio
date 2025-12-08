@@ -34,7 +34,6 @@ export class Header {
   isDarkMode = true;
   mobileMenuOpen = false;
   languageMenuOpen = false;
-  currentLanguage = 'FR';
 
   faMoon = faMoon;
   faSun = faSun;
@@ -63,10 +62,8 @@ export class Header {
     this.languageMenuOpen = !this.languageMenuOpen;
   }
 
-  selectLanguage(code: string): void {
-    this.currentLanguage = code;
-    this.languageMenuOpen = false;
-    console.log('Language changed to:', code);
+  get currentLanguage(): string {
+    return this.languageService.currentLanguage.code;
   }
 
   @HostListener('document:click', ['$event'])
@@ -116,6 +113,12 @@ export class Header {
 
     // Already on `/`, just scroll
     doScroll();
+  }
+
+
+  changeLanguage(code: string) {
+    this.languageService.setLanguage(code);
+    this.toggleLanguageMenu();
   }
 
 }

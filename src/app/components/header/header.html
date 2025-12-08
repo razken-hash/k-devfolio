@@ -48,20 +48,20 @@
                         class="h-10 px-3 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center gap-2 transition-all duration-300 border border-white/20 hover:border-lime-400/50 group"
                         aria-label="Change language">
                         <fa-icon [icon]="faGlobe" class="text-lime-400"></fa-icon>
-                        <span class="text-white text-sm font-semibold">{{ currentLanguage }}</span>
+                        <span class="text-white text-sm font-semibold">{{ currentLanguage | uppercase }}</span>
                     </button>
 
                     <!-- Language Dropdown -->
                     <div *ngIf="languageMenuOpen" id="language-menu"
                         class="absolute top-full mt-2 right-0 bg-emerald-900/95 backdrop-blur-md border border-white/20 rounded-xl shadow-2xl overflow-hidden min-w-[180px] animate-fade-in">
-                        <button *ngFor="let language of availableLanguages" (click)="selectLanguage(language.code)"
+                        <button *ngFor="let language of availableLanguages" (click)="changeLanguage(language.code)"
                             [class]="currentLanguage === language.code 
                                 ? 'bg-lime-400/20 text-lime-400' 
                                 : 'text-gray-200 hover:bg-white/10 hover:text-lime-400'"
                             class="w-full px-4 py-3 flex items-center gap-3 transition-all duration-200">
                             <span class="text-xl">{{ language.flag }}</span>
                             <div class="flex flex-col items-start">
-                                <span class="text-sm font-semibold">{{ language.code }}</span>
+                                <span class="text-sm font-semibold">{{ language.code | uppercase}}</span>
                                 <span class="text-xs opacity-80">{{ language.name }}</span>
                             </div>
                             <svg *ngIf="currentLanguage === language.code" class="w-4 h-4 ml-auto" fill="currentColor"
@@ -108,7 +108,7 @@
             <div class="px-4 py-2">
                 <p class="text-xs text-gray-400 mb-2">Langue</p>
                 <div class="flex gap-2">
-                    <button *ngFor="let language of availableLanguages" (click)="selectLanguage(language.code)" [class]="currentLanguage === language.code 
+                    <button *ngFor="let language of availableLanguages" (click)="changeLanguage(language.code)" [class]="currentLanguage === language.code 
                             ? 'bg-lime-400 text-emerald-950' 
                             : 'bg-white/10 text-white hover:bg-white/20'"
                         class="flex-1 px-3 py-2 rounded-lg text-sm font-semibold transition-all">

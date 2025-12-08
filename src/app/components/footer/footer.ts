@@ -9,7 +9,7 @@ import { NavigationLinksService } from '../../services/navigation-links-service'
 import { LanguageService } from '../../services/language-service';
 import { Technology } from '../../models/technology.model';
 import { Router } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -27,7 +27,7 @@ export class Footer {
   naivigationLinks: NavigationLink[];
   accountsLinks: NavigationLink[];
 
-  constructor(private navigationLinksService: NavigationLinksService, private languageService: LanguageService, private router: Router) {
+  constructor(private tranlsateService: TranslateService, private navigationLinksService: NavigationLinksService, private languageService: LanguageService, private router: Router) {
     this.naivigationLinks = this.navigationLinksService.navigationLinks;
     this.accountsLinks = this.navigationLinksService.accountsLinks;
   }
@@ -72,6 +72,13 @@ export class Footer {
 
     // Already on `/`, just scroll
     doScroll();
+  }
+
+  get getMadeWithLoveByText(): string {
+    return this.tranlsateService.instant('FOOTER.MADE_WITH_LOVE_BY', {
+      NAME: '<span class="text-lime-400 font-bold">KENNICHE ABDERRAZAK</span>',
+      LOVE: '<span class="text-lime-400">♥</span>'
+    });
   }
 
 }

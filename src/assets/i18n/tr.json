@@ -30,7 +30,7 @@
         "ALL_RIGHTS_RESERVED": "Tüm hakları saklıdır",
         "BUILT_WITH": "Şununla oluşturuldu",
         "FOOTER_TAGLINE": "Kod aracılığıyla zarif çözümler üretiyorum. Yenilikçi web ve mobil uygulamalar geliştirmeye tutkuyla bağlı full-stack geliştirici.",
-        "MADE_WITH": "İle yapıldı",
+        "MADE_WITH_LOVE_BY": "{{ NAME }} tarafından {{ LOVE }} ile yapıldı",
         "PRIVACY_POLICY": "Gizlilik politikası",
         "SITE_MAP": "Site haritası",
         "TERMS_OF_USE": "Kullanım şartları"
@@ -61,6 +61,5 @@
         "MY_TECHNICAL_SKILLS": "Teknik becerilerim",
         "SKILLS": "Beceriler",
         "TECHNICAL_SKILLS_MASTERED": "Uzman olunan teknik beceriler"
-    },
-    "GREETING": "Hello, {{name}}!"
+    }
 }

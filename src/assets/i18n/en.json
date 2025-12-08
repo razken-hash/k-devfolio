@@ -30,7 +30,7 @@
         "ALL_RIGHTS_RESERVED": "All rights reserved",
         "BUILT_WITH": "Built with",
         "FOOTER_TAGLINE": "Creating elegant solutions through code. Full-stack developer passionate about building innovative web and mobile applications.",
-        "MADE_WITH": "Made with",
+        "MADE_WITH_LOVE_BY": "Made with {{ LOVE }} by {{ NAME }}",
         "PRIVACY_POLICY": "Privacy policy",
         "SITE_MAP": "Site map",
         "TERMS_OF_USE": "Terms of use"
@@ -61,6 +61,5 @@
         "MY_TECHNICAL_SKILLS": "My technical skills",
         "SKILLS": "Skills",
         "TECHNICAL_SKILLS_MASTERED": "Mastered technical skills"
-    },
-    "GREETING": "Hello, {{name}}!"
+    }
 }
