@@ -1,6 +1,25 @@
 {
     "BLOG": {
-        "BLOG": "Blog"
+        "ARTICLE": "Article",
+        "ARTICLE_NOT_EXIST": "L'article que vous recherchez n'existe pas.",
+        "ARTICLE_NOT_FOUND": "Article introuvable",
+        "ARTICLES": "Articles",
+        "BACK_TO_ARTICLES": "Retour aux articles",
+        "BACK_TO_BLOG": "Retour au blog",
+        "BLOG": "Blog",
+        "COMING_SOON": "Quelque chose de magique arrive !",
+        "DID_YOU_LIKE": "Vous avez aimé cet article ?",
+        "DISCOVER_ARTICLES": "Découvrez mes articles sur le développement web, mobile et les technologies modernes.",
+        "DISCOVER_MORE_ARTICLES": "Découvrir plus d'articles",
+        "LOADING_ARTICLE": "Chargement de l'article",
+        "MINUTES_TO_READ": "min de lecture",
+        "NO_ARTICLES_FOUND": "Aucun article trouvé",
+        "PREPARING_CONTENT": "Nous préparons un contenu exceptionnel à partager avec vous. Restez à l'écoute pour découvrir des insights sur le développement web, les applications mobiles et les technologies modernes.",
+        "READ_ARTICLE": "Lire l'article",
+        "REFRESH": "Actualiser",
+        "SEARCH_ARTICLE": "Rechercher un article",
+        "TRY_OTHER_KEYWORDS": "Essayez d'autres mots-clés ou filtres",
+        "TUTORIALS": "Tutoriels"
     },
     "CONTACT": {
         "AVERAGE_RESPONSE_TIME": "Temps de réponse moyen",
@@ -59,10 +78,11 @@
         "USE_NAVIGATION": "Utilisez la navigation ci-dessus pour revenir en terrain connu."
     },
     "OTHERS": {
-        "BY": "Par",
+        "BY_ENTITY": "Par {{ ENTITY }}",
         "NAVIGATION": "Navigation",
         "OOPS": "Oups !",
         "PRESENT": "En cours",
+        "SHARE": "Partager",
         "TIP": "Astuce :"
     },
     "PROJECTS": {
@@ -75,5 +95,19 @@
         "MY_TECHNICAL_SKILLS": "Mes Compétences Techniques",
         "SKILLS": "Compétences",
         "TECHNICAL_SKILLS_MASTERED": "Compétences techniques maîtrisées"
+    },
+    "TIME": {
+        "DAY": "Jour",
+        "DAYS": "Jours",
+        "HOUR": "Heure",
+        "HOURS": "Heures",
+        "MINUTE": "Minute",
+        "MINUTES": "Minutes",
+        "MONTH": "Mois",
+        "MONTHS": "Mois",
+        "SECOND": "Seconde",
+        "SECONDS": "Secondes",
+        "YEAR": "Année",
+        "YEARS": "Années"
     }
 }

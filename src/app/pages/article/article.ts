@@ -19,11 +19,13 @@ import { Meta, Title } from '@angular/platform-browser';
 import { Header } from '../../components/header/header';
 import { ArticlesService } from '../../services/articles-service';
 import { MarkdownConverterService } from '../../services/markdown-converter-service';
+import { LanguageService } from '../../services/language-service';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 
 @Component({
   selector: 'app-article',
-  imports: [CommonModule, RouterModule, FontAwesomeModule, Header],
+  imports: [CommonModule, RouterModule, FontAwesomeModule, Header, TranslateModule],
   templateUrl: './article.html',
 })
 export class ArticleComponent implements OnInit {
@@ -45,6 +47,8 @@ export class ArticleComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private articlesService: ArticlesService,
     private markdownConverter: MarkdownConverterService,
+    private translateService: TranslateService,
+    private languageService: LanguageService,
     private meta: Meta,
     private title: Title
   ) { }
@@ -83,7 +87,6 @@ export class ArticleComponent implements OnInit {
     });
   }
 
-
   updateMetaTags(): void {
     if (this.article) {
       this.title.setTitle(`${this.article.title} | Blog`);
@@ -97,12 +100,7 @@ export class ArticleComponent implements OnInit {
   }
 
   formatDate(dateString: string): string {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('fr-FR', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
+    return this.languageService.formatDate(dateString);
   }
 
   toggleShareMenu(): void {
@@ -134,5 +132,15 @@ export class ArticleComponent implements OnInit {
   copyLink(): void {
     navigator.clipboard.writeText(window.location.href);
     alert('Lien copié!');
+  }
+
+
+  get getMadeWithLoveByText(): string {
+
+    const author = this.article!.author || this.translateService.instant('HERO.KENNICHE_ABDERRAZAK');
+
+    return this.translateService.instant('OTHERS.BY_ENTITY', {
+      ENTITY: '<span class="text-lime-400 font-semibold" > ' + author + '</span>',
+    });
   }
 }

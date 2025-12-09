@@ -21,10 +21,10 @@
                     BLOG
                 </p>
                 <h1 class="text-5xl md:text-6xl font-bold text-white mb-4">
-                    Articles & Tutoriels
+                    {{ 'BLOG.ARTICLES' | translate }} & {{ 'BLOG.TUTORIALS' | translate }}
                 </h1>
                 <p class="text-gray-300 text-lg max-w-2xl mx-auto">
-                    Découvrez mes articles sur le développement web, mobile et les technologies modernes
+                    {{ 'BLOG.DISCOVER_ARTICLES' | translate }}
                 </p>
             </div>
 
@@ -45,22 +45,21 @@
                 <div class="mb-8">
                     <h2
                         class="text-6xl md:text-5xl font-bold bg-gradient-to-r from-lime-400 via-emerald-400 to-lime-300 bg-clip-text text-transparent mb-4 leading-tight animate-pulse">
-                        Quelque chose de magique arrive !
+                        {{ 'BLOG.COMING_SOON' | translate }}
                     </h2>
                     <div class="h-1 w-24 bg-gradient-to-r from-lime-400 to-emerald-400 mx-auto rounded-full"></div>
                 </div>
 
                 <!-- Subtitle -->
                 <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-                    Nous préparons un contenu exceptionnel à partager avec vous. Restez à l'écoute pour découvrir des
-                    insights sur le développement web, les applications mobiles et les technologies modernes.
+                    {{ 'BLOG.PREPARING_CONTENT' | translate }}
                 </p>
 
                 <!-- Call to Action -->
                 <div
                     class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-lime-400 to-emerald-400 text-emerald-950 rounded-xl font-semibold hover:shadow-lg hover:shadow-lime-400/50 transition-all cursor-pointer hover:scale-105">
                     <fa-icon [icon]="faRefresh"></fa-icon>
-                    <span>Actualiser</span>
+                    <span>{{ 'BLOG.REFRESH' | translate }}</span>
                 </div>
             </div>
 
@@ -71,7 +70,8 @@
                     <div class="relative">
                         <fa-icon [icon]="faSearch"
                             class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></fa-icon>
-                        <input type="text" (input)="onSearch($event)" placeholder="Rechercher un article..."
+                        <input type="text" (input)="onSearch($event)"
+                            placeholder="{{ 'BLOG.SEARCH_ARTICLE' | translate }}..."
                             class="w-full bg-white/5 border border-white/20 text-white placeholder-gray-400 pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-lime-400 focus:border-transparent transition-all" />
                     </div>
                 </div>
@@ -112,7 +112,8 @@
                             </div>
                             <div class="flex items-center gap-1" *ngIf="article.readingTime">
                                 <fa-icon [icon]="faClock"></fa-icon>
-                                <span>{{ article.readingTime }} min</span>
+                                <span>{{ article.readingTime }} {{ 'TIME.MINUTES' | translate | lowercase | slice:0:3
+                                    }}</span>
                             </div>
                         </div>
 
@@ -137,7 +138,7 @@
 
                         <!-- Read More -->
                         <div class="flex items-center text-lime-400 font-medium group-hover:gap-2 transition-all">
-                            <span>Lire l'article</span>
+                            <span>{{ 'BLOG.READ_ARTICLE' | translate }}</span>
                             <fa-icon [icon]="faArrowRight"
                                 class="ml-2 group-hover:translate-x-1 transition-transform"></fa-icon>
                         </div>
@@ -148,8 +149,8 @@
             <!-- No Results (Search returned nothing) -->
             <div *ngIf="articles.length > 0 && filteredArticles.length === 0" class="text-center py-20">
                 <div class="text-6xl mb-4">📝</div>
-                <h3 class="text-2xl font-bold text-white mb-2">Aucun article trouvé</h3>
-                <p class="text-gray-400">Essayez d'autres mots-clés ou filtres</p>
+                <h3 class="text-2xl font-bold text-white mb-2">{{ 'BLOG.NO_ARTICLES_FOUND' | translate }}</h3>
+                <p class="text-gray-400">{{ 'BLOG.TRY_OTHER_KEYWORDS' | translate}}</p>
             </div>
         </div>
     </section>

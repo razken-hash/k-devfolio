@@ -17,7 +17,7 @@
                 <div
                     class="w-16 h-16 border-4 border-lime-400 border-t-transparent rounded-full animate-spin mx-auto mb-4">
                 </div>
-                <p class="text-gray-300">Chargement de l'article...</p>
+                <p class="text-gray-300">{{ 'BLOG.LOADING_ARTICLE' | translate }}...</p>
             </div>
 
             <!-- Article Content -->
@@ -27,7 +27,7 @@
                 <a routerLink="/blog"
                     class="inline-flex items-center gap-2 text-lime-400 hover:text-lime-300 transition-colors group">
                     <fa-icon [icon]="faArrowLeft" class="group-hover:-translate-x-1 transition-transform"></fa-icon>
-                    <span>Retour aux articles</span>
+                    <span>{{ 'BLOG.BACK_TO_ARTICLES' | translate }}</span>
                 </a>
 
                 <!-- Article Header -->
@@ -53,17 +53,19 @@
                         </div>
                         <div class="flex items-center gap-2" *ngIf="article.readingTime">
                             <fa-icon [icon]="faClock"></fa-icon>
-                            <span>{{ article.readingTime }} min de lecture</span>
+                            <span>{{ article.readingTime }} {{ 'BLOG.MINUTES_TO_READ' | translate }}</span>
                         </div>
-                        <div *ngIf="article.author" class="flex items-center gap-2">
-                            <span>Par</span>
-                            <span class="text-lime-400 font-semibold">{{ article.author }}</span>
-                        </div>
+                        <!-- <div *ngIf="article.author" class="flex items-center gap-2"> -->
+                        <!-- <span>{{ 'OTHERS.BY' | translate }}</span>
+                            <span class="text-lime-400 font-semibold">{{ article.author }}</span> -->
+                        <!-- <span [innerHTML]="getMadeWithLoveByText"></span> -->
+                        <!-- </div> -->
+                        <span [innerHTML]="getMadeWithLoveByText"></span>
                     </div>
 
                     <!-- Share Buttons -->
                     <div class="flex items-center gap-4 pt-4 border-t border-white/10">
-                        <span class="text-gray-400 text-sm">Partager:</span>
+                        <span class="text-gray-400 text-sm">{{ 'OTHERS.SHARE' | translate }}:</span>
                         <div class="flex gap-2">
                             <button (click)="shareOn('twitter')"
                                 class="w-10 h-10 rounded-lg bg-white/5 hover:bg-lime-400 flex items-center justify-center text-gray-300 hover:text-emerald-950 transition-all"
@@ -103,10 +105,10 @@
 
                 <!-- Article Footer -->
                 <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
-                    <p class="text-gray-300 mb-4">Vous avez aimé cet article ?</p>
+                    <p class="text-gray-300 mb-4">{{ 'BLOG.DID_YOU_LIKE' | translate }}</p>
                     <a routerLink="/blog"
                         class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-lime-400 to-emerald-400 rounded-xl text-emerald-950 font-bold hover:from-lime-500 hover:to-emerald-500 transition-all">
-                        Découvrir plus d'articles
+                        {{ 'BLOG.DISCOVER_MORE_ARTICLES' | translate }}
                     </a>
                 </div>
             </article>
@@ -114,12 +116,12 @@
             <!-- Article Not Found -->
             <div *ngIf="!loading && !article" class="text-center py-20">
                 <div class="text-6xl mb-4">📄</div>
-                <h2 class="text-3xl font-bold text-white mb-2">Article introuvable</h2>
-                <p class="text-gray-400 mb-6">L'article que vous recherchez n'existe pas.</p>
+                <h2 class="text-3xl font-bold text-white mb-2">{{ 'BLOG.ARTICLE_NOT_FOUND' | translate }}</h2>
+                <p class="text-gray-400 mb-6">{{ 'BLOG.ARTICLE_NOT_EXIST' | translate }}</p>
                 <a routerLink="/blog"
                     class="inline-flex items-center gap-2 px-6 py-3 bg-lime-400 text-emerald-950 rounded-xl font-bold hover:bg-lime-500 transition-all">
                     <fa-icon [icon]="faArrowLeft"></fa-icon>
-                    Retour au blog
+                    {{ 'BLOG.BACK_TO_BLOG' | translate }}
                 </a>
             </div>
         </div>

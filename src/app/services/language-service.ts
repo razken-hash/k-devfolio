@@ -12,7 +12,6 @@ export class LanguageService {
     { code: 'en', name: 'English', flag: '🇬🇧' },
     { code: 'es', name: 'Español', flag: '🇪🇸' },
     { code: 'tr', name: 'Türkçe', flag: '🇹🇷' },
-    { code: 'ar', name: 'العربية', flag: '🇩🇿' },
   ];
 
   currentLanguage: Language = this.languages[0];
@@ -29,5 +28,18 @@ export class LanguageService {
       this.currentLanguage = lang;
       this.translate.use(code); // update ngx-translate language
     }
+  }
+
+  getCurrentLanguageCode(): string {
+    return this.currentLanguage.code;
+  }
+
+  formatDate(dateString: string): string {
+    const date = new Date(dateString);
+    return date.toLocaleDateString(this.currentLanguage.code + "-" + this.currentLanguage.code.toUpperCase(), {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
   }
 }

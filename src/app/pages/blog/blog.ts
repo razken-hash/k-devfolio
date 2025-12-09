@@ -17,16 +17,18 @@ import {
 import { Header } from '../../components/header/header';
 import { ArticlesService } from '../../services/articles-service';
 import { Footer } from '../../components/footer/footer';
+import { TranslateModule } from '@ngx-translate/core';
+import { LanguageService } from '../../services/language-service';
 
 @Component({
   selector: 'app-blog',
-  imports: [CommonModule, RouterModule, FontAwesomeModule, Header, Footer],
+  imports: [CommonModule, RouterModule, FontAwesomeModule, Header, Footer, TranslateModule],
   templateUrl: './blog.html',
   styles: ``,
 })
 export class Blog {
 
-  constructor(private http: HttpClient, private articlesService: ArticlesService) { }
+  constructor(private http: HttpClient, private articlesService: ArticlesService, private languageService: LanguageService) { }
 
   faCalendar = faCalendar;
   faClock = faClock;
@@ -87,11 +89,6 @@ export class Blog {
   }
 
   formatDate(dateString: string): string {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('fr-FR', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
+    return this.languageService.formatDate(dateString);
   }
 }

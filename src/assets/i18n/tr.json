@@ -1,6 +1,25 @@
 {
     "BLOG": {
-        "BLOG": "Blog"
+        "ARTICLE": "Makale",
+        "ARTICLE_NOT_EXIST": "Aradığınız makale mevcut değil.",
+        "ARTICLE_NOT_FOUND": "Makale bulunamadı",
+        "ARTICLES": "Makaleler",
+        "BACK_TO_ARTICLES": "Makale listesine dön",
+        "BACK_TO_BLOG": "Bloga dön",
+        "BLOG": "Blog",
+        "COMING_SOON": "Sihirli bir şey geliyor!",
+        "DID_YOU_LIKE": "Bu makaleyi beğendiniz mi?",
+        "DISCOVER_ARTICLES": "Web geliştirme, mobil geliştirme ve modern teknolojiler üzerine makalelerimi keşfedin.",
+        "DISCOVER_MORE_ARTICLES": "Daha fazla makale keşfedin",
+        "LOADING_ARTICLE": "Makale yükleniyor",
+        "MINUTES_TO_READ": "dk okuma",
+        "NO_ARTICLES_FOUND": "Hiç makale bulunamadı",
+        "PREPARING_CONTENT": "Sizinle paylaşmak için olağanüstü içerikler hazırlıyoruz. Web geliştirme, mobil uygulamalar ve modern teknolojiler hakkında içgörüler keşfetmek için bizi takip etmeye devam edin.",
+        "READ_ARTICLE": "Makaleyi oku",
+        "REFRESH": "Yenile",
+        "SEARCH_ARTICLE": "Makale ara",
+        "TRY_OTHER_KEYWORDS": "Başka anahtar kelimeler veya filtreler deneyin",
+        "TUTORIALS": "Eğitimler"
     },
     "CONTACT": {
         "AVERAGE_RESPONSE_TIME": "Ortalama yanıt süresi",
@@ -59,10 +78,11 @@
         "USE_NAVIGATION": "Yukarıdaki gezinmeyi kullanarak tekrar tanıdık bir alana dönebilirsiniz."
     },
     "OTHERS": {
-        "BY": "Tarafından",
+        "BY_ENTITY": "{{ ENTITY }} Tarafından",
         "NAVIGATION": "Navigasyon",
         "OOPS": "Hata!",
         "PRESENT": "Devam ediyor",
+        "SHARE": "Paylaş",
         "TIP": "İpucu:"
     },
     "PROJECTS": {
@@ -75,5 +95,19 @@
         "MY_TECHNICAL_SKILLS": "Teknik becerilerim",
         "SKILLS": "Beceriler",
         "TECHNICAL_SKILLS_MASTERED": "Uzman olunan teknik beceriler"
+    },
+    "TIME": {
+        "DAY": "Gün",
+        "DAYS": "Günler",
+        "HOUR": "Saat",
+        "HOURS": "Saatler",
+        "MINUTE": "Dakika",
+        "MINUTES": "Dakikalar",
+        "MONTH": "Ay",
+        "MONTHS": "Aylar",
+        "SECOND": "Saniye",
+        "SECONDS": "Saniyeler",
+        "YEAR": "Yıl",
+        "YEARS": "Yıllar"
     }
 }
