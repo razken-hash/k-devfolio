@@ -49,10 +49,21 @@
         "SOFTWARE_ENGINEER": "Yazılım mühendisi",
         "VIEW_CV": "CV'yi görüntüle"
     },
+    "NOT_FOUND": {
+        "BACK_HOME": "Ana Sayfaya Dön",
+        "DETAILS": "Aradığınız sayfa taşınmış, silinmiş veya hiç var olmamış olabilir.",
+        "GO_BACK": "Önceki Sayfa",
+        "NO_PANIC": "Panik yapmayın, birlikte diğer seçeneklere bakalım!",
+        "PAGE_NOT_EXIST": "Bu sayfa mevcut değil",
+        "PAGE_NOT_FOUND": "Sayfa Bulunamadı",
+        "USE_NAVIGATION": "Yukarıdaki gezinmeyi kullanarak tekrar tanıdık bir alana dönebilirsiniz."
+    },
     "OTHERS": {
         "BY": "Tarafından",
         "NAVIGATION": "Navigasyon",
-        "PRESENT": "Devam ediyor"
+        "OOPS": "Hata!",
+        "PRESENT": "Devam ediyor",
+        "TIP": "İpucu:"
     },
     "PROJECTS": {
         "MY_PROJECTS": "Projelerim",

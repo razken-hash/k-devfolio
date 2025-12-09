@@ -7,11 +7,12 @@ import {
   faHome,
   faArrowLeft,
 } from '@fortawesome/free-solid-svg-icons';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @Component({
   selector: 'app-not-found',
-  imports: [FormsModule, CommonModule, FontAwesomeModule, RouterModule],
+  imports: [FormsModule, CommonModule, FontAwesomeModule, RouterModule, TranslateModule],
   templateUrl: "./not-found.html",
 })
 export class NotFound {

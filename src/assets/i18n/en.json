@@ -49,10 +49,21 @@
         "SOFTWARE_ENGINEER": "Software engineer",
         "VIEW_CV": "View CV"
     },
+    "NOT_FOUND": {
+        "BACK_HOME": "Back to Home",
+        "DETAILS": "The page you are looking for may have been moved, deleted, or never existed.",
+        "GO_BACK": "Previous Page",
+        "NO_PANIC": "Don’t panic, let's explore other options together!",
+        "PAGE_NOT_EXIST": "This page does not exist",
+        "PAGE_NOT_FOUND": "Page Not Found",
+        "USE_NAVIGATION": "Use the navigation above to return to familiar ground."
+    },
     "OTHERS": {
         "BY": "By",
         "NAVIGATION": "Navigation",
-        "PRESENT": "Present"
+        "OOPS": "Oops!",
+        "PRESENT": "Present",
+        "TIP": "Tip:"
     },
     "PROJECTS": {
         "MY_PROJECTS": "My projects",
