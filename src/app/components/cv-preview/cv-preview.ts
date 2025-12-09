@@ -12,7 +12,8 @@ import {
   faChevronRight
 } from '@fortawesome/free-solid-svg-icons';
 import { SafeUrlPipe } from './safe-url.pipe';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { LanguageService } from '../../services/language-service';
 
 @Component({
   selector: 'app-cv-preview',
@@ -29,6 +30,8 @@ export class CvPreview {
   faSearchMinus = faSearchMinus;
   faChevronLeft = faChevronLeft;
   faChevronRight = faChevronRight;
+
+  constructor(private translateService: TranslateService, private languageService: LanguageService) { }
 
   showModal = false;
   viewMode: 'scroll' | 'dual' = 'scroll';
@@ -86,7 +89,7 @@ export class CvPreview {
   downloadCV(): void {
     const link = document.createElement('a');
     link.href = this.cvPdfUrl;
-    link.download = 'Kenniche_Abderrazak_CV.pdf';
+    link.download = 'KENNICHE_ABDERRAZAK_CV.pdf';
     link.click();
   }
 
@@ -95,5 +98,17 @@ export class CvPreview {
       'transform': `scale(${this.zoom / 100})`,
       'transform-origin': 'top center'
     };
+  }
+
+  formatCvInfo(format: string, size: number, date: string): string {
+    return this.translateService.instant('CV.FORMAT_SIZE_UPDATED', {
+      FORMAT: format,
+      SIZE: size,
+      DATE: date
+    });
+  }
+
+  get getCVInfo(): string {
+    return this.formatCvInfo('PDF', 200, this.languageService.formatDate(Date()));
   }
 }

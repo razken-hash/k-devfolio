@@ -40,6 +40,13 @@
         "YOUR_MESSAGE": "Votre Message",
         "YOUR_NAME": "Votre Nom"
     },
+    "CV": {
+        "DOWNLOAD_PDF": "Télécharger PDF",
+        "FORMAT_SIZE_UPDATED": "Format: {{ FORMAT }} • Taille: ~{{ SIZE }} KB • Dernière mise à jour: {{ DATE }}",
+        "MY_CV": "Mon CV",
+        "SCROLLING": "Défilement",
+        "TWO_PAGES": "Deux Pages"
+    },
     "EDUCATION": {
         "ACADEMIC_PATH": "Mon Parcours Académique",
         "EDUCATION": "Éducation",
@@ -64,6 +71,7 @@
         "HERO_TAG": "Développeur logiciel passionné, je conçois des {{ MODERN_WEB_APPS }} performantes et élégantes, pensées pour offrir une {{ EXCEPTIONAL_USER_EXPERIENCE }}",
         "HOME": "Accueil",
         "KENNICHE": "Kenniche",
+        "KENNICHE_ABDERRAZAK": "Kenniche Abderrazak",
         "MODERN_WEB_APPS": "Applications web modernes",
         "SOFTWARE_ENGINEER": "Software Engineer",
         "VIEW_CV": "Voir le CV"
@@ -92,7 +100,12 @@
         "PROJECTS": "Projets"
     },
     "SKILLS": {
-        "MY_TECHNICAL_SKILLS": "Mes Compétences Techniques",
+        "ALGORITHMS_AND_DATA_STRUCTURES": "Algorithmes et Structures de données",
+        "SOFTWARE_ARCHITECTURE": "Architecture Logicielle",
+        "DATABASES": "Base de données",
+        "METHODOLOGIES_AND_SOFTWARE_QUALITY": "Méthodologies et Qualité Logicielle",
+        "MY_TECHNICAL_SKILLS": "Mes compétences techniques",
+        "TOOLS_AND_TECHNOLOGIES": "Outils et Technologies",
         "SKILLS": "Compétences",
         "TECHNICAL_SKILLS_MASTERED": "Compétences techniques maîtrisées"
     },

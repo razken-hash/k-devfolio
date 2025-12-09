@@ -16,8 +16,9 @@
         <div
             class="bg-emerald-900/95 backdrop-blur-md border-b border-white/10 p-6 flex items-center justify-between rounded-t-2xl">
             <div>
-                <h2 class="text-3xl font-bold text-white">Mon CV</h2>
-                <p class="text-gray-300 text-sm mt-1">KENNICHE ABDERRAZAK - Software Developer</p>
+                <h2 class="text-3xl font-bold text-white">{{ 'CV.MY_CV' | translate }}</h2>
+                <p class="text-gray-300 text-sm mt-1">{{ 'HERO.KENNICHE_ABDERRAZAK' | translate | uppercase }} - {{
+                    'HERO.SOFTWARE_ENGINEER' | translate }}</p>
             </div>
             <button (click)="closeModal()"
                 class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
@@ -36,14 +37,14 @@
                         : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'"
                     class="flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all">
                     <fa-icon [icon]="faScroll"></fa-icon>
-                    <span class="hidden sm:inline">Défilement</span>
+                    <span class="hidden sm:inline">{{ 'CV.SCROLLING' | translate }}</span>
                 </button>
                 <button (click)="setViewMode('dual')" [class]="viewMode === 'dual' 
                         ? 'bg-lime-400 text-emerald-950' 
                         : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'"
                     class="flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all">
                     <fa-icon [icon]="faColumns"></fa-icon>
-                    <span class="hidden sm:inline">Deux Pages</span>
+                    <span class="hidden sm:inline">{{ 'CV.TWO_PAGES' | translate }}</span>
                 </button>
             </div>
 
@@ -63,7 +64,7 @@
             </div>
 
             <!-- Page Navigation (for dual mode) -->
-            <div *ngIf="viewMode === 'dual'" class="flex items-center gap-2">
+            <!-- <div *ngIf="viewMode === 'dual'" class="flex items-center gap-2">
                 <button (click)="prevPage()" [disabled]="currentPage <= 1"
                     class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
                     <fa-icon [icon]="faChevronLeft"></fa-icon>
@@ -75,13 +76,13 @@
                     class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
                     <fa-icon [icon]="faChevronRight"></fa-icon>
                 </button>
-            </div>
+            </div> -->
 
             <!-- Download Button -->
             <button (click)="downloadCV()"
                 class="flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-lime-400 to-emerald-400 rounded-lg text-emerald-950 font-bold hover:from-lime-500 hover:to-emerald-500 transition-all shadow-lg">
                 <fa-icon [icon]="faDownload"></fa-icon>
-                Télécharger PDF
+                {{ 'CV.DOWNLOAD_PDF' | translate }}
             </button>
         </div>
 
@@ -112,8 +113,7 @@
 
         <!-- Footer Info -->
         <div class="bg-emerald-900/50 border-t border-white/10 p-4 text-center rounded-b-2xl">
-            <p class="text-gray-300 text-sm">
-                Format: PDF • Taille: ~500 KB • Dernière mise à jour: Janvier 2025
+            <p class="text-gray-300 text-sm" [innerHTML]="getCVInfo">
             </p>
         </div>
     </div>

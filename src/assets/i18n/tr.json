@@ -40,6 +40,13 @@
         "YOUR_MESSAGE": "Mesajınız",
         "YOUR_NAME": "Adınız"
     },
+    "CV": {
+        "DOWNLOAD_PDF": "PDF İndir",
+        "FORMAT_SIZE_UPDATED": "Format: {{ FORMAT }} • Boyut: ~{{ SIZE }} KB • Son güncelleme: {{ DATE }}",
+        "MY_CV": "CV'im",
+        "SCROLLING": "Kaydırma",
+        "TWO_PAGES": "İki Sayfa"
+    },
     "EDUCATION": {
         "ACADEMIC_PATH": "Akademik yolculuğum",
         "EDUCATION": "Eğitim",
@@ -64,6 +71,7 @@
         "HERO_TAG": "Tutkulu bir yazılım geliştiricisi olarak, {{ EXCEPTIONAL_USER_EXPERIENCE }} sunmak için modern, yüksek performanslı ve {{ MODERN_WEB_APPS }} tasarlıyorum",
         "HOME": "Ana sayfa",
         "KENNICHE": "Kenniche",
+        "KENNICHE_ABDERRAZAK": "Kenniche Abderrazak",
         "MODERN_WEB_APPS": "Zarif Web Uygulamaları",
         "SOFTWARE_ENGINEER": "Yazılım mühendisi",
         "VIEW_CV": "CV'yi görüntüle"
@@ -92,9 +100,14 @@
         "PROJECTS": "Projeler"
     },
     "SKILLS": {
+        "ALGORITHMS_AND_DATA_STRUCTURES": "Algoritmalar ve Veri Yapıları",
+        "SOFTWARE_ARCHITECTURE": "Yazılım Mimarisi",
+        "DATABASES": "Veritabanları",
+        "METHODOLOGIES_AND_SOFTWARE_QUALITY": "Yazılım Kalitesi ve Metodolojileri",
         "MY_TECHNICAL_SKILLS": "Teknik becerilerim",
+        "TOOLS_AND_TECHNOLOGIES": "Araçlar ve Teknolojiler",
         "SKILLS": "Beceriler",
-        "TECHNICAL_SKILLS_MASTERED": "Uzman olunan teknik beceriler"
+        "TECHNICAL_SKILLS_MASTERED": "Uzmanlaşılan teknik beceriler"
     },
     "TIME": {
         "DAY": "Gün",

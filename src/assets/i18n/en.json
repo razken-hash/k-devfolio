@@ -40,6 +40,13 @@
         "YOUR_MESSAGE": "Your message",
         "YOUR_NAME": "Your name"
     },
+    "CV": {
+        "DOWNLOAD_PDF": "Download PDF",
+        "FORMAT_SIZE_UPDATED": "Format: {{ FORMAT }} • Size: ~{{ SIZE }} KB • Last updated: {{ DATE }}",
+        "MY_CV": "My CV",
+        "SCROLLING": "Scrolling",
+        "TWO_PAGES": "Two Pages"
+    },
     "EDUCATION": {
         "ACADEMIC_PATH": "My academic journey",
         "EDUCATION": "Education",
@@ -64,6 +71,7 @@
         "HERO_TAG": "Passionate software developer, I design modern, high-performance and {{ MODERN_WEB_APPS }}, crafted to deliver an {{ EXCEPTIONAL_USER_EXPERIENCE }}",
         "HOME": "Home",
         "KENNICHE": "Kenniche",
+        "KENNICHE_ABDERRAZAK": "Kenniche Abderrazak",
         "MODERN_WEB_APPS": "Elegant Web Applications",
         "SOFTWARE_ENGINEER": "Software engineer",
         "VIEW_CV": "View CV"
@@ -92,7 +100,12 @@
         "PROJECTS": "Projects"
     },
     "SKILLS": {
+        "ALGORITHMS_AND_DATA_STRUCTURES": "Algorithms and Data Structures",
+        "SOFTWARE_ARCHITECTURE": "Software Architecture",
+        "DATABASES": "Databases",
+        "METHODOLOGIES_AND_SOFTWARE_QUALITY": "Software Quality & Methodologies",
         "MY_TECHNICAL_SKILLS": "My technical skills",
+        "TOOLS_AND_TECHNOLOGIES": "Tools and Technologies",
         "SKILLS": "Skills",
         "TECHNICAL_SKILLS_MASTERED": "Mastered technical skills"
     },
