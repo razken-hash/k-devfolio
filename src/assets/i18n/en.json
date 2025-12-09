@@ -36,12 +36,15 @@
         "TERMS_OF_USE": "Terms of use"
     },
     "HERO": {
+        "ABDERRAZAK": "Abderrazak",
+        "ABDERRAZAK_KENNICHE": "Abderrazak Kenniche",
         "AVAILABLE_FOR_INTERNSHIP": "Available for an internship",
         "DISCOVER_BLOG": "Discover blog",
         "EXCEPTIONAL_USER_EXPERIENCE": "Exceptional User Experience",
         "FULL_STACK_DEVELOPER": "Full-stack developer",
         "HERO_TAG": "Passionate software developer, I design modern, high-performance and {{ MODERN_WEB_APPS }}, crafted to deliver an {{ EXCEPTIONAL_USER_EXPERIENCE }}",
         "HOME": "Home",
+        "KENNICHE": "Kenniche",
         "MODERN_WEB_APPS": "Elegant Web Applications",
         "SOFTWARE_ENGINEER": "Software engineer",
         "VIEW_CV": "View CV"

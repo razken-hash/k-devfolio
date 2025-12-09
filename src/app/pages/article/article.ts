@@ -42,7 +42,7 @@ export class ArticleComponent implements OnInit {
   showShareMenu: boolean = false;
 
   constructor(
-    private route: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private articlesService: ArticlesService,
     private markdownConverter: MarkdownConverterService,
     private meta: Meta,
@@ -50,7 +50,7 @@ export class ArticleComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
+    this.activatedRoute.params.subscribe(params => {
       const articleId = params['articleId'];
       this.loadArticle(articleId);
     });

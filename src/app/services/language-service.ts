@@ -11,7 +11,8 @@ export class LanguageService {
     { code: 'fr', name: 'Français', flag: '🇫🇷' },
     { code: 'en', name: 'English', flag: '🇬🇧' },
     { code: 'es', name: 'Español', flag: '🇪🇸' },
-    { code: 'tr', name: 'Türkçe', flag: '🇹🇷' }
+    { code: 'tr', name: 'Türkçe', flag: '🇹🇷' },
+    { code: 'ar', name: 'العربية', flag: '🇩🇿' },
   ];
 
   currentLanguage: Language = this.languages[0];

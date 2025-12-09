@@ -36,12 +36,15 @@
         "TERMS_OF_USE": "Conditions d'Utilisation"
     },
     "HERO": {
+        "ABDERRAZAK": "Abderrazak",
+        "ABDERRAZAK_KENNICHE": "Abderrazak Kenniche",
         "AVAILABLE_FOR_INTERNSHIP": "Disponible pour un stage",
         "DISCOVER_BLOG": "Discover Blog",
         "EXCEPTIONAL_USER_EXPERIENCE": "Expérience utilisateur exceptionnelle",
         "FULL_STACK_DEVELOPER": "FULL-STACK DEVELOPER",
         "HERO_TAG": "Développeur logiciel passionné, je conçois des {{ MODERN_WEB_APPS }} performantes et élégantes, pensées pour offrir une {{ EXCEPTIONAL_USER_EXPERIENCE }}",
         "HOME": "Accueil",
+        "KENNICHE": "Kenniche",
         "MODERN_WEB_APPS": "Applications web modernes",
         "SOFTWARE_ENGINEER": "Software Engineer",
         "VIEW_CV": "Voir le CV"

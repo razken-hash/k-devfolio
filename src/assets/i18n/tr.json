@@ -36,12 +36,15 @@
         "TERMS_OF_USE": "Kullanım şartları"
     },
     "HERO": {
+        "ABDERRAZAK": "Abderrazak",
+        "ABDERRAZAK_KENNICHE": "Abderrazak Kenniche",
         "AVAILABLE_FOR_INTERNSHIP": "Staj için uygun",
         "DISCOVER_BLOG": "Blogu keşfet",
         "EXCEPTIONAL_USER_EXPERIENCE": "Olağanüstü Kullanıcı Deneyimi",
         "FULL_STACK_DEVELOPER": "Full-stack geliştirici",
         "HERO_TAG": "Tutkulu bir yazılım geliştiricisi olarak, {{ EXCEPTIONAL_USER_EXPERIENCE }} sunmak için modern, yüksek performanslı ve {{ MODERN_WEB_APPS }} tasarlıyorum",
         "HOME": "Ana sayfa",
+        "KENNICHE": "Kenniche",
         "MODERN_WEB_APPS": "Zarif Web Uygulamaları",
         "SOFTWARE_ENGINEER": "Yazılım mühendisi",
         "VIEW_CV": "CV'yi görüntüle"

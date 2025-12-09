@@ -23,10 +23,14 @@ bootstrapApplication(App, {
         prefix: '/assets/i18n/',
         suffix: '.json'
       }),
-      fallbackLang: 'fr',
-      lang: 'es'
-    })
+      fallbackLang: 'en',
+      lang: 'en'
+    }),
   ],
 });
 
+
+function provideDirectionality(arg0: () => string): import("@angular/core").Provider | import("@angular/core").EnvironmentProviders {
+  throw new Error('Function not implemented.');
+}
 
