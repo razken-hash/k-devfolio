@@ -9,41 +9,42 @@ import { MarkdownConverterService } from './markdown-converter-service';
   providedIn: 'root'
 })
 export class ArticlesService {
-  private articles: Article[] = [
-    {
-      id: 'getting-started-angular',
-      title: 'Getting Started with Angular 19',
-      description: 'Un guide complet pour débuter avec Angular 18, couvrant les nouveautés et les meilleures pratiques.',
-      date: '2025-01-15',
-      file: 'assets/articles/getting-started-angular/getting-started-angular.md',
-      author: 'KENNICHE ABDERRAZAK',
-      tags: ['Angular', 'TypeScript', 'Frontend'],
-      coverImage: 'assets/articles/getting-started-angular/images/getting-started-angular.webp',
-      readingTime: 8,
-    },
-    {
-      id: 'spring-boot-microservices',
-      title: 'Microservices avec Spring Boot',
-      description: 'Architecture microservices moderne avec Spring Boot, Docker et Kubernetes.',
-      date: '2025-01-10',
-      file: 'assets/articles/spring-boot-microservices/spring-boot-microservices.md',
-      author: 'KENNICHE ABDERRAZAK',
-      tags: ['Spring Boot', 'Microservices', 'Backend'],
-      coverImage: 'assets/articles/spring-boot-microservices/images/spring-boot-microservices.webp',
-      readingTime: 10,
-    },
-    {
-      id: 'flutter-state-management',
-      title: 'State Management dans Flutter',
-      description: 'Comparaison des solutions de gestion d\'état dans Flutter : BLoC, Provider, Riverpod.',
-      date: '2025-01-05',
-      file: 'assets/articles/flutter-state-management/flutter-state-management.md',
-      author: 'KENNICHE ABDERRAZAK',
-      tags: ['Flutter', 'Dart', 'Mobile'],
-      coverImage: 'assets/articles/flutter-state-management/images/flutter-state-management.webp',
-      readingTime: 7,
-    },
-  ];
+  private articles: Article[] = [];
+  // [
+  //   {
+  //     id: 'getting-started-angular',
+  //     title: 'Getting Started with Angular 19',
+  //     description: 'Un guide complet pour débuter avec Angular 18, couvrant les nouveautés et les meilleures pratiques.',
+  //     date: '2025-01-15',
+  //     file: 'assets/articles/getting-started-angular/getting-started-angular.md',
+  //     author: 'KENNICHE ABDERRAZAK',
+  //     tags: ['Angular', 'TypeScript', 'Frontend'],
+  //     coverImage: 'assets/articles/getting-started-angular/images/getting-started-angular.webp',
+  //     readingTime: 8,
+  //   },
+  //   {
+  //     id: 'spring-boot-microservices',
+  //     title: 'Microservices avec Spring Boot',
+  //     description: 'Architecture microservices moderne avec Spring Boot, Docker et Kubernetes.',
+  //     date: '2025-01-10',
+  //     file: 'assets/articles/spring-boot-microservices/spring-boot-microservices.md',
+  //     author: 'KENNICHE ABDERRAZAK',
+  //     tags: ['Spring Boot', 'Microservices', 'Backend'],
+  //     coverImage: 'assets/articles/spring-boot-microservices/images/spring-boot-microservices.webp',
+  //     readingTime: 10,
+  //   },
+  //   {
+  //     id: 'flutter-state-management',
+  //     title: 'State Management dans Flutter',
+  //     description: 'Comparaison des solutions de gestion d\'état dans Flutter : BLoC, Provider, Riverpod.',
+  //     date: '2025-01-05',
+  //     file: 'assets/articles/flutter-state-management/flutter-state-management.md',
+  //     author: 'KENNICHE ABDERRAZAK',
+  //     tags: ['Flutter', 'Dart', 'Mobile'],
+  //     coverImage: 'assets/articles/flutter-state-management/images/flutter-state-management.webp',
+  //     readingTime: 7,
+  //   },
+  // ];
 
   constructor(private http: HttpClient) { }
 
