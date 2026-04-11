@@ -53,17 +53,14 @@
             </div>
 
             <!-- Profile image with enhanced styling -->
-            <div class="relative z-10 group">
+            <div class="relative z-10  w-[28rem] h-[28rem] group">
                 <img src="assets/images/kenniche.png" alt="KENNICHE ABDERRAZAK - Software Developer"
-                    class="rounded-full w-[28rem] h-[28rem] object-scale-down shadow-2xl border-4 border-lime-400/30 group-hover:border-lime-400/50 group-hover:scale-[1.02] transition-all duration-700" />
-
-                <!-- <div
-                    class="bg-[url('assets/images/kenniche.png')] rounded-full w-[28rem] h-[28rem] bg-scale-down object-scale-down shadow-2xl border-4 border-lime-400/30 group-hover:border-lime-400/50 group-hover:scale-[1.02] transition-all duration-700">
-                </div> -->
+                    class="rounded-full w-full h-full object-scale-down shadow-2xl border-4 border-lime-400/30 group-hover:border-lime-400/50 group-hover:scale-[1.02] transition-all duration-700" />
 
                 <!-- Floating badge with pulse animation -->
-                <div
-                    class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-gradient-to-r from-lime-400 via-emerald-400 to-lime-400 text-emerald-950 px-6 py-3 rounded-full font-bold text-sm shadow-2xl flex items-center gap-2 animate-float whitespace-nowrap">
+                <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-gradient-to-r from-lime-400 via-emerald-400 to-lime-400 text-emerald-950 px-6 py-3 rounded-full font-bold text-sm shadow-2xl flex items-center gap-2 
+                    whitespace-nowrap">
+                    <!-- animate-float -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="animate-pulse">
@@ -75,7 +72,11 @@
                         <path d="M3 5h4"></path>
                         <path d="M17 19h4"></path>
                     </svg>
-                    <span>{{ 'HERO.AVAILABLE_FOR_INTERNSHIP' | translate }}</span>
+                    <!-- Text + Logo -->
+                    <span class="flex items-center gap-2 whitespace-nowrap mx-auto">
+                        {{ 'HERO.DEVELOPER_INTERN_AT' | translate }}
+                        <img src="assets/vectors/Rakuten.svg" alt="Rakuten Logo" class="h-5 w-[65px] shrink-0" />
+                    </span>
                 </div>
             </div>
         </div>
