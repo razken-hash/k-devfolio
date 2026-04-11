@@ -87,6 +87,7 @@
     },
     "OTHERS": {
         "BY_ENTITY": "{{ ENTITY }} Tarafından",
+        "LANGUAGE": "Dil",
         "NAVIGATION": "Navigasyon",
         "OOPS": "Hata!",
         "PRESENT": "Devam ediyor",

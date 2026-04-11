@@ -87,6 +87,7 @@
     },
     "OTHERS": {
         "BY_ENTITY": "Por {{ ENTITY }}",
+        "LANGUAGE": "Idioma",
         "NAVIGATION": "Navegación",
         "OOPS": "¡Ups!",
         "PRESENT": "Actual",

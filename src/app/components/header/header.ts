@@ -1,7 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faMoon, faSun, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { CommonModule } from '@angular/common';
 import { NavigationLink } from '../../models/navigation-link.model';
 import { Language } from '../../models/language.model';
@@ -31,12 +31,9 @@ import { TranslateModule } from '@ngx-translate/core';
   `,
 })
 export class Header {
-  isDarkMode = true;
   mobileMenuOpen = false;
   languageMenuOpen = false;
 
-  faMoon = faMoon;
-  faSun = faSun;
   faGlobe = faGlobe;
 
   constructor(private navigationLinksService: NavigationLinksService, private languageService: LanguageService, private router: Router) {
@@ -49,10 +46,6 @@ export class Header {
   accountsLinks: NavigationLink[];
 
   availableLanguages: Language[];
-
-  toggleTheme(): void {
-    this.isDarkMode = !this.isDarkMode;
-  }
 
   toggleMobileMenu(): void {
     this.mobileMenuOpen = !this.mobileMenuOpen;
@@ -119,6 +112,10 @@ export class Header {
   changeLanguage(code: string) {
     this.languageService.setLanguage(code);
     this.toggleLanguageMenu();
+  }
+
+  currentYear(): number {
+    return new Date().getFullYear();
   }
 
 }

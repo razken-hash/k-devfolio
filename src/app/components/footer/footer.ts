@@ -81,4 +81,8 @@ export class Footer {
     });
   }
 
+  currentYear(): number {
+    return new Date().getFullYear();
+  }
+
 }
