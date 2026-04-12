@@ -19,7 +19,6 @@ import { LanguageService } from '../../services/language-service';
   selector: 'app-cv-preview',
   imports: [CommonModule, FontAwesomeModule, TranslateModule],
   templateUrl: './cv-preview.html',
-  styles: []
 })
 export class CvPreview {
   faDownload = faDownload;
