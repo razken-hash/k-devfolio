@@ -50,7 +50,13 @@
     "EDUCATION": {
         "ACADEMIC_PATH": "Akademik yolculuğum",
         "EDUCATION": "Eğitim",
-        "FORMATION": "Eğitim"
+        "ENGINEER_GL": "Yazılım Mühendisliği Devlet Mühendisliği Diploması",
+        "ESI": "Ulusal Yüksek Bilgisayar Bilimleri Okulu (ESI) – eski INI",
+        "FORMATION": "Eğitim",
+        "MASTER_GL": "Yazılım Mühendisliği Yüksek Lisansı",
+        "MASTER_MTS": "Bilim ve Teknoloji Yönetimi Yüksek Lisansı (MTS)",
+        "UM_FDS": "Montpellier Üniversitesi, Fen Fakültesi",
+        "UM_IAE": "Montpellier Üniversitesi, İşletme Yönetimi Enstitüsü (IAE)"
     },
     "FOOTER": {
         "ALL_RIGHTS_RESERVED": "Tüm hakları saklıdır",
@@ -94,6 +100,14 @@
         "PRESENT": "Devam ediyor",
         "SHARE": "Paylaş",
         "TIP": "İpucu:"
+    },
+    "PLACES": {
+        "ALGER": "Cezayir",
+        "ALGERIA": "Cezayir",
+        "FRANCE": "Fransa",
+        "ILE_DE_FRANCE": "Île-de-France",
+        "MONTPELLIER": "Montpellier",
+        "PARIS": "Paris"
     },
     "PROJECTS": {
         "MY_PROJECTS": "Projelerim",

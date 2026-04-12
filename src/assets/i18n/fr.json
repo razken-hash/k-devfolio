@@ -50,7 +50,13 @@
     "EDUCATION": {
         "ACADEMIC_PATH": "Mon Parcours Académique",
         "EDUCATION": "Éducation",
-        "FORMATION": "Formation"
+        "ENGINEER_GL": "Ingénieur d'État en Génie Logiciel",
+        "ESI": "École Nationale Supérieure d'Informatique (ESI) – ex INI",
+        "FORMATION": "Formation",
+        "MASTER_GL": "Master 2 Génie Logiciel",
+        "MASTER_MTS": "Master Management Science Technologie (MTS)",
+        "UM_FDS": "Université de Montpellier, Faculté des Sciences",
+        "UM_IAE": "Université de Montpellier, Institut d’Administration des Entreprises (IAE)"
     },
     "FOOTER": {
         "ALL_RIGHTS_RESERVED": "Tous droits réservés",
@@ -65,7 +71,7 @@
         "ABDERRAZAK": "Abderrazak",
         "ABDERRAZAK_KENNICHE": "Abderrazak Kenniche",
         "AVAILABLE_FOR_INTERNSHIP": "Disponible pour un stage",
-        "DEVELOPER_INTERN_AT": "Stagiaire développeur chez",        
+        "DEVELOPER_INTERN_AT": "Stagiaire développeur chez",
         "DISCOVER_BLOG": "Discover Blog",
         "EXCEPTIONAL_USER_EXPERIENCE": "Expérience utilisateur exceptionnelle",
         "FULL_STACK_DEVELOPER": "FULL-STACK DEVELOPER",
@@ -94,6 +100,14 @@
         "PRESENT": "En cours",
         "SHARE": "Partager",
         "TIP": "Astuce :"
+    },
+    "PLACES": {
+        "ALGERIA": "Algérie",
+        "ALGER": "Alger",
+        "ILE_DE_FRANCE": "Île-de-France",
+        "FRANCE": "France",
+        "MONTPELLIER": "Montpellier",
+        "PARIS": "Paris"
     },
     "PROJECTS": {
         "MY_PROJECTS": "Mes Projets",

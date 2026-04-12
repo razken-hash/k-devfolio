@@ -50,7 +50,13 @@
     "EDUCATION": {
         "ACADEMIC_PATH": "My academic journey",
         "EDUCATION": "Education",
-        "FORMATION": "Education"
+        "ENGINEER_GL": "State Engineer's Degree in Software Engineering",
+        "ESI": "Higher National School of Computer Science (ESI) – ex INI",
+        "FORMATION": "Education",
+        "MASTER_GL": "Master's Degree in Software Engineering",
+        "MASTER_MTS": "Master's Degree in Management Science and Technology (MTS)",
+        "UM_FDS": "University of Montpellier, Faculty of Sciences",
+        "UM_IAE": "University of Montpellier, Institute of Business Administration (IAE)"
     },
     "FOOTER": {
         "ALL_RIGHTS_RESERVED": "All rights reserved",
@@ -94,6 +100,14 @@
         "PRESENT": "Present",
         "SHARE": "Share",
         "TIP": "Tip:"
+    },
+    "PLACES": {
+        "ALGERIA": "Algeria",
+        "ALGER": "Algiers",
+        "ILE_DE_FRANCE": "Île-de-France",
+        "FRANCE": "France",
+        "MONTPELLIER": "Montpellier",
+        "PARIS": "Paris"
     },
     "PROJECTS": {
         "MY_PROJECTS": "My projects",

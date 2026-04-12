@@ -1,19 +1,20 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Education } from '../../models/education.model';
-import { EducationService } from '../../services/education-service';
+import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
+import { EducationService } from '../../services/education-service';
+import { Education } from '../../models/education.model';
 
 @Component({
   selector: 'app-education',
   templateUrl: './education.html',
+  standalone: true,
   imports: [CommonModule, TranslateModule],
 })
 export class EducationComponent {
-
-  educations: Education[] = [];
+  educations: Observable<Education[]>;
 
   constructor(private educationService: EducationService) {
-    this.educations = this.educationService.educations;
+    this.educations = this.educationService.getEducations();
   }
 }

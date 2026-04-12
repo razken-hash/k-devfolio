@@ -50,7 +50,13 @@
     "EDUCATION": {
         "ACADEMIC_PATH": "Mi trayectoria académica",
         "EDUCATION": "Educación",
-        "FORMATION": "Formación"
+        "ENGINEER_GL": "Título de Ingeniero de Estado en Ingeniería de Software",
+        "ESI": "Escuela Nacional Superior de Informática (ESI) – ex INI",
+        "FORMATION": "Formación",
+        "MASTER_GL": "Máster en Ingeniería de Software",
+        "MASTER_MTS": "Máster en Gestión de Ciencia y Tecnología (MTS)",
+        "UM_FDS": "Universidad de Montpellier, Facultad de Ciencias",
+        "UM_IAE": "Universidad de Montpellier, Instituto de Administración de Empresas (IAE)"
     },
     "FOOTER": {
         "ALL_RIGHTS_RESERVED": "Todos los derechos reservados",
@@ -94,6 +100,14 @@
         "PRESENT": "Actual",
         "SHARE": "Compartir",
         "TIP": "Consejo:"
+    },
+    "PLACES": {
+        "ALGER": "Argel",
+        "ALGERIA": "Argelia",
+        "FRANCE": "Francia",
+        "ILE_DE_FRANCE": "Isla de Francia",
+        "MONTPELLIER": "Montpellier",
+        "PARIS": "París"
     },
     "PROJECTS": {
         "MY_PROJECTS": "Mis proyectos",
