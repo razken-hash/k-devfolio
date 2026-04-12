@@ -1,0 +1,19 @@
+<div class="relative w-full">
+    <!-- Icon -->
+    <fa-icon [icon]="faEnvelope" class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+    </fa-icon>
+
+    <!-- Email Input -->
+    <input type="email" [placeholder]="'CONTACT.YOUR_EMAIL' | translate" [(ngModel)]="email"
+        (ngModelChange)="onEmailChange($event)" (keydown)="onKeyDown($event)" name="email" autocomplete="off" class="w-full bg-white/5 border border-white/20 text-white
+           placeholder-gray-400 pl-12 pr-4 py-4 rounded-xl
+           focus:outline-none focus:ring-2 focus:ring-lime-400
+           transition-all z-10 relative" />
+
+    <!-- Ghost Suggestion -->
+    <div class="absolute left-0 top-0 w-full h-full flex items-center
+           pl-12 pr-4 pointer-events-none text-gray-500">
+        <span class="invisible">{{ email }}</span>
+        <span>{{ suggestionSuffix }}</span>
+    </div>
+</div>

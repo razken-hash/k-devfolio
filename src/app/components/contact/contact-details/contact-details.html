@@ -1,0 +1,84 @@
+<div class="h-full flex flex-col space-y-8">
+
+    <div
+        class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-lime-400/30 transition-all duration-300 flex-1 flex flex-col">
+        <h2 class="text-3xl font-bold mb-4 text-white">
+            {{ 'CONTACT.LETS_DISCUSS_PROJECT' | translate }}
+        </h2>
+
+        <p class="text-gray-300 leading-relaxed mb-8">
+            Que ce soit pour un nouveau projet, une collaboration ou simplement pour échanger,
+            n'hésitez pas à me contacter. Je serais ravi de créer quelque chose d'exceptionnel ensemble.
+        </p>
+
+        <!-- Contact Info Cards -->
+        <div class="space-y-4 flex-1">
+
+            <!-- Email -->
+            <div
+                class="group bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/10 hover:border-lime-400/50 transition-all duration-300">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-gradient-to-br from-lime-400 to-emerald-400 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <fa-icon [icon]="faEnvelope" class="text-emerald-950 text-xl"></fa-icon>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-400 mb-1">Email</p>
+                        <a href="mailto:pro.contactabderrazak@gmail.com"
+                            class="text-white hover:text-lime-400 transition-colors break-all select-text">
+                            pro.contactabderrazak@gmail.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phone -->
+            <div
+                class="group bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/10 hover:border-lime-400/50 transition-all duration-300">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-gradient-to-br from-lime-400 to-emerald-400 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <fa-icon [icon]="faPhone" class="text-emerald-950 text-xl"></fa-icon>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-400 mb-1"> {{ 'CONTACT.PHONE' | translate }}</p>
+                        <a href="tel:+33753188225"
+                            class="text-white hover:text-lime-400 transition-colors  select-text">
+                            +33 7 53 18 82 25
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Location -->
+            <div
+                class="group bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/10 hover:border-lime-400/50 transition-all duration-300">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-gradient-to-br from-lime-400 to-emerald-400 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <fa-icon [icon]="faLocationDot" class="text-emerald-950 text-xl"></fa-icon>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-400 mb-1"> {{ 'CONTACT.LOCATION' | translate }}</p>
+                        <p class="text-white select-text"> {{ 'PLACES.PARIS' | translate }}, {{
+                            'PLACES.ILE_DE_FRANCE' | translate }}, {{ 'PLACES.FRANCE' | translate }}</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Availability Badge -->
+        <div class="bg-gradient-to-r from-lime-400 to-emerald-400 rounded-xl p-5 text-emerald-950 mt-6">
+            <div class="flex items-center gap-3">
+                <div class="w-3 h-3 bg-emerald-950 rounded-full animate-pulse"></div>
+                <p class="font-bold"> {{ 'HERO.AVAILABLE_FOR_INTERNSHIP' | translate }}</p>
+            </div>
+            <p class="mt-2 text-emerald-900 text-sm">
+                {{ 'CONTACT.AVERAGE_RESPONSE_TIME' | translate }} : 12 {{ 'CONTACT.HOURS' | translate |
+                lowercase }}
+            </p>
+        </div>
+    </div>
+
+</div>

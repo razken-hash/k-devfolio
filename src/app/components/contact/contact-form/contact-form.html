@@ -1,0 +1,63 @@
+<div
+    class="h-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 shadow-2xl hover:border-lime-400/30 transition-all duration-300 flex flex-col">
+
+    <!-- Form Header -->
+    <div class="text-center mb-8">
+        <h2 class="text-3xl font-bold mb-2 text-white">{{ 'CONTACT.SEND_MESSAGE' | translate }}</h2>
+        <p class="text-lime-400 font-semibold tracking-wide text-sm">{{ 'CONTACT.STAY_IN_TOUCH' | translate
+            }}</p>
+    </div>
+
+    <form class="space-y-6 flex-1 flex flex-col" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" novalidate>
+
+        <!-- Name + Email -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="relative">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <input type="text" [placeholder]="'CONTACT.YOUR_NAME' | translate" [(ngModel)]="formData.name"
+                    (ngModelChange)="formData.name = toTitleCase($event)" name="name"
+                    class="w-full bg-white/5 border border-white/20 text-white placeholder-gray-400 pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-lime-400 focus:border-transparent transition-all autofill-transparent"
+                    required />
+            </div>
+            <app-email-input [(email)]="formData.email"></app-email-input>
+
+        </div>
+
+        <!-- Subject -->
+        <div class="relative">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <input type="text" placeholder="{{ 'CONTACT.SUBJECT' | translate }}" [(ngModel)]="formData.subject"
+                name="subject"
+                class="w-full bg-white/5 border border-white/20 text-white placeholder-gray-400 pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-lime-400 focus:border-transparent transition-all autofill-transparent"
+                required />
+        </div>
+
+        <!-- Message -->
+        <textarea rows="6" placeholder="{{ 'CONTACT.YOUR_MESSAGE' | translate }}" [(ngModel)]="formData.message"
+            name="message"
+            class="w-full bg-white/5 border border-white/20 text-white placeholder-gray-400 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-lime-400 focus:border-transparent transition-all resize-none flex-1 autofill-transparent"
+            required></textarea>
+
+        <!-- Submit Button -->
+        <button type="submit"
+            class="group w-full bg-gradient-to-r from-lime-400 to-emerald-400 text-emerald-950 font-bold py-4 rounded-xl hover:from-lime-500 hover:to-emerald-500 transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 shadow-lg hover:shadow-lime-400/50">
+            <span>{{ 'CONTACT.SEND_THE_MESSAGE' | translate }}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="group-hover:translate-x-1 transition-transform">
+                <path d="m22 2-7 20-4-9-9-4Z"></path>
+                <path d="M22 2 11 13"></path>
+            </svg>
+        </button>
+
+    </form>
+</div>
