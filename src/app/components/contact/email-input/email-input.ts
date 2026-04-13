@@ -143,4 +143,17 @@ export class EmailInput {
       this.suggestionSuffix = `@${this.domains[this.index]}.`;
     }
   }
+
+  onSuggestionClick(): void {
+    if (!this.suggestionSuffix) return;
+
+    this.email += this.suggestionSuffix;
+    this.emailChange.emit(this.email);
+
+    this.suggestionSuffix = '';
+    this.index = 0;
+    this.completionAccepted = true;
+
+    setTimeout(() => this.onEmailChange(this.email));
+  }
 }
