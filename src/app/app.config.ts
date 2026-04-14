@@ -2,8 +2,11 @@ import { ApplicationConfig, importProvidersFrom, provideBrowserGlobalErrorListen
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { LanguageResolver } from './services/language-resolver';
+import { LanguageService } from './services/language-service';
 
-const browserLang = navigator.language.split('-')[0]; // e.g. "fr" from "fr-FR"
+const browserLang = navigator.language.split('-')[0];
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -11,7 +14,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     importProvidersFrom(
       TranslateModule.forRoot({
-        defaultLanguage: browserLang,
+        defaultLanguage: LanguageService.isLanguageSupported(browserLang) ? browserLang : 'en',
         loader: {
           provide: TranslateLoader,
           useFactory: (http: HttpClient) => new TranslateHttpLoader(),

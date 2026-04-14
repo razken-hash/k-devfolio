@@ -29,7 +29,7 @@ export class Header {
   ) {
     this.navigationLinks = this.navigationLinksService.navigationLinks;
     this.accountsLinks = this.navigationLinksService.accountsLinks;
-    this.availableLanguages = this.languageService.languages;
+    this.availableLanguages = LanguageService.languages;
   }
 
   get currentLanguage(): string {
