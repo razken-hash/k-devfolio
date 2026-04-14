@@ -14,10 +14,14 @@ export class LanguageService {
     { code: 'tr', name: 'Türkçe', flag: '🇹🇷' },
   ];
 
-  currentLanguage: Language = this.languages[0];
+  currentLanguage: Language;
 
   constructor(private translate: TranslateService) {
-    // Set default language
+    const browserCode = navigator.language.split('-')[0];
+    const matched = this.languages.find(l => l.code === browserCode);
+
+    this.currentLanguage = matched ?? this.languages[0]; // fallback to 'fr'
+
     this.translate.setDefaultLang(this.currentLanguage.code);
     this.translate.use(this.currentLanguage.code);
   }
