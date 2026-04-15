@@ -5,8 +5,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LanguageResolver } from './services/language-resolver';
 import { LanguageService } from './services/language-service';
 
-const browserLang = navigator.language.split('-')[0];
-
+const websiteLanguage = localStorage.getItem('language') || navigator.language.split('-')[0];
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -14,7 +13,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     importProvidersFrom(
       TranslateModule.forRoot({
-        defaultLanguage: LanguageService.isLanguageSupported(browserLang) ? browserLang : 'en',
+        defaultLanguage: LanguageService.isLanguageSupported(websiteLanguage) ? websiteLanguage : 'en',
         loader: {
           provide: TranslateLoader,
           useFactory: (http: HttpClient) => new TranslateHttpLoader(),

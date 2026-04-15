@@ -21,9 +21,10 @@ export class LanguageService {
   currentLanguage: Language;
 
   constructor(private translate: TranslateService) {
-    const browserLang = navigator.language.split('-')[0];
+    const websiteLanguage = localStorage.getItem('language') || navigator.language.split('-')[0];
 
-    this.currentLanguage = LanguageService.languages.find(l => l.code === browserLang) || LanguageService.languages[0]; // fallback to 'en'
+    this.currentLanguage = LanguageService.languages.find(l => l.code === websiteLanguage) || LanguageService.languages[0]; // fallback to 'en'
+    document.documentElement.lang = this.currentLanguage.code; // update HTML lang attribute
 
     this.translate.setDefaultLang(this.currentLanguage.code);
     this.translate.use(this.currentLanguage.code);
@@ -34,6 +35,8 @@ export class LanguageService {
     if (lang) {
       this.currentLanguage = lang;
       this.translate.use(code); // update ngx-translate language
+      document.documentElement.lang = code; // update HTML lang attribute
+      localStorage.setItem('language', code); // persist language choice
     }
   }
 
