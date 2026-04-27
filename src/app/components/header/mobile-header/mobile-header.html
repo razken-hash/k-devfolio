@@ -11,7 +11,7 @@
 
 <!-- Full-screen Mobile Menu -->
 <div *ngIf="mobileMenuOpen"
-    class="md:hidden min-h-[calc(100vh-80px)] fixed inset-0 top-20 w-full bg-emerald-900/95 backdrop-blur-sm z-40">
+    class="md:hidden min-h-[calc(100dvh-80px)] fixed inset-0 top-20 w-full bg-emerald-900/95 backdrop-blur-sm z-40">
     <div class="flex flex-col h-full overflow-y-auto">
 
         <!-- Navigation Links -->
@@ -52,9 +52,9 @@
 
         <!-- Footer -->
         <div>
-            <p class="text-center text-sm text-gray-400 py-4">
+            <p class="text-center text-sm text-gray-400 px-4 pb-4">
                 &copy; {{ currentYear }} <span class="font-bold text-white">kDevFolio</span>.
-                {{ 'FOOTER.ALL_RIGHTS_RESERVED' | translate }}.
+                {{ 'FOOTER.ALL_RIGHTS_RESERVED' | translate }}
             </p>
         </div>
 

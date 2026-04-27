@@ -30,6 +30,8 @@
     /*! Disable image dragging */
     user-drag: none;
     -webkit-user-drag: none;
+
+    box-sizing: border-box;
 }
 
 
