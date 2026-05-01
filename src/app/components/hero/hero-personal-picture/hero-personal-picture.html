@@ -1,49 +1,48 @@
-<div class="w-full lg:w-1/2 flex justify-center relative">
+<div class="flex justify-center relative"
+    style="--size: min(calc(100vw - 80px), 28rem); width: var(--size); height: var(--size);">
 
     <!-- Outermost glow -->
     <div class="absolute inset-0 flex items-center justify-center">
-        <div
-            class="w-[36rem] h-[36rem] rounded-full bg-gradient-to-r from-lime-400/10 via-emerald-400/10 to-teal-400/10 blur-3xl">
+        <div class="rounded-full bg-gradient-to-r from-lime-400/10 via-emerald-400/10 to-teal-400/10 blur-3xl"
+            style="width: calc(var(--size) + 4rem); height: calc(var(--size) + 4rem);">
         </div>
     </div>
 
     <!-- Third rotating ring - slowest -->
-    <div class="absolute flex justify-center items-center w-[30rem] h-[30rem] rounded-full animate-spin-slower"
-        style="background: conic-gradient(from 0deg, transparent 0%, #84cc16 25%, transparent 50%, #10b981 75%, transparent 100%);">
+    <div class="absolute flex justify-center items-center rounded-full animate-spin-slower"
+        style="width: calc(var(--size) - 0px); height: calc(var(--size) - 0px); background: conic-gradient(from 0deg, transparent 0%, #84cc16 25%, transparent 50%, #10b981 75%, transparent 100%);">
     </div>
 
     <!-- Second rotating ring - medium speed -->
-    <div class="absolute flex justify-center items-center w-[29rem] h-[29rem] rounded-full animate-spin-reverse"
-        style="background: conic-gradient(from 180deg, transparent 0%, #22c55e 25%, transparent 50%, #84cc16 75%, transparent 100%);">
+    <div class="absolute flex justify-center items-center rounded-full animate-spin-reverse"
+        style="width: calc(var(--size) - 0.5rem); height: calc(var(--size) - 0.5rem); background: conic-gradient(from 180deg, transparent 0%, #22c55e 25%, transparent 50%, #84cc16 75%, transparent 100%);">
     </div>
 
     <!-- First rotating ring - fastest -->
-    <div class="absolute flex justify-center items-center w-[28.75rem] h-[28.75rem] rounded-full animate-spin-slow"
-        style="background: conic-gradient(from 0deg, #84cc16, #22c55e, #10b981, #84cc16);">
+    <div class="absolute flex justify-center items-center rounded-full animate-spin-slow"
+        style="width: calc(var(--size) - 0.75rem); height: calc(var(--size) - 0.75rem); background: conic-gradient(from 0deg, #84cc16, #22c55e, #10b981, #84cc16);">
     </div>
 
     <!-- Inner background ring -->
-    <div
-        class="absolute flex justify-center items-center w-[28.5rem] h-[28.5rem] rounded-full bg-emerald-950 shadow-2xl">
+    <div class="absolute flex justify-center items-center rounded-full bg-emerald-950 shadow-2xl"
+        style="width: calc(var(--size) - 1rem); height: calc(var(--size) - 1rem);">
     </div>
 
     <!-- Profile image with enhanced styling -->
-    <div class="relative z-10  w-[28rem] h-[28rem] group">
+    <div class="relative z-10 group" style="width: calc(var(--size) - 1.5rem); height: calc(var(--size) - 1.5rem);">
 
-
-        <div class=" w-[28rem] h-[28rem]">
+        <div class="w-full h-full">
             <img src="assets/images/kenniche.png" alt="KENNICHE ABDERRAZAK - Software Developer"
-                class="rounded-full w-[28rem] h-[28rem] object-scale-down shadow-2xl border-4 border-lime-400/30 group-hover:border-lime-400/50 group-hover:scale-[1.02] transition-all duration-700" />
+                class="rounded-full w-full h-full object-scale-down shadow-2xl border-4 border-lime-400/30 group-hover:border-lime-400/50 group-hover:scale-[1.02] transition-all duration-700" />
         </div>
 
-        <!-- Floating badge with pulse animation -->
+        <!-- Floating badge -->
         <div class="w-full flex justify-center items-center">
             <div
-                class="absolute -bottom-6  -translate-x-1/2 bg-gradient-to-r from-lime-400 via-emerald-400 to-lime-400 text-emerald-950 px-6 py-3 rounded-full font-bold text-sm shadow-2xl flex items-center gap-2  whitespace-nowrap animate-badge">
-                <!-- animate-float -->
+                class="absolute -bottom-6 -translate-x-1/2 bg-gradient-to-r from-lime-400 via-emerald-400 to-lime-400 text-emerald-950 px-4 py-2 lg:px-6 lg:py-3 rounded-full font-bold text-xs lg:text-sm shadow-2xl flex items-center gap-2 whitespace-nowrap animate-badge">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="animate-pulse">
+                    class="animate-pulse shrink-0">
                     <path
                         d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z">
                     </path>
@@ -52,10 +51,10 @@
                     <path d="M3 5h4"></path>
                     <path d="M17 19h4"></path>
                 </svg>
-                <!-- Text + Logo -->
                 <span class="flex items-center gap-2 whitespace-nowrap mx-auto">
                     {{ 'HERO.DEVELOPER_INTERN_AT' | translate }}
-                    <img src="assets/vectors/Rakuten.svg" alt="Rakuten Logo" class="h-5 w-[65px] shrink-0" />
+                    <img src="assets/vectors/Rakuten.svg" alt="Rakuten Logo"
+                        class="h-4 lg:h-5 w-[50px] lg:w-[65px] shrink-0" />
                 </span>
             </div>
         </div>

@@ -10,142 +10,53 @@
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
         <div class="absolute top-10 left-5 sm:top-20 sm:left-10
                     w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96
-                    bg-lime-400/10 rounded-full blur-3xl animate-pulse">
-        </div>
-
+                    bg-lime-400/10 rounded-full blur-3xl animate-pulse"></div>
         <div class="absolute bottom-10 right-5 sm:bottom-20 sm:right-10
                     w-40 h-40 sm:w-64 sm:h-64 lg:w-80 lg:h-80
-                    bg-emerald-400/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;">
-        </div>
-
+                    bg-emerald-400/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
                     w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] lg:w-[600px] lg:h-[600px]
-                    bg-teal-400/5 rounded-full blur-3xl">
-        </div>
+                    bg-teal-400/5 rounded-full blur-3xl"></div>
     </div>
 
     <!-- Floating particles -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
         <div *ngFor="let particle of floatingParticles"
             class="absolute w-1.5 h-1.5 sm:w-2 sm:h-2 bg-lime-400/20 rounded-full animate-float"
-            [style.left.%]="particle.left" [style.top.%]="particle.top" [style.animation-duration.s]="particle.duration"
+            [style.left.%]="particle.left" [style.top.%]="particle.top"
+            [style.animation-duration.s]="particle.duration"
             [style.animation-delay.s]="particle.delay">
         </div>
     </div>
 
     <!-- Main Content -->
-    <div class="max-w-7xl mx-auto w-full
-                flex flex-col-reverse lg:flex-row
-                items-center justify-between
-                gap-12 sm:gap-14 lg:gap-16
-                relative z-10">
+    <div class="max-w-7xl mx-auto w-full relative z-10">
 
-        <!-- Left: Hero Image -->
-        <app-hero-personal-picture class="w-full lg:w-1/2 flex justify-center relative"></app-hero-personal-picture>
+        <!-- MOBILE LAYOUT -->
+        <div class="flex flex-col items-center gap-10 lg:hidden">
+            <app-hero-mobile-header></app-hero-mobile-header>
+            <app-hero-personal-picture class="w-full flex justify-center relative"></app-hero-personal-picture>
+            <p class="text-base text-gray-300 leading-relaxed max-w-xl mx-auto text-center"
+                [innerHTML]="heroTagHtml"></p>
+            <app-hero-social-cta></app-hero-social-cta>
+        </div>
 
-        <!-- Right: Hero Content -->
-        <div class="w-full lg:w-1/2
-                    text-center lg:text-left
-                    space-y-6 sm:space-y-8">
-
-            <!-- Description Component -->
-            <app-hero-description></app-hero-description>
-
-            <!-- Social Links -->
-            <div class="flex items-center justify-center lg:justify-start
-                        gap-4 sm:gap-6 pt-2">
-
-                <!-- GitHub -->
-                <div class="group w-12 h-12 sm:w-14 sm:h-14 relative flex items-center justify-center">
-                    <div class="absolute w-full h-full rounded-full p-[3px] animate-spin-slow"
-                        style="background: conic-gradient(from 0deg, #84cc16, #22c55e, #10b981, #84cc16);">
-                    </div>
-                    <div class="absolute w-[calc(100%-6px)] h-[calc(100%-6px)]
-                                rounded-full bg-white
-                                group-hover:bg-gradient-to-br
-                                group-hover:from-lime-400
-                                group-hover:via-emerald-400
-                                group-hover:to-teal-400
-                                transition-all duration-500">
-                    </div>
-                    <a href="https://github.com/razken-hash" target="_blank" rel="noopener noreferrer"
-                        aria-label="GitHub" class="relative z-10 w-full h-full rounded-full
-                               flex items-center justify-center
-                               text-emerald-900 group-hover:text-white
-                               transition-all duration-500 group-hover:scale-110">
-                        <fa-icon [icon]="faGithub" class="text-2xl sm:text-3xl"></fa-icon>
-                    </a>
-                </div>
-
-                <!-- LinkedIn -->
-                <div class="group w-12 h-12 sm:w-14 sm:h-14 relative flex items-center justify-center">
-                    <div class="absolute w-full h-full rounded-full p-[3px] animate-spin-slow"
-                        style="background: conic-gradient(from 0deg, #84cc16, #22c55e, #10b981, #84cc16);">
-                    </div>
-                    <div class="absolute w-[calc(100%-6px)] h-[calc(100%-6px)]
-                                rounded-full bg-white
-                                group-hover:bg-gradient-to-br
-                                group-hover:from-lime-400
-                                group-hover:via-emerald-400
-                                group-hover:to-teal-400
-                                transition-all duration-500">
-                    </div>
-                    <a href="https://www.linkedin.com/in/abderrazak-kenniche-a1a213227/" target="_blank"
-                        rel="noopener noreferrer" aria-label="LinkedIn" class="relative z-10 w-full h-full rounded-full
-                               flex items-center justify-center
-                               text-emerald-900 group-hover:text-white
-                               transition-all duration-500 group-hover:scale-110">
-                        <fa-icon [icon]="faLinkedinIn" class="text-2xl sm:text-3xl"></fa-icon>
-                    </a>
-                </div>
-
-                <!-- Medium -->
-                <div class="group w-12 h-12 sm:w-14 sm:h-14 relative flex items-center justify-center">
-                    <div class="absolute w-full h-full rounded-full p-[3px] animate-spin-slow"
-                        style="background: conic-gradient(from 0deg, #84cc16, #22c55e, #10b981, #84cc16);">
-                    </div>
-                    <div class="absolute w-[calc(100%-6px)] h-[calc(100%-6px)]
-                                rounded-full bg-white
-                                group-hover:bg-gradient-to-br
-                                group-hover:from-lime-400
-                                group-hover:via-emerald-400
-                                group-hover:to-teal-400
-                                transition-all duration-500">
-                    </div>
-                    <a href="https://medium.com" target="_blank" rel="noopener noreferrer" aria-label="Medium" class="relative z-10 w-full h-full rounded-full
-                               flex items-center justify-center
-                               text-emerald-900 group-hover:text-white
-                               transition-all duration-500 group-hover:scale-110">
-                        <fa-icon [icon]="faMedium" class="text-2xl sm:text-3xl"></fa-icon>
-                    </a>
-                </div>
-            </div>
-
-            <!-- CTA Buttons -->
-            <!-- <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:w-full w-[70vw] max-w-md mx-auto lg:mx-0 pt-2"> -->
-            <div
-                class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:w-[490px] w-[70vw] max-w-md mx-auto lg:mx-0 lg:max-w-xl pt-2">
-
-
-                <!-- Blog Button -->
-                <a routerLink="/blog"
-                    class="group inline-flex items-center justify-center w-full px-8 py-4 text-base font-semibold rounded-xl shadow-lg text-emerald-950 bg-gradient-to-r from-lime-400 to-emerald-400 hover:from-lime-500 hover:to-emerald-500 transition-all duration-300 hover:shadow-lime-400/50 hover:scale-105">
-                    {{ 'HERO.DISCOVER_BLOG' | translate }}
-                    <fa-icon [icon]="faArrowRight" class="ml-2 group-hover:translate-x-1 transition-transform">
-                    </fa-icon>
-                </a>
-
-                <!-- CV Preview Button -->
-                <app-cv-preview class="w-full"></app-cv-preview>
-
+        <!-- DESKTOP LAYOUT -->
+        <div class="hidden lg:flex flex-row items-center justify-between gap-16">
+            <app-hero-personal-picture class="w-full lg:w-1/2 flex justify-center relative"></app-hero-personal-picture>
+            <div class="w-full lg:w-1/2 text-center lg:text-left space-y-6 sm:space-y-8">
+                <app-hero-description></app-hero-description>
+                <app-hero-social-cta></app-hero-social-cta>
             </div>
         </div>
+
     </div>
 
-    <!-- Scroll Indicator (Hidden on Mobile) -->
+    <!-- Scroll Indicator -->
     <div class="hidden sm:block absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce">
         <div class="w-6 h-10 border-2 border-lime-400/50 rounded-full flex items-start justify-center p-2">
             <div class="w-1 h-3 bg-lime-400 rounded-full animate-pulse"></div>
         </div>
     </div>
+
 </section>
