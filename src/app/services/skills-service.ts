@@ -5,94 +5,272 @@ import { SkillCategory } from "../models/skills-category.model";
   providedIn: "root",
 })
 export class SkillsService {
+  private readonly cdn = "https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons";
+
   skillsData: SkillCategory[] = [
+    // -------------------------------------------------------------------------
+    // Backend
+    // -------------------------------------------------------------------------
     {
       title: "Backend",
       skills: [
-        { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
-        { name: "Spring Boot", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
-        { name: "Hibernate", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hibernate/hibernate-original.svg" },
-        { name: "Spring Data JPA", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
-        { name: "Spring Security", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
-        { name: "JWT", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
-        { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-        { name: "Flask", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" },
-        { name: "FastAPI", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
-        { name: "SQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
-        { name: "RESTful API", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swagger/swagger-original.svg" },
-        { name: "gRPC", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grpc/grpc-original.svg" },
-        { name: "GraphQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" },
-        { name: "WebSocket", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original.svg" },
-        { name: "Microservices", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" }
-      ]
+        {
+          name: "Java",
+          icon: `${this.cdn}/java/default.svg`,
+        },
+        {
+          name: "Spring Boot",
+          icon: `${this.cdn}/spring-boot/default.svg`,
+        },
+        {
+          name: "Spring Data JPA",
+          icon: `${this.cdn}/spring/default.svg`,
+        },
+        {
+          name: "Hibernate",
+          icon: `${this.cdn}/hibernate/default.svg`,
+        },
+        {
+          name: "Spring Security",
+          icon: `${this.cdn}/spring-security/default.svg`,
+        },
+        {
+          name: "JWT",
+          icon: `${this.cdn}/jwt/default.svg`,
+        },
+        {
+          name: "REST API",
+          icon: `${this.cdn}/swagger/default.svg`,
+        },
+        {
+          name: "GraphQL",
+          icon: `${this.cdn}/graphql/default.svg`,
+        },
+        {
+          name: "gRPC",
+          icon: `${this.cdn}/grpc/default.svg`,
+        },
+        {
+          name: "WebSocket",
+          icon: `${this.cdn}/socket-io/default.svg`,
+        },
+        {
+          name: "Microservices",
+          icon: `${this.cdn}/k8s-service/default.svg`,
+        },
+        {
+          name: "Apache Kafka",
+          icon: `${this.cdn}/apache-kafka/default.svg`,
+        },
+        {
+          name: "Nginx",
+          icon: `${this.cdn}/nginx/default.svg`,
+        },
+        {
+          name: "Maven",
+          icon: `${this.cdn}/apache-maven/default.svg`,
+        },
+      ],
     },
+
+    // -------------------------------------------------------------------------
+    // Frontend
+    // -------------------------------------------------------------------------
     {
       title: "Frontend",
       skills: [
-        { name: "HTML", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
-        { name: "CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
-        { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-        { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
-        { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-        { name: "Angular", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg" },
-        { name: "MUI", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg" },
-        { name: "TailwindCSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
-        { name: "Chakra UI", icon: "https://raw.githubusercontent.com/chakra-ui/chakra-ui/30fa4c7b5c7acd452d694d7eb6b4adf9c16ba0e0/media/logomark-colored.svg" },
-        { name: "FlutterWeb", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" }
-      ]
+        {
+          name: "HTML5",
+          icon: `${this.cdn}/html5/default.svg`,
+        },
+        {
+          name: "CSS3",
+          icon: `${this.cdn}/css3/default.svg`,
+        },
+        {
+          name: "JavaScript",
+          icon: `${this.cdn}/javascript/default.svg`,
+        },
+        {
+          name: "TypeScript",
+          icon: `${this.cdn}/typescript/default.svg`,
+        },
+        {
+          name: "Angular",
+          icon: `${this.cdn}/angular/default.svg`,
+        },
+        {
+          name: "NgRx",
+          icon: `${this.cdn}/ngrx/default.svg`,
+        },
+        {
+          name: "React",
+          icon: `${this.cdn}/react/light.svg`,
+        },
+        {
+          name: "Next.js",
+          icon: `${this.cdn}/nextjs/default.svg`,
+        },
+        {
+          name: "Material UI",
+          icon: `${this.cdn}/material-ui/default.svg`,
+        },
+        {
+          name: "Tailwind CSS",
+          icon: `${this.cdn}/tailwindcss/default.svg`,
+        },
+        {
+          name: "Chakra UI",
+          icon: `${this.cdn}/chakra-ui/default.svg`,
+        },
+        {
+          name: "Microfrontend Architecture",
+          icon: `${this.cdn}/webpack/default.svg`,
+        },
+      ],
     },
-    {
-      title: "Mobile",
-      skills: [
-        { name: "Flutter", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
-        { name: "Dart", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" },
-        { name: "Jetpack Compose", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jetpackcompose/jetpackcompose-original.svg" },
-        { name: "Kotlin", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" },
-        { name: "Android", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" },
-        { name: "Clean Architecture", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" },
-        { name: "BLoC", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
-        { name: "MVVM", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" }
-      ]
-    },
+
+    // -------------------------------------------------------------------------
+    // Databases
+    // -------------------------------------------------------------------------
     {
       title: "SKILLS.DATABASES",
       skills: [
-        { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
-        { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
-        { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
-        { name: "Redis", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" },
-        { name: "Firebase", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" },
-        { name: "Supabase", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg" }
-      ]
+        {
+          name: "PostgreSQL",
+          icon: `${this.cdn}/postgresql/default.svg`,
+        },
+        {
+          name: "MySQL",
+          icon: `${this.cdn}/mysql/default.svg`,
+        },
+        {
+          name: "MongoDB",
+          icon: `${this.cdn}/mongodb/default.svg`,
+        },
+        {
+          name: "Redis",
+          icon: `${this.cdn}/redis/default.svg`,
+        },
+        {
+          name: "Firebase",
+          icon: `${this.cdn}/firebase/default.svg`,
+        },
+        {
+          name: "Supabase",
+          icon: `${this.cdn}/supabase/default.svg`,
+        },
+      ],
     },
+
+    // -------------------------------------------------------------------------
+    // Cloud & DevOps
+    // -------------------------------------------------------------------------
     {
-      title: "SKILLS.TOOLS_AND_TECHNOLOGIES",
+      title: "SKILLS.CLOUD_AND_DEVOPS",
       skills: [
-        { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-        { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
-        { name: "GitHub Actions", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/githubactions/githubactions-original.svg" },
-        { name: "GitLab CI/CD", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" },
-        { name: "Maven", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/maven/maven-original.svg" },
-        { name: "Gradle", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gradle/gradle-original.svg" },
-        { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-        { name: "Kubernetes", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" },
-        { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
-        { name: "Bash", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" },
-        { name: "Selenium", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg" },
-        { name: "Postman", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" },
-        { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" }
-      ]
+        {
+          name: "AWS",
+          icon: `${this.cdn}/aws/default.svg`,
+        },
+        {
+          name: "Docker",
+          icon: `${this.cdn}/docker/default.svg`,
+        },
+        {
+          name: "Kubernetes",
+          icon: `${this.cdn}/kubernetes/default.svg`,
+        },
+        {
+          name: "GitHub Actions",
+          icon: `${this.cdn}/github-actions/default.svg`,
+        },
+        {
+          name: "GitLab CI/CD",
+          icon: `${this.cdn}/gitlab/default.svg`,
+        },
+        {
+          name: "Linux",
+          icon: `${this.cdn}/linux/default.svg`,
+        },
+        {
+          name: "Bash",
+          icon: `${this.cdn}/bash/default.svg`,
+        },
+        {
+          name: "Prometheus",
+          icon: `${this.cdn}/prometheus/default.svg`,
+        },
+        {
+          name: "Grafana",
+          icon: `${this.cdn}/grafana/default.svg`,
+        },
+        {
+          name: "Kibana",
+          icon: `${this.cdn}/kibana/default.svg`,
+        },
+        {
+          name: "Selenium",
+          icon: `${this.cdn}/selenium/default.svg`,
+        },
+        {
+          name: "Playwright",
+          icon: `${this.cdn}/playwright/default.svg`,
+        },
+        {
+          name: "Cypress",
+          icon: `${this.cdn}/cypress/default.svg`,
+        },
+      ],
     },
+
+    // -------------------------------------------------------------------------
+    // Tools & Methodologies
+    // -------------------------------------------------------------------------
     {
-      title: "SKILLS.METHODOLOGIES_AND_SOFTWARE_QUALITY",
+      title: "SKILLS.TOOLS_AND_METHODOLOGIES",
       skills: [
-        { name: "Agile", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" },
-        { name: "Scrum", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" },
-        { name: "Trello", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-original.svg" },
-        { name: "Design Patterns", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
-        { name: "SKILLS.SOFTWARE_ARCHITECTURE", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
-        { name: "SKILLS.ALGORITHMS_AND_DATA_STRUCTURES", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" }
-      ]
-    }
+        {
+          name: "Git",
+          icon: `${this.cdn}/git/default.svg`,
+        },
+        {
+          name: "GitHub",
+          icon: `${this.cdn}/github/default.svg`,
+        },
+        {
+          name: "GitLab",
+          icon: `${this.cdn}/gitlab/default.svg`,
+        },
+        {
+          name: "Postman",
+          icon: `${this.cdn}/postman/default.svg`,
+        },
+        {
+          name: "Figma",
+          icon: `${this.cdn}/figma/default.svg`,
+        },
+        {
+          name: "Notion",
+          icon: `${this.cdn}/notion/default.svg`,
+        },
+        {
+          name: "Design Patterns",
+          icon: `${this.cdn}/aws-group-aws-account/default.svg`,
+        },
+        {
+          name: "SKILLS.SOFTWARE_ARCHITECTURE",
+          icon: `${this.cdn}/k8s-service/default.svg`,
+        },
+        {
+          name: "SKILLS.ALGORITHMS_AND_DATA_STRUCTURES",
+          icon: `${this.cdn}/aws-aws-infrastructure-composer/default.svg`,
+        },
+        {
+          name: "SKILLS.AI_ASSISTED_DEVELOPMENT",
+          icon: `${this.cdn}/claude-code/default.svg`,
+        },
+      ],
+    },
   ];
 }

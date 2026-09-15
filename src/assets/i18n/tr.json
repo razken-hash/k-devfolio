@@ -117,14 +117,15 @@
         "PROJECTS": "Projeler"
     },
     "SKILLS": {
-        "ALGORITHMS_AND_DATA_STRUCTURES": "Algoritmalar ve Veri Yapıları",
-        "SOFTWARE_ARCHITECTURE": "Yazılım Mimarisi",
+        "AI_ASSISTED_DEVELOPMENT": "Yapay Zeka Destekli Geliştirme",
+        "ALGORITHMS_AND_DATA_STRUCTURES": "Algoritmalar ve veri yapıları",
+        "CLOUD_AND_DEVOPS": "Kloud ve DevOps",
         "DATABASES": "Veritabanları",
-        "METHODOLOGIES_AND_SOFTWARE_QUALITY": "Yazılım Kalitesi ve Metodolojileri",
         "MY_TECHNICAL_SKILLS": "Teknik becerilerim",
-        "TOOLS_AND_TECHNOLOGIES": "Araçlar ve Teknolojiler",
         "SKILLS": "Beceriler",
-        "TECHNICAL_SKILLS_MASTERED": "Uzmanlaşılan teknik beceriler"
+        "SOFTWARE_ARCHITECTURE": "Yazılım mimarisi",
+        "TECHNICAL_SKILLS_MASTERED": "Hakim olduğum teknik beceriler",
+        "TOOLS_AND_METHODOLOGIES": "Araçlar ve Metodolojiler"
     },
     "TIME": {
         "DAY": "Gün",

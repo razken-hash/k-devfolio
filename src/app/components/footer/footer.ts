@@ -32,10 +32,13 @@ export class Footer {
     this.accountsLinks = this.navigationLinksService.accountsLinks;
   }
 
+  private readonly CDN_URL =
+    'https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/';
+
   techStack: Technology[] = [
-    { name: 'Angular', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg' },
-    { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
-    { name: 'TailwindCSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' }
+    { name: 'Angular', icon: `${this.CDN_URL}angular/default.svg` },
+    { name: 'TypeScript', icon: `${this.CDN_URL}typescript/default.svg` },
+    { name: 'Tailwind CSS', icon: `${this.CDN_URL}tailwindcss/default.svg` },
   ];
 
   scrollTo(id: string) {

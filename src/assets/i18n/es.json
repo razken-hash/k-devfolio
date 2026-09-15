@@ -117,14 +117,15 @@
         "PROJECTS": "Proyectos"
     },
     "SKILLS": {
-        "ALGORITHMS_AND_DATA_STRUCTURES": "Algoritmos y Estructuras de Datos",
-        "SOFTWARE_ARCHITECTURE": "Arquitectura de Software",
-        "DATABASES": "Bases de Datos",
-        "METHODOLOGIES_AND_SOFTWARE_QUALITY": "Metodologías y Calidad de Software",
-        "MY_TECHNICAL_SKILLS": "Mis habilidades técnicas",
-        "TOOLS_AND_TECHNOLOGIES": "Herramientas y Tecnologías",
+        "AI_ASSISTED_DEVELOPMENT": "Desarrollo Asistido por IA",
+        "ALGORITHMS_AND_DATA_STRUCTURES": "Algoritmos y estructuras de datos",
+        "CLOUD_AND_DEVOPS": "Cloud y DevOps",
+        "DATABASES": "Bases de datos",
+        "MY_TECHNICAL_SKILLS": "Mis competencias técnicas",
         "SKILLS": "Habilidades",
-        "TECHNICAL_SKILLS_MASTERED": "Habilidades técnicas dominadas"
+        "SOFTWARE_ARCHITECTURE": "Arquitectura de software",
+        "TECHNICAL_SKILLS_MASTERED": "Competencias técnicas dominadas",
+        "TOOLS_AND_METHODOLOGIES": "Herramientas y Metodologías"
     },
     "TIME": {
         "DAY": "Día",
