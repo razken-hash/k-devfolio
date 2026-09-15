@@ -19,16 +19,6 @@
                     bg-teal-400/5 rounded-full blur-3xl"></div>
     </div>
 
-    <!-- Floating particles -->
-    <div class="absolute inset-0 pointer-events-none overflow-hidden">
-        <div *ngFor="let particle of floatingParticles"
-            class="absolute w-1.5 h-1.5 sm:w-2 sm:h-2 bg-lime-400/20 rounded-full animate-float"
-            [style.left.%]="particle.left" [style.top.%]="particle.top"
-            [style.animation-duration.s]="particle.duration"
-            [style.animation-delay.s]="particle.delay">
-        </div>
-    </div>
-
     <!-- Main Content -->
     <div class="max-w-7xl mx-auto w-full relative z-10">
 
@@ -36,8 +26,8 @@
         <div class="flex flex-col items-center gap-10 lg:hidden">
             <app-hero-mobile-header></app-hero-mobile-header>
             <app-hero-personal-picture class="w-full flex justify-center relative"></app-hero-personal-picture>
-            <p class="text-base text-gray-300 leading-relaxed max-w-xl mx-auto text-center"
-                [innerHTML]="heroTagHtml"></p>
+            <p class="text-base text-gray-300 leading-relaxed max-w-xl mx-auto text-center" [innerHTML]="heroTagHtml">
+            </p>
             <app-hero-social-cta></app-hero-social-cta>
         </div>
 

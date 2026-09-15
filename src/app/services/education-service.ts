@@ -25,7 +25,7 @@ export class EducationService {
               logo: 'assets/images/um.png',
               website: 'https://www.umontpellier.fr/',
               startedAt: new Date('2024-09-01'),
-              endedAt: null,
+              endedAt: new Date('2026-08-28'),
               location: `${PLACES.MONTPELLIER}, ${PLACES.FRANCE}`,
             },
             {

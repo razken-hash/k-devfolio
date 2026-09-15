@@ -38,11 +38,4 @@ export class Hero {
   faLinkedinIn = faLinkedinIn;
   faMedium = faMedium;
   faDownload = faDownload;
-
-  floatingParticles = Array(30).fill(0).map(() => ({
-    left: Math.random() * 100,
-    top: Math.random() * 100,
-    duration: 5 + Math.random() * 10,
-    delay: Math.random() * 5
-  }));
 }
