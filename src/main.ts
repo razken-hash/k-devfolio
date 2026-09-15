@@ -29,8 +29,3 @@ bootstrapApplication(App, {
   ],
 });
 
-
-function provideDirectionality(arg0: () => string): import("@angular/core").Provider | import("@angular/core").EnvironmentProviders {
-  throw new Error('Function not implemented.');
-}
-

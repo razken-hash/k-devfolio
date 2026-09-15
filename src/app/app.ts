@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LanguageService } from './services/language-service';
+import { AnalyticsService } from './services/analytics.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,9 @@ import { LanguageService } from './services/language-service';
 export class App {
   protected readonly title = signal('kDevfolio');
 
-  constructor(private languageService: LanguageService) { }
+  constructor(
+    private languageService: LanguageService,
+    private analyticsService: AnalyticsService) { }
 
   get currentLanguage() {
     return this.languageService.currentLanguage.code;
