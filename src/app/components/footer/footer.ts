@@ -10,6 +10,7 @@ import { LanguageService } from '../../services/language-service';
 import { Technology } from '../../models/technology.model';
 import { Router } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { SkillIconsRepository as Skills } from '../../repositories/skill-icons.repository';
 
 
 @Component({
@@ -32,13 +33,10 @@ export class Footer {
     this.accountsLinks = this.navigationLinksService.accountsLinks;
   }
 
-  private readonly CDN_URL =
-    'https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/';
-
   techStack: Technology[] = [
-    { name: 'Angular', icon: `${this.CDN_URL}angular/default.svg` },
-    { name: 'TypeScript', icon: `${this.CDN_URL}typescript/default.svg` },
-    { name: 'Tailwind CSS', icon: `${this.CDN_URL}tailwindcss/default.svg` },
+    Skills.ANGULAR,
+    Skills.TYPESCRIPT,
+    Skills.TAILWIND_CSS,
   ];
 
   scrollTo(id: string) {

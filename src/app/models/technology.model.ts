@@ -1,4 +1,3 @@
-export interface Technology {
-    name: string;
-    icon: string;
-}
+import { Skill } from "./skill.model";
+
+export interface Technology extends Skill { }
