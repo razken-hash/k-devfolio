@@ -25,7 +25,7 @@ export class NavigationLinksService {
     {
       label: 'LinkedIn',
       icon: 'https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/linkedin/default.svg',
-      url: 'https://www.linkedin.com/in/abderrazak-kenniche-a1a213227/',
+      url: 'https://www.linkedin.com/in/abderrazak-kenniche/',
     },
     {
       label: 'Medium',

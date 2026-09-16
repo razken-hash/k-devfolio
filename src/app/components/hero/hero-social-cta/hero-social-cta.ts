@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -18,6 +19,7 @@ import { NavigationLinksService } from '../../../services/navigation-links-servi
     CommonModule,
     RouterModule,
     TranslateModule,
+    FontAwesomeModule,
     CvPreview,
   ],
   templateUrl: './hero-social-cta.html',
