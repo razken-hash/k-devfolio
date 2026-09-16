@@ -17,8 +17,20 @@ export class NavigationLinksService {
   ];
 
   accountsLinks: NavigationLink[] = [
-    { label: 'GitHub', icon: faGithub, url: 'https://github.com/razken-hash', },
-    { label: 'LinkedIn', icon: faLinkedin, url: 'https://www.linkedin.com/in/abderrazak-kenniche-a1a213227/', },
-    { label: 'Email', icon: faEnvelope, url: 'mailto:pro.contactabderrazak@gmail.com', }
+    {
+      label: 'GitHub',
+      icon: 'https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/github/default.svg',
+      url: 'https://github.com/razken-hash',
+    },
+    {
+      label: 'LinkedIn',
+      icon: 'https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/linkedin/default.svg',
+      url: 'https://www.linkedin.com/in/abderrazak-kenniche-a1a213227/',
+    },
+    {
+      label: 'Medium',
+      icon: 'https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/medium/default.svg',
+      url: 'https://medium.com/@pro.contactabderrazak',
+    },
   ];
 }
