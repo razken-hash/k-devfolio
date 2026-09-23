@@ -9,7 +9,19 @@ import { MarkdownConverterService } from './markdown-converter-service';
   providedIn: 'root'
 })
 export class ArticlesService {
-  private articles: Article[] = [];
+  private articles: Article[] = [
+    {
+      id: 'docker-base-images-explained',
+      title: 'Docker Base Images Explained: A Comprehensive Guide',
+      description: 'Understand the importance of Docker base images, their types, and how to choose the right one for your applications.',
+      date: '2026-09-20',
+      file: 'assets/articles/docker-base-images-explained/docker-base-images-explained.md',
+      author: 'KENNICHE ABDERRAZAK',
+      tags: ['Docker', 'Linux', 'DevOps'],
+      coverImage: 'assets/articles/docker-base-images-explained/images/docker-base-images-explained.webp',
+      readingTime: 8,
+    },
+  ];
   // [
   //   {
   //     id: 'getting-started-angular',

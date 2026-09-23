@@ -1,6 +1,5 @@
 export const environment = {
     production: false,
     enableAnalytics: false,
-    GITHUB_API_TOKEN: "",
     googleAnalyticsId: 'G-T97E56KQY3'
 };

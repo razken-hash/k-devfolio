@@ -9,6 +9,7 @@ import { environment } from '../environment/environment';
 export class MarkdownConverterService {
 
   private apiUrl = 'https://api.github.com/markdown';
+  private token = "";
 
   constructor(private http: HttpClient) { }
 
@@ -20,7 +21,7 @@ export class MarkdownConverterService {
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${environment.GITHUB_API_TOKEN}`
+      'Authorization': `Bearer ${this.token}` // Use the token from environment
     });
 
     return this.http.post(this.apiUrl, body, {
@@ -28,4 +29,43 @@ export class MarkdownConverterService {
       responseType: 'text'
     });
   }
+
+  public processMermaidBlocks(html: string): string {
+    const container = document.createElement('div');
+    container.innerHTML = html;
+
+    const mermaidBlocks = container.querySelectorAll(
+      '.highlight-source-mermaid'
+    );
+
+    for (const block of mermaidBlocks) {
+
+      const pre = block.querySelector('pre');
+
+      if (!pre) {
+        continue;
+      }
+
+      const mermaidCode = pre.textContent?.trim();
+
+      if (!mermaidCode) {
+        continue;
+      }
+
+      // Remove GitHub's syntax highlighting
+      pre.innerHTML = '';
+
+      // Create clean <code>
+      const code = document.createElement('code');
+
+      code.className = 'language-mermaid';
+
+      code.textContent = mermaidCode;
+
+      pre.appendChild(code);
+    }
+
+    return container.innerHTML;
+  }
 }
+
