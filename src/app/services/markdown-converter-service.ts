@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../environment/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +10,22 @@ export class MarkdownConverterService {
   private apiUrl = 'https://api.github.com/markdown';
   private token = "";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.loadGithubToken();
+  }
+
+  private loadGithubToken(): void {
+    this.http
+      .get<{ GITHUB_TOKEN: string }>('/.netlify/functions/get-environment')
+      .subscribe({
+        next: (data) => {
+          this.token = data.GITHUB_TOKEN;
+        },
+        error: (error) => {
+          console.error('Failed to retrieve GitHub token', error);
+        },
+      });
+  }
 
   convertMarkdownToHtml(md: string): Observable<string> {
     const body = {
