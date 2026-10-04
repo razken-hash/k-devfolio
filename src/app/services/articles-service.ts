@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { Article } from '../models/article.model';
-import { MarkdownConverterService } from './markdown-converter-service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,52 +10,39 @@ import { MarkdownConverterService } from './markdown-converter-service';
 export class ArticlesService {
   private articles: Article[] = [
     {
-      id: 'docker-base-images-explained',
-      title: 'Docker Base Images Explained: A Comprehensive Guide',
+      id: 'docker-base-images-explained-part-1',
+      title: 'Docker Base Images Explained: A Comprehensive Guide — Part I',
       description: 'Understand the importance of Docker base images, their types, and how to choose the right one for your applications.',
       date: '2026-09-20',
-      file: 'assets/articles/docker-base-images-explained/docker-base-images-explained.md',
+      file: 'assets/articles/docker-base-images-explained-part-1/docker-base-images-explained-part-1.md',
       author: 'KENNICHE ABDERRAZAK',
       tags: ['Docker', 'Linux', 'DevOps'],
-      coverImage: 'assets/articles/docker-base-images-explained/images/docker-base-images-explained.webp',
+      coverImage: 'assets/articles/docker-base-images-explained-part-1/images/docker-base-images-explained-part-1.webp',
+      readingTime: 8,
+    },
+    {
+      id: 'docker-base-images-explained-part-2',
+      title: 'Docker Base Images Explained: A Comprehensive Guide — Part II',
+      description: 'Understand the importance of Docker base images, their types, and how to choose the right one for your applications.',
+      date: '2026-09-20',
+      file: 'assets/articles/docker-base-images-explained-part-2/docker-base-images-explained-part-2.md',
+      author: 'KENNICHE ABDERRAZAK',
+      tags: ['Docker', 'Linux', 'DevOps'],
+      coverImage: 'assets/articles/docker-base-images-explained-part-2/images/docker-base-images-explained-part-2.webp',
+      readingTime: 8,
+    },
+    {
+      id: 'docker-base-images-explained-part-3',
+      title: 'Docker Base Images Explained: A Comprehensive Guide — Part III',
+      description: 'Understand the importance of Docker base images, their types, and how to choose the right one for your applications.',
+      date: '2026-09-20',
+      file: 'assets/articles/docker-base-images-explained-part-3/docker-base-images-explained-part-3.md',
+      author: 'KENNICHE ABDERRAZAK',
+      tags: ['Docker', 'Linux', 'DevOps'],
+      coverImage: 'assets/articles/docker-base-images-explained-part-3/images/docker-base-images-explained-part-3.webp',
       readingTime: 8,
     },
   ];
-  // [
-  //   {
-  //     id: 'getting-started-angular',
-  //     title: 'Getting Started with Angular 19',
-  //     description: 'Un guide complet pour débuter avec Angular 18, couvrant les nouveautés et les meilleures pratiques.',
-  //     date: '2025-01-15',
-  //     file: 'assets/articles/getting-started-angular/getting-started-angular.md',
-  //     author: 'KENNICHE ABDERRAZAK',
-  //     tags: ['Angular', 'TypeScript', 'Frontend'],
-  //     coverImage: 'assets/articles/getting-started-angular/images/getting-started-angular.webp',
-  //     readingTime: 8,
-  //   },
-  //   {
-  //     id: 'spring-boot-microservices',
-  //     title: 'Microservices avec Spring Boot',
-  //     description: 'Architecture microservices moderne avec Spring Boot, Docker et Kubernetes.',
-  //     date: '2025-01-10',
-  //     file: 'assets/articles/spring-boot-microservices/spring-boot-microservices.md',
-  //     author: 'KENNICHE ABDERRAZAK',
-  //     tags: ['Spring Boot', 'Microservices', 'Backend'],
-  //     coverImage: 'assets/articles/spring-boot-microservices/images/spring-boot-microservices.webp',
-  //     readingTime: 10,
-  //   },
-  //   {
-  //     id: 'flutter-state-management',
-  //     title: 'State Management dans Flutter',
-  //     description: 'Comparaison des solutions de gestion d\'état dans Flutter : BLoC, Provider, Riverpod.',
-  //     date: '2025-01-05',
-  //     file: 'assets/articles/flutter-state-management/flutter-state-management.md',
-  //     author: 'KENNICHE ABDERRAZAK',
-  //     tags: ['Flutter', 'Dart', 'Mobile'],
-  //     coverImage: 'assets/articles/flutter-state-management/images/flutter-state-management.webp',
-  //     readingTime: 7,
-  //   },
-  // ];
 
   constructor(private http: HttpClient) { }
 
