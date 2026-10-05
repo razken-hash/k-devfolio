@@ -17,7 +17,7 @@ export class ArticlesService {
       file: 'assets/articles/docker-base-images-explained-part-1/docker-base-images-explained-part-1.md',
       author: 'KENNICHE ABDERRAZAK',
       tags: ['Docker', 'Linux', 'DevOps'],
-      coverImage: 'assets/articles/docker-base-images-explained-part-1/images/docker-base-images-explained-part-1.webp',
+      coverImage: 'assets/articles/docker-base-images-explained-part-1/images/docker-base-images-explained-part-1.png',
       readingTime: 8,
     },
     {
@@ -28,7 +28,7 @@ export class ArticlesService {
       file: 'assets/articles/docker-base-images-explained-part-2/docker-base-images-explained-part-2.md',
       author: 'KENNICHE ABDERRAZAK',
       tags: ['Docker', 'Linux', 'DevOps'],
-      coverImage: 'assets/articles/docker-base-images-explained-part-2/images/docker-base-images-explained-part-2.webp',
+      coverImage: 'assets/articles/docker-base-images-explained-part-2/images/docker-base-images-explained-part-2.png',
       readingTime: 8,
     },
     {
@@ -39,7 +39,7 @@ export class ArticlesService {
       file: 'assets/articles/docker-base-images-explained-part-3/docker-base-images-explained-part-3.md',
       author: 'KENNICHE ABDERRAZAK',
       tags: ['Docker', 'Linux', 'DevOps'],
-      coverImage: 'assets/articles/docker-base-images-explained-part-3/images/docker-base-images-explained-part-3.webp',
+      coverImage: 'assets/articles/docker-base-images-explained-part-3/images/docker-base-images-explained-part-3.png',
       readingTime: 8,
     },
   ];
