@@ -145,26 +145,73 @@ export class ArticleComponent implements OnInit {
     const container = document.createElement('div');
     container.innerHTML = html;
 
-    const elements =
-      container.querySelectorAll<HTMLElement>('.markdown-heading>h1, .markdown-heading>h2');
+    const headings = container.querySelectorAll<HTMLElement>(
+      '.markdown-heading > h1, .markdown-heading > h2, .markdown-heading > h3'
+    );
 
     const sectionsContainer = document.createElement('div');
-    sectionsContainer.className = 'sections-urls-skeletons';
+    sectionsContainer.className = 'sections-navigation';
 
-    elements.forEach((element, index) => {
-      const id = element.id || `section-${index}`;
-      element.id = id;
+    let currentSection: HTMLDivElement | null = null;
+    let sectionIndex = 0;
 
-      const skeleton = document.createElement('button');
-      skeleton.type = 'button';
-      skeleton.className = 'section-url-skeleton';
-      skeleton.dataset['id'] = id;
-      skeleton.setAttribute(
+    headings.forEach((heading) => {
+      const tagName = heading.tagName.toLowerCase();
+      const isMainSection = tagName === 'h1' || tagName === 'h2';
+      const isSubsection = tagName === 'h3';
+
+      // Make absolutely sure every heading has an ID
+      const id =
+        heading.id ||
+        `section-${sectionIndex++}`;
+
+      heading.id = id;
+
+      const button = document.createElement('button');
+
+      button.type = 'button';
+      button.className = isMainSection
+        ? 'section-url-skeleton'
+        : 'section-subsection-skeleton';
+
+      // IMPORTANT: use a data attribute dedicated to the target
+      button.setAttribute('data-section-id', id);
+
+      button.setAttribute(
         'aria-label',
-        `Go to section ${index + 1}`
+        `Go to ${isSubsection ? 'subsection' : 'section'} ${heading.textContent?.trim() || ''
+        }`
       );
 
-      sectionsContainer.appendChild(skeleton);
+      if (isMainSection) {
+        currentSection = document.createElement('div');
+        currentSection.className = 'section-navigation-group';
+
+        const mainContainer = document.createElement('div');
+        mainContainer.className = 'section-navigation-main';
+
+        mainContainer.appendChild(button);
+        currentSection.appendChild(mainContainer);
+
+        sectionsContainer.appendChild(currentSection);
+      }
+
+      if (isSubsection && currentSection) {
+        let subsectionsContainer =
+          currentSection.querySelector<HTMLDivElement>(
+            '.section-navigation-subsections'
+          );
+
+        if (!subsectionsContainer) {
+          subsectionsContainer = document.createElement('div');
+          subsectionsContainer.className =
+            'section-navigation-subsections';
+
+          currentSection.appendChild(subsectionsContainer);
+        }
+
+        subsectionsContainer.appendChild(button);
+      }
     });
 
     this.sectionNavigation =
@@ -175,19 +222,21 @@ export class ArticleComponent implements OnInit {
     return container.innerHTML;
   }
 
-  onSectionNavigationClick(event: Event): void {
+  onSectionNavigationClick(event: MouseEvent): void {
     const target = event.target as HTMLElement;
 
-    const button =
-      target.closest<HTMLButtonElement>(
-        '.section-url-skeleton'
-      );
+    const button = target.closest<HTMLButtonElement>(
+      '[data-section-id]'
+    );
 
     if (!button) {
       return;
     }
 
-    const sectionId = button.dataset['id'];
+    event.preventDefault();
+    event.stopPropagation();
+
+    const sectionId = button.getAttribute('data-section-id');
 
     if (!sectionId) {
       return;
@@ -196,18 +245,22 @@ export class ArticleComponent implements OnInit {
     const section = document.getElementById(sectionId);
 
     if (!section) {
+      console.warn(
+        `Section with id "${sectionId}" was not found`
+      );
+
       return;
     }
 
-    const header = document.querySelector('app-header');
-    const headerHeight = 80;
+    const headerOffset = 100;
 
     const sectionTop =
       section.getBoundingClientRect().top +
-      window.scrollY;
+      window.scrollY -
+      headerOffset;
 
     window.scrollTo({
-      top: sectionTop + headerHeight,
+      top: sectionTop,
       behavior: 'smooth'
     });
   }
