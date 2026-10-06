@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { catchError, Observable, switchMap, tap, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,27 +8,48 @@ import { Observable } from 'rxjs';
 export class MarkdownConverterService {
 
   private apiUrl = 'https://api.github.com/markdown';
-  private token = "";
+  private token: string | null = null;
 
   constructor(private http: HttpClient) {
-    this.loadGithubToken();
   }
 
-  private loadGithubToken(): void {
-    this.http
+  private loadGithubToken(): Observable<void> {
+    return this.http
       .get<{ GITHUB_TOKEN: string }>('/.netlify/functions/get-environment')
-      .subscribe({
-        next: (data) => {
-          console.log('Retrieved GitHub token from environment:', data);
-          this.token = data["GITHUB_TOKEN"];
-        },
-        error: (error) => {
+      .pipe(
+        tap(data => {
+          this.token = data.GITHUB_TOKEN;
+        }),
+        switchMap(() => {
+          return new Observable<void>(subscriber => {
+            subscriber.next();
+            subscriber.complete();
+          });
+        }),
+        catchError(error => {
           console.error('Failed to retrieve GitHub token', error);
-        },
-      });
+          return throwError(() => error);
+        })
+      );
   }
 
   convertMarkdownToHtml(md: string): Observable<string> {
+    if (this.token) {
+      return this.convertWithToken(md);
+    }
+
+    return this.loadGithubToken().pipe(
+      switchMap(() => {
+        if (this.token == null) {
+          return throwError(() => new Error('GitHub token is not available'));
+        }
+
+        return this.convertWithToken(md);
+      })
+    );
+  }
+
+  private convertWithToken(md: string): Observable<string> {
     const body = {
       text: md,
       mode: 'markdown'
@@ -36,7 +57,7 @@ export class MarkdownConverterService {
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.token}` // Use the token from environment
+      'Authorization': `Bearer ${this.token}`
     });
 
     return this.http.post(this.apiUrl, body, {
@@ -54,7 +75,6 @@ export class MarkdownConverterService {
     );
 
     for (const block of mermaidBlocks) {
-
       const pre = block.querySelector('pre');
 
       if (!pre) {
@@ -67,14 +87,10 @@ export class MarkdownConverterService {
         continue;
       }
 
-      // Remove GitHub's syntax highlighting
       pre.innerHTML = '';
 
-      // Create clean <code>
       const code = document.createElement('code');
-
       code.className = 'language-mermaid';
-
       code.textContent = mermaidCode;
 
       pre.appendChild(code);
@@ -83,4 +99,3 @@ export class MarkdownConverterService {
     return container.innerHTML;
   }
 }
-
