@@ -19,7 +19,8 @@ export class MarkdownConverterService {
       .get<{ GITHUB_TOKEN: string }>('/.netlify/functions/get-environment')
       .subscribe({
         next: (data) => {
-          this.token = data.GITHUB_TOKEN;
+          console.log('Retrieved GitHub token from environment:', data);
+          this.token = data["GITHUB_TOKEN"];
         },
         error: (error) => {
           console.error('Failed to retrieve GitHub token', error);

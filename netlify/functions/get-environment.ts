@@ -17,7 +17,7 @@ export default async () => {
 
   return new Response(
     JSON.stringify({
-      GITHUB_TOKEN: token,
+      "GITHUB_TOKEN": token,
     }),
     {
       status: 200,
