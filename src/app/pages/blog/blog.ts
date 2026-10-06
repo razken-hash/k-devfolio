@@ -49,9 +49,14 @@ export class Blog {
   }
 
   loadArticles(): void {
+    const language =
+      this.languageService.getCurrentLanguageCode();
     this.articlesService.getAllArticles().subscribe(articles => {
-      this.articles = articles;
-      this.filteredArticles = articles;
+      this.articles = articles.map(article => ({
+        ...article,
+        coverImage: article.coverImage + "-" + language + ".png"
+      }));
+      this.filteredArticles = this.articles;
       this.extractTags();
     });
   }
