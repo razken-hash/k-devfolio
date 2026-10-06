@@ -3,6 +3,19 @@
 /* All Languages Support (TS/JS, Java, Dart, YAML, Dockerfile) */
 /* ============================================ */
 
+.copy-snackbar .mdc-snackbar__surface {
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+.copy-snackbar .mdc-snackbar__label {
+    color: inherit !important;
+    padding: 0 !important;
+    font-size: 14px;
+    font-weight: 500;
+}
+
 /* Base styling for markdown content */
 .markdown-body,
 .markdown-content {
@@ -16,52 +29,48 @@
 /* ============================================ */
 /* SECTIONS NAVIGATION */
 /* ============================================ */
+
 .sections-urls-skeletons {
     position: fixed;
-
-    /* Center vertically in viewport */
     top: 50%;
     transform: translateY(-50%);
-
-    /* Position just to the left of the article */
     left: calc((50% - 500px) / 2);
-
     z-index: 30;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     gap: 14px;
-
     width: 40px;
 }
 
 .section-url-skeleton {
     display: block;
-
     width: 49px;
     height: 4px;
-
+    padding: 0;
     border: 0;
     border-radius: 999px;
-
     background: rgba(255, 255, 255, 0.35);
-
     cursor: pointer;
-
     transition:
         width 200ms ease,
-        background-color 200ms ease;
+        height 200ms ease,
+        background-color 200ms ease,
+        opacity 200ms ease;
 }
-
 
 .section-url-skeleton:hover {
     width: 64px;
     height: 5px;
     background: #a3e635;
     transform: none;
+}
+
+.section-url-skeleton.active-section {
+    width: 64px;
+    height: 5px;
+    background: #a3e635;
 }
 
 .section-url-skeleton:focus-visible {
@@ -86,43 +95,38 @@
 .section-navigation-subsections {
     display: flex;
     flex-direction: column;
-
     align-items: flex-start;
-
     gap: 7px;
-
     margin-top: 7px;
     margin-left: 16px;
-
     padding-left: 10px;
-
     border-left: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-
 .section-subsection-skeleton {
     display: block;
-
     width: 22px;
     height: 3px;
-
     padding: 0;
     border: 0;
-
     border-radius: 999px;
-
     background: rgba(255, 255, 255, 0.22);
-
     cursor: pointer;
-
     transition:
         width 200ms ease,
+        height 200ms ease,
         background-color 200ms ease;
 }
 
 .section-subsection-skeleton:hover {
     width: 30px;
     background: rgba(163, 230, 53, 0.8);
+}
+
+.section-subsection-skeleton.active-section {
+    width: 30px;
+    height: 4px;
+    background: #a3e635;
 }
 
 

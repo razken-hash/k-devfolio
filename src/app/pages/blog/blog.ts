@@ -91,4 +91,17 @@ export class Blog {
   formatDate(dateString: string): string {
     return this.languageService.formatDate(dateString);
   }
+
+  getArticleShortenedTitle(title: string): string {
+    const match = title.match(/\bPart\s+[IVXLCDM]+\b/i);
+
+    if (!match) {
+      return '';
+    }
+
+    const part = match[0];
+    const titleWithoutPart = title.replace(part, '').trim();
+
+    return `${titleWithoutPart.substring(0, 36).trim()} ... ${part}`;
+  }
 }
