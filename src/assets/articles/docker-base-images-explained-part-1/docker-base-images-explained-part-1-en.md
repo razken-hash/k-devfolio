@@ -22,7 +22,7 @@ In **[Part I — OS-based images](./../blog/docker-base-images-explained-part-1)
 
 In **[Part II — Minimal Images](./../blog/docker-base-images-explained-part-1)**, we’ll move beyond traditional OS-based images and explore **Distroless** and **Scratch**. We’ll see how these approaches remove most, or even all, of the traditional operating-system userspace and what that means for application compatibility, security, and debugging.
 
-In **[Part III — Comparison & Benchmarking](./../blog/docker-base-images-explained-part-1)**, we’ll bring everything together with a **comparison table** covering all five image types. We’ll then put them to the test through a **concrete benchmarking exercise**, measuring metrics such as **image size, build time, startup time, and other relevant performance indicators**.
+In **[Part III — Comparison &amp; Benchmarking](./../blog/docker-base-images-explained-part-1)**, we’ll bring everything together with a **comparison table** covering all five image types. We’ll then put them to the test through a **concrete benchmarking exercise**, measuring metrics such as **image size, build time, startup time, and other relevant performance indicators**.
 
 More importantly, we’ll approach the decision from a **software engineer’s perspective**. The goal isn’t simply to find the smallest image possible, but to answer a more useful question:
 
@@ -270,7 +270,7 @@ An Alpine-based image typically provides:
 The main advantage of Alpine is its **small footprint while still providing a functional, general-purpose Linux environment**.
 
 * **Small image size**, resulting in faster image pulls, transfers, and deployments
-* **Lightweight package management** through ```apk```, along with a shell and essential utilities
+* **Lightweight package management** through ``apk``, along with a shell and essential utilities
 * **Minimal by design**, with fewer components included by default and a smaller attack surface.
 * **Wide ecosystem** of official and community-maintained Alpine-based images
 * **Suitable for many production workloads** where a lightweight Linux environment is sufficient

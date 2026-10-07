@@ -223,9 +223,14 @@ export class ArticleComponent implements OnInit {
           contentWithMermaid
         );
 
+      const enhancedContent =
+        this.enhanceCodeBlocks(
+          renderedContent
+        );
+
       const finalContent =
         this.buildSectionsUrlsSkeletons(
-          renderedContent
+          enhancedContent
         );
 
       this.content =
@@ -237,6 +242,7 @@ export class ArticleComponent implements OnInit {
 
       setTimeout(() => {
         this.observeSections();
+        this.setupCodeBlockCopy();
       });
     } catch (error) {
       console.error(
@@ -748,5 +754,176 @@ export class ArticleComponent implements OnInit {
           '</span>'
       }
     );
+  }
+
+  private getCodeLanguage(block: HTMLElement): string {
+    const className = Array.from(block.classList)
+      .find(className =>
+        className.startsWith('highlight-source-')
+      );
+
+    if (!className) {
+      return 'code';
+    }
+
+    const language = className
+      .replace('highlight-source-', '');
+
+    const languageMap: Record<string, string> = {
+      dockerfile: 'Docker',
+      javascript: 'JavaScript',
+      js: 'JavaScript',
+      typescript: 'TypeScript',
+      ts: 'TypeScript',
+      java: 'Java',
+      python: 'Python',
+      py: 'Python',
+      bash: 'Bash',
+      shell: 'Shell',
+      sh: 'Shell',
+      yaml: 'YAML',
+      json: 'JSON',
+      html: 'HTML',
+      css: 'CSS',
+      scss: 'SCSS',
+      dart: 'Dart',
+      sql: 'SQL',
+      xml: 'XML',
+      markdown: 'Markdown',
+      md: 'Markdown'
+    };
+
+    return languageMap[language.toLowerCase()] ?? language;
+  }
+
+  private enhanceCodeBlocks(html: string): string {
+    const container = document.createElement('div');
+    container.innerHTML = html;
+
+    const codeBlocks =
+      container.querySelectorAll<HTMLElement>(
+        '.highlight:not(.highlight-source-mermaid)'
+      );
+
+    codeBlocks.forEach((block, index) => {
+      const pre = block.querySelector('pre');
+
+      if (!pre) {
+        return;
+      }
+
+      // Avoid processing the same block twice
+      if (block.querySelector('.code-block-header')) {
+        return;
+      }
+
+      const language = this.getCodeLanguage(block);
+
+      // Wrapper
+      const wrapper = document.createElement('div');
+      wrapper.className = 'code-block-wrapper';
+
+      // Header
+      const header = document.createElement('div');
+      header.className = 'code-block-header';
+
+      // Language label
+      const languageLabel = document.createElement('span');
+      languageLabel.className = 'code-block-language';
+      languageLabel.textContent = language;
+
+      // Copy button
+      const copyButton = document.createElement('button');
+      copyButton.type = 'button';
+      copyButton.className = 'code-block-copy';
+      copyButton.setAttribute('data-code-block-index', index.toString());
+      copyButton.setAttribute('aria-label', 'Copy code');
+      copyButton.innerHTML = `
+      <span class="copy-icon">Copy</span>
+    `;
+
+      header.appendChild(languageLabel);
+      header.appendChild(copyButton);
+
+      // Move the existing code block inside our wrapper
+      block.parentNode?.insertBefore(wrapper, block);
+      wrapper.appendChild(header);
+      wrapper.appendChild(block);
+
+      // Remove the top-level margin from the original block
+      block.classList.add('code-block-content');
+    });
+
+    return container.innerHTML;
+  }
+
+  private setupCodeBlockCopy(): void {
+    const markdownBody =
+      document.querySelector('.markdown-body');
+
+    if (!markdownBody) {
+      return;
+    }
+
+    // Prevent registering the listener multiple times
+    if (markdownBody.getAttribute('copyListenerAttached') === 'true') {
+      return;
+    }
+
+    markdownBody.setAttribute("copyListenerAttached", 'true');
+
+    markdownBody.addEventListener('click', async event => {
+      const target = event.target as HTMLElement;
+
+      const button =
+        target.closest<HTMLButtonElement>(
+          '.code-block-copy'
+        );
+
+      if (!button) {
+        return;
+      }
+
+      const wrapper =
+        button.closest<HTMLElement>(
+          '.code-block-wrapper'
+        );
+
+      if (!wrapper) {
+        return;
+      }
+
+      const code =
+        wrapper.querySelector('pre')?.textContent ?? '';
+
+      try {
+        await navigator.clipboard.writeText(code);
+
+        button.innerHTML = `
+        <span class="copy-icon">Copied!</span>
+      `;
+
+        setTimeout(() => {
+          button.innerHTML = `
+          <span class="copy-icon">Copy</span>
+        `;
+        }, 1500);
+
+      } catch (error) {
+        console.error(
+          'Failed to copy code:',
+          error
+        );
+
+        this.snackBar.open(
+          'Failed to copy code',
+          'Close',
+          {
+            duration: 2000,
+            panelClass: ['copy-snackbar']
+          }
+        );
+      }
+    });
   }
 }
