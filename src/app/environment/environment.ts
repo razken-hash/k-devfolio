@@ -3,4 +3,5 @@ export const environment = {
     enableAnalytics: false,
     googleAnalyticsId: 'G-T97E56KQY3',
     backendUrl: 'http://localhost:8080/api/v1'
+    // backendUrl: 'https://kdevfolio-api.onrender.com/api/v1'
 };
