@@ -51,23 +51,15 @@ Bundan sonra Dockerfile'ınız uygulamanızın ihtiyaç duyduğu her şeyi ekler
 ```mermaid
 
 flowchart TB
-
     subgraph BASE["\nBase Image"]
-
         direction LR
-
         R[Runtime]
-
         S[System libraries]
-
         U[OS userspace]
-
     end
 
-    A[Application + dependencies]
-
+    A[Uygulama + bağımlılıklar]
     BASE --> A
-
     A --> F[Final Docker Image]
 
 ```

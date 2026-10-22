@@ -49,23 +49,15 @@ Une image de base fournit le système de fichiers, les bibliothèques et les aut
 ```mermaid
 
 flowchart TB
-
     subgraph BASE["\nBase Image"]
-
         direction LR
-
         R[Runtime]
-
         S[System libraries]
-
         U[OS userspace]
-
     end
 
-    A[Application + dependencies]
-
+    A[Application + dépendances]
     BASE --> A
-
     A --> F[Final Docker Image]
 
 ```

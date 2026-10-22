@@ -33,10 +33,12 @@ export class LanguageService {
   setLanguage(code: string) {
     const lang = LanguageService.languages.find(l => l.code === code);
     if (lang) {
-      this.currentLanguage = lang;
-      this.translate.use(code); // update ngx-translate language
-      document.documentElement.lang = code; // update HTML lang attribute
-      localStorage.setItem('language', code); // persist language choice
+      if (lang !== this.currentLanguage) {
+        this.currentLanguage = lang;
+        this.translate.use(code); // update ngx-translate language
+        document.documentElement.lang = code; // update HTML lang attribute
+        localStorage.setItem('language', code); // persist language choice
+      }
     }
   }
 

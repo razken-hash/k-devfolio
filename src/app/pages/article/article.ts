@@ -53,6 +53,9 @@ import {
   MatSnackBarModule
 } from '@angular/material/snack-bar';
 
+import { faCopy, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { icon } from '@fortawesome/fontawesome-svg-core';
+
 @Component({
   selector: 'app-article',
   imports: [
@@ -71,6 +74,16 @@ export class ArticleComponent implements OnInit {
   faTag = faTag;
   faArrowLeft = faArrowLeft;
   faShareNodes = faShareNodes;
+  faCopy = faCopy;
+  faCheck = faCheck;
+
+  private getCopyIcon(): string {
+    return icon(faCopy).html.join('');
+  }
+
+  private getCheckIcon(): string {
+    return icon(faCheck).html.join('');
+  }
 
   article?: Article;
   content: SafeHtml = '';
@@ -224,9 +237,7 @@ export class ArticleComponent implements OnInit {
         );
 
       const enhancedContent =
-        this.enhanceCodeBlocks(
-          renderedContent
-        );
+        this.enhanceCodeBlocks(renderedContent);
 
       const finalContent =
         this.buildSectionsUrlsSkeletons(
@@ -756,21 +767,13 @@ export class ArticleComponent implements OnInit {
     );
   }
 
-  private getCodeLanguage(block: HTMLElement): string {
-    const className = Array.from(block.classList)
-      .find(className =>
-        className.startsWith('highlight-source-')
-      );
-
-    if (!className) {
-      return 'code';
-    }
-
-    const language = className
-      .replace('highlight-source-', '');
-
-    const languageMap: Record<string, string> = {
+  private getLanguageLabel(language: string): string {
+    const languages: Record<string, string> = {
       dockerfile: 'Docker',
+      docker: 'Docker',
+      bash: 'Bash',
+      shell: 'Shell',
+      sh: 'Shell',
       javascript: 'JavaScript',
       js: 'JavaScript',
       typescript: 'TypeScript',
@@ -778,79 +781,79 @@ export class ArticleComponent implements OnInit {
       java: 'Java',
       python: 'Python',
       py: 'Python',
-      bash: 'Bash',
-      shell: 'Shell',
-      sh: 'Shell',
-      yaml: 'YAML',
-      json: 'JSON',
       html: 'HTML',
       css: 'CSS',
       scss: 'SCSS',
-      dart: 'Dart',
-      sql: 'SQL',
+      json: 'JSON',
+      yaml: 'YAML',
+      yml: 'YAML',
       xml: 'XML',
+      sql: 'SQL',
       markdown: 'Markdown',
-      md: 'Markdown'
+      md: 'Markdown',
+      plaintext: 'Text',
+      text: 'Text'
     };
 
-    return languageMap[language.toLowerCase()] ?? language;
+    return languages[language] ?? language;
   }
 
   private enhanceCodeBlocks(html: string): string {
     const container = document.createElement('div');
     container.innerHTML = html;
 
-    const codeBlocks =
-      container.querySelectorAll<HTMLElement>(
-        '.highlight:not(.highlight-source-mermaid)'
-      );
+    const codeBlocks = container.querySelectorAll<HTMLElement>(
+      '.highlight:not(.highlight-source-mermaid)'
+    );
 
-    codeBlocks.forEach((block, index) => {
-      const pre = block.querySelector('pre');
-
-      if (!pre) {
+    codeBlocks.forEach((block) => {
+      if (block.parentElement?.classList.contains('code-block-wrapper')) {
         return;
       }
 
-      // Avoid processing the same block twice
-      if (block.querySelector('.code-block-header')) {
+      const languageClass = Array.from(block.classList)
+        .find(className => className.startsWith('highlight-source-'));
+
+      if (!languageClass) {
         return;
       }
 
-      const language = this.getCodeLanguage(block);
+      const language = languageClass
+        .replace('highlight-source-', '')
+        .toLowerCase();
 
-      // Wrapper
+      const languageLabel = this.getLanguageLabel(language);
+
       const wrapper = document.createElement('div');
       wrapper.className = 'code-block-wrapper';
 
-      // Header
       const header = document.createElement('div');
       header.className = 'code-block-header';
 
-      // Language label
-      const languageLabel = document.createElement('span');
-      languageLabel.className = 'code-block-language';
-      languageLabel.textContent = language;
+      const languageElement = document.createElement('span');
+      languageElement.className = 'code-block-language';
+      languageElement.textContent = languageLabel;
 
-      // Copy button
       const copyButton = document.createElement('button');
-      copyButton.type = 'button';
       copyButton.className = 'code-block-copy';
-      copyButton.setAttribute('data-code-block-index', index.toString());
+      copyButton.type = 'button';
       copyButton.setAttribute('aria-label', 'Copy code');
+      copyButton.setAttribute('title', 'Copy code');
+
       copyButton.innerHTML = `
-      <span class="copy-icon">Copy</span>
+      <span class="copy-icon">
+        ${this.getCopyIcon()}
+      </span>
+      <span class="copy-label">Copy</span>
     `;
 
-      header.appendChild(languageLabel);
+      header.appendChild(languageElement);
       header.appendChild(copyButton);
 
-      // Move the existing code block inside our wrapper
       block.parentNode?.insertBefore(wrapper, block);
       wrapper.appendChild(header);
       wrapper.appendChild(block);
 
-      // Remove the top-level margin from the original block
       block.classList.add('code-block-content');
     });
 
@@ -858,12 +861,12 @@ export class ArticleComponent implements OnInit {
   }
 
   private setupCodeBlockCopy(): void {
-    const markdownBody =
-      document.querySelector('.markdown-body');
+    const markdownBody = document.querySelector('.markdown-body');
 
     if (!markdownBody) {
       return;
     }
+
 
     // Prevent registering the listener multiple times
     if (markdownBody.getAttribute('copyListenerAttached') === 'true') {
@@ -872,57 +875,57 @@ export class ArticleComponent implements OnInit {
 
     markdownBody.setAttribute("copyListenerAttached", 'true');
 
-    markdownBody.addEventListener('click', async event => {
+    markdownBody.addEventListener('click', async (event) => {
       const target = event.target as HTMLElement;
 
-      const button =
-        target.closest<HTMLButtonElement>(
-          '.code-block-copy'
-        );
+      const button = target.closest<HTMLButtonElement>(
+        '.code-block-copy'
+      );
 
       if (!button) {
         return;
       }
 
-      const wrapper =
-        button.closest<HTMLElement>(
-          '.code-block-wrapper'
-        );
+      const wrapper = button.closest<HTMLElement>(
+        '.code-block-wrapper'
+      );
 
       if (!wrapper) {
         return;
       }
 
-      const code =
-        wrapper.querySelector('pre')?.textContent ?? '';
+      const code = wrapper.querySelector('pre')?.textContent ?? '';
 
       try {
         await navigator.clipboard.writeText(code);
 
-        button.innerHTML = `
-        <span class="copy-icon">Copied!</span>
-      `;
+        const iconContainer = button.querySelector('.copy-icon');
+        const label = button.querySelector('.copy-label');
+
+        if (iconContainer) {
+          iconContainer.innerHTML = this.getCheckIcon();
+        }
+
+        if (label) {
+          label.textContent = 'Copied';
+        }
+
+        button.classList.add('copied');
 
         setTimeout(() => {
-          button.innerHTML = `
-          <span class="copy-icon">Copy</span>
-        `;
+          if (iconContainer) {
+            iconContainer.innerHTML = this.getCopyIcon();
+          }
+
+          if (label) {
+            label.textContent = 'Copy';
+          }
+
+          button.classList.remove('copied');
         }, 1500);
 
       } catch (error) {
-        console.error(
-          'Failed to copy code:',
-          error
-        );
-
-        this.snackBar.open(
-          'Failed to copy code',
-          'Close',
-          {
-            duration: 2000,
-            panelClass: ['copy-snackbar']
-          }
-        );
+        console.error('Failed to copy code:', error);
       }
     });
   }

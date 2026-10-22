@@ -18,11 +18,11 @@ And that leads to a more interesting question:
 
 In this three-part article, we’ll take a journey through the different types of Docker base images — from **Full**, **Slim**, and **Alpine** to **Distroless** and **Scratch**. We’ll explore what each image provides, when it makes sense to use it, and what you give up as you move toward a more minimal environment.
 
-In **[Part I — OS-based images](./../blog/docker-base-images-explained-part-1)**, we’ll cover **Full**, **Slim**, and **Alpine** images. We’ll examine the Linux environment behind each image, what components it provides, and the trade-offs between size, compatibility, and convenience.
+In **[Part I — OS-based images](./../blog/docker-base-images-explained-part-1)**, we’ll cover **Full**, **Slim**, and **Alpine** images. We’ll look at the the Linux environment behind each image, what components it provides, and the trade-offs between size, compatibility, and convenience.
 
 In **[Part II — Minimal Images](./../blog/docker-base-images-explained-part-1)**, we’ll move beyond traditional OS-based images and explore **Distroless** and **Scratch**. We’ll see how these approaches remove most, or even all, of the traditional operating-system userspace and what that means for application compatibility, security, and debugging.
 
-In **[Part III — Comparison &amp; Benchmarking](./../blog/docker-base-images-explained-part-1)**, we’ll bring everything together with a **comparison table** covering all five image types. We’ll then put them to the test through a **concrete benchmarking exercise**, measuring metrics such as **image size, build time, startup time, and other relevant performance indicators**.
+Finally in **[Part III — Comparison &amp; Benchmarking](./../blog/docker-base-images-explained-part-1)**, we’ll bring everything together with a **comparison table** covering all five image types. We’ll then put them to the test through a **concrete benchmarking exercise**, measuring metrics such as **image size, build time, startup time, and other relevant performance indicators**.
 
 More importantly, we’ll approach the decision from a **software engineer’s perspective**. The goal isn’t simply to find the smallest image possible, but to answer a more useful question:
 
@@ -40,7 +40,9 @@ FROM node:24
 
 you are telling Docker where to start building your image.
 
-A base image provides the filesystem, libraries, and other foundational components from which the rest of your image is built, including an application runtime when one is provided. In the case of `node:24`, it provides the Node.js runtime together with the underlying userspace and dependencies required to run your application.
+A base image provides the filesystem, libraries, and other foundational components from which the rest of your image is built, including an application runtime when one is provided.
+
+In the case of `node:24`, it provides the Node.js runtime together with the underlying userspace and dependencies required to run your application.
 
 From there, your Dockerfile adds everything your application needs:
 
@@ -62,7 +64,7 @@ But here's where things get interesting:
 
 **Not every application needs the same amount of stuff in its base image.**
 
-A development environment might benefit from a shell, package manager, debugging utilities, and other tools. A production container, on the other hand, may only need the runtime and the libraries required to execute the application.
+A **development environment** might benefit from a shell, package manager, debugging utilities, and other tools. A **production container**, on the other hand, may only need the runtime and the libraries required to execute the application.
 
 This is where different types of base images come into play.
 
@@ -119,7 +121,7 @@ Compared with more minimal images, a **Full image** retains a broader set of sys
 It typically includes:
 
 * **Relatively complete Linux userspace**
-* **System libraries, shell, and common utilities**
+* **System libraries, shell,** and **common utilities**
 * **OS package manager** (such as `apt` on Debian/Ubuntu-based images)
 * **Application runtime** (Node.js, for example) and its associated **package manager** (npm, for example)
 
@@ -131,7 +133,7 @@ This makes the container feel much more like a traditional Linux environment. Yo
 docker exec -it my-app sh
 ```
 
-and use familiar tools to inspect files, check processes, examine logs, install packages, or troubleshoot issues directly inside the container.
+From there, you can use familiar tools to inspect files, check processes, examine logs, install packages, or troubleshoot issues directly inside the container.
 
 ### Advantages
 
@@ -146,9 +148,9 @@ The main advantage of a **Full image** is **convenience**. It provides a familia
 
 That convenience comes at a cost. Including a large set of system components and utilities can make the image heavier than necessary for production.
 
-* Larger image size, resulting in more data to transfer and potentially longer build, push, and pull times
-* More unnecessary packages and components to maintain and potentially update
-* Potentially larger attack surface due to the presence of additional components
+* **Larger image size**, resulting in more data to transfer and potentially longer build, push, and pull times
+* **More unnecessary packages and components** to maintain and potentially update
+* **Potentially larger attack surface** due to the presence of additional components
 
 In other words, a **Full image** gives you a comfortable and flexible environment, but you may end up shipping —and maintaining— far more than your application actually needs.
 
@@ -188,7 +190,7 @@ The idea is simple: **keep the runtime and what it needs, remove as much unneces
 
 A **Slim image** typically contains:
 
-* **Linux userspace**
+* **Reduced Linux userspace**
 * **Essential system libraries and utilities**, with many development and debugging tools removed
 * **OS package manager** (such as `apt` on Debian/Ubuntu-based images)
 * **Application runtime** (Node.js, for example) and **package manager** (npm, for example)
@@ -287,7 +289,7 @@ Alpine uses **musl libc**, while distributions such as Debian and Ubuntu general
 
 This difference can cause problems with applications or dependencies that expect glibc or rely on precompiled native binaries.
 
-For example, the following issues can arise:
+For example, issues can arise with:
 
 * Native Node.js modules
 * C/C++ libraries
@@ -324,4 +326,4 @@ At this point, an even more fundamental question arises:
 
 What if we remove the shell, package manager, and most of the userspace, keeping only what the application needs to run?
 
-That’s the idea behind **non-OS-based images**, which we’ll explore in [Part II](./../blog/docker-base-images-explained-part-1).
+That’s the idea behind **minimal images**, which we’ll explore in [Part II](./../blog/docker-base-images-explained-part-1).

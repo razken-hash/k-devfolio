@@ -823,7 +823,6 @@
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.04em;
-    text-transform: uppercase;
 }
 
 
@@ -909,4 +908,98 @@
 
     font-size: 0.875rem;
     line-height: 1.7;
+}
+
+.code-block-wrapper {
+    position: relative;
+    margin: 1.5rem 0;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.code-block-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 2.75rem;
+    padding: 0.5rem 0.75rem;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.code-block-language {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.code-block-copy {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    padding: 0.35rem 0.6rem;
+
+    border: 0;
+    border-radius: 0.4rem;
+
+    background: transparent;
+    color: rgba(255, 255, 255, 0.6);
+
+    font-size: 0.75rem;
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.code-block-copy:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.code-block-copy.copied {
+    color: #86efac;
+}
+
+.copy-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copy-icon svg {
+    width: 0.85rem;
+    height: 0.85rem;
+}
+
+.code-block-content {
+    margin: 0 !important;
+    padding: 1.25rem !important;
+
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    background: transparent !important;
+    overflow-x: auto;
+}
+
+.code-block-content pre {
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: transparent !important;
+    border: 0 !important;
+}
+
+.code-block-content pre code {
+    background: transparent !important;
+    border: 0 !important;
+    padding: 0 !important;
 }

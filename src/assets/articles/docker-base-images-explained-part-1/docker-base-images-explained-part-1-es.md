@@ -5,7 +5,6 @@ Probablemente hayas visto esta línea innumerables veces en Dockerfiles para apl
 ```dockerfile
 
 FROM node:24
-
 ```
 
 Pero ¿realmente necesitamos `node:24` cada vez que construimos una aplicación Node.js?
@@ -51,23 +50,15 @@ A partir de ahí, tu Dockerfile añade todo lo que necesita tu aplicación:
 ```mermaid
 
 flowchart TB
-
     subgraph BASE["\nBase Image"]
-
         direction LR
-
         R[Runtime]
-
         S[System libraries]
-
         U[OS userspace]
-
     end
 
-    A[Application + dependencies]
-
+    A[Aplicación + dependencias]
     BASE --> A
-
     A --> F[Final Docker Image]
 
 ```

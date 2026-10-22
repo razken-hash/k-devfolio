@@ -18,7 +18,7 @@ export class ArticlesService {
       author: 'KENNICHE ABDERRAZAK',
       tags: ['Docker', 'Linux', 'DevOps'],
       coverImage: 'assets/articles/docker-base-images-explained-part-1/images/docker-base-images-explained-part-1',
-      readingTime: 11,
+      readingTime: 9,
     },
   ];
 
