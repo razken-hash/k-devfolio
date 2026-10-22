@@ -1,8 +1,7 @@
-<!-- ============================================ -->
-<!-- BLOG LIST PAGE (src/app/pages/blog/blog.component.html) -->
-<!-- ============================================ -->
+<!-- BLOG LIST PAGE -->
 <div class="min-h-screen bg-white select-none">
     <app-header></app-header>
+
     <section
         class="mt-20 bg-gradient-to-br from-emerald-900 via-teal-900 to-emerald-950 min-h-screen py-10 px-6 relative overflow-hidden">
 
@@ -20,9 +19,11 @@
                 <p class="text-lime-400 font-semibold text-sm tracking-wider uppercase mb-4">
                     BLOG
                 </p>
+
                 <h1 class="text-5xl md:text-6xl font-bold text-white mb-4">
                     {{ 'BLOG.ARTICLES' | translate }} & {{ 'BLOG.TUTORIALS' | translate }}
                 </h1>
+
                 <p class="text-gray-300 text-lg max-w-2xl mx-auto">
                     {{ 'BLOG.DISCOVER_ARTICLES' | translate }}
                 </p>
@@ -32,56 +33,66 @@
             <div *ngIf="articles.length === 0" class="text-center py-20">
                 <div class="inline-block mb-8">
                     <div class="relative">
-                        <!-- Glowing background -->
                         <div
                             class="absolute inset-0 bg-gradient-to-r from-lime-400/30 to-emerald-400/30 blur-2xl rounded-full">
                         </div>
-                        <!-- Icon -->
                         <div class="relative text-8xl">✍️</div>
                     </div>
                 </div>
 
-                <!-- Stunning Title -->
                 <div class="mb-8">
                     <h2
                         class="text-6xl md:text-5xl font-bold bg-gradient-to-r from-lime-400 via-emerald-400 to-lime-300 bg-clip-text text-transparent mb-4 leading-tight animate-pulse">
                         {{ 'BLOG.COMING_SOON' | translate }}
                     </h2>
+
                     <div class="h-1 w-24 bg-gradient-to-r from-lime-400 to-emerald-400 mx-auto rounded-full"></div>
                 </div>
 
-                <!-- Subtitle -->
                 <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
                     {{ 'BLOG.PREPARING_CONTENT' | translate }}
                 </p>
 
-                <!-- Call to Action -->
-                <div
+                <button
+                    type="button"
+                    (click)="loadArticles()"
                     class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-lime-400 to-emerald-400 text-emerald-950 rounded-xl font-semibold hover:shadow-lg hover:shadow-lime-400/50 transition-all cursor-pointer hover:scale-105">
                     <fa-icon [icon]="faRefresh"></fa-icon>
                     <span>{{ 'BLOG.REFRESH' | translate }}</span>
-                </div>
+                </button>
             </div>
 
-            <!-- Search & Filter Section (Only show if articles exist) -->
+            <!-- Search & Category Filter -->
             <div *ngIf="articles.length > 0" class="mb-12 space-y-6">
+
                 <!-- Search Bar -->
                 <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 max-w-3xl mx-auto">
                     <div class="relative">
-                        <fa-icon [icon]="faSearch"
-                            class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></fa-icon>
-                        <input type="text" (input)="onSearch($event)"
+                        <fa-icon
+                            [icon]="faSearch"
+                            class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+                        </fa-icon>
+
+                        <input
+                            type="text"
+                            (input)="onSearch($event)"
+                            [value]="searchQuery"
                             placeholder="{{ 'BLOG.SEARCH_ARTICLE' | translate }}..."
                             class="w-full bg-white/5 border border-white/20 text-white placeholder-gray-400 pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-lime-400 focus:border-transparent transition-all" />
                     </div>
                 </div>
 
-                <!-- Tags Filter -->
+                <!-- Category Filters -->
                 <div class="flex flex-wrap gap-3 justify-center">
-                    <button *ngFor="let tag of allTags" (click)="filterByTag(tag)" [class]="selectedTag === tag 
-                ? 'bg-lime-400 text-emerald-950' 
-                : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'"
+                    <button
+                        *ngFor="let tag of allTags"
+                        type="button"
+                        (click)="filterByTag(tag)"
+                        [class]="selectedTag === tag
+                            ? 'bg-lime-400 text-emerald-950'
+                            : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'"
                         class="px-4 py-2 rounded-full font-medium transition-all duration-300 flex items-center gap-2">
+
                         <fa-icon [icon]="faTag" class="text-xs"></fa-icon>
                         {{ tag }}
                     </button>
@@ -89,38 +100,56 @@
             </div>
 
             <!-- Articles Grid -->
-            <div *ngIf="articles.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <article *ngFor="let article of filteredArticles" [routerLink]="['/blog', article.id]"
+            <div *ngIf="articles.length > 0"
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <article
+                    *ngFor="let article of filteredArticles"
+                    [routerLink]="['/blog', article.slug]"
                     class="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-lime-400/50 transition-all duration-300 hover:scale-105 cursor-pointer">
+
                     <!-- Cover Image -->
                     <div class="relative h-48 overflow-hidden bg-gradient-to-br from-lime-400/20 to-emerald-400/20">
-                        <img *ngIf="article.coverImage" [src]="article.coverImage" [alt]="article.title"
+
+                        <img
+                            *ngIf="article.imageUrl"
+                            [src]="article.imageUrl"
+                            [alt]="article.title"
                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                        <div *ngIf="!article.coverImage"
+
+                        <div
+                            *ngIf="!article.imageUrl"
                             class="w-full h-full flex items-center justify-center text-6xl font-bold text-white/20">
                             {{ article.title.charAt(0) }}
                         </div>
                     </div>
 
-                    <!-- Content -->
+                    <!-- Article Content -->
                     <div class="p-6 space-y-4">
-                        <!-- Meta Info -->
+
+                        <!-- Meta Information -->
                         <div class="flex items-center gap-4 text-sm text-gray-400">
+
                             <div class="flex items-center gap-1">
                                 <fa-icon [icon]="faCalendar"></fa-icon>
-                                <span>{{ formatDate(article.date) }}</span>
+                                <span>{{ formatDate(article.createdAt) }}</span>
                             </div>
-                            <div class="flex items-center gap-1" *ngIf="article.readingTime">
+
+                            <div class="flex items-center gap-1"
+                                *ngIf="article.readingTimeMinutes">
                                 <fa-icon [icon]="faClock"></fa-icon>
-                                <span>{{ article.readingTime }} {{ 'TIME.MINUTES' | translate | lowercase | slice:0:3
-                                    }}</span>
+
+                                <span>
+                                    {{ article.readingTimeMinutes }}
+                                    {{ 'TIME.MINUTES' | translate | lowercase | slice:0:3 }}
+                                </span>
                             </div>
                         </div>
 
                         <!-- Title -->
                         <h2
                             class="text-2xl font-bold text-white group-hover:text-lime-400 transition-colors line-clamp-2">
-                            {{ getArticleShortenedTitle(article.title) }}
+                            {{ getArticleShortenedTitle(article.title) || article.title }}
                         </h2>
 
                         <!-- Description -->
@@ -128,31 +157,45 @@
                             {{ article.description }}
                         </p>
 
-                        <!-- Tags -->
+                        <!-- Categories -->
                         <div class="flex flex-wrap gap-2">
-                            <span *ngFor="let tag of article.tags"
+                            <span
+                                *ngFor="let category of article.categories"
                                 class="text-xs px-3 py-1 rounded-full bg-lime-400/10 text-lime-400 border border-lime-400/30">
-                                {{ tag }}
+                                {{ category }}
                             </span>
                         </div>
 
                         <!-- Read More -->
                         <div class="flex items-center text-lime-400 font-medium group-hover:gap-2 transition-all">
                             <span>{{ 'BLOG.READ_ARTICLE' | translate }}</span>
-                            <fa-icon [icon]="faArrowRight"
-                                class="ml-2 group-hover:translate-x-1 transition-transform"></fa-icon>
+
+                            <fa-icon
+                                [icon]="faArrowRight"
+                                class="ml-2 group-hover:translate-x-1 transition-transform">
+                            </fa-icon>
                         </div>
                     </div>
                 </article>
             </div>
 
-            <!-- No Results (Search returned nothing) -->
-            <div *ngIf="articles.length > 0 && filteredArticles.length === 0" class="text-center py-20">
+            <!-- No Search Results -->
+            <div
+                *ngIf="articles.length > 0 && filteredArticles.length === 0"
+                class="text-center py-20">
+
                 <div class="text-6xl mb-4">📝</div>
-                <h3 class="text-2xl font-bold text-white mb-2">{{ 'BLOG.NO_ARTICLES_FOUND' | translate }}</h3>
-                <p class="text-gray-400">{{ 'BLOG.TRY_OTHER_KEYWORDS' | translate}}</p>
+
+                <h3 class="text-2xl font-bold text-white mb-2">
+                    {{ 'BLOG.NO_ARTICLES_FOUND' | translate }}
+                </h3>
+
+                <p class="text-gray-400">
+                    {{ 'BLOG.TRY_OTHER_KEYWORDS' | translate }}
+                </p>
             </div>
         </div>
     </section>
+
     <app-footer></app-footer>
 </div>

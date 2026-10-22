@@ -1,9 +1,4 @@
-import { Component } from '@angular/core';
-import { Article } from '../../models/article.model';
-import { of } from 'rxjs/internal/observable/of';
-import { catchError, map, Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -12,23 +7,36 @@ import {
   faClock,
   faTag,
   faSearch,
-  faArrowRight, faRefresh
+  faArrowRight,
+  faRefresh
 } from '@fortawesome/free-solid-svg-icons';
-import { Header } from '../../components/header/header';
-import { ArticlesService } from '../../services/articles-service';
-import { Footer } from '../../components/footer/footer';
 import { TranslateModule } from '@ngx-translate/core';
+
+import { Article } from '../../models/article.model';
+import { Header } from '../../components/header/header';
+import { Footer } from '../../components/footer/footer';
+import { ArticlesService } from '../../services/articles-service';
 import { LanguageService } from '../../services/language-service';
 
 @Component({
   selector: 'app-blog',
-  imports: [CommonModule, RouterModule, FontAwesomeModule, Header, Footer, TranslateModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    FontAwesomeModule,
+    Header,
+    Footer,
+    TranslateModule
+  ],
   templateUrl: './blog.html',
-  styles: ``,
+  styles: ``
 })
-export class Blog {
+export class Blog implements OnInit {
 
-  constructor(private http: HttpClient, private articlesService: ArticlesService, private languageService: LanguageService) { }
+  constructor(
+    private articlesService: ArticlesService,
+    private languageService: LanguageService
+  ) {}
 
   faCalendar = faCalendar;
   faClock = faClock;
@@ -39,34 +47,59 @@ export class Blog {
 
   articles: Article[] = [];
   filteredArticles: Article[] = [];
-  searchQuery: string = '';
-  selectedTag: string = '';
-  allTags: string[] = [];
 
+  searchQuery = '';
+  selectedTag = '';
+  allTags: string[] = [];
 
   ngOnInit(): void {
     this.loadArticles();
   }
 
   loadArticles(): void {
-    const language =
-      this.languageService.getCurrentLanguageCode();
-    this.articlesService.getAllArticles().subscribe(articles => {
-      this.articles = articles.map(article => ({
-        ...article,
-        coverImage: article.coverImage + "-" + language + ".png"
-      }));
-      this.filteredArticles = this.articles;
-      this.extractTags();
+    const language = this.languageService.getCurrentLanguageCode();
+
+    this.articlesService.getAllArticles().subscribe({
+      next: articles => {
+        this.articles = articles.map(article => ({
+          ...article,
+          imageUrl: this.getLocalizedImageUrl(article.imageUrl, language)
+        }));
+
+        this.filteredArticles = [...this.articles];
+        this.extractTags();
+      },
+      error: error => {
+        console.error('Error loading articles:', error);
+        this.articles = [];
+        this.filteredArticles = [];
+        this.allTags = [];
+      }
     });
   }
 
+  private getLocalizedImageUrl(
+    imageUrl: string,
+    language: string
+  ): string {
+    const extensionIndex = imageUrl.lastIndexOf('.');
+    const hasExtension = extensionIndex > imageUrl.lastIndexOf('/');
+
+    if (hasExtension) {
+      return `${imageUrl.substring(0, extensionIndex)}-${language}${imageUrl.substring(extensionIndex)}`;
+    }
+
+    return `${imageUrl}-${language}.png`;
+  }
+
   extractTags(): void {
-    const tagsSet = new Set<string>();
+    const categories = new Set<string>();
+
     this.articles.forEach(article => {
-      article.tags?.forEach(tag => tagsSet.add(tag));
+      article.categories?.forEach(category => categories.add(category));
     });
-    this.allTags = Array.from(tagsSet);
+
+    this.allTags = Array.from(categories);
   }
 
   onSearch(event: Event): void {
@@ -82,12 +115,14 @@ export class Blog {
 
   filterArticles(): void {
     this.filteredArticles = this.articles.filter(article => {
-      const matchesSearch = !this.searchQuery ||
+      const matchesSearch =
+        !this.searchQuery ||
         article.title.toLowerCase().includes(this.searchQuery) ||
         article.description.toLowerCase().includes(this.searchQuery);
 
-      const matchesTag = !this.selectedTag ||
-        article.tags?.includes(this.selectedTag);
+      const matchesTag =
+        !this.selectedTag ||
+        article.categories?.includes(this.selectedTag);
 
       return matchesSearch && matchesTag;
     });
