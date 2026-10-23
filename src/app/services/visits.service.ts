@@ -3,36 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Router, NavigationEnd } from '@angular/router';
 import { DOCUMENT } from '@angular/common';
 import { filter, catchError } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { environment } from '../environment/environment';
+import { RecordVisitDto, VisitResponseDto } from '../models/visit.model';
 
-export interface RecordVisitDto {
-  visitorId: string;
-  path: string;
-  origin: string;
-  pageTitle: string;
-  deviceType: string;
-  operatingSystem: string;
-  platform: string;
-  browser: string;
-  browserLanguage: string;
-  timeZone: string;
-}
 
-export interface VisitResponseDto {
-  id: string;
-  visitedAt: string;
-  visitorId: string | null;
-  origin: string | null;
-  path: string;
-  pageTitle: string | null;
-  deviceType: string | null;
-  operatingSystem: string | null;
-  platform: string | null;
-  browser: string | null;
-  browserLanguage: string | null;
-  timeZone: string | null;
-}
+
+
 
 @Injectable({
   providedIn: 'root',
@@ -43,8 +20,12 @@ export class VisitsService {
   private readonly document = inject(DOCUMENT);
 
   private readonly apiUrl =
-    `${environment.backendUrl}/analytics/visits`;
-
+  `${environment.backendUrl}/analytics/visits`;
+  
+  getVisits(): Observable<VisitResponseDto[]> {
+    return this.http.get<VisitResponseDto[]>(this.apiUrl);
+  }
+  
   private readonly visitorStorageKey = 'kdevfolio_visitor_id';
   private started = false;
 

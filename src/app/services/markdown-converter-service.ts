@@ -11,7 +11,6 @@ export class MarkdownConverterService {
   private token: string | null = null;
 
   constructor(private http: HttpClient) {
-    this.token = "";
   }
 
   private loadGithubToken(): Observable<void> {
