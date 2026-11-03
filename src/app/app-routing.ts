@@ -7,6 +7,7 @@ import { ArticleComponent } from './pages/article/article';
 import { VisitAnalyticsComponent } from './pages/visit-analytics/visit-analytics';
 
 import { LanguageResolver } from './services/language-resolver';
+import { JobsApply } from './pages/jobs-apply/jobs-apply';
 
 export const routes: Routes = [
   // Default language routes
@@ -32,6 +33,11 @@ export const routes: Routes = [
   {
     path: 'admin/analytics',
     component: VisitAnalyticsComponent,
+  },
+
+  {
+    path: 'jobs-apply',
+    component: JobsApply,
   },
 
   {
@@ -77,6 +83,10 @@ export const routes: Routes = [
       {
         path: 'admin/analytics',
         component: VisitAnalyticsComponent,
+      },
+      {
+        path: 'jobs-apply',
+        component: JobsApply,
       },
       {
         path: 'not-found',

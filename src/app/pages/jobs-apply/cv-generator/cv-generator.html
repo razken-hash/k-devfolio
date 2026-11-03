@@ -1,0 +1,387 @@
+
+<div class="min-h-screen bg-[#f7faf7] px-4 py-8 text-slate-800 sm:px-6 lg:px-10">
+  <main class="mx-auto max-w-[1800px] space-y-8">
+
+    <!-- Header -->
+    <header class="flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
+      <div>
+        <div class="mb-2 flex items-center gap-2 text-sm font-medium text-emerald-700">
+          <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+          Portfolio tools
+        </div>
+
+        <h1 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          CV Generator
+        </h1>
+
+        <p class="mt-2 max-w-2xl text-sm leading-6 text-slate-500 sm:text-base">
+          Tailor your CV to each opportunity and track your job applications.
+        </p>
+      </div>
+
+      <!-- Profile selector -->
+      <div class="flex items-center gap-3 rounded-xl border border-emerald-100 bg-white p-2 shadow-sm">
+        <span class="hidden px-2 text-xs font-medium text-slate-500 sm:block">
+          CV profile
+        </span>
+
+        <div class="flex rounded-lg bg-slate-50 p-1">
+          <button
+            type="button"
+            (click)="selectProfile('DEV')"
+            [class.profile-active]="selectedProfile === 'DEV'"
+            class="profile-option"
+          >
+            <span class="mr-1.5">⌘</span> DEV
+          </button>
+
+          <button
+            type="button"
+            (click)="selectProfile('QA')"
+            [class.profile-active]="selectedProfile === 'QA'"
+            class="profile-option"
+          >
+            <span class="mr-1.5">◈</span> QA
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main layout: 40 / 60 -->
+    <section class="grid grid-cols-1 items-start gap-6 lg:grid-cols-5">
+
+      <!-- LEFT: Job description -->
+      <div class="space-y-6 lg:col-span-2">
+
+        <article class="rounded-2xl border border-emerald-100 bg-white p-5 shadow-sm sm:p-6">
+
+          <div class="mb-6 flex items-center justify-between">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="step-number">01</span>
+                <h2 class="text-lg font-bold text-slate-900">
+                  Job details
+                </h2>
+              </div>
+
+              <p class="mt-2 text-sm text-slate-500">
+                Tell us about the opportunity you're applying for.
+              </p>
+            </div>
+
+            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-700">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M6 3.5h8l4 4V20a.5.5 0 0 1-.5.5h-11A.5.5 0 0 1 6 20V3.5Z"/>
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M14 3.5v4h4M9 12h6M9 16h6"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="space-y-5">
+
+            <div>
+              <label class="field-label">Company name *</label>
+              <input
+                type="text"
+                [(ngModel)]="companyName"
+                placeholder="e.g. Rakuten France"
+                class="field-input"
+              />
+            </div>
+
+            <div>
+              <label class="field-label">Job title *</label>
+              <input
+                type="text"
+                [(ngModel)]="roleName"
+                placeholder="e.g. Full-Stack Developer"
+                class="field-input"
+              />
+            </div>
+
+            <div>
+              <label class="field-label">Offer URL</label>
+              <input
+                type="url"
+                [(ngModel)]="offerUrl"
+                placeholder="https://..."
+                class="field-input"
+              />
+            </div>
+
+            <div>
+              <div class="mb-2 flex items-center justify-between">
+                <label class="field-label">Job description *</label>
+
+                <span class="text-xs text-slate-400">
+                  {{ jobDescription.length }} characters
+                </span>
+              </div>
+
+              <textarea
+                [(ngModel)]="jobDescription"
+                placeholder="Paste the complete job description here..."
+                class="job-description"
+                spellcheck="false"
+              ></textarea>
+            </div>
+
+          </div>
+
+          <!-- Selected profile -->
+          <div class="mt-6 rounded-xl border border-emerald-100 bg-emerald-50/60 p-4">
+            <div class="flex items-center justify-between gap-3">
+              <div>
+                <p class="text-sm font-semibold text-emerald-900">
+                  {{ selectedProfile }} profile selected
+                </p>
+
+                <p class="mt-1 text-xs text-emerald-800/70">
+                  {{
+                    selectedProfile === 'DEV'
+                      ? 'Software Engineering / Development'
+                      : 'Quality Assurance / Testing'
+                  }}
+                </p>
+              </div>
+
+              <span class="rounded-lg bg-white px-3 py-1.5 font-mono text-xs font-bold text-emerald-700 shadow-sm">
+                {{ selectedProfile }}
+              </span>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            (click)="generateCv()"
+            [disabled]="!canGenerate"
+            class="primary-button mt-5 w-full"
+          >
+            <span *ngIf="!isGenerating" class="flex items-center justify-center gap-2">
+              Generate tailored CV
+
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M5 12h14m-6-6 6 6-6 6"/>
+              </svg>
+            </span>
+
+            <span *ngIf="isGenerating">
+              Generating CV...
+            </span>
+          </button>
+
+        </article>
+
+        <!-- Feedback -->
+        <div *ngIf="errorMessage" class="feedback-error">
+          {{ errorMessage }}
+        </div>
+
+        <div *ngIf="successMessage" class="feedback-success">
+          {{ successMessage }}
+        </div>
+
+        <!-- Saved application -->
+        <article
+          *ngIf="application"
+          class="rounded-2xl border border-emerald-200 bg-white p-5 shadow-sm"
+        >
+          <div class="flex items-center gap-2 text-emerald-700">
+            <span class="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-50">
+              ✓
+            </span>
+
+            <p class="font-semibold">
+              Application saved
+            </p>
+          </div>
+
+          <p class="mt-4 text-xs font-medium text-slate-500">
+            Application ID
+          </p>
+
+          <p class="mt-1 break-all font-mono text-sm font-semibold text-emerald-700">
+            {{ application.id }}
+          </p>
+        </article>
+
+      </div>
+
+      <!-- RIGHT: LaTeX + PDF -->
+      <div class="space-y-6 lg:col-span-3">
+
+        <!-- LaTeX editor -->
+        <article class="overflow-hidden rounded-2xl border border-emerald-100 bg-white shadow-sm">
+
+          <div class="flex flex-col justify-between gap-4 border-b border-slate-100 p-5 sm:flex-row sm:items-center sm:px-6">
+
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="step-number">02</span>
+
+                <h2 class="text-lg font-bold text-slate-900">
+                  LaTeX editor
+                </h2>
+
+                <span class="rounded-md bg-emerald-50 px-2 py-1 text-[10px] font-bold text-emerald-700">
+                  .TEX
+                </span>
+              </div>
+
+              <p class="mt-2 text-sm text-slate-500">
+                Review and customize your generated CV.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              (click)="compilePdf()"
+              [disabled]="!canCompile"
+              class="secondary-button"
+            >
+              {{ isCompiling ? 'Compiling...' : 'Compile PDF ↗' }}
+            </button>
+
+          </div>
+
+          <!-- Editor -->
+          <div class="editor-wrapper">
+
+            <div class="editor-toolbar">
+              <div class="flex items-center gap-2">
+                <span class="h-2.5 w-2.5 rounded-full bg-red-400"></span>
+                <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+                <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+              </div>
+
+              <span class="text-xs font-medium text-slate-500">
+                cv-{{ selectedProfile.toLowerCase() }}.tex
+              </span>
+
+              <span class="text-xs text-emerald-700">
+                LaTeX
+              </span>
+            </div>
+
+            <textarea
+              [(ngModel)]="latexCode"
+              class="latex-editor"
+              spellcheck="false"
+              placeholder="% Your generated LaTeX CV will appear here..."
+            ></textarea>
+
+          </div>
+
+          <div class="flex items-center justify-between border-t border-slate-100 bg-slate-50/70 px-5 py-3">
+            <span class="text-xs text-slate-400">
+              {{ latexCode.length }} characters
+            </span>
+
+            <span class="flex items-center gap-1.5 text-xs text-emerald-700">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+              Editable source
+            </span>
+          </div>
+
+        </article>
+
+        <!-- PDF preview -->
+        <article class="overflow-hidden rounded-2xl border border-emerald-100 bg-white shadow-sm">
+
+          <div class="flex items-center justify-between border-b border-slate-100 p-5 sm:px-6">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="step-number">03</span>
+
+                <h2 class="text-lg font-bold text-slate-900">
+                  PDF preview
+                </h2>
+              </div>
+
+              <p class="mt-2 text-sm text-slate-500">
+                Preview your final CV before saving.
+              </p>
+            </div>
+
+            <span class="rounded-lg bg-emerald-50 px-3 py-1.5 text-xs font-bold text-emerald-700">
+              PDF
+            </span>
+          </div>
+
+          <div class="pdf-preview">
+
+            <iframe
+              *ngIf="safePdfUrl"
+              [src]="safePdfUrl"
+              title="Generated CV PDF preview"
+              class="h-[750px] w-full bg-white"
+            ></iframe>
+
+            <div
+              *ngIf="!safePdfUrl"
+              class="flex min-h-[420px] flex-col items-center justify-center px-6 text-center"
+            >
+              <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
+                <svg class="h-8 w-8" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.6">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M6 3.5h8l4 4V20a.5.5 0 0 1-.5.5h-11A.5.5 0 0 1 6 20V3.5Z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M14 3.5v4h4M9 13h6M9 16h6"/>
+                </svg>
+              </div>
+
+              <h3 class="mt-5 font-semibold text-slate-800">
+                No PDF generated yet
+              </h3>
+
+              <p class="mt-2 max-w-xs text-sm leading-6 text-slate-500">
+                Generate your CV and compile the LaTeX source to preview your document here.
+              </p>
+            </div>
+
+          </div>
+
+        </article>
+
+        <!-- Finish -->
+        <div class="flex flex-col justify-between gap-4 rounded-2xl border border-emerald-100 bg-white p-5 shadow-sm sm:flex-row sm:items-center sm:px-6">
+
+          <div>
+            <p class="font-semibold text-slate-900">
+              Ready to finish?
+            </p>
+
+            <p class="mt-1 text-xs leading-5 text-slate-500">
+              Your latest LaTeX will be compiled before the application is saved.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            (click)="finish()"
+            [disabled]="!canFinish"
+            class="finish-button"
+          >
+            {{ isSaving ? 'Saving application...' : 'Finish & Save Application →' }}
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="flex flex-col justify-between gap-2 border-t border-emerald-100 pt-5 text-xs text-slate-400 sm:flex-row lg:col-span-5">
+      <p>CV Generator · Portfolio tools</p>
+      <p>Tailored CV generation and application tracking</p>
+    </footer>
+
+  </main>
+</div>
