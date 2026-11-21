@@ -1,15 +1,15 @@
-<section class="bg-gradient-to-br from-emerald-900 via-teal-900 to-emerald-950 py-10 px-6 min-h-[calc(100vh-80px)]">
+<section class=" py-10 px-6 min-h-[calc(100vh-80px)]">
   <div class="max-w-7xl mx-auto">
 
     <!-- Header -->
     <div class="text-center mb-16">
-      <p class="text-lime-400 font-semibold text-sm tracking-wider uppercase mb-4">
+      <p class="text-accent font-semibold text-sm tracking-wider uppercase mb-4">
         {{ 'PROJECTS.PORTFOLIO' | translate | uppercase }}
       </p>
-      <h1 class="text-5xl md:text-6xl font-bold text-white mb-4">
+      <h1 class="text-5xl md:text-6xl font-bold text-fg mb-4">
         {{ 'PROJECTS.MY_PROJECTS' | translate }}
       </h1>
-      <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+      <p class="text-fg-muted text-lg max-w-2xl mx-auto">
         {{ 'PROJECTS.PORTFOLIO_DESCRIPTION' | translate }}
       </p>
     </div>
@@ -19,8 +19,8 @@
       <div class="flex flex-wrap gap-4 justify-center">
         @for (category of categories; track category) {
 <button (click)="setActiveTab(category.id)" [class]="activeTab === category.id 
-            ? 'bg-lime-400 text-emerald-950' 
-            : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'"
+            ? 'bg-accent text-on-accent' 
+            : 'bg-overlay/10 text-fg hover:bg-overlay/20 border border-overlay/20'"
             class="px-6 py-3 rounded-full font-semibold transition-all duration-300">
             {{ category.label }}
           </button>
@@ -32,16 +32,16 @@
     <div class="flex flex-wrap flex-1 md:flex-2 lg:flex-3 gap-6 justify-center">
       @for (project of filteredProjects; track project) {
         <div (click)="openProject(project)"
-          class="lg:w-[calc((100%-48px)/3)] md:w-[calc((100%-24px)/2)] w-full group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden cursor-pointer hover:border-lime-400/50 transition-all duration-300 hover:scale-105">
+          class="lg:w-[calc((100%-48px)/3)] md:w-[calc((100%-24px)/2)] w-full group relative ui-card overflow-hidden cursor-pointer hover:border-accent/50 transition-all duration-300 hover:scale-105">
           <!-- Project Image -->
           <div class="relative h-64 overflow-hidden">
             <img [src]="getProjectImagePath(project.name, project.images[0])" [alt]="project.name"
               class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
             <!-- Overlay on Hover -->
             <div
-              class="absolute inset-0 bg-gradient-to-t from-emerald-950 via-emerald-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              class="absolute inset-0 bg-gradient-to-t from-surface-deep via-surface-deep/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <div class="absolute bottom-0 left-0 right-0 p-6">
-                <p class="text-gray-200 text-sm leading-relaxed">
+                <p class="text-fg-soft text-sm leading-relaxed">
                   {{ project.shortDescription }}
                 </p>
               </div>
@@ -51,13 +51,13 @@
               class="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               @for (tech of project.technologies.slice(0, 3); track tech; let idx = $index) {
                 <div
-                  class="w-10 h-10 rounded-lg bg-white/10 backdrop-blur-md border border-white/20 p-2 flex items-center justify-center">
+                  class="w-10 h-10 rounded-lg bg-overlay/10 backdrop-blur-md border border-overlay/20 p-2 flex items-center justify-center">
                   <img [src]="tech.icon" [alt]="tech.name" class="w-full h-full object-contain" />
                 </div>
               }
               @if (project.technologies.length > 3) {
                 <div
-                  class="w-10 h-10 rounded-lg bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white text-xs font-bold">
+                  class="w-10 h-10 rounded-lg bg-overlay/10 backdrop-blur-md border border-overlay/20 flex items-center justify-center text-fg text-xs font-bold">
                   +{{ project.technologies.length - 3 }}
                 </div>
               }
@@ -65,7 +65,7 @@
           </div>
           <!-- Project Name -->
           <div class="p-6">
-            <h3 class="text-xl font-bold text-white group-hover:text-lime-400 transition-colors">
+            <h3 class="text-xl font-bold text-fg group-hover:text-accent transition-colors">
               {{ project.name }}
             </h3>
           </div>
@@ -79,13 +79,13 @@
         class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
         (click)="closeProject()">
         <div (click)="$event.stopPropagation()"
-          class="bg-gradient-to-br from-emerald-900 to-emerald-950 border border-white/20 rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto">
+          class="bg-gradient-to-br from-surface to-surface-deep border border-overlay/20 rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto">
           <!-- Modal Header -->
           <div
-            class="sticky top-0 bg-emerald-900/95 backdrop-blur-md border-b border-white/10 p-6 flex items-center justify-between z-10">
-            <h2 class="text-3xl font-bold text-white">{{ selectedProject.name }}</h2>
+            class="sticky top-0 bg-surface/95 backdrop-blur-md border-b border-overlay/10 p-6 flex items-center justify-between z-10">
+            <h2 class="text-3xl font-bold text-fg">{{ selectedProject.name }}</h2>
             <button (click)="closeProject()"
-              class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors">
+              class="w-10 h-10 rounded-full bg-overlay/10 hover:bg-overlay/20 flex items-center justify-center text-fg transition-colors">
               <fa-icon [icon]="faXmark" class="text-xl"></fa-icon>
             </button>
           </div>
@@ -110,28 +110,28 @@
                   @for (img of selectedProject.images; track img; let idx = $index) {
                     <button
                       (click)="goToImage(idx)"
-                      [class]="idx === currentImageIndex ? 'bg-lime-400 w-8' : 'bg-white/50'"
+                      [class]="idx === currentImageIndex ? 'bg-accent w-8' : 'bg-overlay/50'"
                     class="w-2 h-2 rounded-full transition-all"></button>
                   }
                 </div>
               }
             </div>
             <!-- Description -->
-            <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
-              <h3 class="text-xl font-bold text-white mb-4">Description</h3>
-              <p class="text-gray-300 leading-relaxed">
+            <div class="bg-overlay/5 backdrop-blur-sm border border-overlay/10 rounded-xl p-6">
+              <h3 class="text-xl font-bold text-fg mb-4">Description</h3>
+              <p class="text-fg-muted leading-relaxed">
                 {{ selectedProject.longDescription }}
               </p>
             </div>
             <!-- Technologies -->
-            <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
-              <h3 class="text-xl font-bold text-white mb-4">Technologies Utilisées</h3>
+            <div class="bg-overlay/5 backdrop-blur-sm border border-overlay/10 rounded-xl p-6">
+              <h3 class="text-xl font-bold text-fg mb-4">Technologies Utilisées</h3>
               <div class="flex flex-wrap gap-3">
                 @for (tech of selectedProject.technologies; track tech) {
                   <div
-                    class="flex items-center gap-2 bg-white/5 border border-white/10 rounded-lg px-4 py-2 hover:border-lime-400/50 transition-colors">
+                    class="flex items-center gap-2 bg-overlay/5 border border-overlay/10 rounded-lg px-4 py-2 hover:border-accent/50 transition-colors">
                     <img [src]="tech.icon" [alt]="tech.name" class="w-6 h-6" />
-                    <span class="text-gray-200 font-medium">{{ tech.name }}</span>
+                    <span class="text-fg-soft font-medium">{{ tech.name }}</span>
                   </div>
                 }
               </div>
@@ -141,7 +141,7 @@
               @if (selectedProject.githubUrl) {
                 <a [href]="selectedProject.githubUrl" target="_blank"
                   rel="noopener noreferrer"
-                  class="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-white/10 border border-white/20 rounded-xl text-white hover:bg-white/20 hover:border-lime-400/50 transition-all">
+                  class="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-overlay/10 border border-overlay/20 rounded-xl text-fg hover:bg-overlay/20 hover:border-accent/50 transition-all">
                   <fa-icon [icon]="faGithub" class="text-lg"></fa-icon>
                   <span>Code Source</span>
                 </a>
@@ -149,7 +149,7 @@
               @if (selectedProject.liveUrl) {
                 <a [href]="selectedProject.liveUrl" target="_blank"
                   rel="noopener noreferrer"
-                  class="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-lime-400 to-emerald-400 rounded-xl text-emerald-950 font-bold hover:from-lime-500 hover:to-emerald-500 transition-all">
+                  class="flex-1 flex items-center justify-center gap-2 px-6 py-3 ui-btn-primary rounded-xl">
                   <fa-icon [icon]="faExternalLink" class="text-lg"></fa-icon>
                   <span>Voir le Projet</span>
                 </a>

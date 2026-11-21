@@ -1,36 +1,36 @@
 
-<div class="min-h-screen bg-[#f7faf7] px-4 py-8 text-slate-800 sm:px-6 lg:px-10">
+<div class="min-h-screen px-4 py-8 text-fg sm:px-6 lg:px-10">
   <main class="mx-auto max-w-[1800px] space-y-8">
 
     <!-- Header -->
     <header class="flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
       <div>
-        <div class="mb-2 flex items-center gap-2 text-sm font-medium text-emerald-700">
-          <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+        <div class="ui-eyebrow mb-2 flex items-center gap-2">
+          <span class="h-2 w-2 rounded-full bg-accent"></span>
           Portfolio tools
         </div>
 
-        <h1 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+        <h1 class="text-3xl font-bold tracking-tight text-fg sm:text-4xl">
           CV Generator
         </h1>
 
-        <p class="mt-2 max-w-2xl text-sm leading-6 text-slate-500 sm:text-base">
+        <p class="mt-2 max-w-2xl text-sm leading-6 text-fg-subtle sm:text-base">
           Tailor your CV to each opportunity and track your job applications.
         </p>
       </div>
 
       <!-- Profile selector -->
-      <div class="flex items-center gap-3 rounded-xl border border-emerald-100 bg-white p-2 shadow-sm">
-        <span class="hidden px-2 text-xs font-medium text-slate-500 sm:block">
+      <div class="ui-card flex items-center gap-3 !rounded-xl p-2">
+        <span class="hidden px-2 text-xs font-medium text-fg-subtle sm:block">
           CV profile
         </span>
 
-        <div class="flex rounded-lg bg-slate-50 p-1">
+        <div class="flex gap-1 rounded-lg bg-overlay/5 p-1">
           <button
             type="button"
             (click)="selectProfile('DEV')"
-            [class]="selectedProfile === 'DEV' ? 'bg-emerald-100 text-emerald-900 shadow-sm' : 'text-slate-500'"
-            class="rounded-lg px-4 py-2 text-sm font-semibold transition hover:bg-emerald-50 hover:text-emerald-800"
+            [class]="selectedProfile === 'DEV' ? 'bg-accent text-on-accent shadow-sm' : 'text-fg-muted hover:bg-overlay/10 hover:text-fg'"
+            class="rounded-lg px-4 py-2 text-sm font-semibold transition-all duration-300"
             >
             <span class="mr-1.5">⌘</span> DEV
           </button>
@@ -38,8 +38,8 @@
           <button
             type="button"
             (click)="selectProfile('QA')"
-            [class]="selectedProfile === 'QA' ? 'bg-emerald-100 text-emerald-900 shadow-sm' : 'text-slate-500'"
-            class="rounded-lg px-4 py-2 text-sm font-semibold transition hover:bg-emerald-50 hover:text-emerald-800"
+            [class]="selectedProfile === 'QA' ? 'bg-accent text-on-accent shadow-sm' : 'text-fg-muted hover:bg-overlay/10 hover:text-fg'"
+            class="rounded-lg px-4 py-2 text-sm font-semibold transition-all duration-300"
             >
             <span class="mr-1.5">◈</span> QA
           </button>
@@ -53,23 +53,23 @@
       <!-- LEFT: Job description -->
       <div class="space-y-6 lg:col-span-2">
 
-        <article class="rounded-2xl border border-emerald-100 bg-white p-5 shadow-sm sm:p-6">
+        <article class="ui-card p-5 sm:p-6">
 
           <div class="mb-6 flex items-center justify-between">
             <div>
               <div class="flex items-center gap-2">
-                <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-100 text-xs font-bold text-emerald-800">01</span>
-                <h2 class="text-lg font-bold text-slate-900">
+                <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-primary text-xs font-bold text-on-accent">01</span>
+                <h2 class="text-lg font-bold text-fg">
                   Job details
                 </h2>
               </div>
 
-              <p class="mt-2 text-sm text-slate-500">
+              <p class="mt-2 text-sm text-fg-subtle">
                 Tell us about the opportunity you're applying for.
               </p>
             </div>
 
-            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-700">
+            <div class="ui-icon-tile h-11 w-11 rounded-xl">
               <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="1.8">
                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -83,40 +83,40 @@
           <div class="space-y-5">
 
             <div>
-              <label class="mb-2 block text-sm font-semibold text-emerald-950">Company name *</label>
+              <label class="mb-2 block text-sm font-semibold text-fg-soft">Company name *</label>
               <input
                 type="text"
                 [(ngModel)]="companyName"
                 placeholder="e.g. Rakuten France"
-                class="w-full rounded-xl border border-emerald-100 bg-[#fcfefc] text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-emerald-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 px-4 py-3"
+                class="ui-input px-4 py-3 text-sm"
                 />
             </div>
 
             <div>
-              <label class="mb-2 block text-sm font-semibold text-emerald-950">Job title *</label>
+              <label class="mb-2 block text-sm font-semibold text-fg-soft">Job title *</label>
               <input
                 type="text"
                 [(ngModel)]="roleName"
                 placeholder="e.g. Full-Stack Developer"
-                class="w-full rounded-xl border border-emerald-100 bg-[#fcfefc] text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-emerald-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 px-4 py-3"
+                class="ui-input px-4 py-3 text-sm"
                 />
             </div>
 
             <div>
-              <label class="mb-2 block text-sm font-semibold text-emerald-950">Offer URL</label>
+              <label class="mb-2 block text-sm font-semibold text-fg-soft">Offer URL</label>
               <input
                 type="url"
                 [(ngModel)]="offerUrl"
                 placeholder="https://..."
-                class="w-full rounded-xl border border-emerald-100 bg-[#fcfefc] text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-emerald-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 px-4 py-3"
+                class="ui-input px-4 py-3 text-sm"
                 />
             </div>
 
             <div>
               <div class="mb-2 flex items-center justify-between">
-                <label class="mb-2 block text-sm font-semibold text-emerald-950">Job description *</label>
+                <label class="mb-2 block text-sm font-semibold text-fg-soft">Job description *</label>
 
-                <span class="text-xs text-slate-400">
+                <span class="text-xs text-fg-faint">
                   {{ jobDescription.length }} characters
                 </span>
               </div>
@@ -124,7 +124,7 @@
               <textarea
                 [(ngModel)]="jobDescription"
                 placeholder="Paste the complete job description here..."
-                class="w-full rounded-xl border border-emerald-100 bg-[#fcfefc] text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-emerald-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 min-h-[350px] resize-y p-4 leading-6"
+                class="ui-input text-sm min-h-[350px] resize-y p-4 leading-6"
                 spellcheck="false"
               ></textarea>
             </div>
@@ -132,14 +132,14 @@
           </div>
 
           <!-- Selected profile -->
-          <div class="mt-6 rounded-xl border border-emerald-100 bg-emerald-50/60 p-4">
+          <div class="mt-6 rounded-xl border border-accent/30 bg-accent/10 p-4">
             <div class="flex items-center justify-between gap-3">
               <div>
-                <p class="text-sm font-semibold text-emerald-900">
+                <p class="text-sm font-semibold text-fg-soft">
                   {{ selectedProfile }} profile selected
                 </p>
 
-                <p class="mt-1 text-xs text-emerald-800/70">
+                <p class="mt-1 text-xs text-fg-muted">
                   {{
                   selectedProfile === 'DEV'
                   ? 'Software Engineering / Development'
@@ -148,7 +148,7 @@
                 </p>
               </div>
 
-              <span class="rounded-lg bg-white px-3 py-1.5 font-mono text-xs font-bold text-emerald-700 shadow-sm">
+              <span class="ui-badge px-3 py-1.5 font-mono font-bold">
                 {{ selectedProfile }}
               </span>
             </div>
@@ -158,7 +158,7 @@
             type="button"
             (click)="generateCv()"
             [disabled]="!canGenerate"
-            class="rounded-xl bg-emerald-700 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-800 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none px-4 mt-5 w-full"
+            class="ui-btn-primary mt-5 w-full text-sm"
             >
             @if (!isGenerating) {
               <span class="flex items-center justify-center gap-2">
@@ -182,13 +182,13 @@
 
         <!-- Feedback -->
         @if (errorMessage) {
-          <div class="rounded-xl border border-red-100 bg-red-50 p-4 text-sm text-red-700">
+          <div class="rounded-xl border border-danger/30 bg-danger/10 p-4 text-sm text-danger">
             {{ errorMessage }}
           </div>
         }
 
         @if (successMessage) {
-          <div class="rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-900">
+          <div class="rounded-xl border border-accent/30 bg-accent/10 p-4 text-sm text-fg">
             {{ successMessage }}
           </div>
         }
@@ -196,20 +196,20 @@
         <!-- Saved application -->
         @if (application) {
           <article
-            class="rounded-2xl border border-emerald-200 bg-white p-5 shadow-sm"
+            class="ui-card !border-accent/30 p-5"
             >
-            <div class="flex items-center gap-2 text-emerald-700">
-              <span class="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-50">
+            <div class="flex items-center gap-2 text-accent">
+              <span class="ui-icon-tile h-7 w-7 rounded-full">
                 ✓
               </span>
               <p class="font-semibold">
                 Application saved
               </p>
             </div>
-            <p class="mt-4 text-xs font-medium text-slate-500">
+            <p class="mt-4 text-xs font-medium text-fg-subtle">
               Application ID
             </p>
-            <p class="mt-1 break-all font-mono text-sm font-semibold text-emerald-700">
+            <p class="mt-1 break-all font-mono text-sm font-semibold text-accent">
               {{ application.id }}
             </p>
           </article>
@@ -221,24 +221,24 @@
       <div class="space-y-6 lg:col-span-3">
 
         <!-- LaTeX editor -->
-        <article class="overflow-hidden rounded-2xl border border-emerald-100 bg-white shadow-sm">
+        <article class="ui-card overflow-hidden">
 
-          <div class="flex flex-col justify-between gap-4 border-b border-slate-100 p-5 sm:flex-row sm:items-center sm:px-6">
+          <div class="flex flex-col justify-between gap-4 border-b border-overlay/10 p-5 sm:flex-row sm:items-center sm:px-6">
 
             <div>
               <div class="flex items-center gap-2">
-                <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-100 text-xs font-bold text-emerald-800">02</span>
+                <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-primary text-xs font-bold text-on-accent">02</span>
 
-                <h2 class="text-lg font-bold text-slate-900">
+                <h2 class="text-lg font-bold text-fg">
                   LaTeX editor
                 </h2>
 
-                <span class="rounded-md bg-emerald-50 px-2 py-1 text-[10px] font-bold text-emerald-700">
+                <span class="ui-badge text-[10px] font-bold">
                   .TEX
                 </span>
               </div>
 
-              <p class="mt-2 text-sm text-slate-500">
+              <p class="mt-2 text-sm text-fg-subtle">
                 Review and customize your generated CV.
               </p>
             </div>
@@ -247,7 +247,7 @@
               type="button"
               (click)="compilePdf()"
               [disabled]="!canCompile"
-              class="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-2.5 text-sm font-semibold text-emerald-800 transition hover:border-emerald-300 hover:bg-emerald-100 disabled:cursor-not-allowed disabled:opacity-40"
+              class="ui-btn-secondary text-sm"
               >
               {{ isCompiling ? 'Compiling...' : 'Compile PDF ↗' }}
             </button>
@@ -255,40 +255,40 @@
           </div>
 
           <!-- Editor -->
-          <div class="overflow-hidden bg-[#f1f8f2]">
+          <div class="overflow-hidden bg-code">
 
-            <div class="flex items-center justify-between border-b border-emerald-200/70 bg-emerald-100/60 px-5 py-3">
+            <div class="flex items-center justify-between border-b border-overlay/10 bg-overlay/5 px-5 py-3">
               <div class="flex items-center gap-2">
-                <span class="h-2.5 w-2.5 rounded-full bg-red-400"></span>
-                <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
-                <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+                <span class="h-2.5 w-2.5 rounded-full bg-danger"></span>
+                <span class="h-2.5 w-2.5 rounded-full bg-warning"></span>
+                <span class="h-2.5 w-2.5 rounded-full bg-accent"></span>
               </div>
 
-              <span class="text-xs font-medium text-slate-500">
+              <span class="text-xs font-medium text-fg-subtle">
                 cv-{{ selectedProfile.toLowerCase() }}.tex
               </span>
 
-              <span class="text-xs text-emerald-700">
+              <span class="text-xs font-semibold text-accent">
                 LaTeX
               </span>
             </div>
 
             <textarea
               [(ngModel)]="latexCode"
-              class="block min-h-[450px] w-full resize-y overflow-x-auto whitespace-pre bg-transparent p-5 font-mono text-xs leading-6 text-emerald-950 outline-none [overflow-wrap:normal] [tab-size:2] focus:bg-emerald-50/60 [scrollbar-color:#8fc5a0_#e7f2e9] [scrollbar-width:thin] [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-[#e7f2e9] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-[#8fc5a0] [&::-webkit-scrollbar-thumb:hover]:bg-[#398456]"
+              class="block min-h-[450px] w-full resize-y overflow-x-auto whitespace-pre bg-transparent p-5 font-mono text-xs leading-6 text-fg-muted outline-none [overflow-wrap:normal] [tab-size:2] focus:bg-overlay/5 ui-scrollbar"
               spellcheck="false"
               placeholder="% Your generated LaTeX CV will appear here..."
             ></textarea>
 
           </div>
 
-          <div class="flex items-center justify-between border-t border-slate-100 bg-slate-50/70 px-5 py-3">
-            <span class="text-xs text-slate-400">
+          <div class="flex items-center justify-between border-t border-overlay/10 bg-overlay/5 px-5 py-3">
+            <span class="text-xs text-fg-faint">
               {{ latexCode.length }} characters
             </span>
 
-            <span class="flex items-center gap-1.5 text-xs text-emerald-700">
-              <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+            <span class="flex items-center gap-1.5 text-xs text-accent">
+              <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
               Editable source
             </span>
           </div>
@@ -296,29 +296,29 @@
         </article>
 
         <!-- PDF preview -->
-        <article class="overflow-hidden rounded-2xl border border-emerald-100 bg-white shadow-sm">
+        <article class="ui-card overflow-hidden">
 
-          <div class="flex items-center justify-between border-b border-slate-100 p-5 sm:px-6">
+          <div class="flex items-center justify-between border-b border-overlay/10 p-5 sm:px-6">
             <div>
               <div class="flex items-center gap-2">
-                <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-100 text-xs font-bold text-emerald-800">03</span>
+                <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-primary text-xs font-bold text-on-accent">03</span>
 
-                <h2 class="text-lg font-bold text-slate-900">
+                <h2 class="text-lg font-bold text-fg">
                   PDF preview
                 </h2>
               </div>
 
-              <p class="mt-2 text-sm text-slate-500">
+              <p class="mt-2 text-sm text-fg-subtle">
                 Preview your final CV before saving.
               </p>
             </div>
 
-            <span class="rounded-lg bg-emerald-50 px-3 py-1.5 text-xs font-bold text-emerald-700">
+            <span class="ui-badge w-fit px-3 py-1.5">
               PDF
             </span>
           </div>
 
-          <div class="overflow-hidden bg-[#edf5ee] [&_iframe]:block [&_iframe]:border-0">
+          <div class="overflow-hidden bg-overlay/5 [&_iframe]:block [&_iframe]:border-0">
 
             @if (safePdfUrl) {
               <iframe
@@ -332,7 +332,7 @@
               <div
                 class="flex min-h-[420px] flex-col items-center justify-center px-6 text-center"
                 >
-                <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
+                <div class="ui-icon-tile h-16 w-16 rounded-2xl">
                   <svg class="h-8 w-8" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="1.6">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -341,10 +341,10 @@
                       d="M14 3.5v4h4M9 13h6M9 16h6"/>
                   </svg>
                 </div>
-                <h3 class="mt-5 font-semibold text-slate-800">
+                <h3 class="mt-5 font-semibold text-fg">
                   No PDF generated yet
                 </h3>
-                <p class="mt-2 max-w-xs text-sm leading-6 text-slate-500">
+                <p class="mt-2 max-w-xs text-sm leading-6 text-fg-subtle">
                   Generate your CV and compile the LaTeX source to preview your document here.
                 </p>
               </div>
@@ -355,14 +355,14 @@
         </article>
 
         <!-- Finish -->
-        <div class="flex flex-col justify-between gap-4 rounded-2xl border border-emerald-100 bg-white p-5 shadow-sm sm:flex-row sm:items-center sm:px-6">
+        <div class="ui-card flex flex-col justify-between gap-4 p-5 sm:flex-row sm:items-center sm:px-6">
 
           <div>
-            <p class="font-semibold text-slate-900">
+            <p class="font-semibold text-fg">
               Ready to finish?
             </p>
 
-            <p class="mt-1 text-xs leading-5 text-slate-500">
+            <p class="mt-1 text-xs leading-5 text-fg-subtle">
               Your latest LaTeX will be compiled before the application is saved.
             </p>
           </div>
@@ -371,7 +371,7 @@
             type="button"
             (click)="finish()"
             [disabled]="!canFinish"
-            class="rounded-xl bg-emerald-700 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-800 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none px-5"
+            class="ui-btn-primary px-5 text-sm"
             >
             {{ isSaving ? 'Saving application...' : 'Finish & Save Application →' }}
           </button>
@@ -383,7 +383,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="flex flex-col justify-between gap-2 border-t border-emerald-100 pt-5 text-xs text-slate-400 sm:flex-row lg:col-span-5">
+    <footer class="flex flex-col justify-between gap-2 border-t border-overlay/10 pt-5 text-xs text-fg-faint sm:flex-row lg:col-span-5">
       <p>CV Generator · Portfolio tools</p>
       <p>Tailored CV generation and application tracking</p>
     </footer>

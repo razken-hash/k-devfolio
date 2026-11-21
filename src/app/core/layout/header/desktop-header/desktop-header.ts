@@ -7,11 +7,13 @@ import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { NavigationLink } from '../../../../shared/models/navigation-link.model';
 import { Language } from '../../../../shared/models/language.model';
 import { BaseHeader } from '../base-header';
+import { ThemeToggle } from '../../../../shared/components/theme-toggle/theme-toggle';
 
 @Component({
   selector: 'app-desktop-header',
   standalone: true,
   imports: [
+    ThemeToggle,
     UpperCasePipe,
     RouterModule,
     FontAwesomeModule,

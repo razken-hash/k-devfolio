@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
+@import url('./styles/theme.css');
 @import url('./app/features/blog/styles/github-markdown.css');
 @import url('./app/features/blog/styles/mermaid-container.css');
 
@@ -7,19 +8,91 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ========================================================================== */
+/* Shared UI building blocks — used by every feature (portfolio, blog,         */
+/* analytics, jobs-apply) so cards, buttons and inputs look the same across   */
+/* the whole site. Colors come from the theme tokens (src/styles/theme.css).  */
+/* ========================================================================== */
+@layer components {
+
+    /* Section kicker above a page/section title */
+    .ui-eyebrow {
+        @apply text-sm font-semibold uppercase tracking-wider text-accent;
+    }
+
+    /* Frosted glass card */
+    .ui-card {
+        @apply rounded-2xl border border-overlay/10 bg-overlay/5 backdrop-blur-sm;
+    }
+
+    .ui-card-interactive {
+        @apply ui-card transition-all duration-300 hover:border-accent/50 hover:bg-overlay/10;
+    }
+
+    /* Main call to action: lime → emerald gradient */
+    .ui-btn-primary {
+        @apply inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-primary px-6 py-3 font-bold text-on-accent transition-all duration-300 hover:from-accent-strong hover:to-primary-strong hover:shadow-lg hover:shadow-accent/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none;
+    }
+
+    /* Secondary action: glass button */
+    .ui-btn-secondary {
+        @apply inline-flex items-center justify-center gap-2 rounded-xl border border-overlay/20 bg-overlay/10 px-4 py-2.5 font-semibold text-fg transition-all duration-300 hover:border-accent/50 hover:bg-overlay/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:cursor-not-allowed disabled:opacity-40;
+    }
+
+    /* Text inputs and textareas */
+    .ui-input {
+        @apply w-full rounded-xl border border-overlay/20 bg-overlay/5 text-fg placeholder-fg-subtle transition-all focus:border-transparent focus:outline-none focus:ring-2 focus:ring-accent;
+    }
+
+    /* Small label / tag */
+    .ui-badge {
+        @apply inline-flex items-center rounded-md border border-accent/30 bg-accent/10 px-2 py-1 text-xs font-semibold text-accent;
+    }
+
+    /* Square tile holding an icon */
+    .ui-icon-tile {
+        @apply flex shrink-0 items-center justify-center border border-accent/20 bg-accent/10 text-accent;
+    }
+
+    /* Thin themed scrollbar */
+    .ui-scrollbar {
+        scrollbar-width: thin;
+        scrollbar-color: rgb(var(--color-accent) / 0.4) rgb(var(--color-overlay) / 0.05);
+    }
+
+    .ui-scrollbar::-webkit-scrollbar {
+        width: 0.5rem;
+        height: 0.5rem;
+    }
+
+    .ui-scrollbar::-webkit-scrollbar-track {
+        border-radius: 9999px;
+        background-color: rgb(var(--color-overlay) / 0.05);
+    }
+
+    .ui-scrollbar::-webkit-scrollbar-thumb {
+        border-radius: 9999px;
+        background-color: rgb(var(--color-accent) / 0.4);
+    }
+
+    .ui-scrollbar::-webkit-scrollbar-thumb:hover {
+        background-color: rgb(var(--color-accent) / 0.7);
+    }
+}
+
 @layer utilities {
 
     .autofill-transparent:-webkit-autofill,
     .autofill-transparent:-webkit-autofill:hover,
     .autofill-transparent:-webkit-autofill:focus,
     .autofill-transparent:-webkit-autofill:active {
-        -webkit-box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.05) inset !important;
-        box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.05) inset !important;
+        -webkit-box-shadow: 0 0 0 1000px rgb(var(--color-overlay) / 0.05) inset !important;
+        box-shadow: 0 0 0 1000px rgb(var(--color-overlay) / 0.05) inset !important;
 
-        -webkit-text-fill-color: #ffffff !important;
-        caret-color: #ffffff;
+        -webkit-text-fill-color: rgb(var(--color-fg)) !important;
+        caret-color: rgb(var(--color-fg));
 
-        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        border: 1px solid rgb(var(--color-overlay) / 0.2) !important;
 
         transition: background-color 9999s ease-in-out 0s;
     }

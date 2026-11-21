@@ -1,5 +1,6 @@
 /* ============================================ */
-/* GitHub Markdown Styles for Portfolio Theme */
+/* GitHub Markdown Styles for Portfolio Theme  */
+/* Colors: theme tokens from src/styles/theme.css */
 /* All Languages Support (TS/JS, Java, Dart, YAML, Dockerfile) */
 /* ============================================ */
 
@@ -19,8 +20,7 @@
 /* Base styling for markdown content */
 .markdown-body,
 .markdown-content {
-    color: #d1d5db;
-    /* gray-300 */
+    color: rgb(var(--color-fg-muted));
     font-size: 1rem;
     line-height: 1.75;
     word-wrap: break-word;
@@ -51,7 +51,7 @@
     padding: 0;
     border: 0;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.35);
+    background: rgb(var(--color-overlay) / 0.35);
     cursor: pointer;
     transition:
         width 200ms ease,
@@ -63,21 +63,21 @@
 .section-url-skeleton:hover {
     width: 64px;
     height: 5px;
-    background: #a3e635;
+    background: rgb(var(--color-accent));
     transform: none;
 }
 
 .section-url-skeleton.active-section {
     width: 64px;
     height: 5px;
-    background: #a3e635;
+    background: rgb(var(--color-accent));
 }
 
 .section-url-skeleton:focus-visible {
     width: 48px;
     height: 3px;
-    background: #a3e635;
-    outline: 2px solid rgba(163, 230, 53, 0.5);
+    background: rgb(var(--color-accent));
+    outline: 2px solid rgb(var(--color-accent) / 0.5);
     outline-offset: 4px;
 }
 
@@ -100,7 +100,7 @@
     margin-top: 7px;
     margin-left: 16px;
     padding-left: 10px;
-    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    border-left: 1px solid rgb(var(--color-overlay) / 0.15);
 }
 
 .section-subsection-skeleton {
@@ -110,7 +110,7 @@
     padding: 0;
     border: 0;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.22);
+    background: rgb(var(--color-overlay) / 0.22);
     cursor: pointer;
     transition:
         width 200ms ease,
@@ -120,13 +120,13 @@
 
 .section-subsection-skeleton:hover {
     width: 30px;
-    background: rgba(163, 230, 53, 0.8);
+    background: rgb(var(--color-accent) / 0.8);
 }
 
 .section-subsection-skeleton.active-section {
     width: 30px;
     height: 4px;
-    background: #a3e635;
+    background: rgb(var(--color-accent));
 }
 
 
@@ -136,7 +136,7 @@
 
 .section-url-skeleton:focus-visible,
 .section-subsection-skeleton:focus-visible {
-    outline: 2px solid rgba(163, 230, 53, 0.6);
+    outline: 2px solid rgb(var(--color-accent) / 0.6);
     outline-offset: 4px;
 }
 
@@ -158,7 +158,7 @@
 }
 
 .markdown-body .heading-element {
-    color: #ffffff;
+    color: rgb(var(--color-fg));
     font-weight: 700;
     line-height: 1.25;
     position: relative;
@@ -166,15 +166,14 @@
 
 .markdown-body .markdown-heading h1.heading-element {
     font-size: 2.25rem;
-    border-bottom: 2px solid rgba(163, 230, 53, 0.3);
-    /* lime-400 */
+    border-bottom: 2px solid rgb(var(--color-accent) / 0.3);
     padding-bottom: 0.75rem;
     margin-bottom: 1.5rem;
 }
 
 .markdown-body .markdown-heading h2.heading-element {
     font-size: 1.875rem;
-    border-bottom: 1px solid rgba(163, 230, 53, 0.2);
+    border-bottom: 1px solid rgb(var(--color-accent) / 0.2);
     padding-bottom: 0.5rem;
     margin-bottom: 1rem;
 }
@@ -193,8 +192,7 @@
 
 .markdown-body .markdown-heading h6.heading-element {
     font-size: 1rem;
-    color: #9ca3af;
-    /* gray-400 */
+    color: rgb(var(--color-fg-subtle));
 }
 
 /* Anchor links in headings */
@@ -204,8 +202,7 @@
     top: 0;
     opacity: 0;
     transition: opacity 0.2s;
-    color: #a3e635;
-    /* lime-400 */
+    color: rgb(var(--color-accent));
     text-decoration: none;
 }
 
@@ -238,15 +235,13 @@
 /* ============================================ */
 
 .markdown-body a {
-    color: #a3e635;
-    /* lime-400 */
+    color: rgb(var(--color-accent));
     text-decoration: none;
     transition: color 0.2s;
 }
 
 .markdown-body a:hover {
-    color: #bef264;
-    /* lime-300 */
+    color: rgb(var(--color-accent-soft));
     text-decoration: underline;
 }
 
@@ -280,8 +275,7 @@
 }
 
 .markdown-body li::marker {
-    color: #a3e635;
-    /* lime-400 */
+    color: rgb(var(--color-accent));
 }
 
 /* Nested lists */
@@ -302,21 +296,20 @@
 /* ============================================ */
 
 .markdown-body code {
-    background-color: rgba(163, 230, 53, 0.1);
-    /* lime-400 with opacity */
-    color: #a3e635;
+    background-color: rgb(var(--color-accent) / 0.1);
+    color: rgb(var(--color-accent));
     padding: 0.125rem 0.375rem;
     border-radius: 0.375rem;
     font-size: 0.875em;
     font-family: 'Courier New', Courier, Monaco, 'Andale Mono', monospace;
-    border: 1px solid rgba(163, 230, 53, 0.2);
+    border: 1px solid rgb(var(--color-accent) / 0.2);
 }
 
 /* Code blocks with syntax highlighting */
 .markdown-body .highlight,
 .markdown-body pre {
-    background-color: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--code-surface);
+    border: 1px solid rgb(var(--color-overlay) / 0.1);
     border-radius: 0.75rem;
     padding: 1.5rem;
     overflow-x: auto;
@@ -328,7 +321,7 @@
     background-color: transparent;
     padding: 0;
     border: none;
-    color: #d1d5db;
+    color: rgb(var(--color-fg-muted));
     font-size: 0.875rem;
     line-height: 1.7;
 }
@@ -339,65 +332,55 @@
 
 /* Keywords (import, export, class, public, etc.) */
 .markdown-body .pl-k {
-    color: #c084fc;
-    /* purple-400 */
+    color: rgb(var(--syntax-keyword));
     font-weight: 600;
 }
 
 /* Variables, Types, Annotations */
 .markdown-body .pl-v {
-    color: #60a5fa;
-    /* blue-400 */
+    color: rgb(var(--syntax-type));
 }
 
 /* Strings */
 .markdown-body .pl-s,
 .markdown-body .pl-pds {
-    color: #86efac;
-    /* green-300 */
+    color: rgb(var(--syntax-string));
 }
 
 /* Constants, Numbers, Booleans */
 .markdown-body .pl-c1 {
-    color: #fbbf24;
-    /* amber-400 */
+    color: rgb(var(--syntax-constant));
 }
 
 /* Punctuation, Operators */
 .markdown-body .pl-kos {
-    color: #94a3b8;
-    /* slate-400 */
+    color: rgb(var(--syntax-punctuation));
 }
 
 /* Class Names, Types */
 .markdown-body .pl-smi {
-    color: #f472b6;
-    /* pink-400 */
+    color: rgb(var(--syntax-class));
 }
 
 /* Function Names, Methods */
 .markdown-body .pl-en {
-    color: #34d399;
-    /* emerald-400 */
+    color: rgb(var(--syntax-function));
 }
 
 /* Parameters, Variables */
 .markdown-body .pl-s1 {
-    color: #e879f9;
-    /* fuchsia-400 */
+    color: rgb(var(--syntax-variable));
 }
 
 /* Comments */
 .markdown-body .pl-c {
-    color: #6b7280;
-    /* gray-500 */
+    color: rgb(var(--syntax-comment));
     font-style: italic;
 }
 
 /* Entities (HTML tags, etc.) */
 .markdown-body .pl-ent {
-    color: #fb923c;
-    /* orange-400 */
+    color: rgb(var(--syntax-entity));
 }
 
 /* ============================================ */
@@ -405,33 +388,33 @@
 /* ============================================ */
 
 .markdown-body .highlight-source-java .pl-k {
-    color: #c084fc;
-    /* purple-400 - keywords like public, private, class */
+    color: rgb(var(--syntax-keyword));
+    /* keywords like public, private, class */
 }
 
 .markdown-body .highlight-source-java .pl-smi {
-    color: #60a5fa;
-    /* blue-400 - class names like ResponseEntity, User */
+    color: rgb(var(--syntax-type));
+    /* class names like ResponseEntity, User */
 }
 
 .markdown-body .highlight-source-java .pl-en {
-    color: #34d399;
-    /* emerald-400 - method names */
+    color: rgb(var(--syntax-function));
+    /* method names */
 }
 
 .markdown-body .highlight-source-java .pl-s {
-    color: #86efac;
-    /* green-300 - strings */
+    color: rgb(var(--syntax-string));
+    /* strings */
 }
 
 .markdown-body .highlight-source-java .pl-c1 {
-    color: #fbbf24;
-    /* amber-400 - annotations like @RestController, constants */
+    color: rgb(var(--syntax-constant));
+    /* annotations like @RestController, constants */
 }
 
 .markdown-body .highlight-source-java .pl-s1 {
-    color: #e879f9;
-    /* fuchsia-400 - variables and parameters */
+    color: rgb(var(--syntax-variable));
+    /* variables and parameters */
 }
 
 /* ============================================ */
@@ -439,28 +422,28 @@
 /* ============================================ */
 
 .markdown-body .highlight-source-dart .pl-k {
-    color: #c084fc;
-    /* purple-400 - keywords like class, void, extends */
+    color: rgb(var(--syntax-keyword));
+    /* keywords like class, void, extends */
 }
 
 .markdown-body .highlight-source-dart .pl-c1 {
-    color: #60a5fa;
-    /* blue-400 - class names like CounterBloc, int */
+    color: rgb(var(--syntax-type));
+    /* class names like CounterBloc, int */
 }
 
 .markdown-body .highlight-source-dart .pl-en {
-    color: #34d399;
-    /* emerald-400 - function/method names */
+    color: rgb(var(--syntax-function));
+    /* function/method names */
 }
 
 .markdown-body .highlight-source-dart .pl-s {
-    color: #86efac;
-    /* green-300 - strings */
+    color: rgb(var(--syntax-string));
+    /* strings */
 }
 
 .markdown-body .highlight-source-dart .pl-s1 {
-    color: #e879f9;
-    /* fuchsia-400 - variables */
+    color: rgb(var(--syntax-variable));
+    /* variables */
 }
 
 /* ============================================ */
@@ -468,18 +451,18 @@
 /* ============================================ */
 
 .markdown-body .highlight-source-yaml .pl-ent {
-    color: #60a5fa;
-    /* blue-400 - keys like version, services */
+    color: rgb(var(--syntax-type));
+    /* keys like version, services */
 }
 
 .markdown-body .highlight-source-yaml .pl-s {
-    color: #86efac;
-    /* green-300 - string values */
+    color: rgb(var(--syntax-string));
+    /* string values */
 }
 
 .markdown-body .highlight-source-yaml .pl-c1 {
-    color: #fbbf24;
-    /* amber-400 - numeric values and special values */
+    color: rgb(var(--syntax-constant));
+    /* numeric values and special values */
 }
 
 /* ============================================ */
@@ -487,15 +470,15 @@
 /* ============================================ */
 
 .markdown-body .highlight-source-dockerfile .pl-k {
-    color: #c084fc;
-    /* purple-400 - commands like FROM, COPY, ENTRYPOINT */
+    color: rgb(var(--syntax-keyword));
+    /* commands like FROM, COPY, ENTRYPOINT */
     font-weight: 700;
     text-transform: uppercase;
 }
 
 .markdown-body .highlight-source-dockerfile .pl-s {
-    color: #86efac;
-    /* green-300 - strings and arguments */
+    color: rgb(var(--syntax-string));
+    /* strings and arguments */
 }
 
 /* ============================================ */
@@ -504,44 +487,44 @@
 
 .markdown-body .highlight-source-ts .pl-k,
 .markdown-body .highlight-source-js .pl-k {
-    color: #c084fc;
-    /* purple-400 - keywords */
+    color: rgb(var(--syntax-keyword));
+    /* keywords */
 }
 
 .markdown-body .highlight-source-ts .pl-v,
 .markdown-body .highlight-source-js .pl-v {
-    color: #60a5fa;
-    /* blue-400 - types/imports */
+    color: rgb(var(--syntax-type));
+    /* types/imports */
 }
 
 .markdown-body .highlight-source-ts .pl-s,
 .markdown-body .highlight-source-js .pl-s {
-    color: #86efac;
-    /* green-300 - strings */
+    color: rgb(var(--syntax-string));
+    /* strings */
 }
 
 .markdown-body .highlight-source-ts .pl-c1,
 .markdown-body .highlight-source-js .pl-c1 {
-    color: #fbbf24;
-    /* amber-400 - constants */
+    color: rgb(var(--syntax-constant));
+    /* constants */
 }
 
 .markdown-body .highlight-source-ts .pl-kos,
 .markdown-body .highlight-source-js .pl-kos {
-    color: #94a3b8;
-    /* slate-400 - punctuation */
+    color: rgb(var(--syntax-punctuation));
+    /* punctuation */
 }
 
 .markdown-body .highlight-source-ts .pl-smi,
 .markdown-body .highlight-source-js .pl-smi {
-    color: #f472b6;
-    /* pink-400 - class names */
+    color: rgb(var(--syntax-class));
+    /* class names */
 }
 
 .markdown-body .highlight-source-ts .pl-en,
 .markdown-body .highlight-source-js .pl-en {
-    color: #34d399;
-    /* emerald-400 - functions */
+    color: rgb(var(--syntax-function));
+    /* functions */
 }
 
 /* ============================================ */
@@ -549,14 +532,12 @@
 /* ============================================ */
 
 .markdown-body blockquote {
-    border-left: 4px solid #a3e635;
-    /* lime-400 */
+    border-left: 4px solid rgb(var(--color-accent));
     padding-left: 1.5rem;
     margin: 1.5rem 0;
     font-style: italic;
-    color: #9ca3af;
-    /* gray-400 */
-    background-color: rgba(163, 230, 53, 0.05);
+    color: rgb(var(--color-fg-subtle));
+    background-color: rgb(var(--color-accent) / 0.05);
     padding: 1rem 1rem 1rem 1.5rem;
     border-radius: 0.5rem;
 }
@@ -570,7 +551,7 @@
 }
 
 .markdown-body blockquote strong {
-    color: #a3e635;
+    color: rgb(var(--color-accent));
 }
 
 /* ============================================ */
@@ -578,14 +559,13 @@
 /* ============================================ */
 
 .markdown-body strong {
-    color: #ffffff;
+    color: rgb(var(--color-fg));
     font-weight: 700;
 }
 
 .markdown-body em {
     font-style: italic;
-    color: #e5e7eb;
-    /* gray-200 */
+    color: rgb(var(--color-fg-soft));
 }
 
 /* ============================================ */
@@ -596,27 +576,27 @@
     width: 100%;
     border-collapse: collapse;
     margin: 1.5rem 0;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgb(var(--color-overlay) / 0.05);
     border-radius: 0.75rem;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgb(var(--color-overlay) / 0.1);
 }
 
 .markdown-body thead {
-    background-color: rgba(163, 230, 53, 0.1);
+    background-color: rgb(var(--color-accent) / 0.1);
 }
 
 .markdown-body th {
     padding: 0.75rem 1rem;
     text-align: left;
     font-weight: 600;
-    color: #a3e635;
-    border-bottom: 2px solid rgba(163, 230, 53, 0.3);
+    color: rgb(var(--color-accent));
+    border-bottom: 2px solid rgb(var(--color-accent) / 0.3);
 }
 
 .markdown-body td {
     padding: 0.75rem 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgb(var(--color-overlay) / 0.1);
 }
 
 .markdown-body tr:last-child td {
@@ -624,7 +604,7 @@
 }
 
 .markdown-body tbody tr:hover {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgb(var(--color-overlay) / 0.05);
 }
 
 /* ============================================ */
@@ -633,7 +613,7 @@
 
 .markdown-body hr {
     border: none;
-    border-top: 2px solid rgba(163, 230, 53, 0.2);
+    border-top: 2px solid rgb(var(--color-accent) / 0.2);
     margin: 2.5rem 0;
 }
 
@@ -646,8 +626,8 @@
     height: auto;
     border-radius: 0.75rem;
     margin: 1.5rem 0;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgb(var(--color-overlay) / 0.1);
+    box-shadow: 0 10px 15px -3px rgb(var(--shadow-color) / 0.3);
 }
 
 /* ============================================ */
@@ -660,7 +640,7 @@
 
 .markdown-body .task-list-item input[type="checkbox"] {
     margin-right: 0.5rem;
-    accent-color: #a3e635;
+    accent-color: rgb(var(--color-accent));
 }
 
 /* ============================================ */
@@ -720,19 +700,19 @@
 
 .markdown-body .highlight::-webkit-scrollbar-track,
 .markdown-body pre::-webkit-scrollbar-track {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: var(--code-scroll-track);
     border-radius: 0.25rem;
 }
 
 .markdown-body .highlight::-webkit-scrollbar-thumb,
 .markdown-body pre::-webkit-scrollbar-thumb {
-    background-color: rgba(163, 230, 53, 0.3);
+    background-color: rgb(var(--color-accent) / 0.3);
     border-radius: 0.25rem;
 }
 
 .markdown-body .highlight::-webkit-scrollbar-thumb:hover,
 .markdown-body pre::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(163, 230, 53, 0.5);
+    background-color: rgb(var(--color-accent) / 0.5);
 }
 
 /* ============================================ */
@@ -741,7 +721,7 @@
 
 .markdown-body a:focus,
 .markdown-body button:focus {
-    outline: 2px solid #a3e635;
+    outline: 2px solid rgb(var(--color-accent));
     outline-offset: 2px;
 }
 
@@ -773,13 +753,13 @@
 /* ============================================ */
 
 .markdown-body code {
-    background-color: rgba(163, 230, 53, 0.1);
-    color: #a3e635;
+    background-color: rgb(var(--color-accent) / 0.1);
+    color: rgb(var(--color-accent));
     padding: 0.125rem 0.375rem;
     border-radius: 0.375rem;
     font-size: 0.875em;
     font-family: 'Courier New', Courier, Monaco, 'Andale Mono', monospace;
-    border: 1px solid rgba(163, 230, 53, 0.2);
+    border: 1px solid rgb(var(--color-accent) / 0.2);
 }
 
 
@@ -805,9 +785,9 @@
     min-height: 42px;
     padding: 0 0.875rem;
 
-    background-color: rgba(255, 255, 255, 0.04);
+    background-color: rgb(var(--color-overlay) / 0.04);
 
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgb(var(--color-overlay) / 0.1);
     border-bottom: none;
 
     border-radius: 0.75rem 0.75rem 0 0;
@@ -819,7 +799,7 @@
 /* ============================================ */
 
 .markdown-body .code-block-language {
-    color: #9ca3af;
+    color: rgb(var(--color-fg-subtle));
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.04em;
@@ -837,12 +817,12 @@
 
     padding: 0.3rem 0.65rem;
 
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid rgb(var(--color-overlay) / 0.12);
     border-radius: 0.4rem;
 
-    background: rgba(255, 255, 255, 0.05);
+    background: rgb(var(--color-overlay) / 0.05);
 
-    color: #9ca3af;
+    color: rgb(var(--color-fg-subtle));
 
     font-size: 0.75rem;
     font-weight: 500;
@@ -856,9 +836,9 @@
 }
 
 .markdown-body .code-block-copy:hover {
-    background: rgba(163, 230, 53, 0.1);
-    color: #a3e635;
-    border-color: rgba(163, 230, 53, 0.3);
+    background: rgb(var(--color-accent) / 0.1);
+    color: rgb(var(--color-accent));
+    border-color: rgb(var(--color-accent) / 0.3);
 }
 
 .markdown-body .code-block-copy:active {
@@ -873,9 +853,9 @@
 .markdown-body .code-block-content {
     margin: 0;
 
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: var(--code-surface);
 
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgb(var(--color-overlay) / 0.1);
     border-top: none;
 
     border-radius: 0 0 0.75rem 0.75rem;
@@ -904,7 +884,7 @@
     padding: 0;
     border: none;
 
-    color: #d1d5db;
+    color: rgb(var(--color-fg-muted));
 
     font-size: 0.875rem;
     line-height: 1.7;
@@ -914,9 +894,9 @@
     position: relative;
     margin: 1.5rem 0;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgb(var(--color-overlay) / 0.1);
     border-radius: 0.75rem;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: var(--code-surface);
 }
 
 .code-block-header {
@@ -927,7 +907,7 @@
     min-height: 2.75rem;
     padding: 0.5rem 0.75rem;
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgb(var(--color-overlay) / 0.08);
 }
 
 .code-block-language {
@@ -935,7 +915,7 @@
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.04em;
-    color: rgba(255, 255, 255, 0.55);
+    color: rgb(var(--color-overlay) / 0.55);
 }
 
 .code-block-copy {
@@ -949,7 +929,7 @@
     border-radius: 0.4rem;
 
     background: transparent;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgb(var(--color-overlay) / 0.6);
 
     font-size: 0.75rem;
     cursor: pointer;
@@ -960,12 +940,12 @@
 }
 
 .code-block-copy:hover {
-    background-color: rgba(255, 255, 255, 0.08);
-    color: rgba(255, 255, 255, 0.95);
+    background-color: rgb(var(--color-overlay) / 0.08);
+    color: rgb(var(--color-overlay) / 0.95);
 }
 
 .code-block-copy.copied {
-    color: #86efac;
+    color: rgb(var(--syntax-string));
 }
 
 .copy-icon {

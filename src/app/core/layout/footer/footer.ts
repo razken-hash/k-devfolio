@@ -78,8 +78,8 @@ export class Footer {
 
   get getMadeWithLoveByText(): string {
     return this.tranlsateService.instant('FOOTER.MADE_WITH_LOVE_BY', {
-      NAME: '<span class="text-lime-400 font-bold">KENNICHE ABDERRAZAK</span>',
-      LOVE: '<span class="text-lime-400">♥</span>'
+      NAME: '<span class="text-accent font-bold">KENNICHE ABDERRAZAK</span>',
+      LOVE: '<span class="text-accent">♥</span>'
     });
   }
 

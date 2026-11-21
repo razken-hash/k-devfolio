@@ -21,14 +21,14 @@ export interface MermaidEnhanceOptions {
   /** Center the single root node horizontally over the diagram (flowcharts, top-down only). */
   centerRoot?: boolean;
 
-  /** Give leaf nodes their own (teal) color. Set to false to style them like regular nodes. */
+  /** Give leaf nodes their own (secondary) color. Set to false to style them like regular nodes. */
   colorLeaves?: boolean;
 }
 
 /**
  * Takes the SVG markup returned by `mermaid.render()` and returns improved markup.
  *
- * Colors are handled by MERMAID_CONFIG (themeVariables + themeCSS). This service
+ * Colors are handled by createMermaidConfig() (themeVariables + themeCSS). This service
  * only does what CSS cannot:
  *   1. tags root / leaf nodes so themeCSS can style them;
  *   2. re-centers the root node and re-routes its outgoing edges;

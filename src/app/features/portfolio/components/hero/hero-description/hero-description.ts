@@ -17,8 +17,8 @@ export class HeroDescription {
     const exceptional = this.translateService.instant('HERO.EXCEPTIONAL_USER_EXPERIENCE');
 
     return this.translateService.instant('HERO.HERO_TAG', {
-      MODERN_WEB_APPS: `<span class="text-lime-400 font-semibold">${this.lowerCasePipe.transform(modern)}</span>`,
-      EXCEPTIONAL_USER_EXPERIENCE: `<span class="text-lime-400 font-semibold">${this.lowerCasePipe.transform(exceptional)}</span>`
+      MODERN_WEB_APPS: `<span class="text-accent font-semibold">${this.lowerCasePipe.transform(modern)}</span>`,
+      EXCEPTIONAL_USER_EXPERIENCE: `<span class="text-accent font-semibold">${this.lowerCasePipe.transform(exceptional)}</span>`
     }) + ".";
   }
 }

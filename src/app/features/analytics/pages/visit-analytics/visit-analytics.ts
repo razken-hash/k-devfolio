@@ -169,16 +169,16 @@ export class VisitAnalyticsComponent {
   getDeviceClass(deviceType: string | null): string {
     switch (deviceType?.toLowerCase()) {
       case 'desktop':
-        return 'bg-emerald-100 text-emerald-800';
+        return 'bg-accent/10 text-accent border border-accent/30';
 
       case 'mobile':
-        return 'bg-teal-100 text-teal-800';
+        return 'bg-primary/10 text-primary border border-primary/30';
 
       case 'tablet':
-        return 'bg-lime-100 text-lime-800';
+        return 'bg-secondary/10 text-secondary border border-secondary/30';
 
       default:
-        return 'bg-slate-100 text-slate-600';
+        return 'bg-overlay/10 text-fg-muted border border-overlay/20';
     }
   }
 }

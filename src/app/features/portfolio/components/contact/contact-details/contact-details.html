@@ -1,13 +1,13 @@
 <div class="h-full flex flex-col space-y-8">
 
-    <div class="flex flex-1 flex-col rounded-2xl border border-white/10 bg-white/5 p-8
+    <div class="flex flex-1 flex-col rounded-2xl border border-overlay/10 bg-overlay/5 p-8
                backdrop-blur-sm transition-all duration-300
-               hover:border-lime-400/30">
-        <h2 class="mb-4 text-3xl font-bold text-white">
+               hover:border-accent/30">
+        <h2 class="mb-4 text-3xl font-bold text-fg">
             {{ 'CONTACT.LETS_DISCUSS_PROJECT' | translate }}
         </h2>
 
-        <p class="mb-8 leading-relaxed text-gray-300">
+        <p class="mb-8 leading-relaxed text-fg-muted">
             Que ce soit pour un nouveau projet, une collaboration ou simplement pour échanger,
             n'hésitez pas à me contacter. Je serais ravi de créer quelque chose d'exceptionnel ensemble.
         </p>
@@ -16,16 +16,16 @@
         <div class="flex-1 space-y-4">
 
             <!-- Email -->
-            <div class="flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-5
+            <div class="flex items-center gap-4 rounded-xl border border-overlay/10 bg-overlay/5 p-5
                        transition-all duration-300
-                       hover:border-lime-400/50 hover:bg-white/10">
+                       hover:border-accent/50 hover:bg-overlay/10">
                 <!-- Icon -->
                 <div class="group flex h-12 w-12 shrink-0 items-center justify-center rounded-lg
-                           border border-white/10 bg-white/5
+                           border border-overlay/10 bg-overlay/5
                            transition-all duration-300
                            hover:scale-110 hover:border-transparent
-                           hover:bg-gradient-to-br hover:from-lime-400
-                           hover:via-emerald-400 hover:to-teal-400">
+                           hover:bg-gradient-to-br hover:from-accent
+                           hover:via-primary hover:to-secondary">
                     <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/gmail-2026/default.svg"
                         alt="Email" class="h-6 w-6 object-contain transition-all duration-300
                                group-hover:brightness-0 group-hover:invert" />
@@ -33,28 +33,28 @@
 
                 <!-- Content -->
                 <div class="min-w-0">
-                    <p class="mb-1 text-sm text-gray-400">
+                    <p class="mb-1 text-sm text-fg-subtle">
                         Email
                     </p>
 
-                    <a href="mailto:pro.contactabderrazak@gmail.com" class="break-all text-white transition-colors
-                               hover:text-lime-400 select-text">
+                    <a href="mailto:pro.contactabderrazak@gmail.com" class="break-all text-fg transition-colors
+                               hover:text-accent select-text">
                         pro.contactabderrazak@gmail.com
                     </a>
                 </div>
             </div>
 
             <!-- Phone -->
-            <div class="flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-5
+            <div class="flex items-center gap-4 rounded-xl border border-overlay/10 bg-overlay/5 p-5
                        transition-all duration-300
-                       hover:border-lime-400/50 hover:bg-white/10">
+                       hover:border-accent/50 hover:bg-overlay/10">
                 <!-- Icon -->
                 <div class="group flex h-12 w-12 shrink-0 items-center justify-center rounded-lg
-                           border border-white/10 bg-white/5
+                           border border-overlay/10 bg-overlay/5
                            transition-all duration-300
                            hover:scale-110 hover:border-transparent
-                           hover:bg-gradient-to-br hover:from-lime-400
-                           hover:via-emerald-400 hover:to-teal-400">
+                           hover:bg-gradient-to-br hover:from-accent
+                           hover:via-primary hover:to-secondary">
                     <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/google-voice-2026/default.svg"
                         alt="Phone" class="h-6 w-6 object-contain transition-all duration-300
                                group-hover:brightness-0 group-hover:invert" />
@@ -62,28 +62,28 @@
 
                 <!-- Content -->
                 <div>
-                    <p class="mb-1 text-sm text-gray-400">
+                    <p class="mb-1 text-sm text-fg-subtle">
                         {{ 'CONTACT.PHONE' | translate }}
                     </p>
 
-                    <a href="tel:+33753188225" class="text-white transition-colors
-                               hover:text-lime-400 select-text">
+                    <a href="tel:+33753188225" class="text-fg transition-colors
+                               hover:text-accent select-text">
                         +33 7 53 18 82 25
                     </a>
                 </div>
             </div>
 
             <!-- Location -->
-            <div class="flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-5
+            <div class="flex items-center gap-4 rounded-xl border border-overlay/10 bg-overlay/5 p-5
                        transition-all duration-300
-                       hover:border-lime-400/50 hover:bg-white/10">
+                       hover:border-accent/50 hover:bg-overlay/10">
                 <!-- Icon -->
                 <div class="group flex h-12 w-12 shrink-0 items-center justify-center rounded-lg
-                           border border-white/10 bg-white/5
+                           border border-overlay/10 bg-overlay/5
                            transition-all duration-300
                            hover:scale-110 hover:border-transparent
-                           hover:bg-gradient-to-br hover:from-lime-400
-                           hover:via-emerald-400 hover:to-teal-400">
+                           hover:bg-gradient-to-br hover:from-accent
+                           hover:via-primary hover:to-secondary">
                     <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/google-maps/default.svg"
                         alt="Location" class="h-6 w-6 object-contain transition-all duration-300
                                group-hover:brightness-0 group-hover:invert" />
@@ -91,11 +91,11 @@
 
                 <!-- Content -->
                 <div class="min-w-0">
-                    <p class="mb-1 text-sm text-gray-400">
+                    <p class="mb-1 text-sm text-fg-subtle">
                         {{ 'CONTACT.LOCATION' | translate }}
                     </p>
 
-                    <p class="text-white select-text">
+                    <p class="text-fg select-text">
                         {{ 'PLACES.PARIS' | translate }},
                         {{ 'PLACES.ILE_DE_FRANCE' | translate }},
                         {{ 'PLACES.FRANCE' | translate }}
@@ -104,17 +104,17 @@
             </div>
 
             <!-- Availability Badge -->
-            <div class="mt-6 rounded-xl bg-gradient-to-r from-lime-400 to-emerald-400
-                       p-5 text-emerald-950">
+            <div class="mt-6 rounded-xl bg-gradient-to-r from-accent to-primary
+                       p-5 text-on-accent">
                 <div class="flex items-center gap-3">
-                    <div class="h-3 w-3 rounded-full bg-emerald-950 animate-pulse"></div>
+                    <div class="h-3 w-3 rounded-full bg-on-accent animate-pulse"></div>
 
                     <p class="font-bold">
                         {{ 'HERO.AVAILABLE_FOR_FULL_TIME' | translate }}
                     </p>
                 </div>
 
-                <p class="mt-2 text-sm text-emerald-900">
+                <p class="mt-2 text-sm text-on-accent/80">
                     {{ 'CONTACT.AVERAGE_RESPONSE_TIME' | translate }}:
                     12 {{ 'CONTACT.HOURS' | translate | lowercase }}
                 </p>

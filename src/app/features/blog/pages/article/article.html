@@ -1,14 +1,14 @@
-<div class="min-h-screen bg-white select-none">
+<div class="min-h-screen select-none">
   <app-header></app-header>
 
   <section
-    class="mt-10 bg-gradient-to-br from-emerald-900 via-teal-900 to-emerald-950 min-h-screen py-20 px-6 relative overflow-hidden">
+    class="mt-10 min-h-screen py-20 px-6 relative overflow-hidden">
 
     <!-- Background decorations -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <div class="absolute top-20 right-10 w-96 h-96 bg-lime-400/10 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute top-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse"></div>
       <div
-        class="absolute bottom-20 left-10 w-80 h-80 bg-emerald-400/10 rounded-full blur-3xl animate-pulse"
+        class="absolute bottom-20 left-10 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-pulse"
         style="animation-delay: 1s;">
       </div>
     </div>
@@ -19,9 +19,9 @@
       @if (loading) {
         <div class="text-center py-20">
           <div
-            class="w-16 h-16 border-4 border-lime-400 border-t-transparent rounded-full animate-spin mx-auto mb-4">
+            class="w-16 h-16 border-4 border-accent border-t-transparent rounded-full animate-spin mx-auto mb-4">
           </div>
-          <p class="text-gray-300">
+          <p class="text-fg-muted">
             {{ 'BLOG.LOADING_ARTICLE' | translate }}...
           </p>
         </div>
@@ -43,7 +43,7 @@
           <!-- Back to blog -->
           <a
             routerLink="/blog"
-            class="inline-flex items-center gap-2 text-lime-400 hover:text-lime-300 transition-colors group">
+            class="inline-flex items-center gap-2 text-accent hover:text-accent-soft transition-colors group">
             <fa-icon
               [icon]="faArrowLeft"
               class="group-hover:-translate-x-1 transition-transform">
@@ -52,29 +52,29 @@
           </a>
           <!-- Article header -->
           <div
-            class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 space-y-6">
+            class="ui-card p-8 space-y-6">
             <!-- Categories -->
             <div class="flex flex-wrap gap-2">
               @for (category of article.categories; track category) {
                 <span
-                  class="text-xs px-3 py-1 rounded-full bg-lime-400/10 text-lime-400 border border-lime-400/30">
+                  class="text-xs px-3 py-1 rounded-full bg-accent/10 text-accent border border-accent/30">
                   {{ category }}
                 </span>
               }
             </div>
             <!-- Title -->
-            <h1 class="text-4xl md:text-5xl font-bold text-white leading-tight">
+            <h1 class="text-4xl md:text-5xl font-bold text-fg leading-tight">
               {{ article.title }}
             </h1>
             <!-- Description -->
             @if (article.description) {
               <p
-                class="text-gray-300 text-lg leading-relaxed">
+                class="text-fg-muted text-lg leading-relaxed">
                 {{ article.description }}
               </p>
             }
             <!-- Metadata -->
-            <div class="flex flex-wrap items-center gap-6 text-gray-300">
+            <div class="flex flex-wrap items-center gap-6 text-fg-muted">
               <!-- Publication date -->
               <div class="flex items-center gap-2">
                 <fa-icon [icon]="faCalendar"></fa-icon>
@@ -96,8 +96,8 @@
               <span [innerHTML]="getMadeWithLoveByText"></span>
             </div>
             <!-- Share buttons -->
-            <div class="flex items-center gap-4 pt-4 border-t border-white/10">
-              <span class="text-gray-400 text-sm">
+            <div class="flex items-center gap-4 pt-4 border-t border-overlay/10">
+              <span class="text-fg-subtle text-sm">
                 {{ 'OTHERS.SHARE' | translate }}:
               </span>
               <div class="flex gap-2">
@@ -105,7 +105,7 @@
                 <button
                   type="button"
                   (click)="shareOn('twitter')"
-                  class="w-10 h-10 rounded-lg bg-white/5 hover:bg-lime-400 flex items-center justify-center text-gray-300 hover:text-emerald-950 transition-all"
+                  class="w-10 h-10 rounded-lg bg-overlay/5 hover:bg-accent flex items-center justify-center text-fg-muted hover:text-on-accent transition-all"
                   aria-label="Share on X">
                   <img
                     src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/x/default.svg"
@@ -116,7 +116,7 @@
                 <button
                   type="button"
                   (click)="shareOn('linkedin')"
-                  class="w-10 h-10 rounded-lg bg-white/5 hover:bg-lime-400 flex items-center justify-center text-gray-300 hover:text-emerald-950 transition-all"
+                  class="w-10 h-10 rounded-lg bg-overlay/5 hover:bg-accent flex items-center justify-center text-fg-muted hover:text-on-accent transition-all"
                   aria-label="Share on LinkedIn">
                   <img
                     src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/linkedin/default.svg"
@@ -127,7 +127,7 @@
                 <button
                   type="button"
                   (click)="shareOn('facebook')"
-                  class="w-10 h-10 rounded-lg bg-white/5 hover:bg-lime-400 flex items-center justify-center text-gray-300 hover:text-emerald-950 transition-all"
+                  class="w-10 h-10 rounded-lg bg-overlay/5 hover:bg-accent flex items-center justify-center text-fg-muted hover:text-on-accent transition-all"
                   aria-label="Share on Facebook">
                   <img
                     src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/facebook/default.svg"
@@ -138,7 +138,7 @@
                 <button
                   type="button"
                   (click)="copyLink()"
-                  class="w-10 h-10 rounded-lg bg-white/5 hover:bg-lime-400 flex items-center justify-center text-gray-300 hover:text-emerald-950 transition-all"
+                  class="w-10 h-10 rounded-lg bg-overlay/5 hover:bg-accent flex items-center justify-center text-fg-muted hover:text-on-accent transition-all"
                   aria-label="Copy article link">
                   <fa-icon [icon]="faShareNodes"></fa-icon>
                 </button>
@@ -148,7 +148,7 @@
           <!-- Cover image -->
           @if (article.imageUrl) {
             <div
-              class="rounded-2xl overflow-hidden border border-white/10">
+              class="rounded-2xl overflow-hidden border border-overlay/10">
               <img
                 [src]="article.imageUrl"
                 [alt]="article.title"
@@ -158,7 +158,7 @@
           }
           <!-- Markdown content -->
           <div
-            class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+            class="ui-card p-8">
             <div class="prose prose-invert prose-lime max-w-none markdown-content">
               <div
                 class="markdown-body"
@@ -168,13 +168,13 @@
           </div>
           <!-- Bottom call to action -->
           <div
-            class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
-            <p class="text-gray-300 mb-4">
+            class="ui-card p-6 text-center">
+            <p class="text-fg-muted mb-4">
               {{ 'BLOG.DID_YOU_LIKE' | translate }}
             </p>
             <a
               routerLink="/blog"
-              class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-lime-400 to-emerald-400 rounded-xl text-emerald-950 font-bold hover:from-lime-500 hover:to-emerald-500 transition-all">
+              class="inline-flex items-center justify-center px-6 py-3 ui-btn-primary rounded-xl">
               {{ 'BLOG.DISCOVER_MORE_ARTICLES' | translate }}
             </a>
           </div>
@@ -185,15 +185,15 @@
       @if (!loading && !article) {
         <div class="text-center py-20">
           <div class="text-6xl mb-4">📄</div>
-          <h2 class="text-3xl font-bold text-white mb-2">
+          <h2 class="text-3xl font-bold text-fg mb-2">
             {{ 'BLOG.ARTICLE_NOT_FOUND' | translate }}
           </h2>
-          <p class="text-gray-400 mb-6">
+          <p class="text-fg-subtle mb-6">
             {{ 'BLOG.ARTICLE_NOT_EXIST' | translate }}
           </p>
           <a
             routerLink="/blog"
-            class="inline-flex items-center gap-2 px-6 py-3 bg-lime-400 text-emerald-950 rounded-xl font-bold hover:bg-lime-500 transition-all">
+            class="inline-flex items-center gap-2 px-6 py-3 bg-accent text-on-accent rounded-xl font-bold hover:bg-accent-strong transition-all">
             <fa-icon [icon]="faArrowLeft"></fa-icon>
             {{ 'BLOG.BACK_TO_BLOG' | translate }}
           </a>

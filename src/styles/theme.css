@@ -1,0 +1,240 @@
+/* ========================================================================== */
+/* THEME — single source of truth for every color in the app.                 */
+/*                                                                            */
+/*  1. PALETTE   raw colors (RGB channels, no meaning attached)               */
+/*  2. TOKENS    semantic roles, defined once for light and once for dark     */
+/*                                                                            */
+/*  Tailwind (tailwind.config.js), the Markdown styles, and the Mermaid       */
+/*  theme all read the TOKENS. Never use a PALETTE variable in a component.   */
+/*                                                                            */
+/*  Channels are stored as "R G B" so alpha can be applied anywhere:          */
+/*    rgb(var(--color-accent))          → solid                               */
+/*    rgb(var(--color-accent) / 0.3)    → 30 % opacity                        */
+/*    Tailwind: bg-accent/30                                                  */
+/*                                                                            */
+/*  The active theme is selected by the `dark` class on <html>, which is set  */
+/*  by ThemeService (and by the boot script in index.html before first paint) */
+/* ========================================================================== */
+
+:root {
+    /* ---------------------------------------------------------------------- */
+    /* 1. PALETTE                                                              */
+    /* ---------------------------------------------------------------------- */
+
+    /* Mint — fresh whitish greens (light-mode backgrounds) */
+    --palette-mint-25: 250 255 251;   /* #fafffb */
+    --palette-mint-50: 240 252 243;   /* #f0fcf3 */
+    --palette-mint-100: 224 248 231;  /* #e0f8e7 */
+    --palette-mint-200: 202 242 214;  /* #caf2d6 */
+    --palette-mint-300: 170 228 189;  /* #aae4bd */
+
+    /* Pine — green-tinted neutrals (light-mode text) */
+    --palette-pine-400: 106 148 122;  /* #6a947a */
+    --palette-pine-500: 72 115 89;    /* #487359 */
+    --palette-pine-600: 44 88 62;     /* #2c583e */
+    --palette-pine-700: 23 64 41;     /* #174029 */
+    --palette-pine-900: 4 40 22;      /* #042816 */
+
+    /* Night — black mixed with green (dark-mode backgrounds) */
+    --palette-night-950: 3 8 5;       /* #030805 */
+    --palette-night-900: 7 17 12;     /* #07110c */
+    --palette-night-850: 10 25 17;    /* #0a1911 */
+    --palette-night-800: 14 33 23;    /* #0e2117 */
+    --palette-night-700: 28 52 38;    /* #1c3426 */
+
+    /* Emerald — the brand green */
+    --palette-emerald-100: 209 250 229; /* #d1fae5 */
+    --palette-emerald-400: 52 211 153;  /* #34d399 */
+    --palette-emerald-500: 16 185 129;  /* #10b981 */
+    --palette-emerald-600: 5 150 105;   /* #059669 */
+    --palette-emerald-700: 4 120 87;    /* #047857 */
+    --palette-emerald-900: 6 78 59;     /* #064e3b */
+    --palette-emerald-950: 2 44 34;     /* #022c22 */
+
+    /* Teal — secondary green */
+    --palette-teal-400: 45 212 191;   /* #2dd4bf */
+    --palette-teal-600: 13 148 136;   /* #0d9488 */
+
+    /* Lime — the accent */
+    --palette-lime-300: 190 242 100;  /* #bef264 */
+    --palette-lime-400: 163 230 53;   /* #a3e635 */
+    --palette-lime-500: 132 204 22;   /* #84cc16 */
+    --palette-lime-600: 101 163 13;   /* #65a30d */
+    --palette-lime-700: 77 124 15;    /* #4d7c0f */
+    --palette-lime-800: 63 98 18;     /* #3f6212 */
+
+    /* Neutrals (dark-mode text) */
+    --palette-white: 255 255 255;
+    --palette-black: 0 0 0;
+    --palette-gray-200: 229 231 235;  /* #e5e7eb */
+    --palette-gray-300: 209 213 219;  /* #d1d5db */
+    --palette-gray-400: 156 163 175;  /* #9ca3af */
+    --palette-gray-500: 107 114 128;  /* #6b7280 */
+
+    /* Status */
+    --palette-red-400: 248 113 113;   /* #f87171 */
+    --palette-red-600: 220 38 38;     /* #dc2626 */
+    --palette-amber-400: 251 191 36;  /* #fbbf24 */
+    --palette-amber-600: 217 119 6;   /* #d97706 */
+
+    /* ---------------------------------------------------------------------- */
+    /* 2. TOKENS — LIGHT (default)                                             */
+    /* ---------------------------------------------------------------------- */
+    color-scheme: light;
+
+    /* Surfaces: page background gradient (surface → surface-alt → surface-deep) */
+    --color-surface: var(--palette-mint-50);
+    --color-surface-alt: var(--palette-mint-100);
+    --color-surface-deep: var(--palette-mint-200);
+    /* Solid raised surfaces: header, menus, cards, dialogs */
+    --color-elevated: var(--palette-mint-25);
+    /* Translucent "glass" layer: use with opacity (bg-overlay/5, border-overlay/10) */
+    --color-overlay: var(--palette-pine-900);
+    /* Solid borders / dividers */
+    --color-line: var(--palette-mint-300);
+
+    /* Text, strongest → weakest */
+    --color-fg: var(--palette-pine-900);
+    --color-fg-soft: var(--palette-pine-700);
+    --color-fg-muted: var(--palette-pine-600);
+    --color-fg-subtle: var(--palette-pine-500);
+    --color-fg-faint: var(--palette-pine-400);
+    /* Green-tinted heading text */
+    --color-ink: var(--palette-emerald-900);
+
+    /* Accent (lime): links, highlights, primary buttons */
+    --color-accent: var(--palette-lime-600);
+    --color-accent-soft: var(--palette-lime-500);
+    --color-accent-strong: var(--palette-lime-700);
+    --color-on-accent: var(--palette-white);
+
+    /* Brand greens */
+    --color-primary: var(--palette-emerald-600);
+    --color-primary-strong: var(--palette-emerald-700);
+    --color-on-primary: var(--palette-white);
+    --color-secondary: var(--palette-teal-600);
+
+    /* Status */
+    --color-danger: var(--palette-red-600);
+    --color-warning: var(--palette-amber-600);
+
+    /* Code blocks (Markdown) */
+    --code-surface: rgb(var(--palette-white) / 0.75);
+    --code-scroll-track: rgb(var(--palette-pine-900) / 0.06);
+    --syntax-keyword: 124 58 237;   /* violet-600  */
+    --syntax-type: 37 99 235;       /* blue-600    */
+    --syntax-string: 21 128 61;     /* green-700   */
+    --syntax-constant: 180 83 9;    /* amber-700   */
+    --syntax-punctuation: 100 116 139; /* slate-500 */
+    --syntax-class: 219 39 119;     /* pink-600    */
+    --syntax-function: 4 120 87;    /* emerald-700 */
+    --syntax-variable: 162 28 175;  /* fuchsia-700 */
+    --syntax-comment: 107 124 114;  /* pine-ish    */
+    --syntax-entity: 194 65 12;     /* orange-700  */
+
+    /* Shadows */
+    --shadow-color: var(--palette-pine-900);
+
+    /* One background for the whole page (sections stay transparent on top of it) */
+    --page-background:
+        radial-gradient(ellipse 70% 55% at 0% 0%, rgb(var(--palette-lime-300) / 0.28), transparent 70%),
+        radial-gradient(ellipse 60% 50% at 100% 15%, rgb(var(--palette-emerald-400) / 0.16), transparent 70%),
+        radial-gradient(ellipse 70% 60% at 85% 100%, rgb(var(--palette-teal-400) / 0.16), transparent 70%),
+        linear-gradient(160deg, rgb(var(--palette-mint-25)) 0%, rgb(var(--palette-mint-50)) 45%, rgb(var(--palette-mint-100)) 100%);
+}
+
+/* -------------------------------------------------------------------------- */
+/* 2. TOKENS — DARK                                                            */
+/* -------------------------------------------------------------------------- */
+.dark {
+    color-scheme: dark;
+
+    --color-surface: var(--palette-night-900);
+    --color-surface-alt: var(--palette-night-850);
+    --color-surface-deep: var(--palette-night-950);
+    --color-elevated: var(--palette-night-800);
+    --color-overlay: var(--palette-white);
+    --color-line: var(--palette-night-700);
+
+    --color-fg: var(--palette-white);
+    --color-fg-soft: var(--palette-gray-200);
+    --color-fg-muted: var(--palette-gray-300);
+    --color-fg-subtle: var(--palette-gray-400);
+    --color-fg-faint: var(--palette-gray-500);
+    --color-ink: var(--palette-emerald-100);
+
+    --color-accent: var(--palette-lime-400);
+    --color-accent-soft: var(--palette-lime-300);
+    --color-accent-strong: var(--palette-lime-500);
+    --color-on-accent: var(--palette-night-950);
+
+    --color-primary: var(--palette-emerald-400);
+    --color-primary-strong: var(--palette-emerald-500);
+    --color-on-primary: var(--palette-night-950);
+    --color-secondary: var(--palette-teal-400);
+
+    --color-danger: var(--palette-red-400);
+    --color-warning: var(--palette-amber-400);
+
+    --code-surface: rgb(var(--palette-black) / 0.3);
+    --code-scroll-track: rgb(var(--palette-black) / 0.2);
+    --syntax-keyword: 192 132 252;  /* purple-400  */
+    --syntax-type: 96 165 250;      /* blue-400    */
+    --syntax-string: 134 239 172;   /* green-300   */
+    --syntax-constant: 251 191 36;  /* amber-400   */
+    --syntax-punctuation: 148 163 184; /* slate-400 */
+    --syntax-class: 244 114 182;    /* pink-400    */
+    --syntax-function: 52 211 153;  /* emerald-400 */
+    --syntax-variable: 232 121 249; /* fuchsia-400 */
+    --syntax-comment: 107 114 128;  /* gray-500    */
+    --syntax-entity: 251 146 60;    /* orange-400  */
+
+    --shadow-color: var(--palette-black);
+
+    --page-background:
+        radial-gradient(ellipse 70% 55% at 0% 0%, rgb(var(--palette-lime-400) / 0.07), transparent 70%),
+        radial-gradient(ellipse 60% 50% at 100% 15%, rgb(var(--palette-emerald-400) / 0.08), transparent 70%),
+        radial-gradient(ellipse 70% 60% at 85% 100%, rgb(var(--palette-teal-400) / 0.06), transparent 70%),
+        linear-gradient(160deg, rgb(var(--palette-night-850)) 0%, rgb(var(--palette-night-900)) 50%, rgb(var(--palette-night-950)) 100%);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Base                                                                        */
+/* -------------------------------------------------------------------------- */
+html,
+body {
+    background-color: rgb(var(--color-surface));
+    color: rgb(var(--color-fg));
+}
+
+/* The page background is pinned to the viewport, so it stays seamless while
+   scrolling across sections (a fixed layer also works on iOS, unlike
+   background-attachment: fixed). */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: var(--page-background);
+}
+
+/* Own stacking context: content (even `-z-10` decorations) stays above the background layer */
+app-root {
+    display: block;
+    position: relative;
+    isolation: isolate;
+}
+
+/* Smooth color cross-fade while switching theme (class set by ThemeService) */
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+    transition:
+        background-color 300ms ease,
+        border-color 300ms ease,
+        color 300ms ease,
+        fill 300ms ease,
+        stroke 300ms ease !important;
+}

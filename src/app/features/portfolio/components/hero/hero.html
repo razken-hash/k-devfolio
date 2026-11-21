@@ -1,5 +1,4 @@
 <section id="hero" class="mt-12 sm:mt-16 lg:mt-20
-           bg-gradient-to-br from-emerald-900 via-teal-900 to-emerald-950
            min-h-[calc(100vh-80px)]
            flex items-center
            py-12 sm:py-16 lg:py-20
@@ -10,13 +9,13 @@
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
         <div class="absolute top-10 left-5 sm:top-20 sm:left-10
                     w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96
-                    bg-lime-400/10 rounded-full blur-3xl animate-pulse"></div>
+                    bg-accent/10 rounded-full blur-3xl animate-pulse"></div>
         <div class="absolute bottom-10 right-5 sm:bottom-20 sm:right-10
                     w-40 h-40 sm:w-64 sm:h-64 lg:w-80 lg:h-80
-                    bg-emerald-400/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+                    bg-primary/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
                     w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] lg:w-[600px] lg:h-[600px]
-                    bg-teal-400/5 rounded-full blur-3xl"></div>
+                    bg-secondary/5 rounded-full blur-3xl"></div>
     </div>
 
     <!-- Main Content -->
@@ -26,7 +25,7 @@
         <div class="flex flex-col items-center gap-10 lg:hidden">
             <app-hero-mobile-header></app-hero-mobile-header>
             <app-hero-personal-picture class="w-full flex justify-center relative"></app-hero-personal-picture>
-            <p class="text-base text-gray-300 leading-relaxed max-w-xl mx-auto text-center" [innerHTML]="heroTagHtml">
+            <p class="text-base text-fg-muted leading-relaxed max-w-xl mx-auto text-center" [innerHTML]="heroTagHtml">
             </p>
             <app-hero-social-cta></app-hero-social-cta>
         </div>
@@ -44,8 +43,8 @@
 
     <!-- Scroll Indicator -->
     <div class="hidden sm:block absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce">
-        <div class="w-6 h-10 border-2 border-lime-400/50 rounded-full flex items-start justify-center p-2">
-            <div class="w-1 h-3 bg-lime-400 rounded-full animate-pulse"></div>
+        <div class="w-6 h-10 border-2 border-accent/50 rounded-full flex items-start justify-center p-2">
+            <div class="w-1 h-3 bg-accent rounded-full animate-pulse"></div>
         </div>
     </div>
 

@@ -364,13 +364,13 @@ export class ArticleComponent implements OnInit {
           verticalPosition: 'bottom',
           panelClass: [
             '!text-center',
-            '!bg-emerald-800/90',
-            '!text-lime-300',
+            '!bg-elevated/90',
+            '!text-accent-soft',
             '!border',
-            '!border-lime-400/40',
+            '!border-accent/40',
             '!rounded-2xl',
             '!shadow-lg',
-            '!shadow-emerald-950/20',
+            '!shadow-black/20',
             '!backdrop-blur-md'
           ]
         });
@@ -386,7 +386,7 @@ export class ArticleComponent implements OnInit {
       this.translateService.instant('HERO.KENNICHE_ABDERRAZAK');
 
     return this.translateService.instant('OTHERS.BY_ENTITY', {
-      ENTITY: '<span class="text-lime-400 font-semibold">' + author + '</span>'
+      ENTITY: '<span class="text-accent font-semibold">' + author + '</span>'
     });
   }
 }

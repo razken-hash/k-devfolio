@@ -4,7 +4,8 @@ import { icon } from '@fortawesome/fontawesome-svg-core';
 import { faCheck, faCopy } from '@fortawesome/free-solid-svg-icons';
 import mermaid from 'mermaid';
 
-import { MERMAID_CONFIG } from '../config/mermaid-theme';
+import { createMermaidConfig } from '../config/mermaid-theme';
+import { ThemeService } from '../../../core/services/theme.service';
 import { MarkdownConverterService } from './markdown-converter.service';
 import { MermaidStyleService } from './mermaid-style.service';
 
@@ -26,6 +27,7 @@ export interface RenderedArticle {
 export class ArticleRendererService {
   private readonly markdownConverter = inject(MarkdownConverterService);
   private readonly mermaidStyle = inject(MermaidStyleService);
+  private readonly themeService = inject(ThemeService);
 
   private static readonly LANGUAGE_LABELS: Record<string, string> = {
     dockerfile: 'Docker',
@@ -53,10 +55,6 @@ export class ArticleRendererService {
     plaintext: 'Text',
     text: 'Text'
   };
-
-  constructor() {
-    mermaid.initialize(MERMAID_CONFIG);
-  }
 
   /**
    * Convert Markdown to HTML, render Mermaid diagrams,
@@ -212,6 +210,12 @@ export class ArticleRendererService {
     container.innerHTML = content;
 
     const mermaidBlocks = container.querySelectorAll('code.language-mermaid');
+
+    if (mermaidBlocks.length) {
+      // Theme variables are resolved from the active theme at render time;
+      // the colors in themeCSS follow later theme switches on their own.
+      mermaid.initialize(createMermaidConfig(name => this.themeService.token(name)));
+    }
 
     for (let i = 0; i < mermaidBlocks.length; i++) {
       const codeElement = mermaidBlocks[i];
