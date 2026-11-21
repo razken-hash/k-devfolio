@@ -1,9 +1,9 @@
 
 import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { LanguageService } from './services/language-service';
-import { AnalyticsService } from './services/analytics.service';
-import { VisitsService } from './services/visits.service';
+import { LanguageService } from './core/services/language.service';
+import { AnalyticsService } from './core/services/analytics.service';
+import { VisitsService } from './core/services/visits.service';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +11,7 @@ import { VisitsService } from './services/visits.service';
     RouterModule
   ],
   templateUrl: './app.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
-  styleUrl: './app.css'
+  changeDetection: ChangeDetectionStrategy.Eager
 })
 export class App {
   protected readonly title = signal('kDevfolio');

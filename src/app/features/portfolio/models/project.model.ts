@@ -1,0 +1,13 @@
+import { Technology } from "../../../shared/models/technology.model";
+
+export interface Project {
+    id: string;
+    name: string;
+    category: 'fullstack' | 'backend' | 'frontend' | 'mobile';
+    shortDescription: string;
+    longDescription: string;
+    images: string[];
+    technologies: Technology[];
+    githubUrl?: string;
+    liveUrl?: string;
+}

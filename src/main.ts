@@ -4,7 +4,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideZoneChangeDetection } from '@angular/core';
 
 import { App } from './app/app';
-import { routes } from './app/app-routing';
+import { routes } from './app/app.routes';
 import { provideTranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 
