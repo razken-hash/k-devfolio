@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
-import { CommonModule } from '@angular/common';
+
 import { RouterModule } from '@angular/router';
 
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
@@ -16,12 +16,12 @@ import { NavigationLinksService } from '../../../services/navigation-links-servi
 @Component({
   selector: 'app-hero-social-cta',
   imports: [
-    CommonModule,
     RouterModule,
     TranslateModule,
     FontAwesomeModule,
-    CvPreview,
-  ],
+    CvPreview
+],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './hero-social-cta.html',
 })
 export class HeroSocialCta {

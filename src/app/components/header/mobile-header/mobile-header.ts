@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
+import { UpperCasePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateModule } from '@ngx-translate/core';
@@ -9,11 +9,12 @@ import { BaseHeader } from '../base-header';
   selector: 'app-mobile-header',
   standalone: true,
   imports: [
-    CommonModule,
+    UpperCasePipe,
     RouterModule,
     FontAwesomeModule,
     TranslateModule
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './mobile-header.html',
 })
 export class MobileHeader extends BaseHeader {

@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { DatePipe, DecimalPipe } from '@angular/common';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 
 import {
   DeviceVisitStat,
@@ -11,8 +11,9 @@ import { VisitsService } from '../../services/visits.service';
 @Component({
   selector: 'app-visit-analytics',
   standalone: true,
-  imports: [CommonModule],
+  imports: [DatePipe, DecimalPipe],
   templateUrl: './visit-analytics.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./visit-analytics.css'],
 })
 export class VisitAnalyticsComponent {

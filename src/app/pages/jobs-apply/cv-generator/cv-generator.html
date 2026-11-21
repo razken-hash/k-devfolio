@@ -31,7 +31,7 @@
             (click)="selectProfile('DEV')"
             [class.profile-active]="selectedProfile === 'DEV'"
             class="profile-option"
-          >
+            >
             <span class="mr-1.5">⌘</span> DEV
           </button>
 
@@ -40,7 +40,7 @@
             (click)="selectProfile('QA')"
             [class.profile-active]="selectedProfile === 'QA'"
             class="profile-option"
-          >
+            >
             <span class="mr-1.5">◈</span> QA
           </button>
         </div>
@@ -89,7 +89,7 @@
                 [(ngModel)]="companyName"
                 placeholder="e.g. Rakuten France"
                 class="field-input"
-              />
+                />
             </div>
 
             <div>
@@ -99,7 +99,7 @@
                 [(ngModel)]="roleName"
                 placeholder="e.g. Full-Stack Developer"
                 class="field-input"
-              />
+                />
             </div>
 
             <div>
@@ -109,7 +109,7 @@
                 [(ngModel)]="offerUrl"
                 placeholder="https://..."
                 class="field-input"
-              />
+                />
             </div>
 
             <div>
@@ -141,9 +141,9 @@
 
                 <p class="mt-1 text-xs text-emerald-800/70">
                   {{
-                    selectedProfile === 'DEV'
-                      ? 'Software Engineering / Development'
-                      : 'Quality Assurance / Testing'
+                  selectedProfile === 'DEV'
+                  ? 'Software Engineering / Development'
+                  : 'Quality Assurance / Testing'
                   }}
                 </p>
               </div>
@@ -159,56 +159,61 @@
             (click)="generateCv()"
             [disabled]="!canGenerate"
             class="primary-button mt-5 w-full"
-          >
-            <span *ngIf="!isGenerating" class="flex items-center justify-center gap-2">
-              Generate tailored CV
+            >
+            @if (!isGenerating) {
+              <span class="flex items-center justify-center gap-2">
+                Generate tailored CV
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M5 12h14m-6-6 6 6-6 6"/>
+                </svg>
+              </span>
+            }
 
-              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M5 12h14m-6-6 6 6-6 6"/>
-              </svg>
-            </span>
-
-            <span *ngIf="isGenerating">
-              Generating CV...
-            </span>
+            @if (isGenerating) {
+              <span>
+                Generating CV...
+              </span>
+            }
           </button>
 
         </article>
 
         <!-- Feedback -->
-        <div *ngIf="errorMessage" class="feedback-error">
-          {{ errorMessage }}
-        </div>
+        @if (errorMessage) {
+          <div class="feedback-error">
+            {{ errorMessage }}
+          </div>
+        }
 
-        <div *ngIf="successMessage" class="feedback-success">
-          {{ successMessage }}
-        </div>
+        @if (successMessage) {
+          <div class="feedback-success">
+            {{ successMessage }}
+          </div>
+        }
 
         <!-- Saved application -->
-        <article
-          *ngIf="application"
-          class="rounded-2xl border border-emerald-200 bg-white p-5 shadow-sm"
-        >
-          <div class="flex items-center gap-2 text-emerald-700">
-            <span class="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-50">
-              ✓
-            </span>
-
-            <p class="font-semibold">
-              Application saved
+        @if (application) {
+          <article
+            class="rounded-2xl border border-emerald-200 bg-white p-5 shadow-sm"
+            >
+            <div class="flex items-center gap-2 text-emerald-700">
+              <span class="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-50">
+                ✓
+              </span>
+              <p class="font-semibold">
+                Application saved
+              </p>
+            </div>
+            <p class="mt-4 text-xs font-medium text-slate-500">
+              Application ID
             </p>
-          </div>
-
-          <p class="mt-4 text-xs font-medium text-slate-500">
-            Application ID
-          </p>
-
-          <p class="mt-1 break-all font-mono text-sm font-semibold text-emerald-700">
-            {{ application.id }}
-          </p>
-        </article>
+            <p class="mt-1 break-all font-mono text-sm font-semibold text-emerald-700">
+              {{ application.id }}
+            </p>
+          </article>
+        }
 
       </div>
 
@@ -243,7 +248,7 @@
               (click)="compilePdf()"
               [disabled]="!canCompile"
               class="secondary-button"
-            >
+              >
               {{ isCompiling ? 'Compiling...' : 'Compile PDF ↗' }}
             </button>
 
@@ -315,35 +320,35 @@
 
           <div class="pdf-preview">
 
-            <iframe
-              *ngIf="safePdfUrl"
-              [src]="safePdfUrl"
-              title="Generated CV PDF preview"
-              class="h-[750px] w-full bg-white"
-            ></iframe>
+            @if (safePdfUrl) {
+              <iframe
+                [src]="safePdfUrl"
+                title="Generated CV PDF preview"
+                class="h-[750px] w-full bg-white"
+              ></iframe>
+            }
 
-            <div
-              *ngIf="!safePdfUrl"
-              class="flex min-h-[420px] flex-col items-center justify-center px-6 text-center"
-            >
-              <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
-                <svg class="h-8 w-8" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="1.6">
-                  <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M6 3.5h8l4 4V20a.5.5 0 0 1-.5.5h-11A.5.5 0 0 1 6 20V3.5Z"/>
-                  <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M14 3.5v4h4M9 13h6M9 16h6"/>
-                </svg>
+            @if (!safePdfUrl) {
+              <div
+                class="flex min-h-[420px] flex-col items-center justify-center px-6 text-center"
+                >
+                <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
+                  <svg class="h-8 w-8" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M6 3.5h8l4 4V20a.5.5 0 0 1-.5.5h-11A.5.5 0 0 1 6 20V3.5Z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M14 3.5v4h4M9 13h6M9 16h6"/>
+                  </svg>
+                </div>
+                <h3 class="mt-5 font-semibold text-slate-800">
+                  No PDF generated yet
+                </h3>
+                <p class="mt-2 max-w-xs text-sm leading-6 text-slate-500">
+                  Generate your CV and compile the LaTeX source to preview your document here.
+                </p>
               </div>
-
-              <h3 class="mt-5 font-semibold text-slate-800">
-                No PDF generated yet
-              </h3>
-
-              <p class="mt-2 max-w-xs text-sm leading-6 text-slate-500">
-                Generate your CV and compile the LaTeX source to preview your document here.
-              </p>
-            </div>
+            }
 
           </div>
 
@@ -367,7 +372,7 @@
             (click)="finish()"
             [disabled]="!canFinish"
             class="finish-button"
-          >
+            >
             {{ isSaving ? 'Saving application...' : 'Finish & Save Application →' }}
           </button>
 

@@ -1,5 +1,5 @@
 
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LanguageService } from './services/language-service';
 import { AnalyticsService } from './services/analytics.service';
@@ -11,6 +11,7 @@ import { VisitsService } from './services/visits.service';
     RouterModule
   ],
   templateUrl: './app.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './app.css'
 })
 export class App {

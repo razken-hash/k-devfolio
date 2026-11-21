@@ -2,10 +2,11 @@ import {
   Component,
   DestroyRef,
   OnInit,
-  inject
+  inject,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
-import { CommonModule } from '@angular/common';
+
 
 import {
   ActivatedRoute,
@@ -62,13 +63,13 @@ import { ArticleLanguage, FullArticle } from '../../models/article.model';
   selector: 'app-article',
   standalone: true,
   imports: [
-    CommonModule,
     RouterModule,
     FontAwesomeModule,
     Header,
     TranslateModule,
     MatSnackBarModule
-  ],
+],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './article.html'
 })
 export class ArticleComponent implements OnInit {

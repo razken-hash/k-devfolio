@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
+import { UpperCasePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateModule } from '@ngx-translate/core';
@@ -12,12 +12,13 @@ import { BaseHeader } from '../base-header';
   selector: 'app-desktop-header',
   standalone: true,
   imports: [
-    CommonModule,
+    UpperCasePipe,
     RouterModule,
     FontAwesomeModule,
     TranslateModule
   ],
   templateUrl: './desktop-header.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styles: [`
     @keyframes fade-in {
       from { opacity: 0; transform: translateY(-10px); }

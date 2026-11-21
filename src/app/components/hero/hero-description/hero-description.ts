@@ -1,10 +1,11 @@
-import { CommonModule, LowerCasePipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { LowerCasePipe, UpperCasePipe } from '@angular/common';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-hero-description',
-  imports: [CommonModule, TranslateModule],
+  imports: [UpperCasePipe, TranslateModule],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './hero-description.html',
 })
 export class HeroDescription {

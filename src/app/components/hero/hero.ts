@@ -1,8 +1,8 @@
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HeroMobileHeader } from './hero-mobile-header/hero-mobile-header';
 import { RouterModule } from '@angular/router';
-import { CommonModule, LowerCasePipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { LowerCasePipe } from '@angular/common';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { CvPreview } from '../cv-preview/cv-preview';
 import { HeroDescription } from './hero-description/hero-description';
@@ -14,9 +14,16 @@ import { faArrowRight, faDownload, faFile } from '@fortawesome/free-solid-svg-ic
 @Component({
   selector: 'app-hero',
   imports: [
-    CommonModule, RouterModule, FontAwesomeModule, TranslateModule, HeroPersonalPicture, HeroDescription, HeroMobileHeader, HeroSocialCta   // ← add these
-  ],
+    RouterModule,
+    FontAwesomeModule,
+    TranslateModule,
+    HeroPersonalPicture,
+    HeroDescription,
+    HeroMobileHeader,
+    HeroSocialCta
+],
   providers: [LowerCasePipe],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './hero.html',
 })
 export class Hero {

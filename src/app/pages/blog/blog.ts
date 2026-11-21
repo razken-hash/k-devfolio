@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { LowerCasePipe, SlicePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
@@ -21,7 +21,7 @@ import { LanguageService } from '../../services/language-service';
 @Component({
   selector: 'app-blog',
   imports: [
-    CommonModule,
+    LowerCasePipe, SlicePipe,
     RouterModule,
     FontAwesomeModule,
     Header,
@@ -29,6 +29,7 @@ import { LanguageService } from '../../services/language-service';
     TranslateModule
   ],
   templateUrl: './blog.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styles: ``
 })
 export class Blog implements OnInit {

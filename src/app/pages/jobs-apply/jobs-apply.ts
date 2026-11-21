@@ -1,11 +1,12 @@
 
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CvGenerator } from './cv-generator/cv-generator';
 
 @Component({
   selector: 'app-jobs-apply',
   standalone: true,
   imports: [CvGenerator],
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <app-cv-generator />
   `

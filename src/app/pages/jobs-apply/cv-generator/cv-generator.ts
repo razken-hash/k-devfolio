@@ -2,10 +2,11 @@
 import {
   Component,
   inject,
-  OnDestroy
+  OnDestroy,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
-import { CommonModule } from '@angular/common';
+
 import { FormsModule } from '@angular/forms';
 import {
   DomSanitizer,
@@ -26,10 +27,10 @@ import { finalize, switchMap, tap } from 'rxjs';
   selector: 'app-cv-generator',
   standalone: true,
   imports: [
-    CommonModule,
     FormsModule
-  ],
+],
   templateUrl: './cv-generator.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './cv-generator.css'
 })
 export class CvGenerator implements OnDestroy {

@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { UpperCasePipe } from '@angular/common';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faExternalLink, faChevronLeft, faChevronRight, faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -11,8 +11,9 @@ import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-projects',
-  imports: [CommonModule, FontAwesomeModule, TranslateModule],
+  imports: [UpperCasePipe, FontAwesomeModule, TranslateModule],
   templateUrl: './projects.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styles: ``
 })
 export class Projects {

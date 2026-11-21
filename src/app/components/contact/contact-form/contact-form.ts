@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
@@ -8,7 +8,8 @@ import { EmailInput } from '../email-input/email-input';
 
 @Component({
   selector: 'app-contact-form',
-  imports: [CommonModule, RouterModule, FormsModule, TranslateModule, EmailInput],
+  imports: [RouterModule, FormsModule, TranslateModule, EmailInput],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './contact-form.html',
 })
 export class ContactForm {

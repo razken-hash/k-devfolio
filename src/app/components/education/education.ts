@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { AsyncPipe, DatePipe, UpperCasePipe } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { EducationService } from '../../services/education-service';
@@ -9,7 +9,8 @@ import { Education } from '../../models/education.model';
   selector: 'app-education',
   templateUrl: './education.html',
   standalone: true,
-  imports: [CommonModule, TranslateModule],
+  changeDetection: ChangeDetectionStrategy.Eager,
+  imports: [AsyncPipe, DatePipe, UpperCasePipe, TranslateModule],
 })
 export class EducationComponent {
   educations: Observable<Education[]>;

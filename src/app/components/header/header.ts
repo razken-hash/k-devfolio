@@ -1,6 +1,6 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, ChangeDetectionStrategy } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+
 import { NavigationLink } from '../../models/navigation-link.model';
 import { Language } from '../../models/language.model';
 import { NavigationLinksService } from '../../services/navigation-links-service';
@@ -11,7 +11,8 @@ import { MobileHeader } from './mobile-header/mobile-header';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterModule, DesktopHeader, MobileHeader],
+  imports: [RouterModule, DesktopHeader, MobileHeader],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './header.html',
 })
 export class Header {

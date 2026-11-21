@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { UpperCasePipe } from '@angular/common';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
   faDownload,
@@ -16,7 +16,8 @@ import { LanguageService } from '../../services/language-service';
 
 @Component({
   selector: 'app-cv-preview',
-  imports: [CommonModule, FontAwesomeModule, TranslateModule],
+  imports: [UpperCasePipe, FontAwesomeModule, TranslateModule],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './cv-preview.html',
 })
 export class CvPreview {

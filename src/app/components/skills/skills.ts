@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { SkillsService } from '../../services/skills-service';
 import { SkillCategory } from '../../models/skills-category.model';
 import { TranslateModule } from '@ngx-translate/core';
@@ -8,7 +8,8 @@ import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.html',
-  imports: [CommonModule, TranslateModule]
+  changeDetection: ChangeDetectionStrategy.Eager,
+  imports: [TranslateModule]
 })
 export class Skills {
   activeCategory: SkillCategory;

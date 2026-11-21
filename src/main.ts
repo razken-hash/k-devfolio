@@ -16,6 +16,7 @@ bootstrapApplication(App, {
         scrollPositionRestoration: 'enabled',
       })
     ),
+    // Angular 22 uses the fetch-based backend by default.
     provideHttpClient(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideTranslateService({

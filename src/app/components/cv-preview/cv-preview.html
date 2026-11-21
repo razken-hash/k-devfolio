@@ -1,121 +1,122 @@
 <!-- Download CV Button (Trigger) -->
 <button (click)="openModal()"
-    class="group inline-flex items-center justify-center w-full px-8 py-4 border-2 border-lime-400/50 text-base font-semibold rounded-xl shadow-lg text-lime-400 bg-white/5 backdrop-blur-sm hover:bg-lime-400 hover:text-emerald-950 transition-all duration-300 hover:border-lime-400">
-    <fa-icon [icon]="faDownload" class="mr-2 group-hover:animate-bounce">
-    </fa-icon>
-    {{ 'HERO.VIEW_CV' | translate }}
+  class="group inline-flex items-center justify-center w-full px-8 py-4 border-2 border-lime-400/50 text-base font-semibold rounded-xl shadow-lg text-lime-400 bg-white/5 backdrop-blur-sm hover:bg-lime-400 hover:text-emerald-950 transition-all duration-300 hover:border-lime-400">
+  <fa-icon [icon]="faDownload" class="mr-2 group-hover:animate-bounce">
+  </fa-icon>
+  {{ 'HERO.VIEW_CV' | translate }}
 </button>
 
 <!-- CV Preview Modal -->
-<div *ngIf="showModal" class="z-50 fixed inset-0 flex items-center justify-center p-4 bg-black/20"
+@if (showModal) {
+  <div class="z-50 fixed inset-0 flex items-center justify-center p-4 bg-black/20"
     (click)="closeModal()">
     <div (click)="$event.stopPropagation()"
-        class="bg-gradient-to-br from-emerald-900 to-emerald-950 border border-white/20 rounded-2xl w-full max-w-7xl mx-4 flex flex-col mt-20"
-        style="max-height: calc(100vh - 120px);">
-
-        <!-- Modal Header -->
-        <div
-            class="bg-emerald-900/95 backdrop-blur-md border-b border-white/10 p-6 flex items-center justify-between rounded-t-2xl">
-            <div>
-                <h2 class="text-3xl font-bold text-white">{{ 'CV.MY_CV' | translate }}</h2>
-                <p class="text-gray-300 text-sm mt-1">{{ 'HERO.KENNICHE_ABDERRAZAK' | translate | uppercase }} - {{
-                    'HERO.SOFTWARE_ENGINEER' | translate }}</p>
-            </div>
-            <button (click)="closeModal()"
-                class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
-                aria-label="Close">
-                <fa-icon [icon]="faXmark" class="text-xl"></fa-icon>
-            </button>
+      class="bg-gradient-to-br from-emerald-900 to-emerald-950 border border-white/20 rounded-2xl w-full max-w-7xl mx-4 flex flex-col mt-20"
+      style="max-height: calc(100vh - 120px);">
+      <!-- Modal Header -->
+      <div
+        class="bg-emerald-900/95 backdrop-blur-md border-b border-white/10 p-6 flex items-center justify-between rounded-t-2xl">
+        <div>
+          <h2 class="text-3xl font-bold text-white">{{ 'CV.MY_CV' | translate }}</h2>
+          <p class="text-gray-300 text-sm mt-1">{{ 'HERO.KENNICHE_ABDERRAZAK' | translate | uppercase }} - {{
+          'HERO.SOFTWARE_ENGINEER' | translate }}</p>
         </div>
-
-        <!-- Toolbar -->
-        <div class="bg-emerald-900/50 border-b border-white/10 p-4 flex items-center justify-between flex-wrap gap-4">
-
-            <!-- View Mode Toggle -->
-            <div class="flex gap-2">
+        <button (click)="closeModal()"
+          class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+          aria-label="Close">
+          <fa-icon [icon]="faXmark" class="text-xl"></fa-icon>
+        </button>
+      </div>
+      <!-- Toolbar -->
+      <div class="bg-emerald-900/50 border-b border-white/10 p-4 flex items-center justify-between flex-wrap gap-4">
+        <!-- View Mode Toggle -->
+        <div class="flex gap-2">
                 <button (click)="setViewMode('scroll')" [class]="viewMode === 'scroll' 
                         ? 'bg-lime-400 text-emerald-950' 
                         : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'"
-                    class="flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all">
-                    <fa-icon [icon]="faScroll"></fa-icon>
-                    <span class="hidden sm:inline">{{ 'CV.SCROLLING' | translate }}</span>
-                </button>
+            class="flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all">
+            <fa-icon [icon]="faScroll"></fa-icon>
+            <span class="hidden sm:inline">{{ 'CV.SCROLLING' | translate }}</span>
+          </button>
                 <button (click)="setViewMode('dual')" [class]="viewMode === 'dual' 
                         ? 'bg-lime-400 text-emerald-950' 
                         : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'"
-                    class="flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all">
-                    <fa-icon [icon]="faColumns"></fa-icon>
-                    <span class="hidden sm:inline">{{ 'CV.TWO_PAGES' | translate }}</span>
-                </button>
-            </div>
-
-            <!-- Zoom Controls -->
-            <div class="flex items-center gap-2">
-                <button (click)="zoomOut()" [disabled]="zoom <= 50"
-                    class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
-                    <fa-icon [icon]="faSearchMinus"></fa-icon>
-                </button>
-                <span class="text-white text-sm font-medium min-w-[60px] text-center">
-                    {{ zoom }}%
-                </span>
-                <button (click)="zoomIn()" [disabled]="zoom >= 150"
-                    class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
-                    <fa-icon [icon]="faSearchPlus"></fa-icon>
-                </button>
-            </div>
-
-            <!-- Page Navigation (for dual mode) -->
-            <!-- <div *ngIf="viewMode === 'dual'" class="flex items-center gap-2">
-                <button (click)="prevPage()" [disabled]="currentPage <= 1"
-                    class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
-                    <fa-icon [icon]="faChevronLeft"></fa-icon>
-                </button>
-                <span class="text-white text-sm font-medium min-w-[80px] text-center">
-                    Page {{ currentPage }} / {{ totalPages }}
-                </span>
-                <button (click)="nextPage()" [disabled]="currentPage >= totalPages"
-                    class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
-                    <fa-icon [icon]="faChevronRight"></fa-icon>
-                </button>
-            </div> -->
-
-            <!-- Download Button -->
-            <button (click)="downloadCV()"
-                class="flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-lime-400 to-emerald-400 rounded-lg text-emerald-950 font-bold hover:from-lime-500 hover:to-emerald-500 transition-all shadow-lg">
-                <fa-icon [icon]="faDownload"></fa-icon>
-                {{ 'CV.DOWNLOAD_PDF' | translate }}
-            </button>
+            class="flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all">
+            <fa-icon [icon]="faColumns"></fa-icon>
+            <span class="hidden sm:inline">{{ 'CV.TWO_PAGES' | translate }}</span>
+          </button>
         </div>
-
-        <!-- CV Images Preview Area -->
-        <div class="flex-1 overflow-auto p-6 bg-gray-900/30">
-            <!-- Scrollable Single Column View -->
-            <div *ngIf="viewMode === 'scroll'" class="max-w-4xl mx-auto space-y-6">
-                <div *ngFor="let image of cvImages; let i = index"
-                    class="bg-white rounded-lg shadow-2xl border border-white/10 overflow-hidden transition-transform duration-300"
-                    [ngStyle]="getZoomStyle()">
-                    <img [src]="image" [alt]="'CV Page ' + (i + 1)" class="w-full h-auto" />
-                </div>
-            </div>
-
-            <!-- Dual Page View -->
-            <div *ngIf="viewMode === 'dual'" class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-7xl mx-auto">
-                <div class="bg-white rounded-lg shadow-2xl overflow-hidden border border-white/10 transition-transform duration-300"
-                    [ngStyle]="getZoomStyle()">
-                    <img [src]="cvImages[currentPage - 1]" [alt]="'CV Page ' + currentPage" class="w-full h-auto" />
-                </div>
-                <div *ngIf="currentPage < totalPages"
-                    class="bg-white rounded-lg shadow-2xl overflow-hidden border border-white/10 transition-transform duration-300"
-                    [ngStyle]="getZoomStyle()">
-                    <img [src]="cvImages[currentPage]" [alt]="'CV Page ' + (currentPage + 1)" class="w-full h-auto" />
-                </div>
-            </div>
+        <!-- Zoom Controls -->
+        <div class="flex items-center gap-2">
+          <button (click)="zoomOut()" [disabled]="zoom <= 50"
+            class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+            <fa-icon [icon]="faSearchMinus"></fa-icon>
+          </button>
+          <span class="text-white text-sm font-medium min-w-[60px] text-center">
+            {{ zoom }}%
+          </span>
+          <button (click)="zoomIn()" [disabled]="zoom >= 150"
+            class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+            <fa-icon [icon]="faSearchPlus"></fa-icon>
+          </button>
         </div>
-
-        <!-- Footer Info -->
-        <div class="bg-emerald-900/50 border-t border-white/10 p-4 text-center rounded-b-2xl">
-            <p class="text-gray-300 text-sm" [innerHTML]="getCVInfo">
-            </p>
-        </div>
+        <!-- Page Navigation (for dual mode) -->
+        <!-- <div *ngIf="viewMode === 'dual'" class="flex items-center gap-2">
+        <button (click)="prevPage()" [disabled]="currentPage <= 1"
+          class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+          <fa-icon [icon]="faChevronLeft"></fa-icon>
+        </button>
+        <span class="text-white text-sm font-medium min-w-[80px] text-center">
+          Page {{ currentPage }} / {{ totalPages }}
+        </span>
+        <button (click)="nextPage()" [disabled]="currentPage >= totalPages"
+          class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+          <fa-icon [icon]="faChevronRight"></fa-icon>
+        </button>
+      </div> -->
+      <!-- Download Button -->
+      <button (click)="downloadCV()"
+        class="flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-lime-400 to-emerald-400 rounded-lg text-emerald-950 font-bold hover:from-lime-500 hover:to-emerald-500 transition-all shadow-lg">
+        <fa-icon [icon]="faDownload"></fa-icon>
+        {{ 'CV.DOWNLOAD_PDF' | translate }}
+      </button>
     </div>
+    <!-- CV Images Preview Area -->
+    <div class="flex-1 overflow-auto p-6 bg-gray-900/30">
+      <!-- Scrollable Single Column View -->
+      @if (viewMode === 'scroll') {
+        <div class="max-w-4xl mx-auto space-y-6">
+          @for (image of cvImages; track image; let i = $index) {
+            <div
+              class="bg-white rounded-lg shadow-2xl border border-white/10 overflow-hidden transition-transform duration-300"
+              [style]="getZoomStyle()">
+              <img [src]="image" [alt]="'CV Page ' + (i + 1)" class="w-full h-auto" />
+            </div>
+          }
+        </div>
+      }
+      <!-- Dual Page View -->
+      @if (viewMode === 'dual') {
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-7xl mx-auto">
+          <div class="bg-white rounded-lg shadow-2xl overflow-hidden border border-white/10 transition-transform duration-300"
+            [style]="getZoomStyle()">
+            <img [src]="cvImages[currentPage - 1]" [alt]="'CV Page ' + currentPage" class="w-full h-auto" />
+          </div>
+          @if (currentPage < totalPages) {
+            <div
+              class="bg-white rounded-lg shadow-2xl overflow-hidden border border-white/10 transition-transform duration-300"
+              [style]="getZoomStyle()">
+              <img [src]="cvImages[currentPage]" [alt]="'CV Page ' + (currentPage + 1)" class="w-full h-auto" />
+            </div>
+          }
+        </div>
+      }
+    </div>
+    <!-- Footer Info -->
+    <div class="bg-emerald-900/50 border-t border-white/10 p-4 text-center rounded-b-2xl">
+      <p class="text-gray-300 text-sm" [innerHTML]="getCVInfo">
+      </p>
+    </div>
+  </div>
 </div>
+}

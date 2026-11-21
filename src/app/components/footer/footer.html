@@ -1,31 +1,32 @@
 <!-- ENHANCED FOOTER -->
 <footer
-    class="w-full border-t border-lime-400/20 bg-gradient-to-br from-emerald-950 via-teal-950 to-emerald-900 backdrop-blur-md relative overflow-hidden">
+  class="w-full border-t border-lime-400/20 bg-gradient-to-br from-emerald-950 via-teal-950 to-emerald-900 backdrop-blur-md relative overflow-hidden">
 
-    <!-- Animated background elements -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <div class="absolute top-10 left-20 w-64 h-64 bg-lime-400/5 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-10 right-20 w-80 h-80 bg-emerald-400/5 rounded-full blur-3xl"></div>
-    </div>
+  <!-- Animated background elements -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-10 left-20 w-64 h-64 bg-lime-400/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-10 right-20 w-80 h-80 bg-emerald-400/5 rounded-full blur-3xl"></div>
+  </div>
 
-    <!-- Main Footer Content -->
-    <div class="max-w-7xl mx-auto px-6 py-12 relative z-10">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+  <!-- Main Footer Content -->
+  <div class="max-w-7xl mx-auto px-6 py-12 relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
 
-            <!-- Left: Brand & Description -->
-            <div class="space-y-4">
-                <div class="flex items-center space-x-3">
-                    <div
-                        class="h-12 w-12 rounded-xl bg-gradient-to-br from-lime-400 to-emerald-400 flex items-center justify-center text-2xl font-bold text-emerald-950 shadow-lg">
-                        K
-                    </div>
-                    <span class="text-white text-2xl font-bold">DevFolio</span>
-                </div>
-                <p class="text-gray-300 text-sm leading-relaxed">
-                    {{ 'FOOTER.FOOTER_TAGLINE' | translate }}
-                </p>
-                <div class="flex items-center space-x-3 pt-2">
-                    <a *ngFor="let link of accountsLinks" [href]="link.url" target="_blank" rel="noopener noreferrer"
+      <!-- Left: Brand & Description -->
+      <div class="space-y-4">
+        <div class="flex items-center space-x-3">
+          <div
+            class="h-12 w-12 rounded-xl bg-gradient-to-br from-lime-400 to-emerald-400 flex items-center justify-center text-2xl font-bold text-emerald-950 shadow-lg">
+            K
+          </div>
+          <span class="text-white text-2xl font-bold">DevFolio</span>
+        </div>
+        <p class="text-gray-300 text-sm leading-relaxed">
+          {{ 'FOOTER.FOOTER_TAGLINE' | translate }}
+        </p>
+        <div class="flex items-center space-x-3 pt-2">
+          @for (link of accountsLinks; track link) {
+            <a [href]="link.url" target="_blank" rel="noopener noreferrer"
                         [attr.aria-label]="link.label" class="group h-10 w-10 rounded-lg
                bg-white/5 border border-white/10
                hover:bg-gradient-to-br
@@ -40,70 +41,75 @@
                    transition-all duration-300
                    group-hover:brightness-0
                    group-hover:invert" />
-                    </a>
-                </div>
-            </div>
-
-            <!-- Center: Quick Links -->
-            <div class="space-y-4">
-                <h3 class="text-white font-bold text-lg mb-4 flex items-center gap-2">
-                    <div class="h-1 w-8 bg-gradient-to-r from-lime-400 to-emerald-400 rounded-full"></div>
-                    {{ 'OTHERS.NAVIGATION' | translate }}
-                </h3>
-                <div class="grid grid-cols-2 gap-3">
-                    <a *ngFor="let link of naivigationLinks" (click)="scrollTo(link.url)"
-                        class="text-gray-300 hover:text-lime-400 text-sm transition-all duration-300 flex items-center gap-2 group hover:translate-x-1">
-                        <span
-                            class="w-1.5 h-1.5 bg-lime-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                        {{ link.label | translate }}
-                    </a>
-                </div>
-            </div>
-
-            <!-- Right: Tech Stack -->
-            <div class="space-y-4">
-                <h3 class="text-white font-bold text-lg mb-4 flex items-center gap-2">
-                    <div class="h-1 w-8 bg-gradient-to-r from-lime-400 to-emerald-400 rounded-full"></div>
-                    {{ 'FOOTER.BUILT_WITH' | translate }}
-                </h3>
-                <div class="flex flex-wrap gap-3">
-                    <div *ngFor="let tech of techStack"
-                        class="flex items-center gap-2 bg-white/5 border border-white/10 rounded-lg px-3 py-2 hover:bg-white/10 hover:border-lime-400/50 transition-all duration-300 group">
-                        <img [src]="tech.icon" [alt]="tech.name"
-                            class="w-5 h-5 group-hover:scale-110 transition-transform" />
-                        <span class="text-gray-200 text-xs font-medium">{{ tech.name }}</span>
-                    </div>
-                </div>
-                <div
-                    class="bg-gradient-to-r from-lime-400/10 to-emerald-400/10 border border-lime-400/20 rounded-xl p-4 mt-4">
-                    <p class="text-gray-200 text-sm" [innerHTML]="getMadeWithLoveByText">
-                    </p>
-                </div>
-            </div>
+            </a>
+          }
         </div>
+      </div>
 
-        <!-- Divider -->
-        <div class="border-t border-lime-400/10 my-8"></div>
-
-        <!-- Bottom Bar -->
-        <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
-            <p class="text-gray-300 text-center">
-                &copy; {{ currentYear() }} <span class="font-bold text-white">kDevFolio</span>. {{
-                'FOOTER.ALL_RIGHTS_RESERVED' |
-                translate
-                }}.
-            </p>
-            <div class="flex items-center gap-6">
-                <a routerLink="/privacy" class="text-gray-300 hover:text-lime-400 transition-colors">{{
-                    'FOOTER.PRIVACY_POLICY'
-                    | translate }}</a>
-                <a routerLink="/terms" class="text-gray-300 hover:text-lime-400 transition-colors">{{
-                    'FOOTER.TERMS_OF_USE' |
-                    translate }}</a>
-                <a routerLink="/sitemap" class="text-gray-300 hover:text-lime-400 transition-colors">{{
-                    'FOOTER.SITE_MAP' |
-                    translate }}</a>
-            </div>
+      <!-- Center: Quick Links -->
+      <div class="space-y-4">
+        <h3 class="text-white font-bold text-lg mb-4 flex items-center gap-2">
+          <div class="h-1 w-8 bg-gradient-to-r from-lime-400 to-emerald-400 rounded-full"></div>
+          {{ 'OTHERS.NAVIGATION' | translate }}
+        </h3>
+        <div class="grid grid-cols-2 gap-3">
+          @for (link of naivigationLinks; track link) {
+            <a (click)="scrollTo(link.url)"
+              class="text-gray-300 hover:text-lime-400 text-sm transition-all duration-300 flex items-center gap-2 group hover:translate-x-1">
+              <span
+              class="w-1.5 h-1.5 bg-lime-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+              {{ link.label | translate }}
+            </a>
+          }
         </div>
+      </div>
+
+      <!-- Right: Tech Stack -->
+      <div class="space-y-4">
+        <h3 class="text-white font-bold text-lg mb-4 flex items-center gap-2">
+          <div class="h-1 w-8 bg-gradient-to-r from-lime-400 to-emerald-400 rounded-full"></div>
+          {{ 'FOOTER.BUILT_WITH' | translate }}
+        </h3>
+        <div class="flex flex-wrap gap-3">
+          @for (tech of techStack; track tech) {
+            <div
+              class="flex items-center gap-2 bg-white/5 border border-white/10 rounded-lg px-3 py-2 hover:bg-white/10 hover:border-lime-400/50 transition-all duration-300 group">
+              <img [src]="tech.icon" [alt]="tech.name"
+                class="w-5 h-5 group-hover:scale-110 transition-transform" />
+              <span class="text-gray-200 text-xs font-medium">{{ tech.name }}</span>
+            </div>
+          }
+        </div>
+        <div
+          class="bg-gradient-to-r from-lime-400/10 to-emerald-400/10 border border-lime-400/20 rounded-xl p-4 mt-4">
+          <p class="text-gray-200 text-sm" [innerHTML]="getMadeWithLoveByText">
+          </p>
+        </div>
+      </div>
     </div>
+
+    <!-- Divider -->
+    <div class="border-t border-lime-400/10 my-8"></div>
+
+    <!-- Bottom Bar -->
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
+      <p class="text-gray-300 text-center">
+        &copy; {{ currentYear() }} <span class="font-bold text-white">kDevFolio</span>. {{
+        'FOOTER.ALL_RIGHTS_RESERVED' |
+        translate
+        }}.
+      </p>
+      <div class="flex items-center gap-6">
+        <a routerLink="/privacy" class="text-gray-300 hover:text-lime-400 transition-colors">{{
+          'FOOTER.PRIVACY_POLICY'
+        | translate }}</a>
+        <a routerLink="/terms" class="text-gray-300 hover:text-lime-400 transition-colors">{{
+          'FOOTER.TERMS_OF_USE' |
+        translate }}</a>
+        <a routerLink="/sitemap" class="text-gray-300 hover:text-lime-400 transition-colors">{{
+          'FOOTER.SITE_MAP' |
+        translate }}</a>
+      </div>
+    </div>
+  </div>
 </footer>

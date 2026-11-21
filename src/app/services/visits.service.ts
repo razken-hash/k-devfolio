@@ -55,7 +55,8 @@ export class VisitsService {
     const payload = this.buildPayload(url);
 
     this.http
-      .post<VisitResponseDto>(this.apiUrl, payload)
+      // keepalive (fetch backend) lets the request finish even if the page is closed.
+      .post<VisitResponseDto>(this.apiUrl, payload, { keepalive: true })
       .pipe(
         catchError((error) => {
           console.error(

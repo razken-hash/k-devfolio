@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -15,8 +15,9 @@ import { SkillIconsRepository as Skills } from '../../repositories/skill-icons.r
 
 @Component({
   selector: 'app-footer',
-  imports: [CommonModule, FontAwesomeModule, RouterModule, TranslateModule],
+  imports: [FontAwesomeModule, RouterModule, TranslateModule],
   templateUrl: './footer.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styles: ``,
 })
 export class Footer {

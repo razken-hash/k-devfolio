@@ -1,30 +1,22 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, Observable, switchMap, tap, throwError } from 'rxjs';
+import { Injectable, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { catchError, map, Observable, switchMap, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MarkdownConverterService {
+  private readonly http = inject(HttpClient);
 
-  private apiUrl = 'https://api.github.com/markdown';
+  private readonly apiUrl = 'https://api.github.com/markdown';
   private token: string | null = null;
-
-  constructor(private http: HttpClient) {
-  }
 
   private loadGithubToken(): Observable<void> {
     return this.http
       .get<{ GITHUB_TOKEN: string }>('/.netlify/functions/get-environment')
       .pipe(
-        tap(data => {
+        map(data => {
           this.token = data.GITHUB_TOKEN;
-        }),
-        switchMap(() => {
-          return new Observable<void>(subscriber => {
-            subscriber.next();
-            subscriber.complete();
-          });
         }),
         catchError(error => {
           console.error('Failed to retrieve GitHub token', error);
@@ -55,13 +47,8 @@ export class MarkdownConverterService {
       mode: 'markdown'
     };
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.token}`
-    });
-
     return this.http.post(this.apiUrl, body, {
-      headers,
+      headers: { Authorization: `Bearer ${this.token}` },
       responseType: 'text'
     });
   }

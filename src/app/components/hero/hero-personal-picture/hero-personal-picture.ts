@@ -1,10 +1,10 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-hero-personal-picture',
-  imports: [CommonModule, TranslateModule],
+  imports: [TranslateModule],
   templateUrl: './hero-personal-picture.html',
   styles: `
           @keyframes float {
@@ -23,6 +23,7 @@ import { TranslateModule } from '@ngx-translate/core';
             animation: float 3s ease-in-out infinite;
           }
     `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   host: {
     class: 'block h-full'
   }
