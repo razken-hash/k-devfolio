@@ -10,12 +10,13 @@ import { LanguageService } from '../../services/language.service';
 import { Technology } from '../../../shared/models/technology.model';
 import { Router } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { Logo } from '../../../shared/components/logo/logo';
 import { SkillIconsRepository as Skills } from '../../../data/skill-icons.data';
 
 
 @Component({
   selector: 'app-footer',
-  imports: [FontAwesomeModule, RouterModule, TranslateModule],
+  imports: [FontAwesomeModule, RouterModule, TranslateModule, Logo],
   templateUrl: './footer.html',
   changeDetection: ChangeDetectionStrategy.Eager,
   styles: ``,

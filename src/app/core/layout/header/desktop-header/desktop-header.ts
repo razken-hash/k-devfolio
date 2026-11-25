@@ -8,12 +8,14 @@ import { NavigationLink } from '../../../../shared/models/navigation-link.model'
 import { Language } from '../../../../shared/models/language.model';
 import { BaseHeader } from '../base-header';
 import { ThemeToggle } from '../../../../shared/components/theme-toggle/theme-toggle';
+import { Logo } from '../../../../shared/components/logo/logo';
 
 @Component({
   selector: 'app-desktop-header',
   standalone: true,
   imports: [
     ThemeToggle,
+    Logo,
     UpperCasePipe,
     RouterModule,
     FontAwesomeModule,

@@ -1,10 +1,11 @@
 import { LowerCasePipe, UpperCasePipe } from '@angular/common';
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Logo } from '../../../../../shared/components/logo/logo';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-hero-description',
-  imports: [UpperCasePipe, TranslateModule],
+  imports: [Logo, UpperCasePipe, TranslateModule],
   changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './hero-description.html',
 })

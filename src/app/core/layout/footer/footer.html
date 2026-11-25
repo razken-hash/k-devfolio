@@ -14,13 +14,9 @@
 
       <!-- Left: Brand & Description -->
       <div class="space-y-4">
-        <div class="flex items-center space-x-3">
-          <div
-            class="h-12 w-12 rounded-xl bg-gradient-to-br from-accent to-primary flex items-center justify-center text-2xl font-bold text-on-accent shadow-lg">
-            K
-          </div>
-          <span class="text-fg text-2xl font-bold">DevFolio</span>
-        </div>
+        <a routerLink="/" class="group inline-flex" aria-label="Home">
+          <app-logo size="lg" />
+        </a>
         <p class="text-fg-muted text-sm leading-relaxed">
           {{ 'FOOTER.FOOTER_TAGLINE' | translate }}
         </p>
