@@ -57,7 +57,7 @@ export class ThemeService {
 
   /**
    * Resolved value of a color token from theme.css, as a hex string
-   * (e.g. token('accent') → "#a3e635"). For libraries that need real
+   * (e.g. token('accent') → "#10b981"). For libraries that need real
    * colors instead of CSS variables, such as Mermaid's theme variables.
    */
   token(name: string): string {

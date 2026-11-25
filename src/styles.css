@@ -20,16 +20,16 @@
         @apply text-sm font-semibold uppercase tracking-wider text-accent;
     }
 
-    /* Frosted glass card */
+    /* Card: solid surface (#ffffff in light mode) */
     .ui-card {
-        @apply rounded-2xl border border-overlay/10 bg-overlay/5 backdrop-blur-sm;
+        @apply rounded-2xl border border-overlay/10 bg-card shadow-sm;
     }
 
     .ui-card-interactive {
-        @apply ui-card transition-all duration-300 hover:border-accent/50 hover:bg-overlay/10;
+        @apply ui-card transition-all duration-300 hover:border-accent/50 hover:shadow-md;
     }
 
-    /* Main call to action: lime → emerald gradient */
+    /* Main call to action: emerald gradient */
     .ui-btn-primary {
         @apply inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-primary px-6 py-3 font-bold text-on-accent transition-all duration-300 hover:from-accent-strong hover:to-primary-strong hover:shadow-lg hover:shadow-accent/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none;
     }

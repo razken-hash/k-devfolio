@@ -34,7 +34,7 @@
         <div class="flex flex-wrap gap-4 justify-center">
           @for (skill of activeCategory.skills; track skill) {
             <div
-              class="bg-overlay/5 border border-overlay/10 rounded-xl px-5 py-3 hover:bg-overlay/10 hover:border-accent/50 transition-all duration-300 group flex items-center gap-3">
+              class="bg-card shadow-sm border border-overlay/10 rounded-xl px-5 py-3 hover:shadow-md hover:border-accent/50 transition-all duration-300 group flex items-center gap-3">
               <div class="w-8 h-8 flex items-center justify-center flex-shrink-0">
                 <img [src]="skill.icon" [alt]="skill.name"
                   class="w-full h-full object-contain group-hover:scale-110 transition-transform" />

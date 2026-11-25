@@ -21,19 +21,16 @@
     /* 1. PALETTE                                                              */
     /* ---------------------------------------------------------------------- */
 
-    /* Mint — fresh whitish greens (light-mode backgrounds) */
-    --palette-mint-25: 250 255 251;   /* #fafffb */
-    --palette-mint-50: 240 252 243;   /* #f0fcf3 */
-    --palette-mint-100: 224 248 231;  /* #e0f8e7 */
-    --palette-mint-200: 202 242 214;  /* #caf2d6 */
-    --palette-mint-300: 170 228 189;  /* #aae4bd */
-
-    /* Pine — green-tinted neutrals (light-mode text) */
-    --palette-pine-400: 106 148 122;  /* #6a947a */
-    --palette-pine-500: 72 115 89;    /* #487359 */
-    --palette-pine-600: 44 88 62;     /* #2c583e */
-    --palette-pine-700: 23 64 41;     /* #174029 */
-    --palette-pine-900: 4 40 22;      /* #042816 */
+    /* Gray — neutral light-mode backgrounds and text */
+    --palette-gray-50: 249 250 251;   /* #f9fafb */
+    --palette-gray-100: 243 244 246;  /* #f3f4f6 */
+    --palette-gray-200: 229 231 235;  /* #e5e7eb  ← page background */
+    --palette-gray-300: 209 213 219;  /* #d1d5db */
+    --palette-gray-400: 156 163 175;  /* #9ca3af */
+    --palette-gray-500: 107 114 128;  /* #6b7280 */
+    --palette-gray-600: 75 85 99;     /* #4b5563 */
+    --palette-gray-700: 55 65 81;     /* #374151 */
+    --palette-gray-900: 17 24 39;     /* #111827 */
 
     /* Night — black mixed with green (dark-mode backgrounds) */
     --palette-night-950: 3 8 5;       /* #030805 */
@@ -42,10 +39,12 @@
     --palette-night-800: 14 33 23;    /* #0e2117 */
     --palette-night-700: 28 52 38;    /* #1c3426 */
 
-    /* Emerald — the brand green */
+    /* Emerald — the brand green (#10b981) */
+    --palette-emerald-50: 236 253 245;  /* #ecfdf5 */
     --palette-emerald-100: 209 250 229; /* #d1fae5 */
+    --palette-emerald-300: 110 231 183; /* #6ee7b7 */
     --palette-emerald-400: 52 211 153;  /* #34d399 */
-    --palette-emerald-500: 16 185 129;  /* #10b981 */
+    --palette-emerald-500: 16 185 129;  /* #10b981  ← brand */
     --palette-emerald-600: 5 150 105;   /* #059669 */
     --palette-emerald-700: 4 120 87;    /* #047857 */
     --palette-emerald-900: 6 78 59;     /* #064e3b */
@@ -55,21 +54,9 @@
     --palette-teal-400: 45 212 191;   /* #2dd4bf */
     --palette-teal-600: 13 148 136;   /* #0d9488 */
 
-    /* Lime — the accent */
-    --palette-lime-300: 190 242 100;  /* #bef264 */
-    --palette-lime-400: 163 230 53;   /* #a3e635 */
-    --palette-lime-500: 132 204 22;   /* #84cc16 */
-    --palette-lime-600: 101 163 13;   /* #65a30d */
-    --palette-lime-700: 77 124 15;    /* #4d7c0f */
-    --palette-lime-800: 63 98 18;     /* #3f6212 */
-
-    /* Neutrals (dark-mode text) */
-    --palette-white: 255 255 255;
+    /* Neutrals */
+    --palette-white: 255 255 255;     /* #ffffff  ← cards */
     --palette-black: 0 0 0;
-    --palette-gray-200: 229 231 235;  /* #e5e7eb */
-    --palette-gray-300: 209 213 219;  /* #d1d5db */
-    --palette-gray-400: 156 163 175;  /* #9ca3af */
-    --palette-gray-500: 107 114 128;  /* #6b7280 */
 
     /* Status */
     --palette-red-400: 248 113 113;   /* #f87171 */
@@ -82,33 +69,35 @@
     /* ---------------------------------------------------------------------- */
     color-scheme: light;
 
-    /* Surfaces: page background gradient (surface → surface-alt → surface-deep) */
-    --color-surface: var(--palette-mint-50);
-    --color-surface-alt: var(--palette-mint-100);
-    --color-surface-deep: var(--palette-mint-200);
-    /* Solid raised surfaces: header, menus, cards, dialogs */
-    --color-elevated: var(--palette-mint-25);
+    /* Surfaces: page background (#e5e7eb) */
+    --color-surface: var(--palette-gray-200);
+    --color-surface-alt: var(--palette-gray-100);
+    --color-surface-deep: var(--palette-gray-300);
+    /* Cards (#ffffff) */
+    --color-card: var(--palette-white);
+    /* Solid raised surfaces: header, menus, dialogs */
+    --color-elevated: var(--palette-white);
     /* Translucent "glass" layer: use with opacity (bg-overlay/5, border-overlay/10) */
-    --color-overlay: var(--palette-pine-900);
+    --color-overlay: var(--palette-gray-900);
     /* Solid borders / dividers */
-    --color-line: var(--palette-mint-300);
+    --color-line: var(--palette-gray-300);
 
     /* Text, strongest → weakest */
-    --color-fg: var(--palette-pine-900);
-    --color-fg-soft: var(--palette-pine-700);
-    --color-fg-muted: var(--palette-pine-600);
-    --color-fg-subtle: var(--palette-pine-500);
-    --color-fg-faint: var(--palette-pine-400);
+    --color-fg: var(--palette-gray-900);
+    --color-fg-soft: var(--palette-gray-700);
+    --color-fg-muted: var(--palette-gray-600);
+    --color-fg-subtle: var(--palette-gray-500);
+    --color-fg-faint: var(--palette-gray-400);
     /* Green-tinted heading text */
     --color-ink: var(--palette-emerald-900);
 
-    /* Accent (lime): links, highlights, primary buttons */
-    --color-accent: var(--palette-lime-600);
-    --color-accent-soft: var(--palette-lime-500);
-    --color-accent-strong: var(--palette-lime-700);
+    /* Accent (#10b981): links, highlights, primary buttons */
+    --color-accent: var(--palette-emerald-500);
+    --color-accent-soft: var(--palette-emerald-400);
+    --color-accent-strong: var(--palette-emerald-600);
     --color-on-accent: var(--palette-white);
 
-    /* Brand greens */
+    /* Brand greens (deeper end of the gradient) */
     --color-primary: var(--palette-emerald-600);
     --color-primary-strong: var(--palette-emerald-700);
     --color-on-primary: var(--palette-white);
@@ -119,8 +108,8 @@
     --color-warning: var(--palette-amber-600);
 
     /* Code blocks (Markdown) */
-    --code-surface: rgb(var(--palette-white) / 0.75);
-    --code-scroll-track: rgb(var(--palette-pine-900) / 0.06);
+    --code-surface: rgb(var(--palette-gray-50));
+    --code-scroll-track: rgb(var(--palette-gray-900) / 0.06);
     --syntax-keyword: 124 58 237;   /* violet-600  */
     --syntax-type: 37 99 235;       /* blue-600    */
     --syntax-string: 21 128 61;     /* green-700   */
@@ -129,18 +118,16 @@
     --syntax-class: 219 39 119;     /* pink-600    */
     --syntax-function: 4 120 87;    /* emerald-700 */
     --syntax-variable: 162 28 175;  /* fuchsia-700 */
-    --syntax-comment: 107 124 114;  /* pine-ish    */
+    --syntax-comment: 107 114 128;  /* gray-500    */
     --syntax-entity: 194 65 12;     /* orange-700  */
 
     /* Shadows */
-    --shadow-color: var(--palette-pine-900);
+    --shadow-color: var(--palette-gray-900);
 
     /* One background for the whole page (sections stay transparent on top of it) */
     --page-background:
-        radial-gradient(ellipse 70% 55% at 0% 0%, rgb(var(--palette-lime-300) / 0.28), transparent 70%),
-        radial-gradient(ellipse 60% 50% at 100% 15%, rgb(var(--palette-emerald-400) / 0.16), transparent 70%),
-        radial-gradient(ellipse 70% 60% at 85% 100%, rgb(var(--palette-teal-400) / 0.16), transparent 70%),
-        linear-gradient(160deg, rgb(var(--palette-mint-25)) 0%, rgb(var(--palette-mint-50)) 45%, rgb(var(--palette-mint-100)) 100%);
+        radial-gradient(ellipse 60% 50% at 100% 0%, rgb(var(--palette-emerald-500) / 0.08), transparent 70%),
+        rgb(var(--palette-gray-200));
 }
 
 /* -------------------------------------------------------------------------- */
@@ -152,6 +139,7 @@
     --color-surface: var(--palette-night-900);
     --color-surface-alt: var(--palette-night-850);
     --color-surface-deep: var(--palette-night-950);
+    --color-card: var(--palette-night-800);
     --color-elevated: var(--palette-night-800);
     --color-overlay: var(--palette-white);
     --color-line: var(--palette-night-700);
@@ -163,13 +151,13 @@
     --color-fg-faint: var(--palette-gray-500);
     --color-ink: var(--palette-emerald-100);
 
-    --color-accent: var(--palette-lime-400);
-    --color-accent-soft: var(--palette-lime-300);
-    --color-accent-strong: var(--palette-lime-500);
+    --color-accent: var(--palette-emerald-500);
+    --color-accent-soft: var(--palette-emerald-400);
+    --color-accent-strong: var(--palette-emerald-600);
     --color-on-accent: var(--palette-night-950);
 
-    --color-primary: var(--palette-emerald-400);
-    --color-primary-strong: var(--palette-emerald-500);
+    --color-primary: var(--palette-emerald-600);
+    --color-primary-strong: var(--palette-emerald-700);
     --color-on-primary: var(--palette-night-950);
     --color-secondary: var(--palette-teal-400);
 
@@ -192,7 +180,7 @@
     --shadow-color: var(--palette-black);
 
     --page-background:
-        radial-gradient(ellipse 70% 55% at 0% 0%, rgb(var(--palette-lime-400) / 0.07), transparent 70%),
+        radial-gradient(ellipse 70% 55% at 0% 0%, rgb(var(--palette-emerald-500) / 0.07), transparent 70%),
         radial-gradient(ellipse 60% 50% at 100% 15%, rgb(var(--palette-emerald-400) / 0.08), transparent 70%),
         radial-gradient(ellipse 70% 60% at 85% 100%, rgb(var(--palette-teal-400) / 0.06), transparent 70%),
         linear-gradient(160deg, rgb(var(--palette-night-850)) 0%, rgb(var(--palette-night-900)) 50%, rgb(var(--palette-night-950)) 100%);

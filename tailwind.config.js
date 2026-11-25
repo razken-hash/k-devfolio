@@ -23,6 +23,7 @@ module.exports = {
 				alt: token('surface-alt'),
 				deep: token('surface-deep'),
 			},
+			card: token('card'),
 			elevated: token('elevated'),
 			overlay: token('overlay'),
 			line: token('line'),
