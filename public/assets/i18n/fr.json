@@ -75,6 +75,38 @@
             ]
         }
     },
+    "EXPERIENCE": {
+        "EXPERIENCE": "Expérience",
+        "PROFESSIONAL_PATH": "Mon parcours professionnel",
+        "FULL_STACK_DEV": "Développeur Full Stack",
+        "RD_ENGINEER": "Ingénieur R&D Logiciel",
+        "PUBLISHED_ARTICLE": "Article publié",
+        "HIGHLIGHTS": {
+            "RAKUTEN": [
+                "Implémenté et déployé le mode sombre sur 5 microfrontends Next.js avec un design system partagé.",
+                "Développé +150 tests d'intégration Playwright pour valider le comportement du frontend.",
+                "Automatisé la régression visuelle de +1100 stories Storybook avec Reg-Suit & GitHub Actions.",
+                "Migré les rapports de +10 workflows CI vers AWS S3 et développé un proxy pour en sécuriser l'accès.",
+                "Intégré des workflows de dev assistés par IA via MCP avec Storybook, Playwright et GitHub."
+            ],
+            "LIRMM": [
+                "Conçu une API Node.js d'analyse statique du code source d'applications React.",
+                "Développé une interface React de graphes de navigation identifiant les scénarios de test.",
+                "Automatisé la génération de tests E2E Playwright & Selenium à partir de scénarios utilisateur.",
+                "Intégré une observabilité par LLM pour superviser l'exécution des tests & valider les résultats."
+            ],
+            "LCSI": [
+                "Développé une plateforme React & Django de détection de 6 types de code smells Java.",
+                "Construit un dataset de +5000 extraits Java pour le fine-tuning, l'entraînement et l'évaluation.",
+                "Affiné un modèle CodeBERT pour la classification multi-label des code smells Java."
+            ],
+            "OURQUILANE": [
+                "Migré une API monolithe en microservices Spring Boot pour les files d'attente des postes de livraison.",
+                "Développé une plateforme de files d'attente en temps réel (React, WebSockets) avec reporting.",
+                "Conçu une application Android en React Native d'impression de tickets via imprimantes ESC/POS."
+            ]
+        }
+    },
     "FOOTER": {
         "ALL_RIGHTS_RESERVED": "Tous droits réservés",
         "BUILT_WITH": "Construit Avec",

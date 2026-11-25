@@ -75,6 +75,38 @@
             ]
         }
     },
+    "EXPERIENCE": {
+        "EXPERIENCE": "Experience",
+        "PROFESSIONAL_PATH": "My professional journey",
+        "FULL_STACK_DEV": "Full Stack Developer",
+        "RD_ENGINEER": "Software R&D Engineer",
+        "PUBLISHED_ARTICLE": "Published article",
+        "HIGHLIGHTS": {
+            "RAKUTEN": [
+                "Implemented and shipped dark mode across 5 Next.js micro-frontends with a shared design system.",
+                "Developed 150+ Playwright integration tests to validate frontend behavior.",
+                "Automated visual regression testing of 1,100+ Storybook stories with Reg-Suit & GitHub Actions.",
+                "Migrated reports from 10+ CI workflows to AWS S3 and built a proxy to secure access to them.",
+                "Integrated AI-assisted development workflows via MCP with Storybook, Playwright and GitHub."
+            ],
+            "LIRMM": [
+                "Designed a Node.js API for static analysis of React application source code.",
+                "Built a React interface of navigation graphs that identifies test scenarios.",
+                "Automated the generation of Playwright & Selenium E2E tests from user scenarios.",
+                "Integrated LLM-based observability to monitor test execution and validate results."
+            ],
+            "LCSI": [
+                "Developed a React & Django platform detecting 6 types of Java code smells.",
+                "Built a dataset of 5,000+ Java snippets for fine-tuning, training and evaluation.",
+                "Fine-tuned a CodeBERT model for multi-label classification of Java code smells."
+            ],
+            "OURQUILANE": [
+                "Migrated a monolithic API to Spring Boot microservices for delivery-counter queues.",
+                "Developed a real-time queue management platform (React, WebSockets) with reporting.",
+                "Built a React Native Android app that prints tickets on ESC/POS printers."
+            ]
+        }
+    },
     "FOOTER": {
         "ALL_RIGHTS_RESERVED": "All rights reserved",
         "BUILT_WITH": "Built with",

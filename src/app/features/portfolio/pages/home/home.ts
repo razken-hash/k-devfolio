@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ExperienceComponent } from '../../components/experience/experience';
 import { EducationComponent } from '../../components/education/education';
 import { Contact } from '../../components/contact/contact';
 import { Footer } from '../../../../core/layout/footer/footer';
@@ -11,7 +12,7 @@ import { LanguageService } from '../../../../core/services/language.service';
 
 @Component({
   selector: 'app-home',
-  imports: [Header, Hero, EducationComponent, Projects, Skills, Contact, Footer],
+  imports: [Header, Hero, ExperienceComponent, EducationComponent, Projects, Skills, Contact, Footer],
   templateUrl: './home.html',
   changeDetection: ChangeDetectionStrategy.Eager,
   styles: ``,

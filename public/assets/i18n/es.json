@@ -75,6 +75,38 @@
             ]
         }
     },
+    "EXPERIENCE": {
+        "EXPERIENCE": "Experiencia",
+        "PROFESSIONAL_PATH": "Mi trayectoria profesional",
+        "FULL_STACK_DEV": "Desarrollador Full Stack",
+        "RD_ENGINEER": "Ingeniero de I+D de Software",
+        "PUBLISHED_ARTICLE": "Artículo publicado",
+        "HIGHLIGHTS": {
+            "RAKUTEN": [
+                "Implementé y desplegué el modo oscuro en 5 microfrontends Next.js con un design system compartido.",
+                "Desarrollé más de 150 tests de integración con Playwright para validar el comportamiento del frontend.",
+                "Automaticé la regresión visual de más de 1100 stories de Storybook con Reg-Suit y GitHub Actions.",
+                "Migré los informes de más de 10 workflows de CI a AWS S3 y desarrollé un proxy para asegurar su acceso.",
+                "Integré flujos de desarrollo asistidos por IA mediante MCP con Storybook, Playwright y GitHub."
+            ],
+            "LIRMM": [
+                "Diseñé una API Node.js de análisis estático del código fuente de aplicaciones React.",
+                "Desarrollé una interfaz React de grafos de navegación que identifica escenarios de prueba.",
+                "Automaticé la generación de tests E2E con Playwright y Selenium a partir de escenarios de usuario.",
+                "Integré observabilidad basada en LLM para supervisar la ejecución de tests y validar los resultados."
+            ],
+            "LCSI": [
+                "Desarrollé una plataforma React y Django que detecta 6 tipos de code smells en Java.",
+                "Construí un dataset de más de 5000 fragmentos Java para fine-tuning, entrenamiento y evaluación.",
+                "Ajusté un modelo CodeBERT para la clasificación multietiqueta de code smells en Java."
+            ],
+            "OURQUILANE": [
+                "Migré una API monolítica a microservicios Spring Boot para las colas de los puestos de entrega.",
+                "Desarrollé una plataforma de gestión de colas en tiempo real (React, WebSockets) con reporting.",
+                "Creé una aplicación Android en React Native para imprimir tickets en impresoras ESC/POS."
+            ]
+        }
+    },
     "FOOTER": {
         "ALL_RIGHTS_RESERVED": "Todos los derechos reservados",
         "BUILT_WITH": "Construido con",

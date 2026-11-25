@@ -75,6 +75,38 @@
             ]
         }
     },
+    "EXPERIENCE": {
+        "EXPERIENCE": "Deneyim",
+        "PROFESSIONAL_PATH": "Profesyonel yolculuğum",
+        "FULL_STACK_DEV": "Full Stack Geliştirici",
+        "RD_ENGINEER": "Yazılım Ar-Ge Mühendisi",
+        "PUBLISHED_ARTICLE": "Yayınlanmış makale",
+        "HIGHLIGHTS": {
+            "RAKUTEN": [
+                "Ortak bir tasarım sistemiyle 5 Next.js mikro-frontend'de karanlık modu geliştirip yayına aldım.",
+                "Frontend davranışını doğrulamak için 150+ Playwright entegrasyon testi geliştirdim.",
+                "Reg-Suit ve GitHub Actions ile 1100+ Storybook hikâyesinin görsel regresyon testini otomatikleştirdim.",
+                "10+ CI iş akışının raporlarını AWS S3'e taşıdım ve erişimi güvenceye alan bir proxy geliştirdim.",
+                "Storybook, Playwright ve GitHub ile MCP üzerinden yapay zekâ destekli geliştirme akışları entegre ettim."
+            ],
+            "LIRMM": [
+                "React uygulamalarının kaynak kodunu statik olarak analiz eden bir Node.js API'si tasarladım.",
+                "Test senaryolarını belirleyen gezinme grafiklerine sahip bir React arayüzü geliştirdim.",
+                "Kullanıcı senaryolarından Playwright ve Selenium E2E testlerinin üretimini otomatikleştirdim.",
+                "Test yürütmesini izlemek ve sonuçları doğrulamak için LLM tabanlı gözlemlenebilirlik entegre ettim."
+            ],
+            "LCSI": [
+                "6 tür Java code smell'ini tespit eden bir React ve Django platformu geliştirdim.",
+                "İnce ayar, eğitim ve değerlendirme için 5000+ Java kod parçasından oluşan bir veri seti oluşturdum.",
+                "Java code smell'lerinin çok etiketli sınıflandırması için bir CodeBERT modeline ince ayar yaptım."
+            ],
+            "OURQUILANE": [
+                "Teslimat noktası kuyrukları için monolitik bir API'yi Spring Boot mikroservislerine taşıdım.",
+                "Raporlama özellikli gerçek zamanlı bir kuyruk yönetim platformu (React, WebSockets) geliştirdim.",
+                "ESC/POS yazıcılarla bilet basan bir React Native Android uygulaması geliştirdim."
+            ]
+        }
+    },
     "FOOTER": {
         "ALL_RIGHTS_RESERVED": "Tüm hakları saklıdır",
         "BUILT_WITH": "Şununla oluşturuldu",
