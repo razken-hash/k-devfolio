@@ -94,7 +94,7 @@
           </p>
           <button
             type="button"
-            (click)="loadArticles()"
+            (click)="loadArticles(true)"
             class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-accent to-primary text-on-accent rounded-xl font-semibold hover:shadow-lg hover:shadow-accent/50 transition-all cursor-pointer hover:scale-105">
             <fa-icon [icon]="faRefresh"></fa-icon>
             <span>{{ 'BLOG.REFRESH' | translate }}</span>

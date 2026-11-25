@@ -1,4 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, DestroyRef, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { LowerCasePipe, SlicePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -10,7 +11,7 @@ import {
   faArrowRight,
   faRefresh
 } from '@fortawesome/free-solid-svg-icons';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 import { Article } from '../../models/article.model';
 import { Header } from '../../../../core/layout/header/header';
@@ -33,6 +34,8 @@ import { LanguageService } from '../../../../core/services/language.service';
   styles: ``
 })
 export class Blog implements OnInit {
+  private readonly destroyRef = inject(DestroyRef);
+  private readonly translateService = inject(TranslateService);
 
   constructor(
     private articlesService: ArticlesService,
@@ -57,19 +60,32 @@ export class Blog implements OnInit {
   allTags: string[] = [];
 
   ngOnInit(): void {
+    // Served from the service cache when the articles were already
+    // loaded in the current language.
     this.loadArticles();
+
+    // A new language means a different cache entry, so fetch again.
+    this.translateService.onLangChange
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(() => this.loadArticles());
   }
 
-  loadArticles(): void {
+  /**
+   * @param forceRefresh bypass the cache (used by the "Refresh" button).
+   */
+  loadArticles(forceRefresh = false): void {
     this.isLoading = true;
 
-    this.articlesService.getAllArticles().subscribe({
+    this.articlesService.getAllArticles(forceRefresh)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
       next: articles => {
         this.isLoading = false;
         this.articles = articles;
 
         this.filteredArticles = [...this.articles];
         this.extractTags();
+        this.filterArticles();
       },
       error: error => {
         console.error('Error loading articles:', error);
