@@ -61,16 +61,12 @@ export class Blog implements OnInit {
   }
 
   loadArticles(): void {
-    const language = this.articlesService.getCurrentApiLanguage();
     this.isLoading = true;
 
     this.articlesService.getAllArticles().subscribe({
       next: articles => {
         this.isLoading = false;
-        this.articles = articles.map(article => ({
-          ...article,
-          imageUrl: this.articlesService.localizeImageUrl(article.imageUrl, language)
-        }));
+        this.articles = articles;
 
         this.filteredArticles = [...this.articles];
         this.extractTags();

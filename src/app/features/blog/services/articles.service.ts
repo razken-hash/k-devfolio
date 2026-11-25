@@ -42,31 +42,6 @@ export class ArticlesService {
   }
 
   /**
-   * Append the language to an article image filename.
-   *
-   * Example:
-   * image-name     -> image-name-fr.png
-   * image-name.png -> image-name-fr.png
-   * image-name-en.png -> image-name-fr.png (existing suffix is replaced)
-   */
-  localizeImageUrl(imageUrl: string, language: ArticleLanguage): string {
-    if (!imageUrl) {
-      return '';
-    }
-
-    const suffix = `-${language.toLowerCase()}`;
-    const lastSlash = imageUrl.lastIndexOf('/');
-    const lastDot = imageUrl.lastIndexOf('.');
-    const hasExtension = lastDot > lastSlash;
-
-    const basePath = hasExtension ? imageUrl.substring(0, lastDot) : imageUrl;
-    const extension = hasExtension ? imageUrl.substring(lastDot) : '.png';
-
-    // Avoid appending the language twice.
-    return `${basePath.replace(/-(en|es|fr|tr)$/i, '')}${suffix}${extension}`;
-  }
-
-  /**
    * Build request parameters using the current language.
    */
   private getLanguageParams(

@@ -130,10 +130,7 @@ export class ArticleComponent implements OnInit {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: article => {
-          this.article = {
-            ...article,
-            imageUrl: this.articlesService.localizeImageUrl(article.imageUrl, language)
-          };
+          this.article = article;
 
           this.updateMetaTags();
 
