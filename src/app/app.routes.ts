@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 import { Home } from './features/portfolio/pages/home/home';
 import { NotFound } from './core/pages/not-found/not-found';
 import { Blog } from './features/blog/pages/blog/blog';
+import { ProjectsPage } from './features/portfolio/pages/projects/projects-page';
 import { ArticleComponent } from './features/blog/pages/article/article';
 import { VisitAnalyticsComponent } from './features/analytics/pages/visit-analytics/visit-analytics';
 
@@ -23,6 +24,10 @@ export const routes: Routes = [
   {
     path: 'blog',
     component: Blog,
+  },
+  {
+    path: 'projects',
+    component: ProjectsPage,
   },
   {
     path: 'blog/:articleId',
@@ -75,6 +80,10 @@ export const routes: Routes = [
       {
         path: 'blog',
         component: Blog,
+      },
+      {
+        path: 'projects',
+        component: ProjectsPage,
       },
       {
         path: 'blog/:articleId',

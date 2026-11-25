@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Experience } from '../models/experience.model';
+import { SkillIconsRepository as Skills } from '../../../data/skill-icons.data';
 
 @Injectable({
   providedIn: 'root',
@@ -29,7 +30,7 @@ export class ExperienceService {
               endedAt: new Date('2026-09-30'),
               location: `${PLACES.PARIS}, ${PLACES.FRANCE}`,
               highlights: HIGHLIGHTS.RAKUTEN ?? [],
-              technologies: ['React', 'Next.js', 'TypeScript', 'MUI', 'Spring Boot', 'AWS S3', 'GitHub Actions', 'Playwright', 'Reg-Suit'],
+              technologies: [Skills.REACT, Skills.NEXT_JS, Skills.TYPESCRIPT, Skills.MATERIAL_UI, Skills.SPRING_BOOT, Skills.AWS_S3, Skills.GITHUB_ACTIONS, Skills.PLAYWRIGHT, Skills.REG_SUIT],
             },
             {
               company: 'LIRMM',
@@ -40,7 +41,7 @@ export class ExperienceService {
               endedAt: new Date('2025-07-31'),
               location: `${PLACES.MONTPELLIER}, ${PLACES.FRANCE}`,
               highlights: HIGHLIGHTS.LIRMM ?? [],
-              technologies: ['React', 'Node.js', 'Express', 'TypeScript', 'Playwright', 'Selenium', 'Python', 'LLMs'],
+              technologies: [Skills.ANGULAR, Skills.NODE_JS, Skills.EXPRESS, Skills.TYPESCRIPT, Skills.PLAYWRIGHT, Skills.SELENIUM, Skills.PYTHON, Skills.LLMS],
             },
             {
               company: 'LCSI',
@@ -49,7 +50,7 @@ export class ExperienceService {
               startedAt: new Date('2024-09-01'),
               endedAt: new Date('2025-07-31'),
               highlights: HIGHLIGHTS.LCSI ?? [],
-              technologies: ['Python', 'Django', 'React', 'SonarQube', 'LLMs', 'Transformers', 'PyTorch', 'CodeBERT'],
+              technologies: [Skills.JAVA, Skills.SPRING_BOOT, Skills.ANGULAR, Skills.SONARQUBE, Skills.PYTHON, Skills.LLMS, Skills.TRANSFORMERS, Skills.PYTORCH, Skills.CODEBERT],
               publication: {
                 label: `${EXPERIENCE.PUBLISHED_ARTICLE} · MDPI Applied Sciences 16(14):7040`,
                 url: 'https://www.mdpi.com/2076-3417/16/14/7040',
@@ -62,7 +63,7 @@ export class ExperienceService {
               startedAt: new Date('2022-10-01'),
               endedAt: new Date('2024-09-30'),
               highlights: HIGHLIGHTS.OURQUILANE ?? [],
-              technologies: ['Java', 'Spring Boot', 'React', 'REST API', 'WebSockets', 'PostgreSQL', 'React Native'],
+              technologies: [Skills.JAVA, Skills.SPRING_BOOT, Skills.ANGULAR, Skills.REST_API, Skills.WEBSOCKET, Skills.POSTGRESQL, Skills.KOTLIN, Skills.JETPACK_COMPOSE],
             },
           ];
         })

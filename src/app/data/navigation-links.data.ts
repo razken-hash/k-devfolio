@@ -2,10 +2,10 @@ import { NavigationLink } from '../shared/models/navigation-link.model';
 
 export const NAVIGATION_LINKS: NavigationLink[] = [
   { label: 'HERO.HOME', icon: null, url: 'hero' },
-  { label: 'BLOG.BLOG', icon: null, url: '/blog' },
   { label: 'EXPERIENCE.EXPERIENCE', icon: null, url: 'experience' },
   { label: 'EDUCATION.EDUCATION', icon: null, url: 'education' },
-  { label: 'PROJECTS.PROJECTS', icon: null, url: 'projects' },
+  { label: 'PROJECTS.PROJECTS', icon: null, url: '/projects' },
+  { label: 'BLOG.BLOG', icon: null, url: '/blog' },
   { label: 'CONTACT.CONTACT', icon: null, url: 'contact' }
 ];
 

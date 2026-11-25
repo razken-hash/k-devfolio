@@ -55,8 +55,8 @@
         "FORMATION": "Formation",
         "MASTER_GL": "Master 2 Génie Logiciel",
         "MASTER_MTS": "Master Management Science Technologie (MTS)",
-        "UM_FDS": "Université de Montpellier, Faculté des Sciences",
-        "UM_IAE": "Université de Montpellier, Institut d’Administration des Entreprises (IAE)",
+        "UM_FDS": "Université de Montpellier",
+        "UM_IAE": "Institut d’Administration des Entreprises (IAE)",
         "HIGHLIGHTS": {
             "MASTER_GL": [
                 "Architecture logicielle avancée, design patterns et ingénierie dirigée par les modèles",

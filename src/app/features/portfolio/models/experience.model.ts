@@ -1,3 +1,5 @@
+import { Technology } from '../../../shared/models/technology.model';
+
 export interface Experience {
     company: string;
     role: string;
@@ -8,7 +10,7 @@ export interface Experience {
     endedAt: Date | null;
     location?: string;
     highlights: string[];
-    technologies: string[];
+    technologies: Technology[];
     publication?: {
         label: string;
         url: string;

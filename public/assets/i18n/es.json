@@ -55,8 +55,8 @@
         "FORMATION": "Formación",
         "MASTER_GL": "Máster en Ingeniería de Software",
         "MASTER_MTS": "Máster en Gestión de Ciencia y Tecnología (MTS)",
-        "UM_FDS": "Universidad de Montpellier, Facultad de Ciencias",
-        "UM_IAE": "Universidad de Montpellier, Instituto de Administración de Empresas (IAE)",
+        "UM_FDS": "Universidad de Montpellier",
+        "UM_IAE": "Instituto de Administración de Empresas (IAE)",
         "HIGHLIGHTS": {
             "MASTER_GL": [
                 "Arquitectura de software avanzada, patrones de diseño e ingeniería dirigida por modelos",

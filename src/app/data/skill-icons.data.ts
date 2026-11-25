@@ -432,4 +432,62 @@ export class SkillIconsRepository {
       "Discipline focused on structuring software systems for maintainability, scalability, reliability, and long-term evolution.",
     icon: `${this.CDN}/k8s-service/default.svg`,
   };
+
+  // ---------------------------------------------------------------------------
+  // Additional technologies (used in experience entries)
+  // ---------------------------------------------------------------------------
+
+  static readonly AWS_S3: Technology = {
+    name: "AWS S3",
+    description: "Amazon's scalable object storage service for files, artifacts and static assets.",
+    icon: `${this.CDN}/aws-amazon-simple-storage-service/default.svg`,
+  };
+
+  static readonly EXPRESS: Technology = {
+    name: "Express",
+    description: "Minimal and flexible Node.js web framework for building APIs and web servers.",
+    icon: `${this.CDN}/express/default.svg`,
+  };
+
+  static readonly KOTLIN: Technology = {
+    name: "Kotlin",
+    description: "Modern, concise JVM language and the preferred language for Android development.",
+    icon: `${this.CDN}/kotlin/default.svg`,
+  };
+
+  static readonly PYTORCH: Technology = {
+    name: "PyTorch",
+    description: "Open-source deep learning framework for building, training and fine-tuning neural networks.",
+    icon: `${this.CDN}/pytorch/default.svg`,
+  };
+
+  static readonly SONARQUBE: Technology = {
+    name: "SonarQube",
+    description: "Static code analysis platform for detecting bugs, vulnerabilities and code smells.",
+    icon: `${this.CDN}/sonarqube/default.svg`,
+  };
+
+  static readonly TRANSFORMERS: Technology = {
+    name: "Transformers",
+    description: "Hugging Face library providing pretrained transformer models for NLP and code tasks.",
+    icon: `${this.CDN}/hugging-face/default.svg`,
+  };
+
+  static readonly CODEBERT: Technology = {
+    name: "CodeBERT",
+    description: "Pretrained transformer model for programming and natural languages.",
+    icon: `${this.CDN}/hugging-face/default.svg`,
+  };
+
+  static readonly LLMS: Technology = {
+    name: "LLMs",
+    description: "Large language models used to generate, analyse and validate content and code.",
+    icon: "",
+  };
+
+  static readonly REG_SUIT: Technology = {
+    name: "Reg-Suit",
+    description: "Visual regression testing tool that compares screenshots and reports differences.",
+    icon: "",
+  };
 }

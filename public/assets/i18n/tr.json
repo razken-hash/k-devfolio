@@ -55,8 +55,8 @@
         "FORMATION": "Eğitim",
         "MASTER_GL": "Yazılım Mühendisliği Yüksek Lisansı",
         "MASTER_MTS": "Bilim ve Teknoloji Yönetimi Yüksek Lisansı (MTS)",
-        "UM_FDS": "Montpellier Üniversitesi, Fen Fakültesi",
-        "UM_IAE": "Montpellier Üniversitesi, İşletme Yönetimi Enstitüsü (IAE)",
+        "UM_FDS": "Montpellier Üniversitesi",
+        "UM_IAE": "İşletme Yönetimi Enstitüsü (IAE)",
         "HIGHLIGHTS": {
             "MASTER_GL": [
                 "İleri yazılım mimarisi, tasarım desenleri ve model güdümlü mühendislik",

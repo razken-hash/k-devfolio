@@ -55,8 +55,8 @@
         "FORMATION": "Education",
         "MASTER_GL": "Master's Degree in Software Engineering",
         "MASTER_MTS": "Master's Degree in Management Science and Technology (MTS)",
-        "UM_FDS": "University of Montpellier, Faculty of Sciences",
-        "UM_IAE": "University of Montpellier, Institute of Business Administration (IAE)",
+        "UM_FDS": "University of Montpellier",
+        "UM_IAE": "School of Business (IAE)",
         "HIGHLIGHTS": {
             "MASTER_GL": [
                 "Advanced software architecture, design patterns and model-driven engineering",

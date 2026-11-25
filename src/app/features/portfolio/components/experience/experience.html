@@ -58,8 +58,8 @@
 				<!-- Highlights --> @if (exp.highlights.length) { <ul class="mt-5 space-y-2.5 text-base md:text-[17px] leading-relaxed text-fg-muted"> @for (item of exp.highlights; track item) { <li class="flex gap-3">
 						<span class="mt-[10px] md:mt-[11px] w-1.5 h-1.5 rounded-full bg-accent shrink-0" aria-hidden="true"></span>
 						<span>{{ item }}</span>
-					</li> } </ul> } <!-- Technologies --> @if (exp.technologies.length) { <ul class="mt-5 flex flex-wrap gap-2"> @for (tech of exp.technologies; track tech) { <li class="rounded-md border border-line px-2.5 py-1 text-sm font-medium text-fg-subtle">
-						{{ tech }}
+					</li> } </ul> } <!-- Technologies --> @if (exp.technologies.length) { <ul class="mt-5 flex flex-wrap gap-2"> @for (tech of exp.technologies; track tech.name) { <li class="inline-flex items-center gap-1.5 rounded-md border border-line px-2.5 py-1 text-sm font-medium text-fg-subtle"> @if (tech.icon) { <img [src]="tech.icon" alt="" class="w-4 h-4 object-contain" loading="lazy" aria-hidden="true" /> }
+						{{ tech.name }}
 					</li> } </ul> }
 			</li> } </ol>
 	</div>
