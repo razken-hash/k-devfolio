@@ -149,33 +149,81 @@
           <div>
             <h2 class="text-lg font-bold text-fg">Visit activity</h2>
             <p class="mt-1 text-sm text-fg-subtle">
-              Daily visits over the last seven calendar days.
+              {{ chartTotal | number }} visits over the last {{ chartRange }} days.
             </p>
           </div>
 
-          <span class="ui-badge w-fit px-3 py-1.5">
-            Last 7 days
-          </span>
+          <div class="flex w-fit gap-1 rounded-lg bg-overlay/5 p-1" role="group" aria-label="Chart range">
+            @for (range of chartRanges; track range) {
+              <button
+                type="button"
+                (click)="setChartRange(range)"
+                [attr.aria-pressed]="chartRange === range"
+                class="rounded-md px-3 py-1.5 text-xs font-semibold transition-colors"
+                [class]="chartRange === range ? 'bg-accent text-on-accent shadow-sm' : 'text-fg-muted hover:bg-overlay/10 hover:text-fg'"
+              >
+                {{ range }} days
+              </button>
+            }
+          </div>
         </div>
 
-        <div class="mt-8 flex h-52 items-end justify-between gap-3 sm:gap-5">
-          @for (day of chartData; track day) {
-            <div
-              class="group flex h-full min-w-0 flex-1 flex-col items-center justify-end gap-3"
-              >
-              <span class="text-xs font-semibold text-fg-muted">
-                {{ day.count }}
-              </span>
-              <div class="flex h-full w-full max-w-12 items-end">
-                <div
-                  class="w-full rounded-t-lg bg-gradient-to-t from-primary to-accent transition-all duration-300 group-hover:from-primary-strong group-hover:to-accent-strong"
-                  [style.height.%]="getBarHeight(day.count)"
-                  [title]="day.count + ' visits on ' + day.date"
-                ></div>
+        <div class="mt-8 flex gap-3">
+          <!-- Y axis -->
+          <div class="relative h-56 w-6 shrink-0 text-right text-[11px] text-fg-faint" aria-hidden="true">
+            @for (tick of chartTicks; track tick) {
+              <span class="absolute right-0 -translate-y-1/2" [style.bottom.%]="getBarHeight(tick)">{{ tick }}</span>
+            }
+            <span class="absolute bottom-0 right-0 translate-y-1/2">0</span>
+          </div>
+
+          <div class="min-w-0 flex-1">
+            <!-- Plot area -->
+            <div class="relative h-56 border-b border-overlay/20">
+              @for (tick of chartTicks; track tick) {
+                <div class="pointer-events-none absolute inset-x-0 border-t border-dashed border-overlay/10"
+                  [style.bottom.%]="getBarHeight(tick)"></div>
+              }
+
+              <div class="absolute inset-0 flex items-end"
+                [class]="chartRange === 7 ? 'gap-3 sm:gap-5' : 'gap-0.5 sm:gap-1'">
+                @for (day of chartData; track day.date) {
+                  <div class="group relative flex h-full min-w-0 flex-1 items-end justify-center">
+                    <!-- Tooltip -->
+                    <div class="pointer-events-none absolute z-10 -translate-y-2 whitespace-nowrap rounded-lg bg-fg px-2.5 py-1.5 text-xs font-medium text-surface opacity-0 shadow-lg transition-opacity group-hover:opacity-100"
+                      [style.bottom.%]="getBarHeight(day.count)">
+                      {{ day.count }} {{ day.count === 1 ? 'visit' : 'visits' }} · {{ day.fullLabel }}
+                    </div>
+
+                    <div
+                      class="w-full max-w-12 rounded-t-md transition-all duration-500 group-hover:opacity-80"
+                      [class]="day.count ? 'bg-gradient-to-t from-primary to-accent' : 'bg-overlay/10'"
+                      [style.height]="day.count ? getBarHeight(day.count) + '%' : '3px'"
+                      [attr.aria-label]="day.count + ' visits on ' + day.fullLabel"
+                      role="img"
+                    ></div>
+                  </div>
+                }
               </div>
-              <span class="text-xs text-fg-faint">{{ day.label }}</span>
+
+              @if (chartTotal === 0) {
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <p class="rounded-lg bg-card px-4 py-2 text-sm text-fg-subtle shadow-sm">
+                    No visits recorded in the last {{ chartRange }} days.
+                  </p>
+                </div>
+              }
             </div>
-          }
+
+            <!-- X axis -->
+            <div class="mt-2 flex" [class]="chartRange === 7 ? 'gap-3 sm:gap-5' : 'gap-0.5 sm:gap-1'">
+              @for (day of chartData; track day.date; let i = $index) {
+                <span class="min-w-0 flex-1 overflow-visible whitespace-nowrap text-center text-xs text-fg-faint">
+                  {{ showDayLabel(i) ? day.label : '' }}
+                </span>
+              }
+            </div>
+          </div>
         </div>
 
         <div class="mt-6 flex items-center gap-2 border-t border-overlay/10 pt-4">

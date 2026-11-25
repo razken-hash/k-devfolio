@@ -30,6 +30,7 @@ export class VisitAnalyticsComponent {
     this.visitService.getVisits().subscribe({
       next: (visits) => {
         this.visits = visits;
+        this.buildChart();
       },
       error: (error) => {
         console.error('Failed to load visits:', error);
@@ -71,50 +72,85 @@ export class VisitAnalyticsComponent {
 
   // --------------------------------------------------
   // Daily visit chart
-  // Uses the seven calendar days ending today.
+  // Built once when data (or the range) changes, so the bars
+  // are not recreated on every change-detection pass.
   // --------------------------------------------------
 
-  get chartData(): DailyVisitStat[] {
+  readonly chartRanges = [7, 30] as const;
+  chartRange: 7 | 30 = 7;
+  chartData: DailyVisitStat[] = [];
+  chartMax = 1;
+  chartTotal = 0;
+  /** Horizontal guide values, top → bottom (excluding 0). */
+  chartTicks: number[] = [];
+
+  setChartRange(range: 7 | 30): void {
+    if (this.chartRange !== range) {
+      this.chartRange = range;
+      this.buildChart();
+    }
+  }
+
+  private buildChart(): void {
+    const counts = new Map<string, number>();
+
+    for (const visit of this.visits) {
+      const visitDate = new Date(visit.visitedAt);
+
+      if (!Number.isNaN(visitDate.getTime())) {
+        const key = this.toDateKey(visitDate);
+        counts.set(key, (counts.get(key) ?? 0) + 1);
+      }
+    }
+
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
+    const labelFormat = new Intl.DateTimeFormat('en', {
+      weekday: this.chartRange === 7 ? 'short' : undefined,
+      day: this.chartRange === 7 ? undefined : 'numeric',
+      month: this.chartRange === 7 ? undefined : 'short',
+    });
+    const fullFormat = new Intl.DateTimeFormat('en', {
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long',
+    });
+
     const days: DailyVisitStat[] = [];
 
-    for (let offset = 6; offset >= 0; offset--) {
+    for (let offset = this.chartRange - 1; offset >= 0; offset--) {
       const date = new Date(today);
       date.setDate(today.getDate() - offset);
-
-      const dateKey = this.toDateKey(date);
-
-      const count = this.visits.filter((visit) => {
-        const visitDate = new Date(visit.visitedAt);
-
-        return !Number.isNaN(visitDate.getTime())
-          && this.toDateKey(visitDate) === dateKey;
-      }).length;
+      const key = this.toDateKey(date);
 
       days.push({
-        date: dateKey,
-        label: new Intl.DateTimeFormat('en', {
-          weekday: 'short',
-        }).format(date),
-        count,
+        date: key,
+        label: labelFormat.format(date),
+        fullLabel: fullFormat.format(date),
+        count: counts.get(key) ?? 0,
       });
     }
 
-    return days;
-  }
-
-  get maxDailyVisits(): number {
-    return Math.max(...this.chartData.map((day) => day.count), 1);
+    const max = Math.max(...days.map((day) => day.count), 0);
+    // Round the scale up to a "nice" number so guide lines are readable
+    const step = max <= 4 ? 1 : Math.ceil(max / 4);
+    this.chartMax = Math.max(step * 4, 1);
+    this.chartTicks = max <= 4 && max > 0
+      ? Array.from({ length: this.chartMax }, (_, i) => this.chartMax - i)
+      : [4, 3, 2, 1].map((i) => i * step);
+    this.chartTotal = days.reduce((sum, day) => sum + day.count, 0);
+    this.chartData = days;
   }
 
   getBarHeight(count: number): number {
-    if (count === 0) {
-      return 0;
-    }
+    return (count / this.chartMax) * 100;
+  }
 
-    return Math.max((count / this.maxDailyVisits) * 100, 5);
+  /** Show every label for 7 days, roughly every 5th for 30 days. */
+  showDayLabel(index: number): boolean {
+    return this.chartRange === 7
+      || index % 5 === (this.chartRange - 1) % 5;
   }
 
   private toDateKey(date: Date): string {

@@ -16,6 +16,7 @@ export interface VisitResponseDto {
 export interface DailyVisitStat {
   date: string;
   label: string;
+  fullLabel: string;
   count: number;
 }
 
