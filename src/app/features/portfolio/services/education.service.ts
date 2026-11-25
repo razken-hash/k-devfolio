@@ -21,6 +21,7 @@ export class EducationService {
           return [
             {
               title: EDUCATION.MASTER_GL,
+              highlights: EDUCATION.HIGHLIGHTS?.MASTER_GL ?? [],
               school: EDUCATION.UM_FDS,
               logo: 'assets/images/um.png',
               website: 'https://www.umontpellier.fr/',
@@ -30,16 +31,18 @@ export class EducationService {
             },
             {
               title: EDUCATION.MASTER_MTS,
+              highlights: EDUCATION.HIGHLIGHTS?.MASTER_MTS ?? [],
               school: EDUCATION.UM_IAE,
               logo: 'assets/images/iae.png',
               website:
                 'https://www.umontpellier.fr/universite/composantes/institut-dadministration-des-entreprises-iae',
               startedAt: new Date('2024-09-01'),
-              endedAt: null,
+              endedAt: new Date('2026-08-28'),
               location: `${PLACES.MONTPELLIER}, ${PLACES.FRANCE}`,
             },
             {
               title: EDUCATION.ENGINEER_GL,
+              highlights: EDUCATION.HIGHLIGHTS?.ENGINEER_GL ?? [],
               school: EDUCATION.ESI,
               logo: 'assets/images/esi.png',
               website: 'https://www.esi.dz',

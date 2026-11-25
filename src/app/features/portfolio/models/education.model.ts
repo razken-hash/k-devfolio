@@ -6,4 +6,5 @@ export interface Education {
     startedAt: Date;
     endedAt: Date | null;
     location: string;
+    highlights: string[];
 }

@@ -56,7 +56,24 @@
         "MASTER_GL": "Yazılım Mühendisliği Yüksek Lisansı",
         "MASTER_MTS": "Bilim ve Teknoloji Yönetimi Yüksek Lisansı (MTS)",
         "UM_FDS": "Montpellier Üniversitesi, Fen Fakültesi",
-        "UM_IAE": "Montpellier Üniversitesi, İşletme Yönetimi Enstitüsü (IAE)"
+        "UM_IAE": "Montpellier Üniversitesi, İşletme Yönetimi Enstitüsü (IAE)",
+        "HIGHLIGHTS": {
+            "MASTER_GL": [
+                "İleri yazılım mimarisi, tasarım desenleri ve model güdümlü mühendislik",
+                "Çevik yöntemler ve DevOps uygulamalarıyla yürütülen ekip projeleri",
+                "Yazılım kalitesi, test ve doğrulama üzerine araştırma odaklı dersler"
+            ],
+            "MASTER_MTS": [
+                "Teknoloji şirketlerine uygulanan stratejik yönetim ve inovasyon",
+                "Teknik profiller için proje yönetimi, finans ve karar verme",
+                "Vaka çalışmaları ve ekip projeleriyle iş ve mühendislik arasında köprü kurma"
+            ],
+            "ENGINEER_GL": [
+                "Algoritmalar, sistemler, ağlar ve yazılım mühendisliğinde sağlam temeller",
+                "Ekip halinde geliştirilen çok sayıda full-stack ve mobil proje",
+                "Endüstriyel ortamda gerçekleştirilen bitirme projesi"
+            ]
+        }
     },
     "FOOTER": {
         "ALL_RIGHTS_RESERVED": "Tüm hakları saklıdır",
@@ -94,6 +111,7 @@
         "USE_NAVIGATION": "Yukarıdaki gezinmeyi kullanarak tekrar tanıdık bir alana dönebilirsiniz."
     },
     "OTHERS": {
+        "WEBSITE": "Web sitesi",
         "BY_ENTITY": "{{ ENTITY }} Tarafından",
         "LANGUAGE": "Dil",
         "NAVIGATION": "Navigasyon",

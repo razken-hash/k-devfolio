@@ -56,7 +56,24 @@
         "MASTER_GL": "Master's Degree in Software Engineering",
         "MASTER_MTS": "Master's Degree in Management Science and Technology (MTS)",
         "UM_FDS": "University of Montpellier, Faculty of Sciences",
-        "UM_IAE": "University of Montpellier, Institute of Business Administration (IAE)"
+        "UM_IAE": "University of Montpellier, Institute of Business Administration (IAE)",
+        "HIGHLIGHTS": {
+            "MASTER_GL": [
+                "Advanced software architecture, design patterns and model-driven engineering",
+                "Hands-on team projects following agile methodologies and DevOps practices",
+                "Research-oriented coursework on software quality, testing and verification"
+            ],
+            "MASTER_MTS": [
+                "Strategic management and innovation applied to technology-driven companies",
+                "Project management, finance and decision-making for technical leaders",
+                "Bridging business needs and engineering through case studies and team projects"
+            ],
+            "ENGINEER_GL": [
+                "Solid foundations in algorithms, systems, networks and software engineering",
+                "Multiple full-stack and mobile projects delivered in teams",
+                "Final-year engineering project carried out in an industrial setting"
+            ]
+        }
     },
     "FOOTER": {
         "ALL_RIGHTS_RESERVED": "All rights reserved",
@@ -94,6 +111,7 @@
         "USE_NAVIGATION": "Use the navigation above to return to familiar ground."
     },
     "OTHERS": {
+        "WEBSITE": "Website",
         "BY_ENTITY": "By {{ ENTITY }}",
         "LANGUAGE": "Language",
         "NAVIGATION": "Navigation",

@@ -56,7 +56,24 @@
         "MASTER_GL": "Master 2 Génie Logiciel",
         "MASTER_MTS": "Master Management Science Technologie (MTS)",
         "UM_FDS": "Université de Montpellier, Faculté des Sciences",
-        "UM_IAE": "Université de Montpellier, Institut d’Administration des Entreprises (IAE)"
+        "UM_IAE": "Université de Montpellier, Institut d’Administration des Entreprises (IAE)",
+        "HIGHLIGHTS": {
+            "MASTER_GL": [
+                "Architecture logicielle avancée, design patterns et ingénierie dirigée par les modèles",
+                "Projets d'équipe concrets suivant les méthodes agiles et les pratiques DevOps",
+                "Cours orientés recherche sur la qualité, le test et la vérification du logiciel"
+            ],
+            "MASTER_MTS": [
+                "Management stratégique et innovation appliqués aux entreprises technologiques",
+                "Gestion de projet, finance et prise de décision pour les profils techniques",
+                "Lien entre besoins métier et ingénierie à travers études de cas et projets d'équipe"
+            ],
+            "ENGINEER_GL": [
+                "Bases solides en algorithmique, systèmes, réseaux et génie logiciel",
+                "Nombreux projets full-stack et mobiles réalisés en équipe",
+                "Projet de fin d'études réalisé en milieu industriel"
+            ]
+        }
     },
     "FOOTER": {
         "ALL_RIGHTS_RESERVED": "Tous droits réservés",
@@ -94,6 +111,7 @@
         "USE_NAVIGATION": "Utilisez la navigation ci-dessus pour revenir en terrain connu."
     },
     "OTHERS": {
+        "WEBSITE": "Site web",
         "BY_ENTITY": "Par {{ ENTITY }}",
         "LANGUAGE": "Langue",
         "NAVIGATION": "Navigation",

@@ -56,7 +56,24 @@
         "MASTER_GL": "Máster en Ingeniería de Software",
         "MASTER_MTS": "Máster en Gestión de Ciencia y Tecnología (MTS)",
         "UM_FDS": "Universidad de Montpellier, Facultad de Ciencias",
-        "UM_IAE": "Universidad de Montpellier, Instituto de Administración de Empresas (IAE)"
+        "UM_IAE": "Universidad de Montpellier, Instituto de Administración de Empresas (IAE)",
+        "HIGHLIGHTS": {
+            "MASTER_GL": [
+                "Arquitectura de software avanzada, patrones de diseño e ingeniería dirigida por modelos",
+                "Proyectos en equipo siguiendo metodologías ágiles y prácticas DevOps",
+                "Asignaturas orientadas a la investigación sobre calidad, pruebas y verificación del software"
+            ],
+            "MASTER_MTS": [
+                "Gestión estratégica e innovación aplicadas a empresas tecnológicas",
+                "Gestión de proyectos, finanzas y toma de decisiones para perfiles técnicos",
+                "Conexión entre negocio e ingeniería mediante casos de estudio y proyectos en equipo"
+            ],
+            "ENGINEER_GL": [
+                "Bases sólidas en algoritmia, sistemas, redes e ingeniería de software",
+                "Numerosos proyectos full-stack y móviles realizados en equipo",
+                "Proyecto de fin de carrera realizado en un entorno industrial"
+            ]
+        }
     },
     "FOOTER": {
         "ALL_RIGHTS_RESERVED": "Todos los derechos reservados",
@@ -94,6 +111,7 @@
         "USE_NAVIGATION": "Usa la navegación de arriba para volver a un lugar familiar."
     },
     "OTHERS": {
+        "WEBSITE": "Sitio web",
         "BY_ENTITY": "Por {{ ENTITY }}",
         "LANGUAGE": "Idioma",
         "NAVIGATION": "Navegación",
