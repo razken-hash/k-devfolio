@@ -49,6 +49,9 @@ export class Blog implements OnInit {
   articles: Article[] = [];
   filteredArticles: Article[] = [];
 
+  isLoading = true;
+  readonly skeletonCards = Array.from({ length: 6 }, (_, i) => i);
+
   searchQuery = '';
   selectedTag = '';
   allTags: string[] = [];
@@ -59,9 +62,11 @@ export class Blog implements OnInit {
 
   loadArticles(): void {
     const language = this.articlesService.getCurrentApiLanguage();
+    this.isLoading = true;
 
     this.articlesService.getAllArticles().subscribe({
       next: articles => {
+        this.isLoading = false;
         this.articles = articles.map(article => ({
           ...article,
           imageUrl: this.articlesService.localizeImageUrl(article.imageUrl, language)
@@ -72,6 +77,7 @@ export class Blog implements OnInit {
       },
       error: error => {
         console.error('Error loading articles:', error);
+        this.isLoading = false;
         this.articles = [];
         this.filteredArticles = [];
         this.allTags = [];
