@@ -31,6 +31,9 @@ export class VisitAnalyticsComponent {
       next: (visits) => {
         this.visits = visits;
         this.buildChart();
+        this.buildDeviceStats();
+        this.buildPlatformStats();
+        this.buildDisplayIds();
       },
       error: (error) => {
         console.error('Failed to load visits:', error);
@@ -165,30 +168,82 @@ export class VisitAnalyticsComponent {
   // Device breakdown
   // --------------------------------------------------
 
-  get deviceStats(): DeviceVisitStat[] {
-    const categories = ['Desktop', 'Mobile', 'Tablet', 'Unknown'];
+  // Computed once when data loads (not a getter), so the rows and their
+  // animated bars are not recreated on every change-detection pass.
+  deviceStats: DeviceVisitStat[] = [];
+  platformStats: DeviceVisitStat[] = [];
 
-    return categories.map((name) => {
-      const count = this.visits.filter((visit) => {
-        const device = visit.deviceType?.toLowerCase();
+  private buildDeviceStats(): void {
+    const known = ['Desktop', 'Mobile', 'Tablet'];
+    const counts = new Map<string, number>(
+      [...known, 'Unknown'].map((name) => [name, 0]),
+    );
 
-        if (name === 'Unknown') {
-          return !device || !categories
-            .slice(0, 3)
-            .some((category) => category.toLowerCase() === device);
-        }
+    for (const visit of this.visits) {
+      const device = visit.deviceType?.trim().toLowerCase();
+      const name = known.find((category) => category.toLowerCase() === device) ?? 'Unknown';
+      counts.set(name, counts.get(name)! + 1);
+    }
 
-        return device === name.toLowerCase();
-      }).length;
+    this.deviceStats = this.toStats(counts)
+      // Only show "Unknown" when some visits actually fall into it.
+      .filter((stat) => stat.name !== 'Unknown' || stat.count > 0);
+  }
 
-      return {
-        name,
-        count,
-        percentage: this.totalVisits
-          ? Math.round((count / this.totalVisits) * 100)
-          : 0,
-      };
-    });
+  /** Breakdown by operating system, most used first. */
+  private buildPlatformStats(): void {
+    const counts = new Map<string, number>();
+
+    for (const visit of this.visits) {
+      const os = visit.operatingSystem?.trim();
+      const name = !os || os.toLowerCase() === 'unknown' ? 'Other' : os;
+      counts.set(name, (counts.get(name) ?? 0) + 1);
+    }
+
+    this.platformStats = this.toStats(counts).sort((a, b) =>
+      // Keep "Other" last, otherwise sort by count.
+      (a.name === 'Other' ? 1 : 0) - (b.name === 'Other' ? 1 : 0) || b.count - a.count,
+    );
+  }
+
+  private toStats(counts: Map<string, number>): DeviceVisitStat[] {
+    return [...counts].map(([name, count]) => ({
+      name,
+      count,
+      percentage: this.totalVisits
+        ? Math.round((count / this.totalVisits) * 100)
+        : 0,
+    }));
+  }
+
+  // --------------------------------------------------
+  // Display IDs
+  // Sequential, zero-padded numbers shown in the table instead of
+  // the UUIDs (the real IDs are left untouched). The oldest visit
+  // is #1; the width grows with the total (2 digits under 100,
+  // 3 under 1000, ...).
+  // --------------------------------------------------
+
+  private displayIds = new Map<string, string>();
+
+  private buildDisplayIds(): void {
+    const width = Math.max(2, String(this.visits.length).length);
+
+    const chronological = [...this.visits].sort(
+      (a, b) =>
+        new Date(a.visitedAt).getTime() - new Date(b.visitedAt).getTime(),
+    );
+
+    this.displayIds = new Map(
+      chronological.map((visit, index) => [
+        visit.id,
+        String(index + 1).padStart(width, '0'),
+      ]),
+    );
+  }
+
+  getDisplayId(visit: VisitResponseDto): string {
+    return this.displayIds.get(visit.id) ?? '—';
   }
 
   // --------------------------------------------------
