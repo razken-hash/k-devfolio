@@ -24,6 +24,12 @@ export class VisitsService {
   }
   
   private readonly visitorStorageKey = 'kdevfolio_visitor_id';
+
+  /**
+   * Visits from these time zones are not recorded
+   * (e.g. bot / crawler traffic that would skew analytics).
+   */
+  private readonly ignoredTimeZones = new Set<string>(['America/Los_Angeles']);
   private started = false;
 
   /**
@@ -50,6 +56,13 @@ export class VisitsService {
    */
   private recordVisit(url: string): void {
     const payload = this.buildPayload(url);
+
+    if (this.ignoredTimeZones.has(payload.timeZone)) {
+      console.debug(
+        `[VisitsService] Visit not recorded (ignored time zone: ${payload.timeZone}).`,
+      );
+      return;
+    }
 
     this.http
       // keepalive (fetch backend) lets the request finish even if the page is closed.
