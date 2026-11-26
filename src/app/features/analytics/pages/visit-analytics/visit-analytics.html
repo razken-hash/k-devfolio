@@ -234,9 +234,9 @@
 
       <!-- Device breakdown -->
       <article class="ui-card p-6">
-        <h2 class="text-lg font-bold text-fg">Devices & platforms</h2>
+        <h2 class="text-lg font-bold text-fg">Devices & countries</h2>
         <p class="mt-1 text-sm text-fg-subtle">
-          How visitors access your portfolio.
+          How and where visitors access your portfolio.
         </p>
 
         <!-- Devices -->
@@ -249,11 +249,12 @@
           }
         </div>
 
-        <!-- Operating systems -->
+        <!-- Countries (inferred from the visitor's time zone) -->
         <div class="mt-6 border-t border-overlay/10 pt-6">
-          <h3 class="mb-3 text-sm font-semibold text-fg">Operating systems</h3>
+          <h3 class="text-sm font-semibold text-fg">Countries</h3>
+          <p class="mb-3 mt-0.5 text-xs text-fg-faint">Estimated from the visitor's time zone.</p>
           @if (totalVisits) {
-            <app-donut-chart [data]="platformStats" label="Visits by operating system" />
+            <app-donut-chart [data]="countryStats" label="Visits by country" />
           } @else {
             <p class="text-xs text-fg-faint">No visits recorded yet.</p>
           }

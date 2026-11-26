@@ -32,7 +32,7 @@ export class VisitAnalyticsComponent {
         this.visits = visits;
         this.buildChart();
         this.buildDeviceStats();
-        this.buildPlatformStats();
+        this.buildCountryStats();
         this.buildDisplayIds();
       },
       error: (error) => {
@@ -172,7 +172,7 @@ export class VisitAnalyticsComponent {
   // are not rebuilt on every change-detection pass.
   // Each entity keeps a fixed color slot, so colors never shift with rank.
   deviceStats: DonutDatum[] = [];
-  platformStats: DonutDatum[] = [];
+  countryStats: DonutDatum[] = [];
 
   private static readonly DEVICE_SLOTS: Record<string, number> = {
     Desktop: 1,
@@ -180,12 +180,20 @@ export class VisitAnalyticsComponent {
     Tablet: 3,
   };
 
-  private static readonly OS_SLOTS: Record<string, number> = {
-    macOS: 1,
-    Windows: 2,
-    Linux: 3,
-    Android: 4,
-    iOS: 5,
+  private static readonly COUNTRY_SLOTS: Record<string, number> = {
+    France: 1,
+    Algeria: 3,
+    'Other countries': 2,
+  };
+
+  /**
+   * Visits do not store a country, so it is inferred from the browser's
+   * IANA time zone. Zones that do not identify any place (UTC, Etc/*,
+   * missing) are counted as "Unknown" — typically bots or privacy browsers.
+   */
+  private static readonly COUNTRY_TIME_ZONES: Record<string, string> = {
+    'Europe/Paris': 'France',
+    'Africa/Algiers': 'Algeria',
   };
 
   private buildDeviceStats(): void {
@@ -205,20 +213,25 @@ export class VisitAnalyticsComponent {
       .filter((stat) => stat.name !== 'Unknown' || stat.count > 0);
   }
 
-  /** Breakdown by operating system, most used first, "Other" last. */
-  private buildPlatformStats(): void {
-    const slots = VisitAnalyticsComponent.OS_SLOTS;
-    const counts = new Map<string, number>();
+  /** Breakdown by country (inferred from the time zone), fixed order. */
+  private buildCountryStats(): void {
+    const slots = VisitAnalyticsComponent.COUNTRY_SLOTS;
+    const zones = VisitAnalyticsComponent.COUNTRY_TIME_ZONES;
+    const counts = new Map<string, number>(
+      [...Object.keys(slots), 'Unknown'].map((name) => [name, 0]),
+    );
 
     for (const visit of this.visits) {
-      const os = visit.operatingSystem?.trim().toLowerCase();
-      const name = Object.keys(slots).find((key) => key.toLowerCase() === os) ?? 'Other';
-      counts.set(name, (counts.get(name) ?? 0) + 1);
+      const zone = visit.timeZone?.trim() ?? '';
+      const name =
+        zones[zone] ??
+        (!zone.includes('/') || zone.startsWith('Etc/') ? 'Unknown' : 'Other countries');
+      counts.set(name, counts.get(name)! + 1);
     }
 
-    this.platformStats = this.toStats(counts, slots).sort((a, b) =>
-      (a.name === 'Other' ? 1 : 0) - (b.name === 'Other' ? 1 : 0) || b.count - a.count,
-    );
+    this.countryStats = this.toStats(counts, slots)
+      // Only list "Unknown" when some visits actually fall into it.
+      .filter((stat) => stat.name !== 'Unknown' || stat.count > 0);
   }
 
   private toStats(counts: Map<string, number>, slots: Record<string, number>): DonutDatum[] {
