@@ -30,6 +30,17 @@ export class VisitsService {
    * (e.g. bot / crawler traffic that would skew analytics).
    */
   private readonly ignoredTimeZones = new Set<string>(['America/Los_Angeles']);
+
+  /**
+   * Visits are never recorded when the app runs locally (development).
+   */
+  private readonly localHostnames = new Set<string>([
+    'localhost',
+    '127.0.0.1',
+    '0.0.0.0',
+    '[::1]',
+    '::1',
+  ]);
   private started = false;
 
   /**
@@ -55,6 +66,11 @@ export class VisitsService {
    * Send a page-view event to the Spring Boot API.
    */
   private recordVisit(url: string): void {
+    if (this.isLocalhost()) {
+      console.debug('[VisitsService] Visit not recorded (running on localhost).');
+      return;
+    }
+
     const payload = this.buildPayload(url);
 
     if (this.ignoredTimeZones.has(payload.timeZone)) {
@@ -86,6 +102,15 @@ export class VisitsService {
           );
         }
       });
+  }
+
+  /**
+   * Whether the app is served from the local machine.
+   */
+  private isLocalhost(): boolean {
+    const hostname = this.document.defaultView!.location.hostname.toLowerCase();
+
+    return this.localHostnames.has(hostname) || hostname.endsWith('.localhost');
   }
 
   /**
