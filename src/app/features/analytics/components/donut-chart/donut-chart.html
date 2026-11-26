@@ -1,0 +1,59 @@
+<div class="flex flex-col items-center gap-5 sm:flex-row sm:items-center">
+  <!-- Donut -->
+  <div class="relative h-32 w-32 shrink-0">
+    <svg viewBox="0 0 120 120" class="h-full w-full -rotate-90" role="img" [attr.aria-label]="label()">
+      <!-- Track -->
+      <circle cx="60" cy="60" [attr.r]="radius" fill="none" stroke-width="14"
+        class="stroke-overlay/10" />
+
+      @for (segment of segments(); track segment.name) {
+        <circle
+          cx="60" cy="60" [attr.r]="radius" fill="none"
+          class="segment cursor-pointer outline-none"
+          [class.dimmed]="active() && active() !== segment.name"
+          [attr.stroke]="color(segment.slot)"
+          [attr.stroke-width]="active() === segment.name ? 18 : 14"
+          [attr.stroke-dasharray]="segment.dashArray"
+          [attr.stroke-dashoffset]="segment.dashOffset"
+          tabindex="0"
+          [attr.aria-label]="segment.name + ': ' + segment.count + ' ' + unit() + ', ' + segment.percentage + '%'"
+          (mouseenter)="active.set(segment.name)"
+          (mouseleave)="active.set(null)"
+          (focus)="active.set(segment.name)"
+          (blur)="active.set(null)"
+        />
+      }
+    </svg>
+
+    <!-- Center: total, or the hovered slice -->
+    <div class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center text-center">
+      @if (activeDatum(); as d) {
+        <span class="text-xl font-bold text-fg">{{ d.percentage }}%</span>
+        <span class="max-w-20 truncate text-[11px] text-fg-subtle">{{ d.name }}</span>
+      } @else {
+        <span class="text-xl font-bold text-fg">{{ total() | number }}</span>
+        <span class="text-[11px] text-fg-subtle">{{ unit() }}</span>
+      }
+    </div>
+  </div>
+
+  <!-- Legend -->
+  <ul class="w-full min-w-0 flex-1 space-y-1">
+    @for (d of data(); track d.name) {
+      <li
+        class="flex items-center justify-between gap-3 rounded-md px-2 py-1 text-sm transition-colors"
+        [class]="active() === d.name ? 'bg-overlay/5' : ''"
+        (mouseenter)="d.count && active.set(d.name)"
+        (mouseleave)="active.set(null)"
+      >
+        <span class="flex min-w-0 items-center gap-2">
+          <span class="h-2.5 w-2.5 shrink-0 rounded-sm" [style.background]="color(d.slot)" aria-hidden="true"></span>
+          <span class="truncate font-medium text-fg-soft">{{ d.name }}</span>
+        </span>
+        <span class="shrink-0 text-xs text-fg-faint">
+          {{ d.count }} · <span class="font-semibold text-fg-soft">{{ d.percentage }}%</span>
+        </span>
+      </li>
+    }
+  </ul>
+</div>

@@ -2,16 +2,16 @@ import { DatePipe, DecimalPipe } from '@angular/common';
 import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 
 import {
-  DeviceVisitStat,
   DailyVisitStat,
   VisitResponseDto,
 } from '../../../../shared/models/visit.model';
 import { VisitsService } from '../../../../core/services/visits.service';
+import { DonutChartComponent, DonutDatum } from '../../components/donut-chart/donut-chart';
 
 @Component({
   selector: 'app-visit-analytics',
   standalone: true,
-  imports: [DatePipe, DecimalPipe],
+  imports: [DatePipe, DecimalPipe, DonutChartComponent],
   templateUrl: './visit-analytics.html',
   changeDetection: ChangeDetectionStrategy.Eager,
   host: { class: 'block min-w-0 respect-reduced-motion' },
@@ -168,48 +168,64 @@ export class VisitAnalyticsComponent {
   // Device breakdown
   // --------------------------------------------------
 
-  // Computed once when data loads (not a getter), so the rows and their
-  // animated bars are not recreated on every change-detection pass.
-  deviceStats: DeviceVisitStat[] = [];
-  platformStats: DeviceVisitStat[] = [];
+  // Computed once when data loads (not a getter), so the charts
+  // are not rebuilt on every change-detection pass.
+  // Each entity keeps a fixed color slot, so colors never shift with rank.
+  deviceStats: DonutDatum[] = [];
+  platformStats: DonutDatum[] = [];
+
+  private static readonly DEVICE_SLOTS: Record<string, number> = {
+    Desktop: 1,
+    Mobile: 2,
+    Tablet: 3,
+  };
+
+  private static readonly OS_SLOTS: Record<string, number> = {
+    macOS: 1,
+    Windows: 2,
+    Linux: 3,
+    Android: 4,
+    iOS: 5,
+  };
 
   private buildDeviceStats(): void {
-    const known = ['Desktop', 'Mobile', 'Tablet'];
+    const slots = VisitAnalyticsComponent.DEVICE_SLOTS;
     const counts = new Map<string, number>(
-      [...known, 'Unknown'].map((name) => [name, 0]),
+      [...Object.keys(slots), 'Unknown'].map((name) => [name, 0]),
     );
 
     for (const visit of this.visits) {
       const device = visit.deviceType?.trim().toLowerCase();
-      const name = known.find((category) => category.toLowerCase() === device) ?? 'Unknown';
+      const name = Object.keys(slots).find((key) => key.toLowerCase() === device) ?? 'Unknown';
       counts.set(name, counts.get(name)! + 1);
     }
 
-    this.deviceStats = this.toStats(counts)
-      // Only show "Unknown" when some visits actually fall into it.
+    this.deviceStats = this.toStats(counts, slots)
+      // Only list "Unknown" when some visits actually fall into it.
       .filter((stat) => stat.name !== 'Unknown' || stat.count > 0);
   }
 
-  /** Breakdown by operating system, most used first. */
+  /** Breakdown by operating system, most used first, "Other" last. */
   private buildPlatformStats(): void {
+    const slots = VisitAnalyticsComponent.OS_SLOTS;
     const counts = new Map<string, number>();
 
     for (const visit of this.visits) {
-      const os = visit.operatingSystem?.trim();
-      const name = !os || os.toLowerCase() === 'unknown' ? 'Other' : os;
+      const os = visit.operatingSystem?.trim().toLowerCase();
+      const name = Object.keys(slots).find((key) => key.toLowerCase() === os) ?? 'Other';
       counts.set(name, (counts.get(name) ?? 0) + 1);
     }
 
-    this.platformStats = this.toStats(counts).sort((a, b) =>
-      // Keep "Other" last, otherwise sort by count.
+    this.platformStats = this.toStats(counts, slots).sort((a, b) =>
       (a.name === 'Other' ? 1 : 0) - (b.name === 'Other' ? 1 : 0) || b.count - a.count,
     );
   }
 
-  private toStats(counts: Map<string, number>): DeviceVisitStat[] {
+  private toStats(counts: Map<string, number>, slots: Record<string, number>): DonutDatum[] {
     return [...counts].map(([name, count]) => ({
       name,
       count,
+      slot: slots[name] ?? 0,
       percentage: this.totalVisits
         ? Math.round((count / this.totalVisits) * 100)
         : 0,
