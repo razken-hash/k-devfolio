@@ -1,5 +1,11 @@
 import { DatePipe, DecimalPipe } from '@angular/common';
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  inject,
+  viewChild,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 
 import {
   DailyVisitStat,
@@ -30,13 +36,85 @@ export class VisitAnalyticsComponent {
     this.visitService.getVisits().subscribe({
       next: (visits) => {
         this.visits = visits;
-        this.buildChart();
-        this.buildDeviceStats();
-        this.buildCountryStats();
-        this.buildDisplayIds();
+        this.rebuildStats();
       },
       error: (error) => {
         console.error('Failed to load visits:', error);
+      },
+    });
+  }
+
+  private rebuildStats(): void {
+    this.buildChart();
+    this.buildDeviceStats();
+    this.buildCountryStats();
+    this.buildDisplayIds();
+  }
+
+  // --------------------------------------------------
+  // Delete a visit (confirmation dialog)
+  // --------------------------------------------------
+
+  private readonly deleteDialog =
+    viewChild.required<ElementRef<HTMLDialogElement>>('deleteDialog');
+
+  visitToDelete: VisitResponseDto | null = null;
+  deleting = false;
+  deleteError: string | null = null;
+
+  openDeleteDialog(visit: VisitResponseDto): void {
+    this.visitToDelete = visit;
+    this.deleteError = null;
+    this.deleteDialog().nativeElement.showModal();
+  }
+
+  closeDeleteDialog(): void {
+    if (this.deleting) {
+      return;
+    }
+    this.deleteDialog().nativeElement.close();
+  }
+
+  /** Clears the state once the dialog is closed (button, Escape or backdrop). */
+  onDeleteDialogClosed(): void {
+    this.visitToDelete = null;
+    this.deleteError = null;
+  }
+
+  /** Close when the backdrop (the dialog element itself) is clicked. */
+  onDeleteDialogClick(event: MouseEvent): void {
+    if (event.target === event.currentTarget) {
+      this.closeDeleteDialog();
+    }
+  }
+
+  /** Escape must not close the dialog while the request is in flight. */
+  onDeleteDialogCancel(event: Event): void {
+    if (this.deleting) {
+      event.preventDefault();
+    }
+  }
+
+  confirmDelete(): void {
+    const visit = this.visitToDelete;
+    if (!visit || this.deleting) {
+      return;
+    }
+
+    this.deleting = true;
+    this.deleteError = null;
+
+    this.visitService.deleteVisit(visit.id).subscribe({
+      next: () => {
+        this.visits = this.visits.filter((v) => v.id !== visit.id);
+        this.rebuildStats();
+        this.deleting = false;
+        this.deleteDialog().nativeElement.close();
+      },
+      error: (error) => {
+        console.error('Failed to delete visit:', error);
+        this.deleting = false;
+        this.deleteError = 'The visit could not be deleted. Please try again.';
       },
     });
   }
@@ -222,16 +300,22 @@ export class VisitAnalyticsComponent {
     );
 
     for (const visit of this.visits) {
-      const zone = visit.timeZone?.trim() ?? '';
-      const name =
-        zones[zone] ??
-        (!zone.includes('/') || zone.startsWith('Etc/') ? 'Unknown' : 'Other countries');
+      const name = this.getCountry(visit);
       counts.set(name, counts.get(name)! + 1);
     }
 
     this.countryStats = this.toStats(counts, slots)
       // Only list "Unknown" when some visits actually fall into it.
       .filter((stat) => stat.name !== 'Unknown' || stat.count > 0);
+  }
+
+  /** France / Algeria / Other countries / Unknown, estimated from the time zone. */
+  getCountry(visit: VisitResponseDto): string {
+    const zone = visit.timeZone?.trim() ?? '';
+    return (
+      VisitAnalyticsComponent.COUNTRY_TIME_ZONES[zone] ??
+      (!zone.includes('/') || zone.startsWith('Etc/') ? 'Unknown' : 'Other countries')
+    );
   }
 
   private toStats(counts: Map<string, number>, slots: Record<string, number>): DonutDatum[] {

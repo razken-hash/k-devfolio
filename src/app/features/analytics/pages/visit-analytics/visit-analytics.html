@@ -299,6 +299,7 @@
               <th class="px-5 py-4">Browser</th>
               <th class="px-5 py-4">Language</th>
               <th class="px-5 py-4">Time zone</th>
+              <th class="px-5 py-4 text-right"><span class="sr-only">Actions</span></th>
             </tr>
           </thead>
 
@@ -406,13 +407,27 @@
                 <td class="whitespace-nowrap px-5 py-4 text-sm text-fg-subtle">
                   {{ visit.timeZone || '—' }}
                 </td>
+                <!-- Actions -->
+                <td class="whitespace-nowrap px-5 py-4 text-right">
+                  <button
+                    type="button"
+                    class="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-danger/20 bg-danger/5 text-danger transition-colors hover:border-danger/40 hover:bg-danger/15 hover:text-danger focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-danger"
+                    [attr.aria-label]="'Delete visit #' + getDisplayId(visit)"
+                    title="Delete visit"
+                    (click)="openDeleteDialog(visit)"
+                    >
+                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M10 11v6M14 11v6M5.5 7l1 12a2 2 0 0 0 2 1.8h7a2 2 0 0 0 2-1.8l1-12M9 7V4.5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1V7"/>
+                    </svg>
+                  </button>
+                </td>
               </tr>
             }
 
             <!-- Empty state -->
             @if (visits.length === 0) {
               <tr>
-                <td colspan="11" class="px-6 py-16 text-center">
+                <td colspan="12" class="px-6 py-16 text-center">
                   <div class="mx-auto ui-icon-tile h-12 w-12 rounded-xl">
                     <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M2.5 12s3.5-7 9.5-7 9.5 7 9.5 7-3.5 7-9.5 7-9.5-7-9.5-7Z"/>
@@ -456,6 +471,115 @@
       <p>Portfolio analytics dashboard</p>
       <p>Statistics are calculated from the currently loaded visit records.</p>
     </footer>
+
+    <!-- Delete confirmation -->
+    <dialog
+      #deleteDialog
+      class="fixed inset-0 !m-auto h-fit max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] max-w-xl overflow-y-auto rounded-2xl border border-overlay/10 bg-card p-0 text-fg shadow-xl backdrop:bg-black/50 backdrop:backdrop-blur-sm"
+      aria-labelledby="delete-visit-title"
+      (close)="onDeleteDialogClosed()"
+      (cancel)="onDeleteDialogCancel($event)"
+      (click)="onDeleteDialogClick($event)"
+      >
+      @if (visitToDelete; as visit) {
+        <div class="p-6">
+          <div class="flex items-start gap-4">
+            <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-danger/20 bg-danger/10 text-danger">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M10 11v6M14 11v6M5.5 7l1 12a2 2 0 0 0 2 1.8h7a2 2 0 0 0 2-1.8l1-12M9 7V4.5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1V7"/>
+              </svg>
+            </div>
+            <div class="min-w-0">
+              <h2 id="delete-visit-title" class="text-lg font-bold text-fg">
+                Delete visit #{{ getDisplayId(visit) }}?
+              </h2>
+              <p class="mt-1 text-sm leading-6 text-fg-subtle">
+                This visit will be permanently removed from your analytics. This action cannot be undone.
+              </p>
+            </div>
+          </div>
+
+          <!-- Page -->
+          <div class="mt-5 rounded-xl border border-overlay/10 bg-overlay/5 p-4">
+            <p class="text-xs font-semibold uppercase tracking-wider text-fg-subtle">Page</p>
+            <p class="mt-1 break-words text-sm font-semibold text-fg">{{ visit.pageTitle || 'Untitled page' }}</p>
+            <p class="mt-0.5 break-all font-mono text-xs text-fg-muted">{{ visit.path }}</p>
+          </div>
+
+          <!-- Details -->
+          <dl class="mt-3 grid grid-cols-1 gap-x-6 gap-y-3 rounded-xl border border-overlay/10 bg-overlay/5 p-4 text-sm sm:grid-cols-2">
+            <div>
+              <dt class="text-xs text-fg-subtle">Visited at</dt>
+              <dd class="mt-0.5 font-medium text-fg">{{ visit.visitedAt | date:'EEE dd MMM yyyy, HH:mm:ss' }}</dd>
+            </div>
+            <div>
+              <dt class="text-xs text-fg-subtle">Origin</dt>
+              <dd class="mt-0.5 break-words font-medium text-fg">{{ visit.origin || 'Direct / unknown' }}</dd>
+            </div>
+            <div>
+              <dt class="text-xs text-fg-subtle">Device</dt>
+              <dd class="mt-0.5 font-medium capitalize text-fg">{{ visit.deviceType || 'Unknown' }}</dd>
+            </div>
+            <div>
+              <dt class="text-xs text-fg-subtle">Operating system</dt>
+              <dd class="mt-0.5 font-medium text-fg">{{ visit.operatingSystem || '—' }}</dd>
+            </div>
+            <div>
+              <dt class="text-xs text-fg-subtle">Browser</dt>
+              <dd class="mt-0.5 font-medium text-fg">{{ visit.browser || 'Unknown' }}</dd>
+            </div>
+            <div>
+              <dt class="text-xs text-fg-subtle">Platform</dt>
+              <dd class="mt-0.5 font-medium text-fg">{{ visit.platform || '—' }}</dd>
+            </div>
+            <div>
+              <dt class="text-xs text-fg-subtle">Language</dt>
+              <dd class="mt-0.5 font-medium text-fg">{{ visit.browserLanguage || '—' }}</dd>
+            </div>
+            <div>
+              <dt class="text-xs text-fg-subtle">Time zone · country</dt>
+              <dd class="mt-0.5 font-medium text-fg">{{ visit.timeZone || '—' }} · {{ getCountry(visit) }}</dd>
+            </div>
+            <div class="sm:col-span-2">
+              <dt class="text-xs text-fg-subtle">Visitor ID</dt>
+              <dd class="mt-0.5 break-all font-mono text-xs text-fg-muted">{{ visit.visitorId || 'Anonymous' }}</dd>
+            </div>
+            <div class="sm:col-span-2">
+              <dt class="text-xs text-fg-subtle">Visit ID</dt>
+              <dd class="mt-0.5 break-all font-mono text-xs text-fg-muted">{{ visit.id }}</dd>
+            </div>
+          </dl>
+
+          @if (deleteError) {
+            <p class="mt-4 rounded-lg border border-danger/30 bg-danger/10 px-3 py-2 text-sm text-danger" role="alert">
+              {{ deleteError }}
+            </p>
+          }
+
+          <div class="mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
+            <button type="button" class="ui-btn-secondary" [disabled]="deleting" (click)="closeDeleteDialog()">
+              Cancel
+            </button>
+            <button
+              type="button"
+              class="inline-flex items-center justify-center gap-2 rounded-xl bg-danger px-4 py-2.5 font-semibold text-white transition-colors hover:bg-danger/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-danger focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
+              [disabled]="deleting"
+              (click)="confirmDelete()"
+              >
+              @if (deleting) {
+                <svg class="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-opacity="0.3" stroke-width="3"/>
+                  <path d="M21 12a9 9 0 0 0-9-9" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+                Deleting…
+              } @else {
+                Delete visit
+              }
+            </button>
+          </div>
+        </div>
+      }
+    </dialog>
 
   </main>
 </div>

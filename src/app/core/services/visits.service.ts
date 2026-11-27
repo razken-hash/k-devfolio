@@ -22,6 +22,10 @@ export class VisitsService {
   getVisits(): Observable<VisitResponseDto[]> {
     return this.http.get<VisitResponseDto[]>(this.apiUrl);
   }
+
+  deleteVisit(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${encodeURIComponent(id)}`);
+  }
   
   private readonly visitorStorageKey = 'kdevfolio_visitor_id';
 
