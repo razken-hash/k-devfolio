@@ -41,7 +41,7 @@ export class ExperienceService {
               endedAt: new Date('2025-07-31'),
               location: `${PLACES.MONTPELLIER}, ${PLACES.FRANCE}`,
               highlights: HIGHLIGHTS.LIRMM ?? [],
-              technologies: [Skills.ANGULAR, Skills.NODE_JS, Skills.EXPRESS, Skills.TYPESCRIPT, Skills.PLAYWRIGHT, Skills.SELENIUM, Skills.PYTHON, Skills.LLMS],
+              technologies: [Skills.REACT, Skills.NODE_JS, Skills.EXPRESS, Skills.TYPESCRIPT, Skills.PLAYWRIGHT, Skills.SELENIUM, Skills.PYTHON, Skills.LLMS],
             },
             {
               company: 'LCSI',
@@ -50,7 +50,7 @@ export class ExperienceService {
               startedAt: new Date('2024-09-01'),
               endedAt: new Date('2025-07-31'),
               highlights: HIGHLIGHTS.LCSI ?? [],
-              technologies: [Skills.JAVA, Skills.SPRING_BOOT, Skills.ANGULAR, Skills.SONARQUBE, Skills.PYTHON, Skills.LLMS, Skills.TRANSFORMERS, Skills.PYTORCH, Skills.CODEBERT],
+              technologies: [Skills.JAVA, Skills.SPRING_BOOT, Skills.REACT, Skills.SONARQUBE, Skills.PYTHON, Skills.LLMS, Skills.TRANSFORMERS, Skills.PYTORCH, Skills.CODEBERT],
               publication: {
                 label: `${EXPERIENCE.PUBLISHED_ARTICLE} · MDPI Applied Sciences 16(14):7040`,
                 url: 'https://www.mdpi.com/2076-3417/16/14/7040',
@@ -63,7 +63,7 @@ export class ExperienceService {
               startedAt: new Date('2022-10-01'),
               endedAt: new Date('2024-09-30'),
               highlights: HIGHLIGHTS.OURQUILANE ?? [],
-              technologies: [Skills.JAVA, Skills.SPRING_BOOT, Skills.ANGULAR, Skills.REST_API, Skills.WEBSOCKET, Skills.POSTGRESQL, Skills.KOTLIN, Skills.JETPACK_COMPOSE],
+              technologies: [Skills.JAVA, Skills.SPRING_BOOT, Skills.REACT, Skills.REST_API, Skills.WEBSOCKET, Skills.POSTGRESQL, Skills.KOTLIN, Skills.JETPACK_COMPOSE],
             },
           ];
         })
